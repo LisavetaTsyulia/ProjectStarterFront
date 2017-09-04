@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { User }    from '../user/user';
+import { User } from '../user/user';
 
 @Component({
-  selector: 'login-form',
+  selector: 'app-login-form',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  model: User = {name: "Lis", email: "jj",password : "ii", confirmPassword: "ii"};
+  model: User = {name: 'Lis', email: 'jj', password : 'ii', confirmPassword: 'ii'};
   submitted = false;
   onSubmit() { this.submitted = true; }
 
