@@ -1,8 +1,8 @@
 import { NgModule }             from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-export const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full'},
+const routes: Routes = [
+  //{ path: '', redirectTo: '', pathMatch: 'full'},
   { path: 'login', loadChildren: 'app/components/login/login.module#LoginModule' }
 ];
 

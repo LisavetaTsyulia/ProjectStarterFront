@@ -7,7 +7,7 @@ import {FormsModule} from "@angular/forms";
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: 'login', component: LoginComponent }
+      { path: '', component: LoginComponent }
     ]),
     CommonModule,
     FormsModule
