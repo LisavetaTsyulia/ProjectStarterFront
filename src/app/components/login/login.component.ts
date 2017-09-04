@@ -7,14 +7,14 @@ import { User }    from '../user/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  model = new User('', '');
+  model: User = {name: "Lis", email: "jj",password : "ii", confirmPassword: "ii"};
   submitted = false;
   onSubmit() { this.submitted = true; }
 
   get diagnostic() { return JSON.stringify(this.model); }
 
   newHero() {
-    this.model = new User('', '');
+    this.model = new User();
   }
 
   constructor() { }
