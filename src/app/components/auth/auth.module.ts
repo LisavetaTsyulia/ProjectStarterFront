@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {Http, RequestOptions} from '@angular/http';
+import {Http, HttpModule, RequestOptions} from '@angular/http';
 import {AuthConfig, AuthHttp} from 'angular2-jwt';
 import {AuthService} from './auth.service';
 import {SecurityService} from './security.service';
@@ -11,7 +11,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    HttpModule
   ],
   providers: [
     {

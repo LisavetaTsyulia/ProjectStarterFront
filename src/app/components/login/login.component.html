@@ -1,7 +1,7 @@
 <div class="container form-style">
   <div class="col-md-4 col-md-offset-4">
   <h1>Log in</h1>
-  <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+  <form (ngSubmit)="userForm.form.valid && onSubmit()" #userForm="ngForm">
 
     <div class="form-group">
       <div class="form-group">
@@ -16,7 +16,7 @@
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="text" class="form-control" id="password" placeholder="Password" required
+      <input type="password" class="form-control" id="password" placeholder="Password" required
              [(ngModel)]="model.password" name="password" #password="ngModel">
       <div [hidden]="password.valid || password.pristine"
            class="alert alert-danger">

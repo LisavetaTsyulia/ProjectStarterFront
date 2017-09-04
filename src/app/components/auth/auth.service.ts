@@ -3,16 +3,17 @@ import {Http, Headers} from '@angular/http';
 import { environment } from '../../../environments/environment';
 import {AuthConfigConsts, AuthHttp} from 'angular2-jwt';
 import {Router} from '@angular/router';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 
 @Injectable()
 export class AuthService {
 
   constructor(private http: Http, private authHttp: AuthHttp, private router: Router) {
-    Control
   }
 
   login(username: string, password: string) {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     return this.http
@@ -32,7 +33,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem(AuthConfigConsts.DEFAULT_TOKEN_NAME);
     localStorage.removeItem('user');
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
 
   getMe() {
