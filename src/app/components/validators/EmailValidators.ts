@@ -6,7 +6,16 @@ export class EmailValidators {
 
     const email = control.get('email');
 
-    if (!email) return null;
+    console.log(email);
+
+    if (email.value === 'andrey') {
+      return { 'incorrectMailFormat': true };
+    }
+
+    if (!email) {
+      return null;
+    }
+
     return (email.value.length <= 5 || !EMAIL_REGEXP.test(email.value)) ? { 'incorrectMailFormat': true } : null;
   }
 }
