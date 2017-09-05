@@ -17,13 +17,17 @@
       <div class="form-group">
         <label for="email">Email</label>
         <input type="text" class="form-control" id="email" placeholder="Email"
-               [(ngModel)]="newUser.email" name="email" formControlName="email" value="afafa">
+               [(ngModel)]="newUser.email" name="email" formControlName="email">
         <div *ngIf="formGroup.get('email').errors && formGroup.get('email').touched" class="alert alert-danger">
           <div *ngIf="formGroup.get('email').hasError('required')">
-            Email is required
+            Email is required.
           </div>
-          <div *ngIf="formGroup.get('email').hasError('incorrectMailFormat')">
-            Email is wrong
+          <div *ngIf="!formGroup.get('email').hasError('minlength')
+                      && formGroup.get('email').hasError('incorrectMailFormat')">
+            Email is wrong.
+          </div>
+          <div *ngIf="formGroup.get('email').hasError('minlength')">
+            Email should be minimum 6 characters.
           </div>
         </div>
       </div>
