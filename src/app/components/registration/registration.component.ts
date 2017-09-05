@@ -7,7 +7,8 @@ import {PasswordValidators} from '../validators/PasswordValidators';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  styleUrls: ['./registration.component.css'],
+  providers: [FormBuilder]
 })
 export class RegistrationComponent implements OnInit {
   submitted = false;
