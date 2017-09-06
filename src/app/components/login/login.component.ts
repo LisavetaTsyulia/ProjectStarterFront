@@ -7,7 +7,7 @@ import { User } from '../user/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  model: User = {name: 'Lis', email: 'jj', password : 'ii', confirmPassword: 'ii'};
+  model = new User;
   submitted = false;
   onSubmit() { this.submitted = true; }
 

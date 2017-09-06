@@ -17,5 +17,4 @@ import {FormsModule} from '@angular/forms';
   ],
   exports: [RouterModule]
 })
-
 export class LoginModule { }
