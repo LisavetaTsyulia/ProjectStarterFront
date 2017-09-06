@@ -7,11 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  lang: string;
+  private dark: string = 'https://bootswatch.com/darkly/bootstrap.min.css';
+  private light: string = 'https://bootswatch.com/flatly/bootstrap.min.css';
 
   constructor() { }
 
   ngOnInit() {
+    this.changeStyle(localStorage.getItem('theme'));
+  }
+
+  changeStyle(style) {
+    style === 'undefined' ? style = this.light : style = style;
+    let links = document.getElementsByTagName("link");
+    for (let i = 0; i < links.length; i++) {
+      let link = links[i];
+      if (link.href === this.dark || link.href === this.light ) {
+        localStorage.setItem('theme', style);
+        link.href = style;
+      }
+    }
   }
 
   onClickAddLangCookie(lang: string) {
@@ -19,6 +33,10 @@ export class FooterComponent implements OnInit {
   }
 
   onClickAddThemeCookie(theme: string) {
-    localStorage.setItem("theme", theme);
+    if (theme == 'Dark')
+      localStorage.setItem("theme", this.dark);
+    if (theme == 'Light')
+      localStorage.setItem("theme", this.light);
+    this.changeStyle(localStorage.getItem("theme"))
   }
 }
