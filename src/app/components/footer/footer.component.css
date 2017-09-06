@@ -1,0 +1,32 @@
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  background-color: #080808;
+  color: #9d9d9d;
+  padding: 15px;
+}
+.type-12 {
+  font-size: 1.2rem !important;
+  line-height: 1.8rem !important;
+}
+.right{
+  float: right;
+}
+.left{
+  float: left;
+}
+.my-select{
+  color: #333333;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 3px;
+  border: 1px solid white;
+  display: inline-block;
+  cursor: default;
+  padding: 10px 40px 10px 10px;
+  position: relative;
+  height: 40px;
+}

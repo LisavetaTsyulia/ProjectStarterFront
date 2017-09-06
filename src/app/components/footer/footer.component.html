@@ -1,0 +1,17 @@
+<div class="footer">
+  <p class = "type-12">
+    © 2017
+  </p>
+  <div>
+    <select (change)="onClickAddLangCookie($event.target.value)" class=" my-select right " id="select-lang">
+      <option>English</option>
+      <option>Russian</option>
+    </select>
+  </div>
+  <div>
+    <select (change)="onClickAddThemeCookie($event.target.value)" class=" my-select left " id="select-theme">
+      <option>Light</option>
+      <option>Dark</option>
+    </select>
+  </div>
+</div>
