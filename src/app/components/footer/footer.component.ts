@@ -17,10 +17,10 @@ export class FooterComponent implements OnInit {
   }
 
   changeStyle(style) {
-    style === 'undefined' ? style = this.light : style = style;
-    let links = document.getElementsByTagName("link");
+    style = (style === 'undefined' ? this.light : style);
+    const links = document.getElementsByTagName('link');
     for (let i = 0; i < links.length; i++) {
-      let link = links[i];
+      const link = links[i];
       if (link.href === this.dark || link.href === this.light ) {
         localStorage.setItem('theme', style);
         link.href = style;
@@ -29,14 +29,15 @@ export class FooterComponent implements OnInit {
   }
 
   onClickAddLangCookie(lang: string) {
-    localStorage.setItem("lang", lang);
+    localStorage.setItem('lang', lang);
   }
 
   onClickAddThemeCookie(theme: string) {
-    if (theme == 'Dark')
-      localStorage.setItem("theme", this.dark);
-    if (theme == 'Light')
-      localStorage.setItem("theme", this.light);
-    this.changeStyle(localStorage.getItem("theme"))
+    if (theme === 'Dark') {
+      localStorage.setItem('theme', this.dark);
+    } else if (theme === 'Light') {
+      localStorage.setItem('theme', this.light);
+    }
+    this.changeStyle(localStorage.getItem('theme'));
   }
 }
