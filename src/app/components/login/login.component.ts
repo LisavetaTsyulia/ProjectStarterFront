@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user/user';
 import {AuthService} from '../auth/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {EmailValidators} from "../validators/EmailValidators";
+import {PasswordValidators} from "../validators/PasswordValidators";
 
 @Component({
   selector: 'app-login-form',
@@ -12,6 +15,7 @@ export class LoginComponent implements OnInit {
   model = new User;
   submitted = false;
   returnUrl: string;
+  formGroup: FormGroup;
 
   get diagnostic() { return JSON.stringify(this.model); }
 
@@ -22,11 +26,17 @@ export class LoginComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
+    this.formGroup = this.fb.group({
+      email: ['', [Validators.required, Validators.minLength(6), EmailValidators.isValidEmail]],
+      password: ['', Validators.required],
+    });
   }
 
   onSubmit() {
