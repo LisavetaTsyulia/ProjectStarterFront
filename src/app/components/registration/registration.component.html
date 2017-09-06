@@ -27,19 +27,19 @@
             Email is wrong.
           </div>
           <div *ngIf="formGroup.get('email').hasError('minlength')">
-            Email should be minimum 6 characters.
+            Email should be minimum {{formGroup.get('email').getError('minlength').requiredLength}} characters.
           </div>
         </div>
       </div>
 
-      <!--<div formGroupName="passwords">-->
+      <div [formGroup]="formGroup.get('passwords')">
         <div class="form-group">
           <label for="password">Password</label>
           <input type="password" class="form-control" id="password" placeholder="Password"
                  [(ngModel)]="newUser.password" name="password" formControlName="password">
-          <div *ngIf="formGroup.get('password').errors && formGroup.get('password').touched" class="alert alert-danger">
-            <div *ngIf="formGroup.get('password').hasError('required')">
-              Password is required
+          <div *ngIf="formGroup.get('passwords').get('password').errors && formGroup.get('passwords').get('password').touched" class="alert alert-danger">
+            <div *ngIf="formGroup.get('passwords').get('password').hasError('required')">
+              Password is required.
             </div>
           </div>
         </div>
@@ -48,13 +48,16 @@
           <label for="confirmPassword">Confirm password</label>
           <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password"
                  [(ngModel)]="newUser.confirmPassword" name="confirmPassword" formControlName="confirmPassword">
-          <div *ngIf="formGroup.get('confirmPassword').errors && formGroup.get('confirmPassword').touched" class="alert alert-danger">
-            <div *ngIf="formGroup.get('confirmPassword').hasError('required')">
-              Confirm password is required
+          <div *ngIf="formGroup.get('passwords').get('confirmPassword').errors && formGroup.get('passwords').get('confirmPassword').touched" class="alert alert-danger">
+            <div *ngIf="formGroup.get('passwords').get('confirmPassword').hasError('required')">
+              Confirm your password.
             </div>
           </div>
         </div>
-      <!--</div>-->
+        <div class="error" *ngIf="formGroup.get('passwords').touched && formGroup.hasError('notSamePasswords')">
+          Passwords must match.
+        </div>
+      </div>
 
       <button type="submit" class="btn btn-success btn-md btn-block" [disabled]="!formGroup.valid">Sign up
       </button>

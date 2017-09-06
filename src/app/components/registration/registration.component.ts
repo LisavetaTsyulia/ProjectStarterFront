@@ -14,15 +14,18 @@ export class RegistrationComponent implements OnInit {
   submitted = false;
   newUser = new User();
   formGroup: FormGroup;
+  passwords: FormGroup;
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.formGroup = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['', [Validators.required, Validators.minLength(5), EmailValidators.isValidEmail]],
-      password: ['', Validators.required],
-      confirmPassword: ['', [Validators.required, PasswordValidators.samePasswords]]
+      email: ['', [Validators.required, Validators.minLength(6), EmailValidators.isValidEmail]],
+      passwords: this.fb.group({
+        password: ['', Validators.required],
+        confirmPassword: ['', [Validators.required]]
+      }, { passwordsMatcher: PasswordValidators.samePasswords})
     });
   }
   onSubmit() { this.submitted = true; }
