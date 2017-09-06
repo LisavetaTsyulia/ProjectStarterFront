@@ -12,4 +12,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  public deleteCookies() {
+    localStorage.removeItem("user");
+  }
+
+  public isAuthenticated(): boolean {
+    return !!localStorage.getItem("user");
+  }
 }
