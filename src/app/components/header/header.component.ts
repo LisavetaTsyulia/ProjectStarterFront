@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthConfigConsts} from 'angular2-jwt';
 
 @Component({
   selector: 'app-header',
@@ -13,10 +14,11 @@ export class HeaderComponent implements OnInit {
   }
 
   public deleteCookies() {
-    localStorage.removeItem("user");
+    localStorage.removeItem(AuthConfigConsts.DEFAULT_TOKEN_NAME);
+    localStorage.removeItem('user');
   }
 
   public isAuthenticated(): boolean {
-    return !!localStorage.getItem("user");
+    return !!localStorage.getItem('user');
   }
 }
