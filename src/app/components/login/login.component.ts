@@ -19,10 +19,6 @@ export class LoginComponent implements OnInit {
 
   get diagnostic() { return JSON.stringify(this.model); }
 
-  newHero() {
-    this.model = new User();
-  }
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,

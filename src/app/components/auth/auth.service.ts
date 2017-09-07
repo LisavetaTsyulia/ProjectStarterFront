@@ -40,4 +40,21 @@ export class AuthService {
     return this.authHttp.get(`${environment.serverUrl}auth/me`).map(res => res.json());
   }
 
+  register(username: string, email: string, password: string) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http
+      .post(
+        `${environment.serverUrl}auth/registration`,
+        JSON.stringify({username, email, password}),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      })
+      .do(token => {
+        localStorage.setItem(AuthConfigConsts.DEFAULT_TOKEN_NAME, token.token);
+      });
+  }
 }

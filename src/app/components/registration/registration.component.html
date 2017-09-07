@@ -58,7 +58,9 @@
           Passwords must match.
         </div>
       </div>
-
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
       <button type="submit" class="btn btn-success btn-md btn-block" [disabled]="!formGroup.valid">Sign up
       </button>
     </form>
