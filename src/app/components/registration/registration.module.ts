@@ -5,7 +5,7 @@ import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginPageGuard} from '../login/login-page.guard';
 import {AuthModule} from '../auth/auth.module';
-import { ConfirmComponent } from './confirm/confirm/confirm.component';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 @NgModule({
   imports: [
