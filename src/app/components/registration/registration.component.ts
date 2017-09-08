@@ -15,7 +15,6 @@ export class RegistrationComponent implements OnInit {
   submitted = false;
   newUser = new User();
   formGroup: FormGroup;
-  // passwords: FormGroup;
   errorMessage: string;
   returnUrl: string;
 
