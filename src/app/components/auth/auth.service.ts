@@ -40,6 +40,10 @@ export class AuthService {
     return this.authHttp.get(`${environment.serverUrl}auth/me`).map(res => res.json());
   }
 
+  getAll() {
+    return this.authHttp.get(`http://localhost:8098/admin/list-of-users`).map(res => res.json());
+  }
+
   register(username: string, email: string, password: string) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
