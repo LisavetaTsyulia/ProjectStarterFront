@@ -41,7 +41,7 @@ export class AuthService {
   }
 
   getAll() {
-    return this.authHttp.get(`http://localhost:8098/admin/list-of-users`).map(res => res.json());
+    return this.authHttp.get(`${environment.serverUrl}admin/list-of-users`).map(res => res.json());
   }
 
   register(username: string, email: string, password: string) {
@@ -60,5 +60,9 @@ export class AuthService {
       .do(token => {
         localStorage.setItem(AuthConfigConsts.DEFAULT_TOKEN_NAME, token.token);
       });
+  }
+
+  getAllProjects() {
+    return this.authHttp.get(`${environment.serverUrl}admin/list-of-projects`).map(res => res.json());
   }
 }

@@ -1,17 +1,16 @@
 <table class="table table-striped table-hover temp">
   <thead>
   <tr>
-    <th>Email</th>
-    <th>Status</th>
-    <th>Role</th>
-    <th>Registration Date</th>
-    <th>Last Login</th>
-    <th>Amount of projects</th>
+    <th>Id</th>
+    <th>Creator</th>
+    <th>Title</th>
+    <th>Start Date</th>
+    <th>End Date</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of check">
-    <td *ngFor="let key of keysArray"> {{user[key]}} </td>
+  <tr *ngFor="let project of check">
+    <td *ngFor="let key of keysArray"> {{project[key]}} </td>
   </tr>
   </tbody>
 </table>

@@ -5,6 +5,7 @@ import { ListOfUsersComponent } from "./list-of-users/list-of-users.component";
 import {AuthModule} from "../auth/auth.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MainPanelComponent} from "./main-panel/main-panel.component";
+import { ListOfProjectsComponent } from './list-of-projects/list-of-projects.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {MainPanelComponent} from "./main-panel/main-panel.component";
   ],
   declarations: [
     ListOfUsersComponent,
-    MainPanelComponent
+    MainPanelComponent,
+    ListOfProjectsComponent
   ],
   exports: [RouterModule]
 })
