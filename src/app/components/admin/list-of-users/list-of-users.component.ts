@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../auth/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {User} from "../../user/user";
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-list-of-users',
@@ -16,21 +17,31 @@ export class ListOfUsersComponent implements OnInit {
     private router: Router
   ) { }
 
-  users : User[];
-  check : string;
+  keysArray : string[];
+  check : object[];
   returnUrl : string;
+  emails : string[];
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   onSubmit() {
-    this.authService.getAll().do(res => {this.check = JSON.stringify(res)})
+    this.authService.getAll()
+      .flatMap(res => {
+        // const usersJson: any[] = Array.of(res.json());
+        this.keysArray = Object.keys(res[0]);
+        return this.check = res;
+      })
       .subscribe(
         data => {
           localStorage.setItem('resp', JSON.stringify(data));
         }
       );
+  }
+
+  onSelect(user: any): void {
+    this.emails.push(user.email);
   }
 
 }
