@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../auth/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {User} from "../../user/user";
-import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-list-of-users',
@@ -13,8 +11,7 @@ export class ListOfUsersComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) { }
 
   keysArray : string[];

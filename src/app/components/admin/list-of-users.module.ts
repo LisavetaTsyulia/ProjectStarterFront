@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ListOfUsersComponent } from "./list-of-users.component";
-import {AuthModule} from "../../auth/auth.module";
-import {HttpModule} from "@angular/http";
+import { ListOfUsersComponent } from "./list-of-users/list-of-users.component";
+import {AuthModule} from "../auth/auth.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MainPanelComponent} from "./main-panel/main-panel.component";
 
 @NgModule({
   imports: [
     RouterModule.forChild([
       { path: '',
-        component: ListOfUsersComponent
+        component: MainPanelComponent
       }
     ]),
     CommonModule,
@@ -19,7 +19,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     ReactiveFormsModule
   ],
   declarations: [
-    ListOfUsersComponent
+    ListOfUsersComponent,
+    MainPanelComponent
   ],
   exports: [RouterModule]
 })
