@@ -41,7 +41,6 @@ export class ProjectCreatingComponent implements OnInit {
         .subscribe(
           data => {
             this.returnUrl += data.project_id;
-            console.log(this.returnUrl);
             this.router.navigate([this.returnUrl]);
           },
           error => {

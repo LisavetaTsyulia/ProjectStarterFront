@@ -4,6 +4,10 @@ import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthModule} from '../../auth/auth.module';
 import {ProjectEditingComponent} from './project-editing.component';
+import { BasicsComponent } from './components/basics/basics.component';
+import { RewardsComponent } from './components/rewards/rewards.component';
+import { StoryComponent } from './components/story/story.component';
+import { AboutYouComponent } from './components/about-you/about-you.component';
 
 @NgModule({
   imports: [
@@ -16,7 +20,11 @@ import {ProjectEditingComponent} from './project-editing.component';
     AuthModule
   ],
   declarations: [
-    ProjectEditingComponent
+    ProjectEditingComponent,
+    BasicsComponent,
+    RewardsComponent,
+    StoryComponent,
+    AboutYouComponent,
   ],
   exports: [RouterModule]
 })

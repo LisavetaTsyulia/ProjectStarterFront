@@ -14,7 +14,6 @@ export class ProjectService {
   }
 
   showMessage() {
-    console.log('ProjectService');
   }
 
   create(title: string) {
