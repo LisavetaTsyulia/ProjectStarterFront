@@ -8,7 +8,11 @@
             Use your project description to share more about what you’re raising funds
             to do and how you plan to pull it off. It’s up to you to make the case for your project.
           </p>
-          <textarea class="form-control" rows="4" id="project_description"></textarea>
+          <app-text-editor
+            [elementId]="'project_description'"
+            (onEditorKeyup)="onTextEditorKeyUp($event)" >
+          </app-text-editor>
+          <!--<textarea class="form-control" rows="4" id="project_description"></textarea>-->
         </div>
       </div>
     </form>

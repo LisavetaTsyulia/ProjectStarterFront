@@ -12,4 +12,8 @@ export class StoryComponent implements OnInit {
   ngOnInit() {
   }
 
+  onTextEditorKeyUp(event) {
+    console.log(event);
+  }
+
 }

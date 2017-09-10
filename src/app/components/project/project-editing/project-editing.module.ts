@@ -8,6 +8,7 @@ import { BasicsComponent } from './components/basics/basics.component';
 import { RewardsComponent } from './components/rewards/rewards.component';
 import { StoryComponent } from './components/story/story.component';
 import { AboutYouComponent } from './components/about-you/about-you.component';
+import {EditorComponent} from '../../helpers/editor/editor.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { AboutYouComponent } from './components/about-you/about-you.component';
     RewardsComponent,
     StoryComponent,
     AboutYouComponent,
+    EditorComponent,
   ],
   exports: [RouterModule]
 })
