@@ -16,14 +16,14 @@ export class ProjectService {
   showMessage() {
   }
 
-  create(title: string) {
+  create(title: string, userId: number) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     return this.http
       .post(
         `${environment.serverUrl}project/create`,
-        JSON.stringify({title}),
+        JSON.stringify({title, userId}),
         {headers}
       )
       .map(res => {

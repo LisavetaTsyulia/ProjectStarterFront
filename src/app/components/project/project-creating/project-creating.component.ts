@@ -37,7 +37,7 @@ export class ProjectCreatingComponent implements OnInit {
       this.errorMessage = null;
 
       this.projectService.showMessage();
-      this.projectService.create(this.model.title)
+      this.projectService.create(this.model.title, this.currentUser.id)
         .subscribe(
           data => {
             this.returnUrl += data.project_id;
