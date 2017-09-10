@@ -4,6 +4,7 @@ import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthModule} from '../../auth/auth.module';
 import {ProjectCreatingComponent} from './project-creating.component';
+import {ProjectService} from '../project.service';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import {ProjectCreatingComponent} from './project-creating.component';
     FormsModule,
     AuthModule,
     ReactiveFormsModule,
+  ],
+  providers: [
+    ProjectService
   ],
   declarations: [
     ProjectCreatingComponent
