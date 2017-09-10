@@ -17,12 +17,19 @@
         </div>
       </form>
       <ul class="nav navbar-nav">
-        <li><a routerLink="project/create" routerLinkActive="active">Create new project</a></li>
+        <li>
+          <a routerLink="project/create" routerLinkActive="active">
+            <span class="glyphicon glyphicon-plus"></span> Create new project
+          </a>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-          <li *ngIf="!isAuthenticated()"><a routerLink="login" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          <li *ngIf="isAuthenticated()"><a routerLink="login" (click)="deleteCookies()" routerLinkActive="active"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-          <li><a routerLink="registration" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li *ngIf="!isAuthenticated()"><a routerLink="login" routerLinkActive="active"><span
+          class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li *ngIf="isAuthenticated()"><a routerLink="login" (click)="deleteCookies()" routerLinkActive="active"><span
+          class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <li><a routerLink="registration" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span> Sign
+          Up</a></li>
       </ul>
     </div>
   </div>
