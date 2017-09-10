@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-    <form>
+    <form (ngSubmit)="onSubmit()">
       <div class="form-group row">
         <label for="project_description" class="col-sm-3 col-form-label">Project description</label>
         <div class="col-sm-9">
@@ -12,9 +12,9 @@
             [elementId]="'project_description'"
             (onEditorKeyup)="onTextEditorKeyUp($event)" >
           </app-text-editor>
-          <!--<textarea class="form-control" rows="4" id="project_description"></textarea>-->
         </div>
       </div>
+      <button type="submit" class="btn btn-success btn-md btn-block">Create</button>
     </form>
   </div>
 </div>

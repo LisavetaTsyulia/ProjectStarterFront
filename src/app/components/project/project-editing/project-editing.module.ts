@@ -9,6 +9,7 @@ import { RewardsComponent } from './components/rewards/rewards.component';
 import { StoryComponent } from './components/story/story.component';
 import { AboutYouComponent } from './components/about-you/about-you.component';
 import {EditorComponent} from '../../helpers/editor/editor.component';
+import {ProjectService} from '../project.service';
 
 @NgModule({
   imports: [
@@ -27,6 +28,9 @@ import {EditorComponent} from '../../helpers/editor/editor.component';
     StoryComponent,
     AboutYouComponent,
     EditorComponent,
+  ],
+  providers: [
+    ProjectService
   ],
   exports: [RouterModule]
 })

@@ -30,4 +30,8 @@ export class ProjectService {
         return res.json();
       });
   }
+
+  findProjectById(projectId: number) {
+    return this.authHttp.get(`${environment.serverUrl}project/` + projectId).map(res => res.json());
+  }
 }
