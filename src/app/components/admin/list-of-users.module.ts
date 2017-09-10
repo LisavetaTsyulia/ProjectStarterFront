@@ -6,6 +6,9 @@ import {AuthModule} from "../auth/auth.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MainPanelComponent} from "./main-panel/main-panel.component";
 import { ListOfProjectsComponent } from './list-of-projects/list-of-projects.component';
+import { UserControlPanelComponent } from './user-control-panel/user-control-panel.component';
+import { UserFilterPanelComponent } from './user-filter-panel/user-filter-panel.component';
+import { UserPanelComponent } from './user-panel/user-panel.component';
 
 @NgModule({
   imports: [
@@ -22,7 +25,10 @@ import { ListOfProjectsComponent } from './list-of-projects/list-of-projects.com
   declarations: [
     ListOfUsersComponent,
     MainPanelComponent,
-    ListOfProjectsComponent
+    ListOfProjectsComponent,
+    UserControlPanelComponent,
+    UserFilterPanelComponent,
+    UserPanelComponent
   ],
   exports: [RouterModule]
 })

@@ -21,9 +21,7 @@ export class ListOfProjectsComponent implements OnInit {
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-  }
 
-  onSubmit() {
     this.authService.getAllProjects()
       .flatMap(res => {
         // const usersJson: any[] = Array.of(res.json());

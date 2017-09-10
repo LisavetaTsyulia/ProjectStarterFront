@@ -21,9 +21,6 @@ export class ListOfUsersComponent implements OnInit {
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-  }
-
-  onSubmit() {
     this.authService.getAll()
       .flatMap(res => {
         // const usersJson: any[] = Array.of(res.json());
