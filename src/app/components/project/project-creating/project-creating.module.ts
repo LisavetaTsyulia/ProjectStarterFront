@@ -13,7 +13,8 @@ import {ProjectCreatingComponent} from './project-creating.component';
     ]),
     CommonModule,
     FormsModule,
-    AuthModule
+    AuthModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     ProjectCreatingComponent

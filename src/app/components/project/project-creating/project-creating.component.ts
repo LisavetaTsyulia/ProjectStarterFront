@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Project} from '../../model/project';
 
 @Component({
   selector: 'app-project-creating',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./project-creating.component.css']
 })
 export class ProjectCreatingComponent implements OnInit {
+  model = new Project();
+  submitted = false;
+  formGroup: FormGroup;
+  errorMessage: string;
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
+    this.formGroup = this.fb.group({
+      title: ['', Validators.required],
+    });
   }
 
+  onSubmit() {
+    this.submitted = true;
+    this.errorMessage = null;
+  }
 }
