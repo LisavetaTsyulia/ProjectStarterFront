@@ -15,9 +15,8 @@ export class ListOfUsersComponent implements OnInit {
   ) { }
 
   keysArray : string[];
-  check : object[];
+  allUsers : object[];
   returnUrl : string;
-  emails : string[];
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -25,7 +24,8 @@ export class ListOfUsersComponent implements OnInit {
       .flatMap(res => {
         // const usersJson: any[] = Array.of(res.json());
         this.keysArray = Object.keys(res[0]);
-        return this.check = res;
+        res.isSelected = false;
+        return this.allUsers = res;
       })
       .subscribe(
         data => {
@@ -35,7 +35,10 @@ export class ListOfUsersComponent implements OnInit {
   }
 
   onSelect(user: any): void {
-    this.emails.push(user.email);
+    user.isSelected = !user.isSelected;
   }
 
+  isSelected(user: any): boolean {
+    return user.isSelected;
+  }
 }

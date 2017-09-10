@@ -8,6 +8,7 @@ export class User {
   public lastLogIn: string;
   public registrationDate: string;
   public amountOfProjects: string;
+  public isSelected: boolean;
 
   constructor() {  }
 

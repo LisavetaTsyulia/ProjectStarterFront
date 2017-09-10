@@ -65,4 +65,8 @@ export class AuthService {
   getAllProjects() {
     return this.authHttp.get(`${environment.serverUrl}admin/list-of-projects`).map(res => res.json());
   }
+
+  block() {
+
+  }
 }

@@ -10,7 +10,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of check">
+  <tr *ngFor="let user of allUsers" (click)="onSelect(user)" [class.selected]="isSelected(user)">
     <td *ngFor="let key of keysArray"> {{user[key]}} </td>
   </tr>
   </tbody>

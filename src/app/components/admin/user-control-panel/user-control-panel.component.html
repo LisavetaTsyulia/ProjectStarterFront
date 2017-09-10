@@ -1,8 +1,16 @@
 <div class="btn-group-vertical control-btn">
-  <a href="#" class="btn btn-success">Block</a>
-  <a href="#" class="btn btn-success">Unblock</a>
-  <a href="#" class="btn btn-success">Confirm</a>
-  <a href="#" class="btn btn-success">Delete</a>
+  <form (ngSubmit)="onSubmit()">
+    <button type="submit" class="btn btn-success btn-md btn-block">Block</button>
+  </form>
+  <form (ngSubmit)="onSubmit()">
+    <button type="submit" class="btn btn-success btn-md btn-block">Unblock</button>
+  </form>
+  <form (ngSubmit)="onSubmit()">
+    <button type="submit" class="btn btn-success btn-md btn-block">Confirm</button>
+  </form>
+  <form (ngSubmit)="onSubmit()">
+    <button type="submit" class="btn btn-success btn-md btn-block">Delete</button>
+  </form>
   <div class="checkbox">
     <label>
       <input type="checkbox"> With Comments
