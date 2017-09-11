@@ -1,0 +1,28 @@
+<div class="btn-group-vertical control-btn">
+  <form (ngSubmit)="onSubmitBlock(true)">
+    <button type="submit" class="btn btn-success btn-md btn-block">Block</button>
+  </form>
+  <br>
+  <form (ngSubmit)="onSubmitUnblock(true)">
+    <button type="submit" class="btn btn-success btn-md btn-block">Unblock</button>
+  </form>
+  <br>
+  <form (ngSubmit)="onSubmitConfirm(true)">
+    <button type="submit" class="btn btn-success btn-md btn-block">Confirm</button>
+  </form>
+  <br>
+  <form (ngSubmit)="onSubmitDelete(true)">
+    <button type="submit" class="btn btn-success btn-md btn-block">Delete</button>
+  </form>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" [(ngModel)]="checkboxComments"> With Comments
+    </label>
+    <label>
+      <input type="checkbox" [(ngModel)]="checkboxProjects"> With Projects
+    </label>
+    <label>
+      <input type="checkbox" [(ngModel)]="checkboxRatings"> With Ratings
+    </label>
+  </div>
+</div>

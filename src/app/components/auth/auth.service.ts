@@ -40,6 +40,10 @@ export class AuthService {
     return this.authHttp.get(`${environment.serverUrl}auth/me`).map(res => res.json());
   }
 
+  getAll() {
+    return this.authHttp.get(`${environment.serverUrl}admin/list-of-users`).map(res => res.json());
+  }
+
   register(username: string, email: string, password: string) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -56,5 +60,53 @@ export class AuthService {
       .do(token => {
         localStorage.setItem(AuthConfigConsts.DEFAULT_TOKEN_NAME, token.token);
       });
+  }
+
+  getAllProjects() {
+    return this.authHttp.get(`${environment.serverUrl}admin/list-of-projects`).map(res => res.json());
+  }
+
+  block(emails : string[]) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http
+      .post(
+        `${environment.serverUrl}admin/block`,
+        JSON.stringify({emails}),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      })
+      .subscribe(r=>{});
+  }
+
+  unblock(emails : string[]) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http
+      .post(
+        `${environment.serverUrl}admin/unblock`,
+        JSON.stringify({emails}),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      })
+      .subscribe(r=>{});
+  }
+
+  deleteEvent(emails: string[], checkboxSettings: boolean[] ) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http
+      .post(
+        `${environment.serverUrl}admin/delete`,
+        JSON.stringify({emails, checkboxSettings}),
+        {headers}
+      )
+      .subscribe(r=>{});
   }
 }
