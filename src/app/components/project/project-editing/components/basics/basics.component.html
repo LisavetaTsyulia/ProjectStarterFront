@@ -26,7 +26,8 @@
       <div class="form-group row">
         <label for="funding_goal" class="col-sm-3 col-form-label">Funding goal</label>
         <div class="col-sm-9">
-          <input class="form-control" id="funding_goal" name="funding_goal"/>
+          <input class="form-control" id="funding_goal" name="funding_goal"
+                 [(ngModel)]="project.targetAmount"/>
         </div>
       </div>
 

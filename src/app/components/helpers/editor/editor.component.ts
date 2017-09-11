@@ -1,20 +1,17 @@
-import {
-  Component,
-  OnDestroy,
-  AfterViewInit,
-  EventEmitter,
-  Input,
-  Output
-} from '@angular/core';
+import {Component, OnDestroy, AfterViewInit, EventEmitter, Input, Output, OnChanges} from '@angular/core';
+import {isNullOrUndefined} from "util";
 
 @Component({
   selector: 'app-text-editor',
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css']
 })
-export class EditorComponent implements AfterViewInit, OnDestroy {
+export class EditorComponent implements AfterViewInit, OnDestroy, OnChanges {
   @Input() elementId: String;
+  @Input() value: any;
   @Output() onEditorKeyup = new EventEmitter<any>();
+
+  didSetValue = false;
 
   editor;
 
@@ -31,6 +28,13 @@ export class EditorComponent implements AfterViewInit, OnDestroy {
         });
       },
     });
+  }
+
+  ngOnChanges() {
+    if (!isNullOrUndefined(this.editor) && this.value && !this.didSetValue) {
+      this.didSetValue = true;
+      this.editor.setContent(this.value);
+    }
   }
 
   ngOnDestroy() {

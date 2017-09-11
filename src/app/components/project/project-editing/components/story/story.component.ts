@@ -1,8 +1,5 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Component, Input, OnInit} from '@angular/core';
 import {Project} from '../../../../model/project';
-import {Subscription} from 'rxjs/Subscription';
-import {ProjectService} from '../../../project.service';
 
 @Component({
   selector: 'app-story',
@@ -10,12 +7,16 @@ import {ProjectService} from '../../../project.service';
   styleUrls: ['./story.component.css']
 })
 export class StoryComponent implements OnInit {
-   @Input() project: Project;
+  @Input() project: Project;
+  defaultBodyValue = '';
 
   constructor() {
   }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.defaultBodyValue = this.project.description;
+    }, 2000);
   }
 
   onTextEditorKeyUp(textValue) {

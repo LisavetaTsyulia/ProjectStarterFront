@@ -9,6 +9,7 @@
         </p>
         <app-text-editor
           [elementId]="'project_description'"
+          [value]="defaultBodyValue"
           (onEditorKeyup)="onTextEditorKeyUp($event)">
         </app-text-editor>
       </div>
