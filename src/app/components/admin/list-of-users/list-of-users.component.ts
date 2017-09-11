@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AuthService} from "../../auth/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {forEach} from "@angular/router/src/utils/collection";
+import {User} from "../../user/user";
 
 @Component({
   selector: 'app-list-of-users',
   templateUrl: './list-of-users.component.html',
   styleUrls: ['./list-of-users.component.css']
 })
+
 export class ListOfUsersComponent implements OnInit {
 
   constructor(
@@ -17,6 +20,7 @@ export class ListOfUsersComponent implements OnInit {
   keysArray : string[];
   allUsers : object[];
   returnUrl : string;
+  emails : string[];
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -40,5 +44,20 @@ export class ListOfUsersComponent implements OnInit {
 
   isSelected(user: any): boolean {
     return user.isSelected;
+  }
+
+  fillEmailsArray() {
+    this.emails = [];
+    for (let user of this.allUsers) {
+      let curUser: User = <User>user;
+      if (curUser.isSelected == true)
+        this.emails[this.emails.length] = curUser.email;
+    }
+  }
+
+  block() {
+    this.fillEmailsArray();
+    console.log(this.emails);
+    this.authService.block(this.emails);
   }
 }

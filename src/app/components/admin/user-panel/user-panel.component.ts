@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ListOfUsersComponent} from "../list-of-users/list-of-users.component";
 
 @Component({
   selector: 'app-user-panel',
@@ -12,4 +13,8 @@ export class UserPanelComponent implements OnInit {
   ngOnInit() {
   }
 
+  @ViewChild(ListOfUsersComponent) listOfUsers: ListOfUsersComponent;
+  block(increased){
+      this.listOfUsers.block();
+  }
 }

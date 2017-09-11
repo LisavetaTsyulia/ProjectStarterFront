@@ -66,7 +66,22 @@ export class AuthService {
     return this.authHttp.get(`${environment.serverUrl}admin/list-of-projects`).map(res => res.json());
   }
 
-  block() {
+  block(emails : string[]) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
 
+    return this.http
+      .post(
+        `${environment.serverUrl}admin/block`,
+        JSON.stringify({emails}),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      })
+      .do(data => {
+        localStorage.setItem("blockResponse", data);
+      })
+      .subscribe(r=>{});
   }
 }
