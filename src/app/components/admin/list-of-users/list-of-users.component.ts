@@ -75,7 +75,7 @@ export class ListOfUsersComponent implements OnInit {
       setTimeout(()=>{this.loadUsersToTable()}, 300);
     }
   }
-  deleteEvent() {
-
+  deleteEvent(comments: boolean, ratings: boolean, projects: boolean ) {
+    console.log(comments + " : Comments; " + ratings + " : Rating; " + projects + " : Projects; ")
   }
 }

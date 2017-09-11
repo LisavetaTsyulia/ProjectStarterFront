@@ -27,8 +27,9 @@ export class UserControlPanelComponent implements OnInit {
   onSubmitConfirm(increased) {
     this.confirm.emit(increased);
   }
-  @Output() deleteEvent = new EventEmitter<boolean>();
+  @Output() deleteEvent = new EventEmitter<any>();
   onSubmitDelete(increased) {
-    this.deleteEvent.emit(increased);
+    this.deleteEvent.emit({ event:event, comments: this.checkboxComments,
+      ratings: this.checkboxRatings, projects: this.checkboxProjects });
   }
 }
