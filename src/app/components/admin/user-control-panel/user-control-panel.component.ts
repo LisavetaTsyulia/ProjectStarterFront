@@ -6,6 +6,9 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class UserControlPanelComponent implements OnInit {
 
+  public checkboxComments : boolean = false;
+  public checkboxProjects : boolean = false;
+  public checkboxRatings : boolean = false;
   constructor(
   ) {}
 
@@ -19,5 +22,13 @@ export class UserControlPanelComponent implements OnInit {
   @Output() unblock = new EventEmitter<boolean>();
   onSubmitUnblock(increased) {
     this.unblock.emit(increased);
+  }
+  @Output() confirm = new EventEmitter<boolean>();
+  onSubmitConfirm(increased) {
+    this.confirm.emit(increased);
+  }
+  @Output() deleteEvent = new EventEmitter<boolean>();
+  onSubmitDelete(increased) {
+    this.deleteEvent.emit(increased);
   }
 }

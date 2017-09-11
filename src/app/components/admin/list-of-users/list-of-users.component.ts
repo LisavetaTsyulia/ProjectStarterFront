@@ -75,4 +75,7 @@ export class ListOfUsersComponent implements OnInit {
       setTimeout(()=>{this.loadUsersToTable()}, 300);
     }
   }
+  deleteEvent() {
+
+  }
 }

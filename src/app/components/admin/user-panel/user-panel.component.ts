@@ -20,4 +20,7 @@ export class UserPanelComponent implements OnInit {
   unblock(increased){
     this.listOfUsers.unblock();
   }
+  deleteEvent(increased){
+    this.listOfUsers.deleteEvent();
+  }
 }

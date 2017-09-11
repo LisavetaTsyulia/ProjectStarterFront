@@ -4,7 +4,10 @@
   </div>
   <div class="row">
     <div class="col-xs-2">
-      <app-user-control-panel (block)="block($event)" (unblock)="unblock($event)"></app-user-control-panel>
+      <app-user-control-panel (block)="block($event)"
+                              (unblock)="unblock($event)"
+                              (delete)="deleteEvent($event)">
+      </app-user-control-panel>
     </div>
     <div class="col-xs-10">
       <app-list-of-users></app-list-of-users>
