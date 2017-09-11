@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user/user';
+import { User } from '../model/user';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {EmailValidators} from '../validators/EmailValidators';
 import {AuthService} from '../auth/auth.service';
@@ -15,7 +15,6 @@ export class RegistrationComponent implements OnInit {
   submitted = false;
   newUser = new User();
   formGroup: FormGroup;
-  // passwords: FormGroup;
   errorMessage: string;
   returnUrl: string;
 
