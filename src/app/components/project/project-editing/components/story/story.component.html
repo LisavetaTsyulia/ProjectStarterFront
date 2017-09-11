@@ -1,20 +1,17 @@
 <div class="container">
   <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-    <form (ngSubmit)="onSubmit()">
-      <div class="form-group row">
-        <label for="project_description" class="col-sm-3 col-form-label">Project description</label>
-        <div class="col-sm-9">
-          <p>
-            Use your project description to share more about what you’re raising funds
-            to do and how you plan to pull it off. It’s up to you to make the case for your project.
-          </p>
-          <app-text-editor
-            [elementId]="'project_description'"
-            (onEditorKeyup)="onTextEditorKeyUp($event)" >
-          </app-text-editor>
-        </div>
+    <div class="form-group row">
+      <label for="project_description" class="col-sm-3 col-form-label">Project description</label>
+      <div class="col-sm-9">
+        <p>
+          Use your project description to share more about what you’re raising funds
+          to do and how you plan to pull it off. It’s up to you to make the case for your project.
+        </p>
+        <app-text-editor
+          [elementId]="'project_description'"
+          (onEditorKeyup)="onTextEditorKeyUp($event)">
+        </app-text-editor>
       </div>
-      <button type="submit" class="btn btn-success btn-md btn-block">Create</button>
-    </form>
+    </div>
   </div>
 </div>

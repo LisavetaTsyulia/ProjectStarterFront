@@ -1,5 +1,3 @@
-import {DatePipe} from '@angular/common';
-
 export class Project {
   public id: number;
   public userId: number;
@@ -8,7 +6,7 @@ export class Project {
   public targetAmount: number;
   public currentAmount: number;
   public rating: number;
-  public startDate: DatePipe ;
-  public endDate: DatePipe ;
+  public startDate: Date;
+  public endDate: Date;
   public projectStatus: string;
 }
