@@ -7,9 +7,9 @@ import {ProjectEditingComponent} from './project-editing.component';
 import { BasicsComponent } from './components/basics/basics.component';
 import { RewardsComponent } from './components/rewards/rewards.component';
 import { StoryComponent } from './components/story/story.component';
-import { AboutYouComponent } from './components/about-you/about-you.component';
 import {EditorComponent} from '../../helpers/editor/editor.component';
 import {ProjectService} from '../project.service';
+import { GoalsComponent } from './components/goals/goals.component';
 
 @NgModule({
   imports: [
@@ -26,8 +26,8 @@ import {ProjectService} from '../project.service';
     BasicsComponent,
     RewardsComponent,
     StoryComponent,
-    AboutYouComponent,
     EditorComponent,
+    GoalsComponent,
   ],
   providers: [
     ProjectService
