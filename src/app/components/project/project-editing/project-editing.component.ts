@@ -23,15 +23,14 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.activatedRoute.params.subscribe(params => {
       this.projectId = params['project_id'];
-      console.log(this.projectId);
+      this.projectService.findProjectById(this.projectId)
+        .subscribe(data => {
+          Object.assign(this.project, data);
+        });
     });
   }
 
   onSubmit() {
-    this.projectService.findProjectById(this.projectId)
-      .subscribe(data => {
-        Object.assign(this.project, data);
-      });
   }
 
   ngOnDestroy() {

@@ -8,16 +8,16 @@
     </ul>
     <div id="myTabContent" class="tab-content tab-content-padding-top">
       <div class="tab-pane fade active in" id="basics">
-        <app-basics></app-basics>
+        <app-basics [project]="project"></app-basics>
       </div>
       <div class="tab-pane fade" id="rewards">
-        <app-rewards></app-rewards>
+        <app-rewards [project]="project"></app-rewards>
       </div>
       <div class="tab-pane fade" id="goals">
-        <app-goals></app-goals>
+        <app-goals [project]="project"></app-goals>
       </div>
       <div class="tab-pane fade" id="story">
-        <app-story></app-story>
+        <app-story [project]="project"></app-story>
       </div>
     </div>
     <button type="submit" class="btn btn-success btn-md btn-block">Save</button>
