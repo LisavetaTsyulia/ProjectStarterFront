@@ -15,6 +15,9 @@ export class UserPanelComponent implements OnInit {
 
   @ViewChild(ListOfUsersComponent) listOfUsers: ListOfUsersComponent;
   block(increased){
-      this.listOfUsers.block();
+    this.listOfUsers.block();
+  }
+  unblock(increased){
+    this.listOfUsers.unblock();
   }
 }

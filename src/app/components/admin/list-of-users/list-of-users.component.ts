@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../auth/auth.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {forEach} from "@angular/router/src/utils/collection";
+import {ActivatedRoute} from "@angular/router";
 import {User} from "../../user/user";
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-list-of-users',
@@ -50,7 +50,7 @@ export class ListOfUsersComponent implements OnInit {
     return user.isSelected;
   }
 
-  fillEmailsArray() {
+  fillEmailsArrayBlock() {
     this.emails = [];
     for (let user of this.allUsers) {
       let curUser: User = <User>user;
@@ -60,9 +60,19 @@ export class ListOfUsersComponent implements OnInit {
   }
 
   block() {
-    this.fillEmailsArray();
+    this.fillEmailsArrayBlock();
     console.log(this.emails);
-    this.authService.block(this.emails);
-    this.loadUsersToTable();
+    if (this.emails.length != 0) {
+      this.authService.block(this.emails);
+      setTimeout(()=>{this.loadUsersToTable()}, 300);
+    }
+  }
+  unblock() {
+    this.fillEmailsArrayBlock();
+    console.log(this.emails);
+    if (this.emails.length != 0) {
+      this.authService.unblock(this.emails);
+      setTimeout(()=>{this.loadUsersToTable()}, 300);
+    }
   }
 }

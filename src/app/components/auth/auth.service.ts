@@ -81,4 +81,20 @@ export class AuthService {
       })
       .subscribe(r=>{});
   }
+
+  unblock(emails : string[]) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http
+      .post(
+        `${environment.serverUrl}admin/unblock`,
+        JSON.stringify({emails}),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      })
+      .subscribe(r=>{});
+  }
 }
