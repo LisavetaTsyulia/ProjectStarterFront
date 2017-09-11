@@ -10,10 +10,16 @@ export class FooterComponent implements OnInit {
   private dark: string = 'https://bootswatch.com/darkly/bootstrap.min.css';
   private light: string = 'https://bootswatch.com/flatly/bootstrap.min.css';
 
+  dark_theme_selected: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
-    this.changeStyle(localStorage.getItem('theme'));
+    const theme = localStorage.getItem('theme');
+    this.changeStyle(theme);
+    if (theme === this.dark) {
+      this.dark_theme_selected = true;
+    }
   }
 
   changeStyle(style) {

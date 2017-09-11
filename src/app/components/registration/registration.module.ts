@@ -5,13 +5,16 @@ import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginPageGuard} from '../login/login-page.guard';
 import {AuthModule} from '../auth/auth.module';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
       { path: '',
         component: RegistrationComponent,
-        canActivate: [LoginPageGuard] }
+        canActivate: [LoginPageGuard] },
+      { path: 'confirm',
+        component: ConfirmComponent}
     ]),
     CommonModule,
     FormsModule,
@@ -22,7 +25,8 @@ import {AuthModule} from '../auth/auth.module';
     LoginPageGuard
   ],
   declarations: [
-    RegistrationComponent
+    RegistrationComponent,
+    ConfirmComponent
   ],
   exports: [RouterModule]
 })

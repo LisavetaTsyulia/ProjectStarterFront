@@ -7,7 +7,10 @@ const routes: Routes = [
   { path: 'registration', loadChildren: 'app/components/registration/registration.module#RegistrationModule' },
   { path: 'admin',
     loadChildren: 'app/components/admin/list-of-users.module#ListOfUsersModule' },
-
+  { path: 'project/create',
+    loadChildren: 'app/components/project/project-creating/project-creating.module#ProjectCreatingModule' },
+  { path: 'project/edit/:user_id/:project_id',
+    loadChildren: 'app/components/project/project-editing/project-editing.module#ProjectEditingModule' }
 ];
 
 @NgModule({

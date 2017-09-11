@@ -9,9 +9,10 @@
       </select>
     </div>
     <div>
-      <select (change)="onClickAddThemeCookie($event.target.value)" class=" my-select left " id="select-theme">
+      <select id="select_theme" (change)="onClickAddThemeCookie($event.target.value)"
+              class=" my-select left " id="select-theme" sele>
         <option>Light</option>
-        <option>Dark</option>
+        <option [selected]="dark_theme_selected">Dark</option>
       </select>
     </div>
 </div>

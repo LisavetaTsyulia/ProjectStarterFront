@@ -1,4 +1,4 @@
-.custom-style {
+.form-style {
   margin-top: 50px;
   padding-top: 15px;
 
@@ -7,5 +7,8 @@
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+}
+
+.textarea-resize-disable {
+  resize: none;
 }

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
-import { environment } from '../../../environments/environment';
+import {environment} from '../../../environments/environment';
 import {AuthConfigConsts, AuthHttp} from 'angular2-jwt';
 import {Router} from '@angular/router';
 import 'rxjs/add/operator/map';
@@ -58,7 +58,23 @@ export class AuthService {
         return res.json();
       })
       .do(token => {
-        localStorage.setItem(AuthConfigConsts.DEFAULT_TOKEN_NAME, token.token);
+      });
+  }
+
+  confirm(email: string) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http
+      .post(
+        `${environment.serverUrl}auth/confirm`,
+        JSON.stringify({email}),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      })
+      .do(data => {
       });
   }
 

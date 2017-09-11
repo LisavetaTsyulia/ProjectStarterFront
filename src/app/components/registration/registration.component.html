@@ -32,31 +32,30 @@
         </div>
       </div>
 
-      <div [formGroup]="formGroup.get('passwords')">
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" placeholder="Password"
-                 [(ngModel)]="newUser.password" name="password" formControlName="password">
-          <div *ngIf="formGroup.get('passwords').get('password').errors && formGroup.get('passwords').get('password').touched" class="alert alert-danger">
-            <div *ngIf="formGroup.get('passwords').get('password').hasError('required')">
-              Password is required.
-            </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password"
+               [(ngModel)]="newUser.password" name="password" formControlName="password">
+        <div *ngIf="formGroup.get('password').errors && formGroup.get('password').touched" class="alert alert-danger">
+          <div *ngIf="formGroup.get('password').hasError('required')">
+            Password is required.
           </div>
         </div>
+      </div>
 
-        <div class="form-group">
-          <label for="confirmPassword">Confirm password</label>
-          <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password"
-                 [(ngModel)]="newUser.confirmPassword" name="confirmPassword" formControlName="confirmPassword">
-          <div *ngIf="formGroup.get('passwords').get('confirmPassword').errors && formGroup.get('passwords').get('confirmPassword').touched" class="alert alert-danger">
-            <div *ngIf="formGroup.get('passwords').get('confirmPassword').hasError('required')">
-              Confirm your password.
-            </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm password</label>
+        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password"
+               [(ngModel)]="newUser.confirmPassword" name="confirmPassword" formControlName="confirmPassword">
+        <div *ngIf="formGroup.get('confirmPassword').errors && formGroup.get('confirmPassword').touched"
+             class="alert alert-danger">
+          <div *ngIf="formGroup.get('confirmPassword').hasError('required')">
+            Confirm your password.
           </div>
         </div>
-        <div class="error" *ngIf="formGroup.get('passwords').touched && formGroup.hasError('notSamePasswords')">
-          Passwords must match.
-        </div>
+      </div>
+      <div *ngIf="!samePasswords()" class="alert alert-danger">
+        Passwords must match.
       </div>
       <div *ngIf="errorMessage" class="alert alert-danger">
         {{ errorMessage }}
