@@ -79,9 +79,6 @@ export class AuthService {
       .map(res => {
         return res.json();
       })
-      .do(data => {
-        localStorage.setItem("blockResponse", data);
-      })
       .subscribe(r=>{});
   }
 }

@@ -24,6 +24,10 @@ export class ListOfUsersComponent implements OnInit {
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.loadUsersToTable();
+  }
+
+  loadUsersToTable() {
     this.authService.getAll()
       .flatMap(res => {
         // const usersJson: any[] = Array.of(res.json());
@@ -59,5 +63,6 @@ export class ListOfUsersComponent implements OnInit {
     this.fillEmailsArray();
     console.log(this.emails);
     this.authService.block(this.emails);
+    this.loadUsersToTable();
   }
 }
