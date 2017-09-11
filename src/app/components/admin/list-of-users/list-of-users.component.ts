@@ -76,6 +76,12 @@ export class ListOfUsersComponent implements OnInit {
     }
   }
   deleteEvent(comments: boolean, ratings: boolean, projects: boolean ) {
-    console.log(comments + " : Comments; " + ratings + " : Rating; " + projects + " : Projects; ")
+    console.log(comments + " : Comments; " + ratings + " : Rating; " + projects + " : Projects; ");
+    let checkboxSettings : boolean[] = [comments, ratings, projects];
+    this.fillEmailsArrayBlock();
+    if (this.emails.length != 0) {
+      this.authService.deleteEvent(this.emails, checkboxSettings);
+      setTimeout(()=>{this.loadUsersToTable()}, 300);
+    }
   }
 }

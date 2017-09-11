@@ -97,4 +97,16 @@ export class AuthService {
       })
       .subscribe(r=>{});
   }
+
+  deleteEvent(emails: string[], checkboxSettings: boolean[] ) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http
+      .post(
+        `${environment.serverUrl}admin/delete`,
+        JSON.stringify({emails, checkboxSettings}),
+        {headers}
+      )
+      .subscribe(r=>{});
+  }
 }
