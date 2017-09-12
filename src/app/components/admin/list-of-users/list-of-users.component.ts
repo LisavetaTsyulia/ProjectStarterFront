@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../auth/auth.service";
 import {ActivatedRoute} from "@angular/router";
-import {User} from "../../user/user";
-import {forEach} from "@angular/router/src/utils/collection";
+import {User} from "../../model/user";
 
 @Component({
   selector: 'app-list-of-users',
