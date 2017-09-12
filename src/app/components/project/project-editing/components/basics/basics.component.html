@@ -19,7 +19,9 @@
       <div class="form-group row">
         <label for="funding_duration" class="col-sm-3 col-form-label">Funding duration</label>
         <div class="col-sm-9">
-          <input class="form-control" id="funding_duration" name="funding_duration"/>
+          <ng2-datepicker [options]="options" id="funding_duration"
+                          name="funding_duration" [(ngModel)]="date"></ng2-datepicker>
+          <!--<input class="form-control" id="funding_duration" name="funding_duration"/>-->
         </div>
       </div>
 

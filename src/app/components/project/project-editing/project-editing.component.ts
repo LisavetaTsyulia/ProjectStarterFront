@@ -14,7 +14,6 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
   projectId: number;
   private subscription: Subscription;
   errorMessage: string;
-  returnUrl: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,

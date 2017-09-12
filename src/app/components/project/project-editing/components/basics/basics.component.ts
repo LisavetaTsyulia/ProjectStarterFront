@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Project} from '../../../../model/project';
+import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 
 @Component({
   selector: 'app-basics',
@@ -9,7 +10,12 @@ import {Project} from '../../../../model/project';
 export class BasicsComponent implements OnInit {
   @Input() project: Project;
 
-  constructor() { }
+  date: DateModel;
+  options: DatePickerOptions;
+
+  constructor() {
+    this.options = new DatePickerOptions();
+  }
 
   ngOnInit() {
   }
