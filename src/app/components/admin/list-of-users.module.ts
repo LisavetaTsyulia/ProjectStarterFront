@@ -9,6 +9,7 @@ import { ListOfProjectsComponent } from './list-of-projects/list-of-projects.com
 import { UserControlPanelComponent } from './user-control-panel/user-control-panel.component';
 import { UserFilterPanelComponent } from './user-filter-panel/user-filter-panel.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
+import {AdminService} from "./admin.service";
 
 @NgModule({
   imports: [
@@ -29,6 +30,9 @@ import { UserPanelComponent } from './user-panel/user-panel.component';
     UserControlPanelComponent,
     UserFilterPanelComponent,
     UserPanelComponent
+  ],
+  providers: [
+    AdminService
   ],
   exports: [RouterModule]
 })
