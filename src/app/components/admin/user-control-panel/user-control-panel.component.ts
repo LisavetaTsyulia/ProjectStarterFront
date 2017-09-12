@@ -31,5 +31,8 @@ export class UserControlPanelComponent implements OnInit {
   onSubmitDelete(increased) {
     this.deleteEvent.emit({ event:event, comments: this.checkboxComments,
       ratings: this.checkboxRatings, projects: this.checkboxProjects });
+    this.checkboxProjects = false;
+    this.checkboxRatings = false;
+    this.checkboxComments = false;
   }
 }
