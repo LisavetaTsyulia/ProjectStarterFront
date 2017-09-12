@@ -30,10 +30,15 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.projectService.findProjectById(this.projectId)
       .subscribe(data => {
         Object.assign(this.project, data);
-        this.daysToGo = Date.parse(this.project.endDate.toString()) -
-                        Date.parse(this.project.startDate.toString());
-        this.daysToGo /= (1000 * 60 * 60 * 24);
+        this.initDaysToGo();
       });
+  }
+
+  initDaysToGo() {
+    this.daysToGo = Date.parse(this.project.endDate.toString()) -
+                    Date.parse(new Date().toString());
+    this.daysToGo /= (1000 * 60 * 60 * 24);
+    this.daysToGo = Math.floor(this.daysToGo);
   }
 
   ngOnDestroy() {

@@ -4,7 +4,11 @@
       <div class="form-group row">
         <label for="project_image" class="col-sm-3 col-form-label">Project image</label>
         <div class="col-sm-9">
-          <textarea class="form-control textarea-resize-disable" rows="4" id="project_image"></textarea>
+          <input type="file" ng2FileSelect [uploader]="uploader" accept="image/*;capture=camera">
+
+          <button (click)="upload()">Upload</button>
+
+          <!--<cl-image [public-id]="imageId" [cloud-name]="uploader.cloudName"></cl-image>-->
         </div>
       </div>
 

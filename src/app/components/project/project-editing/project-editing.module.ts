@@ -11,6 +11,8 @@ import {EditorComponent} from '../../helpers/editor/editor.component';
 import {ProjectService} from '../project.service';
 import { GoalsComponent } from './components/goals/goals.component';
 import { DatePickerModule } from 'ng2-datepicker';
+import {Ng2CloudinaryModule} from 'ng2-cloudinary';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   imports: [
@@ -21,7 +23,9 @@ import { DatePickerModule } from 'ng2-datepicker';
     CommonModule,
     FormsModule,
     AuthModule,
-    DatePickerModule
+    DatePickerModule,
+    Ng2CloudinaryModule,
+    FileUploadModule,
   ],
   declarations: [
     ProjectEditingComponent,
