@@ -1,18 +1,17 @@
 <div class="container form-style">
   <div class="text-center">
-    <h1 id="project_title">
-    </h1>
+    <h1 id="project_title">{{project.title}}</h1>
   </div>
   <div class="row">
     <div class="col-md-8 col-xs-12 text-center">
       <img src="https://tr4.cbsistatic.com/hub/i/r/2017/02/01/aebb34ab-f843-4e44-a39a-a083da99fcef/resize/770x/cb52e22968e0e566fa93d7d3403d95cc/istock-518310332.jpg" class="avatar img-thumbnail" alt="Project image">
     </div>
     <div class="col-md-4 col-xs-12">
-      <h3>$20,158</h3>
-      <p>pledged of $25,000 goal</p>
+      <h3>${{project.currentAmount / 100}}</h3>
+      <p>pledged of ${{project.targetAmount / 100}} goal</p>
       <h3>371</h3>
       <p>backers</p>
-      <h3>35</h3>
+      <h3>{{daysToGo}}</h3>
       <p>days to go</p>
     </div>
   </div>
@@ -27,15 +26,7 @@
       <div class="row">
         <div class="col-md-8 col-xs-12">
           <h2>About this project</h2>
-          <div class="margin-top description-block" id="description">
-            <div class="template asset" contenteditable="false" data-id="18229343">
-              <figure><img class="fit" src="https://ksr-ugc.imgix.net/assets/018/229/343/3c36550bd8555c8d086e2d5e676637bc_original.png?w=680&amp;fit=max&amp;v=1504777350&amp;auto=format&amp;lossless=true&amp;s=726aac788da648a009f7f146c1a21589" alt="" /></figure>
-            </div>
-            <p>&nbsp;&nbsp;</p>
-            <div class="template asset" contenteditable="false" data-id="18229317">
-              <figure><img class="fit" src="https://ksr-ugc.imgix.net/assets/018/229/317/cbae13e5607486afae0163feb9de5d8b_original.png?w=680&amp;fit=max&amp;v=1504777156&amp;auto=format&amp;lossless=true&amp;s=4e3f8e82e33464e8cf2119e3f299456a" alt="" /></figure>
-            </div>
-            <p>POWERUP DART is a conversion kit for paper planes that makes them awesome. Fold a small paper plane, attach the DART, and fly around your backyard, office or park with impressive accuracy. Do cool tricks with an awesome paper plane jet you fold yourself.</p>
+          <div class="margin-top description-block" id="description" [innerHTML]="project.description">
           </div>
         </div>
         <div class="col-md-4 col-xs-12">
