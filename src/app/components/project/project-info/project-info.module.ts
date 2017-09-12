@@ -6,7 +6,8 @@ import {AuthModule} from '../../auth/auth.module';
 import {ProjectService} from '../project.service';
 import {ProjectInfoComponent} from './project-info.component';
 import { DatePickerModule } from 'ng2-datepicker';
-
+import { FileUploadModule } from 'ng2-file-upload';
+import {Ng2CloudinaryModule} from 'ng2-cloudinary';
 
 @NgModule({
   imports: [
@@ -17,7 +18,9 @@ import { DatePickerModule } from 'ng2-datepicker';
     CommonModule,
     FormsModule,
     AuthModule,
-    DatePickerModule
+    DatePickerModule,
+    Ng2CloudinaryModule,
+    FileUploadModule
   ],
   declarations: [
     ProjectInfoComponent,

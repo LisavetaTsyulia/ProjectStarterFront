@@ -9,4 +9,5 @@ export class Project {
   public startDate: Date;
   public endDate: Date;
   public projectStatus: string;
+  public imageUrl: string;
 }
