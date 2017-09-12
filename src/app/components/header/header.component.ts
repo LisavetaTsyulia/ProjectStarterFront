@@ -21,4 +21,9 @@ export class HeaderComponent implements OnInit {
   public isAuthenticated(): boolean {
     return !!localStorage.getItem('user');
   }
+
+  public isAdmin(): boolean {
+    let role : string = JSON.parse(localStorage.getItem('user'));
+    return role['role'] === 'ROLE_ADMIN';
+  }
 }
