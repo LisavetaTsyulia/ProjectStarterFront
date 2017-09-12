@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-project-info',
@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./project-info.component.css']
 })
 export class ProjectInfoComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
   }
-
 }

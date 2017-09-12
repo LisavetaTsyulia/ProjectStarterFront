@@ -20,7 +20,6 @@ import {ProjectInfoComponent} from './project-info.component';
   ],
   declarations: [
     ProjectInfoComponent,
-
   ],
   providers: [
     ProjectService
