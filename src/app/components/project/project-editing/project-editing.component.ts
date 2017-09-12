@@ -3,6 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {ProjectService} from '../project.service';
 import {Project} from '../../model/project';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FundingDurationValidators} from "../../validators/FundingDurationValidators";
 
 @Component({
   selector: 'app-project-editing',
@@ -10,6 +12,7 @@ import {Project} from '../../model/project';
   styleUrls: ['./project-editing.component.css']
 })
 export class ProjectEditingComponent implements OnInit, OnDestroy {
+  formGroup: FormGroup;
   project = new Project;
   projectId: number;
   private subscription: Subscription;
@@ -18,7 +21,12 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private projectService: ProjectService,
-  ) { }
+    private fb: FormBuilder,
+  ) {
+    this.formGroup = this.fb.group({
+      duration: ['', FundingDurationValidators.isValidAmount],
+    });
+  }
 
   ngOnInit() {
     this.subscription = this.activatedRoute.params.subscribe(params =>
