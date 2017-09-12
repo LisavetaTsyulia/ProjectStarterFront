@@ -3,6 +3,7 @@ import {AuthService} from '../../auth/auth.service';
 import {ActivatedRoute} from '@angular/router';
 import {User} from '../../model/user';
 
+
 @Component({
   selector: 'app-list-of-users',
   templateUrl: './list-of-users.component.html',
