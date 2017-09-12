@@ -11,6 +11,7 @@ import {EditorComponent} from '../../helpers/editor/editor.component';
 import {ProjectService} from '../project.service';
 import { GoalsComponent } from './components/goals/goals.component';
 import { DatePickerModule } from 'ng2-datepicker';
+import {MdDatepickerModule, MdFormFieldModule, MdNativeDateModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -23,6 +24,10 @@ import { DatePickerModule } from 'ng2-datepicker';
     AuthModule,
     DatePickerModule,
     ReactiveFormsModule,
+
+    MdDatepickerModule,
+    MdFormFieldModule,
+    MdNativeDateModule,
   ],
   declarations: [
     ProjectEditingComponent,
