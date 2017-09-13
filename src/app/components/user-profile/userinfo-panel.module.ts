@@ -6,6 +6,8 @@ import {UserinfoPanelComponent} from "./userinfo-panel/userinfo-panel.component"
 import {AuthService} from "../auth/auth.service";
 import {AuthModule} from "../auth/auth.module";
 import {HttpModule} from "@angular/http";
+import { FileUploadModule } from 'ng2-file-upload';
+import {Ng2CloudinaryModule} from "ng2-cloudinary";
 
 @NgModule({
   imports: [
@@ -19,7 +21,9 @@ import {HttpModule} from "@angular/http";
     FormsModule,
     AuthModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2CloudinaryModule,
+    FileUploadModule
   ],
   declarations: [
     UserinfoPanelComponent

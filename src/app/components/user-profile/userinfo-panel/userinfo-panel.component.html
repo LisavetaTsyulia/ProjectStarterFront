@@ -1,13 +1,13 @@
 <div class="container" style="padding-top: 60px;">
-  <h1 class="page-header">Edit Profile</h1>
+  <h1 class="page-header">Edit Profile   :   {{model.email}}</h1>
   <div class="row">
     <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="text-center">
         <div class="item">
-          <img src="{{biography.imageurl}}" class="avatar  img-thumbnail" alt="avatar">
+          <img src="{{biography.imageurl}}"  class="avatar  img-thumbnail" alt="avatar">
+          <h6>Upload a different photo...</h6>
+          <input type="file" ng2FileSelect [uploader]="uploader" [(ngModel)]="biography.name" (change)="onChange()" accept="image/*;capture=camera">
         </div>
-        <h6>Upload a different photo...</h6>
-        <input type="file" class="text-center center-block well well-sm">
       </div>
     </div>
     <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
@@ -22,27 +22,6 @@
           <label class="col-lg-3 control-label">Username :</label>
           <div class="col-lg-8">
             <input class="form-control" [(ngModel)]="biography.name" [ngModelOptions]="{standalone: true}" type="text">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-lg-3 control-label">Email :</label>
-          <div class="col-lg-8">
-            <input class="form-control" [(ngModel)]="model.email"  type="text"
-                   formControlName="email" disabled="true" >
-          </div>
-          <br>
-          <div class=" alert alert-danger col-lg-8 col-lg-offset-3 " *ngIf="formGroup.get('email').errors && formGroup.get('email').touched">
-            <div *ngIf="formGroup.get('email').hasError('required')" >
-              Email is required.
-            </div>
-            <div *ngIf="!formGroup.get('email').hasError('minlength')
-                      && formGroup.get('email')
-                      .hasError('incorrectMailFormat')">
-              Email is wrong.
-            </div>
-            <div *ngIf="formGroup.get('email').hasError('minlength')">
-              Email should be minimum {{formGroup.get('email').getError('minlength').requiredLength}} characters.
-            </div>
           </div>
         </div>
         <div class="form-group">
@@ -62,22 +41,18 @@
           <div class="col-md-8">
             <input class="form-control" formControlName="password" [(ngModel)]="model.password" type="password">
           </div>
-          <div *ngIf="formGroup.get('password').errors && formGroup.get('password').touched" class="col-md-8 col-md-offset-3 alert alert-danger">
-            <div *ngIf="formGroup.get('password').hasError('required')">
-              Password is required.
-            </div>
-          </div>
         </div>
-        <div *ngIf="errorMessage" class="alert alert-danger">
+        <div *ngIf="errorMessage" class="alert alert-danger col-lg-8 col-lg-offset-3 ">
           {{ errorMessage }}
         </div>
         <div class="form-group">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">
-            <input (click)="onSubmit()" class="btn btn-primary" [disabled]="!formGroup.valid" value="Save Changes" type="button">
-            <span></span>
-            <input class="btn btn-default" (click)="onCancel()" value="Cancel" type="reset">
+            <input (click)="onSubmit()" class="btn btn-primary" value="Save Changes" type="button">
           </div>
+        </div>
+        <div *ngIf="successMessage" class="alert alert-success col-lg-8 col-lg-offset-3">
+          {{ successMessage }}
         </div>
       </form>
     </div>

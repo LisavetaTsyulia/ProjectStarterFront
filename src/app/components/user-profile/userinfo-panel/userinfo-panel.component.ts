@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {User} from "../../model/user";
 import {AuthService} from "../../auth/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -7,6 +7,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Http} from '@angular/http';
 import {AuthHttp} from "angular2-jwt";
 import {EmailValidators} from "../../validators/EmailValidators";
+import {CloudinaryOptions, CloudinaryUploader} from "ng2-cloudinary";
 
 @Component({
   selector: 'app-userinfo-panel',
@@ -21,12 +22,26 @@ export class UserinfoPanelComponent implements OnInit {
   returnUrl: string;
   formGroup: FormGroup;
   errorMessage: string;
+  successMessage: string;
+
+  uploader: CloudinaryUploader = new CloudinaryUploader(
+    new CloudinaryOptions({ cloudName: 'project-starter', uploadPreset: 'clbhkmd8' })
+  );
 
   constructor(
-    private router: Router,
     private authService: AuthService,
     private fb: FormBuilder
-  ) { }
+  ) {
+    this.uploader.onSuccessItem = (item: any, response: string, status: number, headers: any): any => {
+      const res: any = JSON.parse(response);
+      this.biography.imageurl = 'https://res.cloudinary.com/project-starter/image/upload/v1505240342/' + res.public_id;
+      return { item, response, status, headers };
+    };
+  }
+
+  onChange() {
+    this.uploader.uploadAll();
+  }
 
   ngOnInit() {
     let user: string = JSON.parse(localStorage.getItem('user'));
@@ -43,7 +58,7 @@ export class UserinfoPanelComponent implements OnInit {
       .subscribe(
         data => {
           this.transformToBiography(data);
-          console.log(JSON.stringify(data));
+          localStorage.setItem('biography', JSON.stringify(data));
         }
       );
   }
@@ -56,14 +71,16 @@ export class UserinfoPanelComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.model.email, this.model.password, this.biography.biography,
+      this.biography.location, this.biography.imageurl, this.biography.name);
     this.submitted = true;
     this.errorMessage = null;
     this.authService.changeUser(this.model.email, this.model.password, this.biography.biography,
       this.biography.location, this.biography.imageurl, this.biography.name)
       .subscribe(
         data => {
-          localStorage.setItem('user', JSON.stringify(data));
-          this.router.navigate([this.returnUrl]);
+          localStorage.setItem('e', JSON.stringify(data));
+          this.successMessage = "Successfully changed!";
         },
         error => {
           this.submitted = false;
@@ -72,7 +89,4 @@ export class UserinfoPanelComponent implements OnInit {
       );
   }
 
-  onCancel() {
-
-  }
 }

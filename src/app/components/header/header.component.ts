@@ -8,9 +8,11 @@ import {AuthConfigConsts} from 'angular2-jwt';
 })
 export class HeaderComponent implements OnInit {
 
+  public email;
   constructor() { }
 
   ngOnInit() {
+    this.email = JSON.parse(localStorage.getItem('user'))['username'];
   }
 
   public deleteCookies() {
