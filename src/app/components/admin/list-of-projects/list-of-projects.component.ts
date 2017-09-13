@@ -30,7 +30,6 @@ export class ListOfProjectsComponent implements OnInit {
       })
       .subscribe(
         data => {
-          localStorage.setItem('proj', JSON.stringify(data));
         }
       );
   }

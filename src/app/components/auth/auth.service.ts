@@ -5,6 +5,7 @@ import {AuthConfigConsts, AuthHttp} from 'angular2-jwt';
 import {Router} from '@angular/router';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
+import {Biography} from "../model/biography";
 
 @Injectable()
 export class AuthService {
@@ -82,4 +83,26 @@ export class AuthService {
     return this.authHttp.get(`${environment.serverUrl}admin/list-of-projects`).map(res => res.json());
   }
 
+  getUserInfo(id: number) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
+    return this.authHttp.get(`${environment.serverUrl}user/user-info/${id}`, {headers}).map(res => res.json());
+  }
+
+  changeUser(email: string, password: string, biography: string, location: string, imageurl: string, name: string) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
+
+    return this.http
+      .post(
+        `${environment.serverUrl}user/user-info/save-changes`,
+        JSON.stringify({email, password, biography, location, imageurl, name}),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      });
+  }
 }

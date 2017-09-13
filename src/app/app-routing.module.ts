@@ -5,6 +5,8 @@ const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full'},
   { path: 'login', loadChildren: 'app/components/login/login.module#LoginModule' },
   { path: 'registration', loadChildren: 'app/components/registration/registration.module#RegistrationModule' },
+  { path: 'user-info',
+    loadChildren: 'app/components/user-profile/userinfo-panel.module#UserinfoPanelModule' },
   { path: 'admin',
     loadChildren: 'app/components/admin/list-of-users.module#ListOfUsersModule' },
   { path: 'project/create',

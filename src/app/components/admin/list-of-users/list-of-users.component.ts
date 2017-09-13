@@ -39,7 +39,6 @@ export class ListOfUsersComponent implements OnInit {
       })
       .subscribe(
         data => {
-          localStorage.setItem('resp', JSON.stringify(data));
         }
       );
   }
