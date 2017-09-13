@@ -89,6 +89,12 @@ export class ListOfUsersComponent implements OnInit {
 
   sortByRole(role: string) {
     console.log(role);
+    let theRole: string;
+    if (role === "All Users") return;
+    if (role === "Confirmed Users") theRole = 'ROLE_CONFIRMED_USER';
+    else if (role === "Users to Confirm") theRole = 'ROLE_USER';
+    else if (role === "Administrators") theRole = 'ROLE_ADMIN';
+    
   }
 
   sort(by: string) {
