@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {FormsModule} from "@angular/forms";
 import {UserinfoPanelComponent} from "./userinfo-panel/userinfo-panel.component";
+import {AuthService} from "../auth/auth.service";
+import {AuthModule} from "../auth/auth.module";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   imports: [
@@ -13,10 +16,15 @@ import {UserinfoPanelComponent} from "./userinfo-panel/userinfo-panel.component"
       }
     ]),
     CommonModule,
-    FormsModule
+    FormsModule,
+    AuthModule,
+    HttpModule
   ],
   declarations: [
     UserinfoPanelComponent
+  ],
+  providers: [
+    AuthService
   ],
   exports: [RouterModule]
 })
