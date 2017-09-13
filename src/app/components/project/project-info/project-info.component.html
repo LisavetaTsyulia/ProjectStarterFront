@@ -1,0 +1,50 @@
+<div class="container form-style">
+  <h1 id="project_title">{{project.title}}</h1>
+  <div class="row">
+    <div class="col-md-8 col-xs-12 text-center">
+      <!--<cl-image public-id="{{project.imageUrl}}" cloud-name="project-starter"></cl-image>-->
+      <img src="{{project.imageUrl}}" class="avatar img-thumbnail" alt="Project image">
+    </div>
+    <div class="col-md-4 col-xs-12">
+      <h3>${{project.currentAmount / 100}}</h3>
+      <p>pledged of ${{project.targetAmount / 100}} goal</p>
+      <h3>371</h3>
+      <p>backers</p>
+      <h3>{{daysToGo}}</h3>
+      <p>days to go</p>
+    </div>
+  </div>
+  <ul class="nav nav-tabs margin-top">
+    <li class="active"><a href="#campaign" data-toggle="tab" aria-expanded="true">Campaign</a></li>
+    <li class=""><a href="#rewards" data-toggle="tab" aria-expanded="false">Rewards</a></li>
+    <li class=""><a href="#news" data-toggle="tab" aria-expanded="false">News</a></li>
+    <li class=""><a href="#comments" data-toggle="tab" aria-expanded="false">Comments</a></li>
+  </ul>
+  <div id="tabContent" class="tab-content">
+    <div class="tab-pane fade active in" id="campaign">
+      <div class="row">
+        <div class="col-md-8 col-xs-12">
+          <h2>About this project</h2>
+          <div class="margin-top description-block" id="description" [innerHTML]="project.description">
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+          <h2>Project goals</h2>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="rewards">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-xs-12">
+          <h2>Support this project</h2>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="news">
+      <h2>News</h2>
+    </div>
+    <div class="tab-pane fade" id="comments">
+      <h2>Comments</h2>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 import {Component, OnDestroy, AfterViewInit, EventEmitter, Input, Output, OnChanges} from '@angular/core';
-import {isNullOrUndefined} from "util";
+import {isNullOrUndefined} from 'util';
 
 @Component({
   selector: 'app-text-editor',

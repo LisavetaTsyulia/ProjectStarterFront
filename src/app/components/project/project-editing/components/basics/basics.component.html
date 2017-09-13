@@ -4,7 +4,11 @@
       <div class="form-group row">
         <label for="project_image" class="col-sm-3 col-form-label">Project image</label>
         <div class="col-sm-9">
-          <textarea class="form-control textarea-resize-disable" rows="4" id="project_image"></textarea>
+          <input type="file" ng2FileSelect [uploader]="uploader" (change)="onChange()" accept="image/*;capture=camera">
+
+          <!--<button (click)="upload()">Upload</button>-->
+
+          <!--<cl-image [public-id]="imageId" [cloud-name]="uploader.cloudName"></cl-image>-->
         </div>
       </div>
 
@@ -19,9 +23,9 @@
       <div class="form-group row">
         <label for="funding_duration" class="col-sm-3 col-form-label">Funding duration</label>
         <div class="col-sm-9">
-          <ng2-datepicker [options]="options" id="funding_duration"
-                          name="funding_duration" [(ngModel)]="date"></ng2-datepicker>
-          <!--<input class="form-control" id="funding_duration" name="funding_duration"/>-->
+          <input mdInput [min]="minDate" [mdDatepicker]="picker" placeholder="Choose a date">
+          <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+          <md-datepicker #picker (selectedChanged)="onDateChange($event)"></md-datepicker>
         </div>
       </div>
 
@@ -32,7 +36,6 @@
                  [(ngModel)]="project.targetAmount"/>
         </div>
       </div>
-
     </form>
   </div>
 </div>

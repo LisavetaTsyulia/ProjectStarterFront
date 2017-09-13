@@ -12,7 +12,9 @@ const routes: Routes = [
   { path: 'project/create',
     loadChildren: 'app/components/project/project-creating/project-creating.module#ProjectCreatingModule' },
   { path: 'project/edit/:user_id/:project_id',
-    loadChildren: 'app/components/project/project-editing/project-editing.module#ProjectEditingModule' }
+    loadChildren: 'app/components/project/project-editing/project-editing.module#ProjectEditingModule' },
+  { path: 'project-info/:project_id',
+    loadChildren: 'app/components/project/project-info/project-info.module#ProjectInfoModule' }
 ];
 
 @NgModule({
