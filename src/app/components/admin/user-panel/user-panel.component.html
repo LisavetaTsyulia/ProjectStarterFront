@@ -1,6 +1,6 @@
 <div class = "container-fluid">
   <div class="row">
-    <app-user-filter-panel></app-user-filter-panel>
+    <app-user-filter-panel (sortByRole)="sortByRole($event)" (sort)="sort($event)"></app-user-filter-panel>
   </div>
   <div class="row">
     <div class="col-xs-2">

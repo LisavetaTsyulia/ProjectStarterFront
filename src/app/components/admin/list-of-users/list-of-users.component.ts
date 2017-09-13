@@ -86,4 +86,12 @@ export class ListOfUsersComponent implements OnInit {
       setTimeout(()=>{this.loadUsersToTable()}, 300);
     }
   }
+
+  sortByRole(role: string) {
+    console.log(role);
+  }
+
+  sort(by: string) {
+    console.log(by);
+  }
 }
