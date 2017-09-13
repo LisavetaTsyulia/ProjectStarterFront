@@ -82,47 +82,4 @@ export class AuthService {
     return this.authHttp.get(`${environment.serverUrl}admin/list-of-projects`).map(res => res.json());
   }
 
-  block(emails : string[]) {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-
-    return this.http
-      .post(
-        `${environment.serverUrl}admin/block`,
-        JSON.stringify({emails}),
-        {headers}
-      )
-      .map(res => {
-        return res.json();
-      })
-      .subscribe(r=>{});
-  }
-
-  unblock(emails : string[]) {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-
-    return this.http
-      .post(
-        `${environment.serverUrl}admin/unblock`,
-        JSON.stringify({emails}),
-        {headers}
-      )
-      .map(res => {
-        return res.json();
-      })
-      .subscribe(r=>{});
-  }
-
-  deleteEvent(emails: string[], checkboxSettings: boolean[] ) {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http
-      .post(
-        `${environment.serverUrl}admin/delete`,
-        JSON.stringify({emails, checkboxSettings}),
-        {headers}
-      )
-      .subscribe(r=>{});
-  }
 }

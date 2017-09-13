@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {ActivatedRoute} from '@angular/router';
 import {User} from '../../model/user';
+import {AdminService} from "../admin.service";
 
 
 @Component({
@@ -14,6 +15,7 @@ export class ListOfUsersComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private adminService: AdminService,
     private route: ActivatedRoute
   ) { }
 
@@ -63,7 +65,7 @@ export class ListOfUsersComponent implements OnInit {
     this.fillEmailsArrayBlock();
     console.log(this.emails);
     if (this.emails.length != 0) {
-      this.authService.block(this.emails);
+      this.adminService.block(this.emails);
       setTimeout(()=>{this.loadUsersToTable()}, 300);
     }
   }
@@ -71,7 +73,7 @@ export class ListOfUsersComponent implements OnInit {
     this.fillEmailsArrayBlock();
     console.log(this.emails);
     if (this.emails.length != 0) {
-      this.authService.unblock(this.emails);
+      this.adminService.unblock(this.emails);
       setTimeout(()=>{this.loadUsersToTable()}, 300);
     }
   }
@@ -80,7 +82,7 @@ export class ListOfUsersComponent implements OnInit {
     let checkboxSettings : boolean[] = [comments, ratings, projects];
     this.fillEmailsArrayBlock();
     if (this.emails.length != 0) {
-      this.authService.deleteEvent(this.emails, checkboxSettings);
+      this.adminService.deleteEvent(this.emails, checkboxSettings);
       setTimeout(()=>{this.loadUsersToTable()}, 300);
     }
   }

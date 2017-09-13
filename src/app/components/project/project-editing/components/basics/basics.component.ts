@@ -23,7 +23,6 @@ export class BasicsComponent implements OnInit {
       const res: any = JSON.parse(response);
       this.project.imageUrl = 'https://res.cloudinary.com/project-starter/image/upload/v1505240342/' +
         res.public_id;
-      console.log(this.project.imageUrl);
       return { item, response, status, headers };
     };
   }
