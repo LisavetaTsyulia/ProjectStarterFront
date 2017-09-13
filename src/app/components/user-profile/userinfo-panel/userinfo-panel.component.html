@@ -17,7 +17,7 @@
         <!--This is an <strong>.alert</strong>. Use this to show important messages to the user.-->
       <!--</div>-->
       <h3>Personal info</h3>
-      <form class="form-horizontal" role="form">
+      <form class="form-horizontal" role="form" [formGroup]="formGroup">
         <div class="form-group">
           <label class="col-lg-3 control-label">Username :</label>
           <div class="col-lg-8">
@@ -27,7 +27,22 @@
         <div class="form-group">
           <label class="col-lg-3 control-label">Email :</label>
           <div class="col-lg-8">
-            <input class="form-control" [(ngModel)]="model.email" [ngModelOptions]="{standalone: true}" type="text">
+            <input class="form-control" [(ngModel)]="model.email"  type="text"
+                   formControlName="email" disabled="true" >
+          </div>
+          <br>
+          <div class=" alert alert-danger col-lg-8 col-lg-offset-3 " *ngIf="formGroup.get('email').errors && formGroup.get('email').touched">
+            <div *ngIf="formGroup.get('email').hasError('required')" >
+              Email is required.
+            </div>
+            <div *ngIf="!formGroup.get('email').hasError('minlength')
+                      && formGroup.get('email')
+                      .hasError('incorrectMailFormat')">
+              Email is wrong.
+            </div>
+            <div *ngIf="formGroup.get('email').hasError('minlength')">
+              Email should be minimum {{formGroup.get('email').getError('minlength').requiredLength}} characters.
+            </div>
           </div>
         </div>
         <div class="form-group">
@@ -45,13 +60,12 @@
         <div class="form-group">
           <label class="col-md-3 control-label">Password:</label>
           <div class="col-md-8">
-            <input class="form-control" [(ngModel)]="model.password" [ngModelOptions]="{standalone: true}" type="password">
+            <input class="form-control" formControlName="password" [(ngModel)]="model.password" type="password">
           </div>
-        </div>
-        <div class="form-group">
-          <label class="col-md-3 control-label">New password:</label>
-          <div class="col-md-8">
-            <input class="form-control" type="password">
+          <div *ngIf="formGroup.get('password').errors && formGroup.get('password').touched" class="col-md-8 col-md-offset-3 alert alert-danger">
+            <div *ngIf="formGroup.get('password').hasError('required')">
+              Password is required.
+            </div>
           </div>
         </div>
         <div *ngIf="errorMessage" class="alert alert-danger">
@@ -60,7 +74,7 @@
         <div class="form-group">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">
-            <input (click)="onSubmit()" class="btn btn-primary" value="Save Changes" type="button">
+            <input (click)="onSubmit()" class="btn btn-primary" [disabled]="!formGroup.valid" value="Save Changes" type="button">
             <span></span>
             <input class="btn btn-default" (click)="onCancel()" value="Cancel" type="reset">
           </div>

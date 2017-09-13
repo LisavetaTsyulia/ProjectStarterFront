@@ -3,10 +3,10 @@ import {User} from "../../model/user";
 import {AuthService} from "../../auth/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Biography} from "../../model/biography";
-import {environment} from "../../../../environments/environment";
-import {Http, Headers} from '@angular/http';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Http} from '@angular/http';
 import {AuthHttp} from "angular2-jwt";
-import {FormGroup} from "@angular/forms";
+import {EmailValidators} from "../../validators/EmailValidators";
 
 @Component({
   selector: 'app-userinfo-panel',
@@ -23,17 +23,19 @@ export class UserinfoPanelComponent implements OnInit {
   errorMessage: string;
 
   constructor(
-    private http: Http,
-    private authHttp: AuthHttp,
-    private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit() {
     let user: string = JSON.parse(localStorage.getItem('user'));
     this.model.email = user['username'];
     this.getUserInfo(user['id']);
+    this.formGroup = this.fb.group({
+      email: ['', [Validators.required, Validators.minLength(6), EmailValidators.isValidEmail]],
+      password: ['', Validators.required],
+    });
   }
 
   getUserInfo(id: number) {
@@ -71,6 +73,6 @@ export class UserinfoPanelComponent implements OnInit {
   }
 
   onCancel() {
-    
+
   }
 }
