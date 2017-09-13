@@ -4,9 +4,9 @@
       <div class="form-group row">
         <label for="project_image" class="col-sm-3 col-form-label">Project image</label>
         <div class="col-sm-9">
-          <input type="file" ng2FileSelect [uploader]="uploader" accept="image/*;capture=camera">
+          <input type="file" ng2FileSelect [uploader]="uploader" (change)="onChange()" accept="image/*;capture=camera">
 
-          <button (click)="upload()">Upload</button>
+          <!--<button (click)="upload()">Upload</button>-->
 
           <!--<cl-image [public-id]="imageId" [cloud-name]="uploader.cloudName"></cl-image>-->
         </div>

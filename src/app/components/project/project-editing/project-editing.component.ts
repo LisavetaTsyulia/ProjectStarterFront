@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {ProjectService} from '../project.service';
 import {Project} from '../../model/project';
+import {CloudinaryUploader} from "ng2-cloudinary";
 
 @Component({
   selector: 'app-project-editing',
@@ -14,6 +15,8 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
   projectId: number;
   private subscription: Subscription;
   errorMessage: string;
+
+  uploader: CloudinaryUploader;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -32,6 +35,7 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     this.errorMessage = null;
+    
     this.projectService.updateProject(this.project)
       .subscribe(
         data => {
@@ -41,6 +45,13 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
           this.errorMessage = error.json().message;
         }
       );
+  }
+
+  onUpload(uploader) {
+    this.uploader = uploader;
+    if (this.uploader) {
+      this.uploader.uploadAll();
+    }
   }
 
   ngOnDestroy() {

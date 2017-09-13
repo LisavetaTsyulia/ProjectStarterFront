@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {Project} from '../../../../model/project';
 import { DatePickerOptions, DateModel } from 'ng2-datepicker';
-import {CloudinaryOptions, CloudinaryUploader} from "ng2-cloudinary";
+import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
 
 @Component({
   selector: 'app-basics',
@@ -10,6 +10,7 @@ import {CloudinaryOptions, CloudinaryUploader} from "ng2-cloudinary";
 })
 export class BasicsComponent implements OnInit {
   @Input() project: Project;
+  @Output() onUpload = new EventEmitter<any>();
 
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'project-starter', uploadPreset: 'clbhkmd8' })
@@ -30,6 +31,10 @@ export class BasicsComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onChange() {
+    this.onUpload.emit(this.uploader);
   }
 
   upload() {

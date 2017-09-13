@@ -8,7 +8,7 @@
     </ul>
     <div id="myTabContent" class="tab-content tab-content-padding-top">
       <div class="tab-pane fade active in" id="basics">
-        <app-basics [project]="project"></app-basics>
+        <app-basics (onUpload)="onUpload($event)" [project]="project"></app-basics>
       </div>
       <div class="tab-pane fade" id="rewards">
         <app-rewards [project]="project"></app-rewards>
