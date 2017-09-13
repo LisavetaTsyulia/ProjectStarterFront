@@ -18,28 +18,17 @@ export class BasicsComponent implements OnInit {
 
   minDate = new Date();
 
-  // date: DateModel = new DateModel;
-  // options: DatePickerOptions;
-
   constructor() {
     this.uploader.onSuccessItem = (item: any, response: string, status: number, headers: any): any => {
       const res: any = JSON.parse(response);
       this.project.imageUrl = 'https://res.cloudinary.com/project-starter/image/upload/v1505240342/' +
         res.public_id;
+      console.log(this.project.imageUrl);
       return { item, response, status, headers };
     };
-    // this.options = new DatePickerOptions();
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      console.log(this.project);
-
-      // this.date.day = this.project.endDate.getDay + '';
-      // this.date.month = this.project.endDate.getMonth + '';
-      // this.date.year = this.project.endDate.getFullYear + '';
-      // this.options.initialDate = this.project.endDate;
-      }, 2000);
   }
 
   onChange() {
@@ -48,5 +37,9 @@ export class BasicsComponent implements OnInit {
 
   upload() {
     this.uploader.uploadAll();
+  }
+
+  onDateChange(event) {
+    this.project.endDate = event;
   }
 }
