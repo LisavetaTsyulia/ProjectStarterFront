@@ -30,6 +30,7 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
     this.projectService.findProjectById(this.projectId)
       .subscribe(data => {
         Object.assign(this.project, data);
+        console.log(this.project);
       });
   }
 
