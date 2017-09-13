@@ -25,12 +25,8 @@
     "@angular/router": "^4.2.4",
     "angular2-jwt": "^0.2.3",
     "core-js": "^2.4.1",
-<<<<<<< HEAD
     "ng2-cloudinary": "^0.9.2",
-||||||| merged common ancestors
-=======
     "hammerjs": "^2.0.8",
->>>>>>> feature/project-editing
     "ng2-datepicker": "^1.8.3",
     "rxjs": "^5.4.2",
     "tinymce": "^4.6.6",

@@ -1,0 +1,32 @@
+<div class="container-fluid form-style">
+  <form (ngSubmit)="onSubmit()">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#basics" data-toggle="tab" aria-expanded="true">Basics</a></li>
+      <li class=""><a href="#rewards" data-toggle="tab" aria-expanded="false">Rewards</a></li>
+      <li class=""><a href="#goals" data-toggle="tab" aria-expanded="false">Goals</a></li>
+      <li class=""><a href="#story" data-toggle="tab" aria-expanded="false">Story</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content tab-content-padding-top">
+      <div class="tab-pane fade active in" id="basics">
+        <app-basics (onUpload)="onUpload($event)" [project]="project"></app-basics>
+      </div>
+      <div class="tab-pane fade" id="rewards">
+        <app-rewards [project]="project"></app-rewards>
+      </div>
+      <div class="tab-pane fade" id="goals">
+        <app-goals [project]="project"></app-goals>
+      </div>
+      <div class="tab-pane fade" id="story">
+        <app-story [project]="project"></app-story>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+        <button type="submit" class="btn btn-success btn-md btn-block">Save</button>
+      </div>
+    </div>
+  </form>
+</div>

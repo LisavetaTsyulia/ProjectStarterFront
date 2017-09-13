@@ -49,8 +49,4 @@ export class BasicsComponent implements OnInit {
   upload() {
     this.uploader.uploadAll();
   }
-
-  onDateChange(date) {
-    this.project.endDate = date;
-  }
 }

@@ -15,6 +15,7 @@ import {Ng2CloudinaryModule} from 'ng2-cloudinary';
 import { FileUploadModule } from 'ng2-file-upload';
 import {MdDatepickerModule, MdFormFieldModule, MdNativeDateModule} from '@angular/material';
 
+
 @NgModule({
   imports: [
     RouterModule.forChild([
@@ -33,6 +34,10 @@ import {MdDatepickerModule, MdFormFieldModule, MdNativeDateModule} from '@angula
     MdDatepickerModule,
     MdFormFieldModule,
     MdNativeDateModule,
+
+    DatePickerModule,
+    Ng2CloudinaryModule,
+    FileUploadModule,
   ],
   declarations: [
     ProjectEditingComponent,
