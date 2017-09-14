@@ -23,4 +23,10 @@ export class UserPanelComponent implements OnInit {
   deleteEvent(event){
     this.listOfUsers.deleteEvent(event.comments, event.projects, event.ratings);
   }
+  sortByRole(event){
+    this.listOfUsers.sortByRole(event.role);
+  }
+  sort(event){
+    this.listOfUsers.sort(event.by);
+  }
 }

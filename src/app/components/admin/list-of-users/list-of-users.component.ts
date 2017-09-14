@@ -21,6 +21,7 @@ export class ListOfUsersComponent implements OnInit {
 
   keysArray : string[];
   allUsers : object[];
+  theRole : string;
   returnUrl : string;
   emails : string[];
 
@@ -32,7 +33,6 @@ export class ListOfUsersComponent implements OnInit {
   loadUsersToTable() {
     this.authService.getAll()
       .flatMap(res => {
-        // const usersJson: any[] = Array.of(res.json());
         this.keysArray = Object.keys(res[0]);
         res.isSelected = false;
         return this.allUsers = res;
@@ -84,5 +84,40 @@ export class ListOfUsersComponent implements OnInit {
       this.adminService.deleteEvent(this.emails, checkboxSettings);
       setTimeout(()=>{this.loadUsersToTable()}, 300);
     }
+  }
+
+  sortByRole(role: string) {
+    console.log(role);
+    if (role === "All Users") {
+      this.theRole = null;
+      return this.loadUsersToTable();
+    } else if (role === "Confirmed Users") this.theRole = 'ROLE_CONFIRMED_USER';
+    else if (role === "Users to Confirm") this.theRole = 'ROLE_USER';
+    else if (role === "Administrators") this.theRole = 'ROLE_ADMIN';
+    this.adminService.sortByRole(this.theRole)
+      .flatMap(res => {
+      this.keysArray = Object.keys(res[0]);
+      res.isSelected = false;
+      return this.allUsers = res;
+    })
+      .subscribe(
+        data => {
+        }
+      );
+
+  }
+
+  sort(by: string) {
+    console.log(by);
+    this.adminService.sortBy(by, this.theRole)
+      .flatMap(res => {
+        this.keysArray = Object.keys(res[0]);
+        res.isSelected = false;
+        return this.allUsers = res;
+      })
+      .subscribe(
+        data => {
+        }
+      );
   }
 }
