@@ -12,6 +12,11 @@ export class BasicsComponent implements OnInit {
   @Input() project: Project;
   @Output() onUpload = new EventEmitter<any>();
 
+  supportedFileTypes: string[] = ['image/png', 'image/jpeg', 'image/gif'];
+
+  imageShown: boolean = false;
+  currentProfileImage: string = 'assets/profile-placeholder.png';
+
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'project-starter', uploadPreset: 'clbhkmd8' })
   );
@@ -45,6 +50,18 @@ export class BasicsComponent implements OnInit {
   // File being dragged has been dropped and is valid
   private dragFileAccepted(acceptedFile: Ng2FileDropAcceptedFile) {
     console.log(acceptedFile);
+
+    const fileReader = new FileReader();
+    fileReader.onload = () => {
+
+      // Set and show the image
+      this.currentProfileImage = fileReader.result;
+      this.imageShown = true;
+    };
+
+    // Read in the file
+    fileReader.readAsDataURL(acceptedFile.file);
+
     this.onUpload.emit(this.uploader);
   }
 }
