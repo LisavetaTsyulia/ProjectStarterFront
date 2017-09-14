@@ -49,8 +49,6 @@ export class BasicsComponent implements OnInit {
 
   // File being dragged has been dropped and is valid
   private dragFileAccepted(acceptedFile: Ng2FileDropAcceptedFile) {
-    console.log(acceptedFile);
-
     const fileReader = new FileReader();
     fileReader.onload = () => {
 

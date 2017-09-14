@@ -1,13 +1,11 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {User} from "../../model/user";
-import {AuthService} from "../../auth/auth.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Biography} from "../../model/biography";
+import {User} from '../../model/user';
+import {AuthService} from '../../auth/auth.service';
+import {Biography} from '../../model/biography';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Http} from '@angular/http';
-import {AuthHttp} from "angular2-jwt";
-import {EmailValidators} from "../../validators/EmailValidators";
-import {CloudinaryOptions, CloudinaryUploader} from "ng2-cloudinary";
+import {EmailValidators} from '../../validators/EmailValidators';
+import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
+import { Ng2FileDropAcceptedFile } from 'ng2-file-drop';
 
 @Component({
   selector: 'app-userinfo-panel',
@@ -23,6 +21,11 @@ export class UserinfoPanelComponent implements OnInit {
   formGroup: FormGroup;
   errorMessage: string;
   successMessage: string;
+
+  supportedFileTypes: string[] = ['image/png', 'image/jpeg', 'image/gif'];
+
+  imageShown: boolean = false;
+  currentProfileImage: string = 'assets/profile-placeholder.png';
 
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'project-starter', uploadPreset: 'clbhkmd8' })
@@ -80,13 +83,28 @@ export class UserinfoPanelComponent implements OnInit {
       .subscribe(
         data => {
           localStorage.setItem('e', JSON.stringify(data));
-          this.successMessage = "Successfully changed!";
+          this.successMessage = 'Successfully changed!';
         },
         error => {
           this.submitted = false;
           this.errorMessage = error.json().message;
         }
       );
+  }
+
+  private dragFileAccepted(acceptedFile: Ng2FileDropAcceptedFile) {
+    const fileReader = new FileReader();
+    fileReader.onload = () => {
+
+      // Set and show the image
+      this.currentProfileImage = fileReader.result;
+      this.imageShown = true;
+    };
+
+    // Read in the file
+    fileReader.readAsDataURL(acceptedFile.file);
+
+    this.uploader.uploadAll();
   }
 
 }
