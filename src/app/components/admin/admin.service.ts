@@ -76,7 +76,7 @@ export class AdminService {
 
   }
 
-  sortBy(by: string) {
+  sortBy(by: string, theRole: string) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', localStorage.getItem('token'));
@@ -84,7 +84,7 @@ export class AdminService {
     return this.http
       .post(
         `${environment.serverUrl}admin/sort-by`,
-        JSON.stringify({by}),
+        JSON.stringify({by, theRole}),
         {headers}
       ).map(res => {
         return res.json();

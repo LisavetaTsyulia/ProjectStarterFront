@@ -21,6 +21,7 @@ export class ListOfUsersComponent implements OnInit {
 
   keysArray : string[];
   allUsers : object[];
+  theRole : string;
   returnUrl : string;
   emails : string[];
 
@@ -87,13 +88,13 @@ export class ListOfUsersComponent implements OnInit {
 
   sortByRole(role: string) {
     console.log(role);
-    let theRole: string;
     if (role === "All Users") {
+      this.theRole = null;
       return this.loadUsersToTable();
-    } else if (role === "Confirmed Users") theRole = 'ROLE_CONFIRMED_USER';
-    else if (role === "Users to Confirm") theRole = 'ROLE_USER';
-    else if (role === "Administrators") theRole = 'ROLE_ADMIN';
-    this.adminService.sortByRole(theRole)
+    } else if (role === "Confirmed Users") this.theRole = 'ROLE_CONFIRMED_USER';
+    else if (role === "Users to Confirm") this.theRole = 'ROLE_USER';
+    else if (role === "Administrators") this.theRole = 'ROLE_ADMIN';
+    this.adminService.sortByRole(this.theRole)
       .flatMap(res => {
       this.keysArray = Object.keys(res[0]);
       res.isSelected = false;
@@ -108,7 +109,7 @@ export class ListOfUsersComponent implements OnInit {
 
   sort(by: string) {
     console.log(by);
-    this.adminService.sortBy(by)
+    this.adminService.sortBy(by, this.theRole)
       .flatMap(res => {
         this.keysArray = Object.keys(res[0]);
         res.isSelected = false;
