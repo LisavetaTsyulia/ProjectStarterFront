@@ -6,7 +6,19 @@
         <div class="item">
           <img src="{{biography.imageurl}}"  class="avatar  img-thumbnail" alt="avatar">
           <h6>Upload a different photo...</h6>
-          <input type="file" ng2FileSelect [uploader]="uploader" [(ngModel)]="biography.name" (change)="onChange()" accept="image/*;capture=camera">
+          <div class="profile-picture-section">
+            <div ng2FileDrop [uploader]="uploader" [ng2FileDropSupportedFileTypes]="supportedFileTypes"
+                 (ng2FileDropFileAccepted)="dragFileAccepted($event)"
+                 class="profile-picture-section-drop-zone">
+              <div *ngIf="!imageShown" class=profile-picture-section-request-image-group>
+                <p class="profile-picture-section-request-image-instructions">Drop a profile picture here</p>
+              </div>
+              <div *ngIf="imageShown" class=profile-picture-section-request-image-container>
+                <img class=profile-picture-section-request-image [src]="currentProfileImage">
+              </div>
+            </div>
+            <p class="profile-picture-section-limitations">Profile picture can be .png, .jpeg or .gif only</p>
+          </div>
         </div>
       </div>
     </div>

@@ -14,6 +14,7 @@ import { DatePickerModule } from 'ng2-datepicker';
 import {Ng2CloudinaryModule} from 'ng2-cloudinary';
 import { FileUploadModule } from 'ng2-file-upload';
 import {MdDatepickerModule, MdFormFieldModule, MdNativeDateModule} from '@angular/material';
+import { Ng2FileDropModule } from 'ng2-file-drop';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {MdDatepickerModule, MdFormFieldModule, MdNativeDateModule} from '@angula
     DatePickerModule,
     Ng2CloudinaryModule,
     FileUploadModule,
+    Ng2FileDropModule,
   ],
   declarations: [
     ProjectEditingComponent,
