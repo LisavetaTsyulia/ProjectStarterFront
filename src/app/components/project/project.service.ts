@@ -34,7 +34,7 @@ export class ProjectService {
   }
 
   findProjectById(projectId: number) {
-    return this.authHttp.get(`${environment.serverUrl}project/` + projectId).map(res => res.json());
+    return this.http.get(`${environment.serverUrl}project/` + projectId).map(res => res.json());
   }
 
   updateProject(project: Project) {
