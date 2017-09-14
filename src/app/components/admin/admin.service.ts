@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import {Http} from '@angular/http';
 import {AuthHttp} from 'angular2-jwt';
 import {Router} from '@angular/router';
@@ -58,5 +58,36 @@ export class AdminService {
         {headers}
       )
       .subscribe(r=>{});
+  }
+
+  sortByRole(theRole: string) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
+
+    return this.http
+      .post(
+        `${environment.serverUrl}admin/sort-by-role`,
+        JSON.stringify({theRole}),
+        {headers}
+      ).map(res => {
+        return res.json();
+      });
+
+  }
+
+  sortBy(by: string, theRole: string) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
+
+    return this.http
+      .post(
+        `${environment.serverUrl}admin/sort-by`,
+        JSON.stringify({by, theRole}),
+        {headers}
+      ).map(res => {
+        return res.json();
+      });
   }
 }

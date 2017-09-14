@@ -3,7 +3,7 @@
     <label for="select-users" class="control-label">Load Users:</label>
   </div>
   <div class="col-xs-4">
-    <select class="form-control" id="select-users">
+    <select class="form-control" id="select-users" (change)="onClickSortByRole($event.target.value)">
       <option>All Users</option>
       <option>Confirmed Users</option>
       <option>Users to Confirm</option>
@@ -14,7 +14,8 @@
     <label for="sort-users" class="control-label">Sort Users By:</label>
   </div>
   <div class="col-xs-4">
-    <select class="form-control" id="sort-users">
+    <select class="form-control" id="sort-users" (change)="onClickSort($event.target.value)">
+      <option>None</option>
       <option>Last Login</option>
       <option>Registration Date</option>
       <option>Status</option>
