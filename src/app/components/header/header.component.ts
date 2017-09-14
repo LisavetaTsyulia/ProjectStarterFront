@@ -8,9 +8,11 @@ import {AuthConfigConsts} from 'angular2-jwt';
 })
 export class HeaderComponent implements OnInit {
 
+  public email;
   constructor() { }
 
   ngOnInit() {
+    this.email = JSON.parse(localStorage.getItem('user'))['username'];
   }
 
   public deleteCookies() {
@@ -20,5 +22,10 @@ export class HeaderComponent implements OnInit {
 
   public isAuthenticated(): boolean {
     return !!localStorage.getItem('user');
+  }
+
+  public isAdmin(): boolean {
+    let role : string = JSON.parse(localStorage.getItem('user'));
+    return role['role'] === 'ROLE_ADMIN';
   }
 }

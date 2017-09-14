@@ -8,7 +8,7 @@
     </ul>
     <div id="myTabContent" class="tab-content tab-content-padding-top">
       <div class="tab-pane fade active in" id="basics">
-        <app-basics [project]="project"></app-basics>
+        <app-basics (onUpload)="onUpload($event)" [project]="project"></app-basics>
       </div>
       <div class="tab-pane fade" id="rewards">
         <app-rewards [project]="project"></app-rewards>
@@ -20,9 +20,13 @@
         <app-story [project]="project"></app-story>
       </div>
     </div>
-    <div *ngIf="errorMessage" class="alert alert-danger">
-      {{ errorMessage }}
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+        <button type="submit" class="btn btn-success btn-md btn-block">Save</button>
+      </div>
     </div>
-    <button type="submit" class="btn btn-success btn-md btn-block">Save</button>
   </form>
 </div>

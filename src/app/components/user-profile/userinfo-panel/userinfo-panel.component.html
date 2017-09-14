@@ -1,0 +1,60 @@
+<div class="container" style="padding-top: 60px;">
+  <h1 class="page-header">Edit Profile   :   {{model.email}}</h1>
+  <div class="row">
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="text-center">
+        <div class="item">
+          <img src="{{biography.imageurl}}"  class="avatar  img-thumbnail" alt="avatar">
+          <h6>Upload a different photo...</h6>
+          <input type="file" ng2FileSelect [uploader]="uploader" [(ngModel)]="biography.name" (change)="onChange()" accept="image/*;capture=camera">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+      <!--<div class="alert alert-info alert-dismissable">-->
+        <!--<a class="panel-close close" data-dismiss="alert">×</a>-->
+        <!--<i class="fa fa-coffee"></i>-->
+        <!--This is an <strong>.alert</strong>. Use this to show important messages to the user.-->
+      <!--</div>-->
+      <h3>Personal info</h3>
+      <form class="form-horizontal" role="form" [formGroup]="formGroup">
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Username :</label>
+          <div class="col-lg-8">
+            <input class="form-control" [(ngModel)]="biography.name" [ngModelOptions]="{standalone: true}" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Biography :</label>
+          <div class="col-lg-8">
+            <input class="form-control" [(ngModel)]="biography.biography" [ngModelOptions]="{standalone: true}" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Location :</label>
+          <div class="col-lg-8">
+            <input id="location" [(ngModel)]="biography.location" [ngModelOptions]="{standalone: true}" class="form-control" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">Password:</label>
+          <div class="col-md-8">
+            <input class="form-control" formControlName="password" [(ngModel)]="model.password" type="password">
+          </div>
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger col-lg-8 col-lg-offset-3 ">
+          {{ errorMessage }}
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+          <div class="col-md-8">
+            <input (click)="onSubmit()" class="btn btn-primary" value="Save Changes" type="button">
+          </div>
+        </div>
+        <div *ngIf="successMessage" class="alert alert-success col-lg-8 col-lg-offset-3">
+          {{ successMessage }}
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

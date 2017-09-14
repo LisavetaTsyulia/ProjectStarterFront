@@ -3,20 +3,20 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {ProjectService} from '../project.service';
 import {Project} from '../../model/project';
-import {CloudinaryUploader} from "ng2-cloudinary";
+import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
 
 @Component({
-  selector: 'app-project-editing',
-  templateUrl: './project-editing.component.html',
-  styleUrls: ['./project-editing.component.css']
+  selector: 'app-project-info',
+  templateUrl: './project-info.component.html',
+  styleUrls: ['./project-info.component.css']
 })
-export class ProjectEditingComponent implements OnInit, OnDestroy {
+export class ProjectInfoComponent implements OnInit, OnDestroy {
+  daysToGo: number;
+
   project = new Project;
   projectId: number;
   private subscription: Subscription;
   errorMessage: string;
-
-  uploader: CloudinaryUploader;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -30,28 +30,15 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
     this.projectService.findProjectById(this.projectId)
       .subscribe(data => {
         Object.assign(this.project, data);
+        this.initDaysToGo();
       });
   }
 
-  onSubmit() {
-    this.errorMessage = null;
-
-    this.projectService.updateProject(this.project)
-      .subscribe(
-        data => {
-          Object.assign(this.project, data);
-        },
-        error => {
-          this.errorMessage = error.json().message;
-        }
-      );
-  }
-
-  onUpload(uploader) {
-    this.uploader = uploader;
-    if (this.uploader) {
-      this.uploader.uploadAll();
-    }
+  initDaysToGo() {
+    this.daysToGo = Date.parse(this.project.endDate.toString()) -
+                    Date.parse(new Date().toString());
+    this.daysToGo /= (1000 * 60 * 60 * 24);
+    this.daysToGo = Math.floor(this.daysToGo);
   }
 
   ngOnDestroy() {

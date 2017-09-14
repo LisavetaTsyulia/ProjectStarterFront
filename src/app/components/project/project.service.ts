@@ -40,6 +40,7 @@ export class ProjectService {
   updateProject(project: Project) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
 
     return this.http
       .post(
