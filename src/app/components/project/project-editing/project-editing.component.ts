@@ -15,6 +15,7 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
   projectId: number;
   private subscription: Subscription;
   errorMessage: string;
+  successMessage: string;
 
   uploader: CloudinaryUploader;
 
@@ -35,11 +36,13 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     this.errorMessage = null;
+    this.successMessage = null;
 
     this.projectService.updateProject(this.project)
       .subscribe(
         data => {
           Object.assign(this.project, data);
+          this.successMessage = 'Changes saved.';
         },
         error => {
           this.errorMessage = error.json().message;
