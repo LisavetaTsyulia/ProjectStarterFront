@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {Project} from '../../../../model/project';
-import { DatePickerOptions, DateModel } from 'ng2-datepicker';
+import { Ng2FileDropAcceptedFile } from 'ng2-file-drop';
 import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
 
 @Component({
@@ -40,5 +40,11 @@ export class BasicsComponent implements OnInit {
 
   onDateChange(event) {
     this.project.endDate = event;
+  }
+
+  // File being dragged has been dropped and is valid
+  private dragFileAccepted(acceptedFile: Ng2FileDropAcceptedFile) {
+    console.log(acceptedFile);
+    this.onUpload.emit(this.uploader);
   }
 }
