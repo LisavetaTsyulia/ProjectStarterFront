@@ -12,7 +12,8 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.email = JSON.parse(localStorage.getItem('user'))['username'];
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    this.email = (user != null ? user['username'] : null);
   }
 
   public deleteCookies() {
@@ -25,7 +26,22 @@ export class HeaderComponent implements OnInit {
   }
 
   public isAdmin(): boolean {
-    let role : string = JSON.parse(localStorage.getItem('user'));
+    const role: string = JSON.parse(localStorage.getItem('user'));
     return role['role'] === 'ROLE_ADMIN';
+  }
+
+  public isUser(): boolean {
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    return user['role'] === 'ROLE_USER';
+  }
+
+  public isConfirmedUser(): boolean {
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    return user['role'] === 'ROLE_CONFIRMED_USER';
+  }
+
+  public isAnonymous(): boolean {
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    return user === null;
   }
 }

@@ -17,7 +17,7 @@
         </div>
       </form>
       <ul class="nav navbar-nav">
-        <li>
+        <li *ngIf="!isAnonymous() && !isUser()">
           <a routerLink="project/create" routerLinkActive="active">
             <span class="glyphicon glyphicon-plus"></span> Create new project
           </a>
