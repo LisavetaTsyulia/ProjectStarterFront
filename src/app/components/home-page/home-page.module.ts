@@ -9,7 +9,7 @@ import {MdCardModule, MdButtonModule, MdProgressBarModule} from '@angular/materi
 import {HomePageComponent} from './home-page.component';
 import {AuthModule} from '../auth/auth.module';
 import {ProjectService} from '../project/project.service';
-import {ProjectCardComponent} from '../project-card/project-card.component';
+import {ProjectCardModule} from '../project-card/project-card.module';
 
 @NgModule({
   imports: [
@@ -23,13 +23,10 @@ import {ProjectCardComponent} from '../project-card/project-card.component';
     DatePickerModule,
     Ng2CloudinaryModule,
     FileUploadModule,
-    MdCardModule,
-    MdButtonModule,
-    MdProgressBarModule,
+    ProjectCardModule,
   ],
   declarations: [
     HomePageComponent,
-    ProjectCardComponent
   ],
   providers: [
     ProjectService

@@ -16,6 +16,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import {MdDatepickerModule, MdFormFieldModule, MdNativeDateModule} from '@angular/material';
 import { Ng2FileDropModule } from 'ng2-file-drop';
 import {NewsComponent} from './components/news/news.component';
+import {ProjectCardModule} from "../../project-card/project-card.module";
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {NewsComponent} from './components/news/news.component';
     FileUploadModule,
     DatePickerModule,
     ReactiveFormsModule,
+    ProjectCardModule,
 
     MdDatepickerModule,
     MdFormFieldModule,

@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {ProjectService} from '../project.service';
 import {Project} from '../../model/project';
+import { Ng2FileDropAcceptedFile } from 'ng2-file-drop';
 import {CloudinaryUploader} from 'ng2-cloudinary';
 
 @Component({
