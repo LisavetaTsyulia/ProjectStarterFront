@@ -1,8 +1,14 @@
 <div class="container">
   <div class="col-md-8 col-md-2">
-    <h2>Title</h2>
-    <div>
-      Text
+    <div class="row">
+      <div class="col-md-6 text-left text-warning">
+        <span>News #{{newsNumber}} </span>
+        <a class="glyphicon glyphicon-arrow-left"> Back to news</a>
+      </div>
+      <span class="col-md-6 text-right text-warning">{{news.date | date }}</span>
+    </div>
+    <h2>{{news.title}}</h2>
+    <div [innerHTML]="news.newsText">
     </div>
   </div>
 </div>

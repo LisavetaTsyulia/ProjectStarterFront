@@ -18,6 +18,8 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   errorMessage: string;
 
+  showMoreNewsInfo = false;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private projectService: ProjectService,
