@@ -69,4 +69,8 @@ export class ProjectService {
         return res.json();
       });
   }
+
+  findNewsByProjectId(projectId: number) {
+    return this.authHttp.get(`${environment.serverUrl}project/news?project_id=` + projectId).map(res => res.json());
+  }
 }
