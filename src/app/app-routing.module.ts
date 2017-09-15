@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full'},
+  { path: '',
+    loadChildren: 'app/components/home-page/home-page.module#HomePageModule'},
   { path: 'login', loadChildren: 'app/components/login/login.module#LoginModule' },
   { path: 'registration', loadChildren: 'app/components/registration/registration.module#RegistrationModule' },
   { path: 'user-info',
@@ -14,7 +15,9 @@ const routes: Routes = [
   { path: 'project/edit/:user_id/:project_id',
     loadChildren: 'app/components/project/project-editing/project-editing.module#ProjectEditingModule' },
   { path: 'project-info/:project_id',
-    loadChildren: 'app/components/project/project-info/project-info.module#ProjectInfoModule' }
+    loadChildren: 'app/components/project/project-info/project-info.module#ProjectInfoModule' },
+  { path: 'project-info/:project_id',
+    loadChildren: 'app/components/project/project-info/project-info.module#ProjectInfoModule' },
 ];
 
 @NgModule({
