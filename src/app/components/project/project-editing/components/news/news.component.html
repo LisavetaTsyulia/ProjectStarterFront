@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+    <div *ngIf="!needToCreate" class="row">
+      <a (click)="showCreating()" class="btn btn-default btn-lg btn-block">Create the news</a>
+    </div>
+    <div *ngIf="needToCreate" class="form-group">
+      <h1>Add information about your news</h1>
+      <input class="form-control" id="news_title" placeholder="Title" name="news_title"
+             [(ngModel)]="news.title"/>
+      <div class="margin-top">
+        <app-text-editor
+          [elementId]="'project_news'"
+          [value]="defaultBodyValue"
+          (onEditorKeyup)="onTextEditorKeyUp($event)">
+        </app-text-editor>
+      </div>
+      <div class="text-center margin-top">
+        <a (click)="cancel()" class="btn btn-default btn-md">Cancel</a>
+        <a (click)="create()" class="btn btn-success btn-md">Create the news</a>
+      </div>
+    </div>
+  </div>
+</div>
