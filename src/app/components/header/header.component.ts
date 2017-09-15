@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthConfigConsts} from 'angular2-jwt';
+import {Modal} from "angular2-modal";
+import {UserCreatorModal} from "./user-creator-modal";
+import {BSModalContext} from "angular2-modal/plugins/bootstrap";
+import {overlayConfigFactory } from 'angular2-modal';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +13,8 @@ import {AuthConfigConsts} from 'angular2-jwt';
 export class HeaderComponent implements OnInit {
 
   public email;
-  constructor() { }
+  constructor(public modal: Modal) {
+  }
 
   ngOnInit() {
     const user: string = JSON.parse(localStorage.getItem('user'));
@@ -35,7 +40,7 @@ export class HeaderComponent implements OnInit {
     return user['role'] === 'ROLE_USER';
   }
 
-  public isConfirmedUser(): boolean {
+  public isConfirmed(): boolean {
     const user: string = JSON.parse(localStorage.getItem('user'));
     return user['role'] === 'ROLE_CONFIRMED_USER';
   }
@@ -43,5 +48,9 @@ export class HeaderComponent implements OnInit {
   public isAnonymous(): boolean {
     const user: string = JSON.parse(localStorage.getItem('user'));
     return user === null;
+  }
+
+  openCustom() {
+    return this.modal.open(UserCreatorModal,  overlayConfigFactory({ num1: 2, num2: 3 }, BSModalContext));
   }
 }

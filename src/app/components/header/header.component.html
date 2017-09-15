@@ -18,7 +18,10 @@
       </form>
       <ul class="nav navbar-nav">
         <li *ngIf="!isAnonymous() && !isUser()">
-          <a routerLink="project/create" routerLinkActive="active">
+          <a *ngIf="isConfirmed()" routerLink="project/create" routerLinkActive="active">
+            <span class="glyphicon glyphicon-plus"></span> Create new project
+          </a>
+          <a *ngIf="!isConfirmed()" (click)="openCustom()" routerLinkActive="active">
             <span class="glyphicon glyphicon-plus"></span> Create new project
           </a>
         </li>
@@ -46,3 +49,4 @@
     </div>
   </div>
 </nav>
+
