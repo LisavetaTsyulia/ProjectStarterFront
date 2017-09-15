@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Project} from '../../../../model/project';
 import {News} from '../../../../model/news';
 import {ProjectService} from '../../../project.service';
 
@@ -9,9 +8,10 @@ import {ProjectService} from '../../../project.service';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
-  @Input() project: Project;
+  @Input() projectId: number;
   defaultBodyValue = '';
   news: News;
+  successMessage: string;
 
   needToCreate = false;
 
@@ -29,6 +29,7 @@ export class NewsComponent implements OnInit {
   showCreating() {
     this.needToCreate = !this.needToCreate;
     this.news = new News();
+    this.successMessage = null;
   }
 
   cancel() {
@@ -37,7 +38,12 @@ export class NewsComponent implements OnInit {
   }
 
   create() {
-    console.log(this.news);
-    this.projectService.createNews(this.news);
+    this.news.projectId = this.projectId;
+    this.projectService.createNews(this.news)
+      .subscribe(data => {
+        Object.assign(this.news, data);
+        this.successMessage = 'The news was created.';
+        this.cancel();
+      });
   }
 }
