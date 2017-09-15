@@ -19,6 +19,8 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   errorMessage: string;
 
   showMoreNewsInfo = false;
+  selectedNews: News;
+  selectedNewsNumber: number;
   newsArray: News[] = [];
 
   constructor(
@@ -45,6 +47,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.projectService.findNewsByProjectId(this.projectId)
       .subscribe(data => {
         Object.assign(this.newsArray, data);
+        console.log(this.newsArray);
       });
   }
 
@@ -57,5 +60,17 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  showNews(selectedNews, selectedNewsNumber) {
+    this.selectedNews = selectedNews;
+    this.selectedNewsNumber = selectedNewsNumber;
+    this.showMoreNewsInfo = !this.showMoreNewsInfo;
+  }
+
+  showNewsList() {
+    this.selectedNews = null;
+    this.selectedNewsNumber = null;
+    this.showMoreNewsInfo = !this.showMoreNewsInfo;
   }
 }

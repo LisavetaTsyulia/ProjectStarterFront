@@ -1,14 +1,12 @@
-<div class="container">
-  <div class="col-md-8 col-md-2">
-    <div class="row">
-      <div class="col-md-6 text-left text-warning">
-        <span>News #{{newsNumber}} </span>
-        <a class="glyphicon glyphicon-arrow-left"> Back to news</a>
-      </div>
-      <span class="col-md-6 text-right text-warning">{{news.date | date }}</span>
+<div class="margin-top">
+  <a class="glyphicon glyphicon-arrow-left" (click)="backToNews()"><span class="bold"> Back</span></a>
+  <div class="row">
+    <div class="col-md-6 text-left text-warning">
+      <h4>News #{{newsNumber}} </h4>
     </div>
-    <h2>{{news.title}}</h2>
-    <div [innerHTML]="news.newsText">
-    </div>
+    <h5 class="col-md-6 text-right">{{news.date | date }}</h5>
+  </div>
+  <h2>{{news.title}}</h2>
+  <div [innerHTML]="news.newsText">
   </div>
 </div>

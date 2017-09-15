@@ -41,25 +41,22 @@
       </div>
     </div>
     <div class="tab-pane fade" id="news">
-      <div class="row col-md-6 col-md-offset-3">
+      <div class="col-md-8 col-md-offset-2">
         <div *ngIf="!showMoreNewsInfo">
-          <ul>
-            <li class="card margin-top">
+            <div *ngFor="let news of newsArray; let i = index" (click)="showNews(news, newsArray.length - i)"
+                class="card margin-top">
               <div class="card-block">
-                <p class="text-warning">News #1</p>
-                <h4 class="card-title bold">Some quick example text to build on the card title and make up the bulk of
-                  the
-                  card's
-                  content. <a disabled="true">Read more...</a></h4>
+                <p class="text-warning">News #{{newsArray.length - i}}</p>
+                <h4 class="card-title bold">{{news.title}} <a disabled="true">Read more...</a></h4>
               </div>
               <div class="text-right">
-                <span>September 15 2017</span>
+                <span>{{news.date | date}}</span>
               </div>
-            </li>
-          </ul>
+            </div>
         </div>
         <div *ngIf="showMoreNewsInfo">
-          <app-news-info></app-news-info>
+          <app-news-info [news]="selectedNews" [newsNumber]="selectedNewsNumber"
+          (back)="showNewsList()"></app-news-info>
         </div>
       </div>
     </div>
