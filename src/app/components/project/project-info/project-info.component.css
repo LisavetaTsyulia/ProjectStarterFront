@@ -9,15 +9,21 @@
   border-radius: 7px;
 }
 
-/*.reward-card {*/
-  /*background: #E0F7FA; !* Цвет фона *!*/
-  /*border: 1px solid #4DD0E1; !* Параметры рамки *!*/
-  /*padding: 7px; !* Поля вокруг текста *!*/
-  /*border-radius: 7px;*/
-  /*color: #4DD0E1;*/
-/*}*/
+.card {
+  border: 1px solid; /* Параметры рамки */
+  padding: 7px; /* Поля вокруг текста */
+  border-radius: 7px;
+}
 
-/*.reward-border {*/
-  /*border: 1px; !* Параметры рамки *!*/
-  /*border-radius: 7px;*/
-/*}*/
+.card:hover {
+  background: rgba(165, 214, 167, .5);
+  cursor: pointer;
+}
+
+h4 a {
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none;
+}
