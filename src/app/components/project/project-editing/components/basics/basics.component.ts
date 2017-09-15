@@ -35,14 +35,6 @@ export class BasicsComponent implements OnInit {
   ngOnInit() {
   }
 
-  onChange() {
-    this.onUpload.emit(this.uploader);
-  }
-
-  upload() {
-    this.uploader.uploadAll();
-  }
-
   onDateChange(event) {
     this.project.endDate = event;
   }
