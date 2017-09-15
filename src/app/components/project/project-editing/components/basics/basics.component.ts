@@ -12,6 +12,8 @@ export class BasicsComponent implements OnInit {
   @Input() project: Project;
   @Output() onUpload = new EventEmitter<any>();
 
+  date;
+
   supportedFileTypes: string[] = ['image/png', 'image/jpeg', 'image/gif'];
 
   imageShown: boolean = false;
@@ -33,6 +35,11 @@ export class BasicsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.date = this.project.endDate;
+    setTimeout(() => {
+      this.date = this.project.endDate;
+      console.log(this.date);
+    }, 2000);
   }
 
   onDateChange(event) {
