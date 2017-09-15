@@ -1,5 +1,9 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+.margin-top {
+  margin-top: 15px;
+}
+
 .form-style {
   margin-top: 50px;
   padding-top: 15px;

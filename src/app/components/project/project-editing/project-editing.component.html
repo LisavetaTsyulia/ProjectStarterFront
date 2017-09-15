@@ -5,10 +5,11 @@
       <li class=""><a href="#rewards" data-toggle="tab" aria-expanded="false">Rewards</a></li>
       <li class=""><a href="#goals" data-toggle="tab" aria-expanded="false">Goals</a></li>
       <li class=""><a href="#story" data-toggle="tab" aria-expanded="false">Story</a></li>
+      <li class=""><a href="#news" data-toggle="tab" aria-expanded="false">News</a></li>
     </ul>
     <div id="myTabContent" class="tab-content tab-content-padding-top">
       <div class="tab-pane fade active in" id="basics">
-        <app-basics (onUpload)="onUpload($event)" [project]="project"></app-basics>
+        <app-basics [project]="project"></app-basics>
       </div>
       <div class="tab-pane fade" id="rewards">
         <app-rewards [project]="project"></app-rewards>
@@ -18,6 +19,9 @@
       </div>
       <div class="tab-pane fade" id="story">
         <app-story [project]="project"></app-story>
+      </div>
+      <div class="tab-pane fade" id="news">
+        <app-news [projectId]="project.id"></app-news>
       </div>
     </div>
     <div class="row">

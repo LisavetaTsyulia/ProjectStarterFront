@@ -8,6 +8,7 @@ import {ProjectInfoComponent} from './project-info.component';
 import { DatePickerModule } from 'ng2-datepicker';
 import { FileUploadModule } from 'ng2-file-upload';
 import {Ng2CloudinaryModule} from 'ng2-cloudinary';
+import { NewsInfoComponent } from './news-info/news-info.component';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import {Ng2CloudinaryModule} from 'ng2-cloudinary';
   ],
   declarations: [
     ProjectInfoComponent,
+    NewsInfoComponent,
   ],
   providers: [
     ProjectService

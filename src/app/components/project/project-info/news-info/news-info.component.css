@@ -1,0 +1,12 @@
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000000;
+  cursor: pointer;
+}
+
+span {
+  font-size: 1.2em;
+}

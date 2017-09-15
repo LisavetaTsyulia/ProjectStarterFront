@@ -7,6 +7,7 @@ import 'rxjs/add/operator/do';
 import {environment} from '../../../environments/environment';
 import {Headers} from '@angular/http';
 import {Project} from '../model/project';
+import {News} from '../model/news';
 
 @Injectable()
 export class ProjectService {
@@ -51,5 +52,25 @@ export class ProjectService {
       .map(res => {
         return res.json();
       });
+  }
+
+  createNews(news: News) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
+
+    return this.http
+      .post(
+        `${environment.serverUrl}project/createNews`,
+        JSON.stringify(news),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      });
+  }
+
+  findNewsByProjectId(projectId: number) {
+    return this.authHttp.get(`${environment.serverUrl}project/news?project_id=` + projectId).map(res => res.json());
   }
 }

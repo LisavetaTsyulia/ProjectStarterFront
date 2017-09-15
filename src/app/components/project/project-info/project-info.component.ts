@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {ProjectService} from '../project.service';
 import {Project} from '../../model/project';
-import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
+import {News} from '../../model/news';
 
 @Component({
   selector: 'app-project-info',
@@ -18,6 +18,11 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   errorMessage: string;
 
+  showMoreNewsInfo = false;
+  selectedNews: News;
+  selectedNewsNumber: number;
+  newsArray: News[] = [];
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private projectService: ProjectService,
@@ -26,11 +31,23 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.activatedRoute.params.subscribe(params =>
       this.projectId = params['project_id']);
+    this.getProject();
+    this.getNews();
+  }
 
+  getProject() {
     this.projectService.findProjectById(this.projectId)
       .subscribe(data => {
         Object.assign(this.project, data);
         this.initDaysToGo();
+      });
+  }
+
+  getNews() {
+    this.projectService.findNewsByProjectId(this.projectId)
+      .subscribe(data => {
+        Object.assign(this.newsArray, data);
+        console.log(this.newsArray);
       });
   }
 
@@ -43,5 +60,17 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  showNews(selectedNews, selectedNewsNumber) {
+    this.selectedNews = selectedNews;
+    this.selectedNewsNumber = selectedNewsNumber;
+    this.showMoreNewsInfo = !this.showMoreNewsInfo;
+  }
+
+  showNewsList() {
+    this.selectedNews = null;
+    this.selectedNewsNumber = null;
+    this.showMoreNewsInfo = !this.showMoreNewsInfo;
   }
 }
