@@ -38,12 +38,7 @@ export class BasicsComponent implements OnInit {
     this.date = this.project.endDate;
     setTimeout(() => {
       this.date = this.project.endDate;
-      console.log(this.date);
     }, 2000);
-  }
-
-  onDateChange(event) {
-    this.project.endDate = event;
   }
 
   // File being dragged has been dropped and is valid

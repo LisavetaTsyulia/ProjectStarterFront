@@ -29,16 +29,6 @@
       </div>
 
       <div class="form-group row">
-        <label for="funding_duration" class="col-sm-3 col-form-label">Funding duration</label>
-        <div class="col-sm-9">
-          <input mdInput [min]="minDate" [mdDatepicker]="picker"
-                 placeholder="Choose a date">
-          <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-          <md-datepicker [(ngModel)]="date" #picker (selectedChanged)="onDateChange($event)"></md-datepicker>
-        </div>
-      </div>
-
-      <div class="form-group row">
         <label for="funding_goal" class="col-sm-3 col-form-label">Funding goal</label>
         <div class="col-sm-9">
           <input class="form-control" id="funding_goal" name="funding_goal"

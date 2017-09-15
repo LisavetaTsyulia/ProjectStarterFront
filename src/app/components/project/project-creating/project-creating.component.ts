@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Project} from '../../model/project';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProjectService} from '../project.service';
+import {IMyDateModel, IMyDpOptions} from 'mydatepicker';
 
 @Component({
   selector: 'app-project-creating',
@@ -17,6 +18,10 @@ export class ProjectCreatingComponent implements OnInit {
   errorMessage: string;
   currentUser;
 
+  myDatePickerOptions: IMyDpOptions = {
+    dateFormat: 'dd.mm.yyyy',
+  };
+
   constructor(
     private projectService: ProjectService,
     private router: Router,
@@ -28,6 +33,7 @@ export class ProjectCreatingComponent implements OnInit {
     this.returnUrl = 'project/edit/' + (this.currentUser ? this.currentUser.id + '/' : '');
     this.formGroup = this.fb.group({
       title: ['', Validators.required],
+      deadline: [null, Validators.required]
     });
   }
 
@@ -37,7 +43,7 @@ export class ProjectCreatingComponent implements OnInit {
       this.errorMessage = null;
 
       this.projectService.showMessage();
-      this.projectService.create(this.model.title, this.currentUser.id)
+      this.projectService.create(this.model.title, this.currentUser.id, this.model.endDate)
         .subscribe(
           data => {
             this.returnUrl += data.project_id;
@@ -49,5 +55,9 @@ export class ProjectCreatingComponent implements OnInit {
           }
         );
     }
+  }
+
+  onDateChanged(event: IMyDateModel) {
+    this.model.endDate = event.jsdate;
   }
 }

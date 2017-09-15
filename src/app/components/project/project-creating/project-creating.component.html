@@ -12,6 +12,16 @@
           </div>
         </div>
       </div>
+      <div class="form-group">
+        <label for="title">End date</label>
+        <my-date-picker name="deadline" [options]="myDatePickerOptions" [formControl]="formGroup.get('deadline')"
+                        (dateChanged)="onDateChanged($event)"></my-date-picker>
+        <div *ngIf="formGroup.get('deadline').errors && formGroup.get('deadline').touched" class="alert alert-danger">
+          <div *ngIf="formGroup.get('deadline').hasError('required')">
+            End date is required.
+          </div>
+        </div>
+      </div>
       <div *ngIf="errorMessage" class="alert alert-danger">
         {{ errorMessage }}
       </div>
