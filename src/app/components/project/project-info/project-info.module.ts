@@ -24,7 +24,7 @@ import {MdCardModule, MdButtonModule} from '@angular/material';
     Ng2CloudinaryModule,
     FileUploadModule,
     MdCardModule,
-    MdButtonModule
+    MdButtonModule,
   ],
   declarations: [
     ProjectInfoComponent,

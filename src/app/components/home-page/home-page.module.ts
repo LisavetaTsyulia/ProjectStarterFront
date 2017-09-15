@@ -5,10 +5,11 @@ import {FormsModule} from '@angular/forms';
 import { DatePickerModule } from 'ng2-datepicker';
 import { FileUploadModule } from 'ng2-file-upload';
 import {Ng2CloudinaryModule} from 'ng2-cloudinary';
-import {MdCardModule, MdButtonModule} from '@angular/material';
+import {MdCardModule, MdButtonModule, MdProgressBarModule} from '@angular/material';
 import {HomePageComponent} from './home-page.component';
 import {AuthModule} from '../auth/auth.module';
 import {ProjectService} from '../project/project.service';
+import {ProjectCardComponent} from '../project-card/project-card.component';
 
 @NgModule({
   imports: [
@@ -24,9 +25,11 @@ import {ProjectService} from '../project/project.service';
     FileUploadModule,
     MdCardModule,
     MdButtonModule,
+    MdProgressBarModule,
   ],
   declarations: [
     HomePageComponent,
+    ProjectCardComponent
   ],
   providers: [
     ProjectService
