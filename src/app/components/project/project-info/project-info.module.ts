@@ -9,6 +9,7 @@ import { DatePickerModule } from 'ng2-datepicker';
 import { FileUploadModule } from 'ng2-file-upload';
 import {Ng2CloudinaryModule} from 'ng2-cloudinary';
 import { NewsInfoComponent } from './news-info/news-info.component';
+import {MdCardModule, MdButtonModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -21,7 +22,9 @@ import { NewsInfoComponent } from './news-info/news-info.component';
     AuthModule,
     DatePickerModule,
     Ng2CloudinaryModule,
-    FileUploadModule
+    FileUploadModule,
+    MdCardModule,
+    MdButtonModule
   ],
   declarations: [
     ProjectInfoComponent,
