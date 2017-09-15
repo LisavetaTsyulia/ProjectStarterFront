@@ -31,7 +31,6 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
     this.projectService.findProjectById(this.projectId)
       .subscribe(data => {
         Object.assign(this.project, data);
-        this.project.targetAmount /= 100;
       });
   }
 
@@ -39,14 +38,11 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
     this.errorMessage = null;
     this.successMessage = null;
 
-    this.project.targetAmount = Math.round(this.project.targetAmount * 100);
-    // this.project.targetAmount *= 100;
     this.projectService.updateProject(this.project)
       .subscribe(
         data => {
           Object.assign(this.project, data);
           this.successMessage = 'Changes saved.';
-          this.project.targetAmount /= 100;
         },
         error => {
           this.errorMessage = error.json().message;
