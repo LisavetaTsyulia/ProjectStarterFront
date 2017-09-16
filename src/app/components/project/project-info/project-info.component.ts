@@ -12,6 +12,7 @@ import {News} from '../../model/news';
 })
 export class ProjectInfoComponent implements OnInit, OnDestroy {
   daysToGo: number;
+  isSubscribed = true;
 
   project = new Project;
   projectId: number;
@@ -72,5 +73,9 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.selectedNews = null;
     this.selectedNewsNumber = null;
     this.showMoreNewsInfo = !this.showMoreNewsInfo;
+  }
+
+  subscribe() {
+    this.isSubscribed = !this.isSubscribed;
   }
 }
