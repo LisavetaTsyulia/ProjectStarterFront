@@ -5,6 +5,7 @@ import {ProjectService} from '../project.service';
 import {Project} from '../../model/project';
 import { Ng2FileDropAcceptedFile } from 'ng2-file-drop';
 import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-project-editing',
@@ -20,18 +21,18 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
     new CloudinaryOptions({ cloudName: 'project-starter', uploadPreset: 'clbhkmd8' })
   );
 
-  // Description
-  defaultBodyValue = '';
-
   project = new Project;
   projectId: number;
   private subscription: Subscription;
   errorMessage: string;
   successMessage: string;
+  formGroup: FormGroup;
+  titleFormGroup: FormGroup;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private projectService: ProjectService,
+    private fb: FormBuilder,
   ) {
     this.uploader.onSuccessItem = (item: any, response: string, status: number, headers: any): any => {
       const res: any = JSON.parse(response);
@@ -48,8 +49,12 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
     this.projectService.findProjectById(this.projectId)
       .subscribe(data => {
         Object.assign(this.project, data);
-        this.defaultBodyValue = this.project.description;
       });
+
+    this.titleFormGroup = this.fb.group({
+      title: ['', [Validators.required, Validators.minLength(2)]],
+      goal: ['', [Validators.required, Validators.minLength(2)]]
+    });
   }
 
   onSubmit() {
