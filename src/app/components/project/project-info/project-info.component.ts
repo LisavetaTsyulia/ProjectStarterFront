@@ -12,10 +12,11 @@ import {News} from '../../model/news';
 })
 export class ProjectInfoComponent implements OnInit, OnDestroy {
   daysToGo: number;
-  isSubscribed = true;
+  isSubscribed = false;
 
   project = new Project;
   projectId: number;
+  userId: number;
   private subscription: Subscription;
   errorMessage: string;
 
@@ -34,6 +35,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
       this.projectId = params['project_id']);
     this.getProject();
     this.getNews();
+    this.userId = JSON.parse(localStorage.getItem('user')).id;
   }
 
   getProject() {
@@ -76,6 +78,11 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   }
 
   subscribe() {
+    this.projectService.subscribe(this.userId, this.project.id, !this.isSubscribed)
+      .subscribe(data => {
+        Object.assign(this.newsArray, data);
+        console.log(this.newsArray);
+      });
     this.isSubscribed = !this.isSubscribed;
   }
 }

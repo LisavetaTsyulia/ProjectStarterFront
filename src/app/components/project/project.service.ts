@@ -73,4 +73,20 @@ export class ProjectService {
   findNewsByProjectId(projectId: number) {
     return this.authHttp.get(`${environment.serverUrl}project/news?project_id=` + projectId).map(res => res.json());
   }
+
+  subscribe(userId: number, projectId: number, needToSubscribe: boolean) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
+
+    return this.http
+      .post(
+        `${environment.serverUrl}project/subscribe`,
+        JSON.stringify({userId, projectId, needToSubscribe}),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      });
+  }
 }
