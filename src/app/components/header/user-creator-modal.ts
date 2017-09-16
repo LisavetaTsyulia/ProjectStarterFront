@@ -87,7 +87,8 @@ export class UserCreatorModal implements CloseGuard, ModalComponent<CustomModalC
 
   constructor(
     public dialog: DialogRef<CustomModalContext>,
-    public http: Http
+    public http: Http,
+    public authService: AuthService
   ) {
     this.context = dialog.context;
     this.wrongAnswer = true;
@@ -132,9 +133,13 @@ export class UserCreatorModal implements CloseGuard, ModalComponent<CustomModalC
       .map(res => {
         return res.json();
       })
-      .subscribe(r=>{
+      .flatMap(data => {
+        return this.authService.getMe();
+      })
+      .subscribe(
+        data => {
+        localStorage.setItem('user', JSON.stringify(data));
       });
-
 
     this.dialog.close();
   }

@@ -34,7 +34,6 @@ import {AuthModule} from "./components/auth/auth.module";
     FileUploadModule,
     Ng2FileDropModule,
     ReactiveFormsModule,
-    HttpModule,
     AuthModule
   ],
   providers: [
