@@ -6,14 +6,48 @@
   <div id="myTabContent" class="tab-content tab-content-padding-top">
     <div class="tab-pane fade active in" id="project_info">
       <form (ngSubmit)="onSubmit()">
-        <!--<app-basics [project]="project"></app-basics>-->
-        <div class="row">
-          <app-project-card></app-project-card>
+        <div class="container">
+          <h1>Editing project info</h1>
+          <div class="row">
+            <div class="col-md-8 col-xs-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">Project image</div>
+                <div class="panel-body">
+                  <div class="profile-picture-section">
+                    <div ng2FileDrop [uploader]="uploader" [ng2FileDropSupportedFileTypes]="supportedFileTypes"
+                         (ng2FileDropFileAccepted)="dragFileAccepted($event)"
+                         class="profile-picture-section-drop-zone">
+                      <div *ngIf="!imageShown" class=profile-picture-section-request-image-group>
+                        <p class="profile-picture-section-request-image-instructions">Drop a project picture here</p>
+                      </div>
+                      <div *ngIf="imageShown" class=profile-picture-section-request-image-container>
+                        <img class=profile-picture-section-request-image [src]="currentProfileImage">
+                      </div>
+                    </div>
+                    <p class="profile-picture-section-limitations">Project picture can be .png, .jpeg or .gif only</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-primary">
+                <div class="panel-heading">Project title</div>
+                <div class="panel-body">
+                  <input class="form-control" id="project_title" placeholder="Title" name="project_title"
+                         [(ngModel)]="project.title"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 col-md-offset-1">
+              <app-project-card></app-project-card>
+            </div>
+          </div>
+
           <div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
             <div *ngIf="errorMessage" class="alert alert-danger">
               {{ errorMessage }}
             </div>
-            <button type="submit" class="btn btn-success btn-md btn-block">Save</button>
+            <button disabled type="submit" class="btn btn-success btn-md btn-block">Save</button>
             <div *ngIf="successMessage" class="alert alert-info">
               {{ successMessage }}
             </div>
