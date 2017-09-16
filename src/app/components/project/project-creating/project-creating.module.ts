@@ -5,6 +5,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthModule} from '../../auth/auth.module';
 import {ProjectCreatingComponent} from './project-creating.component';
 import {ProjectService} from '../project.service';
+import {MdDatepickerModule, MdFormFieldModule, MdNativeDateModule} from '@angular/material';
+import {MyDatePickerModule} from 'mydatepicker';
 
 @NgModule({
   imports: [
@@ -16,6 +18,10 @@ import {ProjectService} from '../project.service';
     FormsModule,
     AuthModule,
     ReactiveFormsModule,
+    MyDatePickerModule,
+    // MdDatepickerModule,
+    // MdFormFieldModule,
+    // MdNativeDateModule,
   ],
   providers: [
     ProjectService

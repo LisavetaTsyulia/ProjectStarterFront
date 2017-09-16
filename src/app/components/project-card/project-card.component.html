@@ -1,16 +1,14 @@
-<div class="col-md-3 col-sm-4">
-  <md-card class="card margin-top">
-    <img md-card-image src="{{project.imageUrl}}" alt="Project image">
-    <md-card-title><h4>{{project.title}}</h4></md-card-title>
-    <md-card-content>
-      <span class="bold">${{project.currentAmount}}</span> pledged<br>
-      <span class="bold">{{daysToGo}}</span> days to go
-      <div class="progress goal-progress-container">
-        <div class="progress-bar progress-bar-success progress-bar-striped active goal-progress"
-             role="progressbar" [attr.aria-valuenow]="value" aria-valuemin="0" aria-valuemax="100"
-             [style.width]="value + '%'">
-        </div>
+<md-card class="card margin-top">
+  <img md-card-image src="{{!localImage ? project.imageUrl : localImage}}" alt="Project image">
+  <md-card-title><h4>{{project.title}}</h4></md-card-title>
+  <md-card-content>
+    <span class="bold">${{project.currentAmount}}</span> pledged<br>
+    <span class="bold">{{daysToGo}}</span> days to go
+    <div class="progress goal-progress-container">
+      <div class="progress-bar progress-bar-success progress-bar-striped active goal-progress"
+           role="progressbar" [attr.aria-valuenow]="value" aria-valuemin="0" aria-valuemax="100"
+           [style.width]="value + '%'">
       </div>
-    </md-card-content>
-  </md-card>
-</div>
+    </div>
+  </md-card-content>
+</md-card>

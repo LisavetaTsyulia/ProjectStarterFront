@@ -8,20 +8,19 @@ import {ProjectCardComponent} from './project-card.component';
 
 @NgModule({
   imports: [
-    RouterModule.forChild([
-      { path: '',
-        component: ProjectCardComponent}
-    ]),
     CommonModule,
     FormsModule,
     AuthModule,
     MdCardModule,
     MdButtonModule,
-    MdProgressBarModule,
   ],
   declarations: [
     ProjectCardComponent,
   ],
-  exports: [RouterModule]
+  exports: [
+    ProjectCardComponent,
+    MdCardModule,
+    MdButtonModule,
+  ]
 })
 export class ProjectCardModule { }

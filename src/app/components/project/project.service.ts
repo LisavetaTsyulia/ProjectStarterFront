@@ -18,7 +18,7 @@ export class ProjectService {
   showMessage() {
   }
 
-  create(title: string, userId: number) {
+  create(title: string, userId: number, endDate: Date, targetAmount: number) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', localStorage.getItem('token'));
@@ -26,7 +26,7 @@ export class ProjectService {
     return this.http
       .post(
         `${environment.serverUrl}project/create`,
-        JSON.stringify({title, userId}),
+        JSON.stringify({title, userId, endDate, targetAmount}),
         {headers}
       )
       .map(res => {

@@ -1,8 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {ProjectService} from "../project/project.service";
+import {Component, OnInit, Input} from '@angular/core';
 import {Project} from '../model/project';
-import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-project-card',
@@ -10,30 +7,19 @@ import {Subscription} from 'rxjs/Subscription';
   styleUrls: ['./project-card.component.css']
 })
 export class ProjectCardComponent implements OnInit {
-  project = new Project;
-  projectId: number;
-  private subscription: Subscription;
-  errorMessage: string;
+  @Input() project: Project;
+  @Input() localImage;
 
   daysToGo: number;
   value: number;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private projectService: ProjectService,
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-    this.getProject();
-  }
-
-  getProject() {
-    this.projectService.findProjectById(8)
-      .subscribe(data => {
-        Object.assign(this.project, data);
-        this.value = this.project.currentAmount / this.project.targetAmount * 100;
-        this.initDaysToGo();
-      });
+    setTimeout(() => {
+      this.value = this.project.currentAmount / this.project.targetAmount * 100;
+      this.initDaysToGo();
+    }, 2000);
   }
 
   initDaysToGo() {
