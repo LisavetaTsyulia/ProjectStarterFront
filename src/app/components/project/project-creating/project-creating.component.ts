@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Project} from '../../model/project';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {ProjectService} from '../project.service';
 import {IMyDateModel, IMyDpOptions} from 'mydatepicker';
+import {AmountValidators} from '../../validators/AmountValidators';
 
 @Component({
   selector: 'app-project-creating',
@@ -32,8 +33,9 @@ export class ProjectCreatingComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('user'));
     this.returnUrl = 'project/edit/' + (this.currentUser ? this.currentUser.id + '/' : '');
     this.formGroup = this.fb.group({
-      title: ['', Validators.required],
-      deadline: [null, Validators.required]
+      title: ['', [Validators.required, Validators.maxLength(60)]],
+      deadline: [null, Validators.required],
+      goal: ['', [Validators.required, AmountValidators.isValidAmount]]
     });
   }
 

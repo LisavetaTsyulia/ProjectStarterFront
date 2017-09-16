@@ -2,16 +2,21 @@
   <div class="col-md-4 col-md-offset-4">
     <h1>Create new project</h1>
     <form (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+
       <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" placeholder="Title" required
+        <input type="text" class="form-control" id="title" placeholder="Title"
                [(ngModel)]="model.title" name="title" formControlName="title">
         <div *ngIf="formGroup.get('title').errors && formGroup.get('title').touched" class="alert alert-danger">
           <div *ngIf="formGroup.get('title').hasError('required')">
             Title is required.
           </div>
+          <div *ngIf="formGroup.get('title').hasError('maxlength')">
+            Title should be maximum {{formGroup.get('title').getError('maxlength').requiredLength}} characters.
+          </div>
         </div>
       </div>
+
       <div class="form-group">
         <label for="title">End date</label>
         <my-date-picker name="deadline" [options]="myDatePickerOptions" [formControl]="formGroup.get('deadline')"
@@ -22,6 +27,24 @@
           </div>
         </div>
       </div>
+
+      <div class="form-group">
+        <label for="funding_goal">Project goal</label>
+        <div class="has-feedback">
+          <input type="text" class="form-control" id="funding_goal" placeholder="Project goal"
+                 [(ngModel)]="model.targetAmount" name="funding_goal" formControlName="goal">
+          <span class="glyphicon glyphicon-usd form-control-feedback"></span>
+        </div>
+        <div *ngIf="formGroup.get('goal').errors && formGroup.get('goal').touched" class="alert alert-danger">
+          <div *ngIf="formGroup.get('goal').hasError('required')">
+            Project goal is required.
+          </div>
+          <div *ngIf="formGroup.get('goal').hasError('incorrectAmountFormat')">
+            Project goal is wrong. It should be integer value.
+          </div>
+        </div>
+      </div>
+
       <div *ngIf="errorMessage" class="alert alert-danger">
         {{ errorMessage }}
       </div>

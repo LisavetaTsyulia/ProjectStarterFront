@@ -52,22 +52,6 @@
 
               <div class="form-group">
                 <div class="panel panel-primary">
-                  <div class="panel-heading">Project goal</div>
-                  <div class="panel-body">
-                    <div class="has-feedback">
-                      <input class="form-control" id="funding_goal" name="funding_goal"
-                             [(ngModel)]="project.targetAmount" formControlName="goal"/>
-                      <span class="glyphicon glyphicon-usd form-control-feedback"></span>
-                      <div *ngIf="errorMessage" class="alert alert-danger">
-                        {{ errorMessage }}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <div class="panel panel-primary">
                   <div class="panel-heading">Project description</div>
                   <div class="panel-body">
                     <app-text-editor

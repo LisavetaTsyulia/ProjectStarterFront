@@ -51,8 +51,7 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
       });
 
     this.formGroup = this.fb.group({
-      title: ['', [Validators.required, Validators.maxLength(60)]],
-      goal: ['', [Validators.required, Validators.minLength(2)]]
+      title: ['', [Validators.required, Validators.maxLength(60)]]
     });
   }
 
