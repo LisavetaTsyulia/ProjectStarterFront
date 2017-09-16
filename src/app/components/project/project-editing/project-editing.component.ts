@@ -15,7 +15,7 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
   // Drag and drop
   supportedFileTypes: string[] = ['image/png', 'image/jpeg', 'image/gif'];
   imageShown = false;
-  currentProfileImage = 'assets/profile-placeholder.png';
+  currentProfileImage;
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'project-starter', uploadPreset: 'clbhkmd8' })
   );
