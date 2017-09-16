@@ -2,3 +2,7 @@
   background-color: #18bc9c !important;
   color: white;
 }
+.waitToConfirm {
+  background-color: lightpink ;
+  color: #a94442;
+}

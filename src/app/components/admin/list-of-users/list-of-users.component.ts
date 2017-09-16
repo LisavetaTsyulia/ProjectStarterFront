@@ -34,6 +34,7 @@ export class ListOfUsersComponent implements OnInit {
     this.authService.getAll()
       .flatMap(res => {
         this.keysArray = Object.keys(res[0]);
+
         res.isSelected = false;
         return this.allUsers = res;
       })
@@ -49,6 +50,10 @@ export class ListOfUsersComponent implements OnInit {
 
   isSelected(user: any): boolean {
     return user.isSelected;
+  }
+
+  isWaiting(user: any): boolean {
+    return user.role === 'ROLE_WAIT_CONFIRM';
   }
 
   fillEmailsArrayBlock() {
@@ -92,7 +97,7 @@ export class ListOfUsersComponent implements OnInit {
       this.theRole = null;
       return this.loadUsersToTable();
     } else if (role === "Confirmed Users") this.theRole = 'ROLE_CONFIRMED_USER';
-    else if (role === "Users to Confirm") this.theRole = 'ROLE_USER';
+    else if (role === "Users to Confirm") this.theRole = 'ROLE_WAIT_CONFIRM';
     else if (role === "Administrators") this.theRole = 'ROLE_ADMIN';
     this.adminService.sortByRole(this.theRole)
       .flatMap(res => {
@@ -112,6 +117,7 @@ export class ListOfUsersComponent implements OnInit {
     this.adminService.sortBy(by, this.theRole)
       .flatMap(res => {
         this.keysArray = Object.keys(res[0]);
+        res.role = JSON.parse(res)['role'];
         res.isSelected = false;
         return this.allUsers = res;
       })

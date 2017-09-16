@@ -18,11 +18,14 @@
       </form>
       <ul class="nav navbar-nav">
         <li *ngIf="!isAnonymous()">
-          <a *ngIf="isConfirmed()" routerLink="project/create" routerLinkActive="active">
+          <a *ngIf="isConfirmed() || isAdmin()" routerLink="project/create" routerLinkActive="active">
             <span class="glyphicon glyphicon-plus"></span> Create new project
           </a>
-          <a *ngIf="!isConfirmed()" (click)="openCustom()" routerLinkActive="active">
+          <a *ngIf="!isConfirmed() && isUser()" (click)="openCustom()" routerLinkActive="active">
             <span class="glyphicon glyphicon-plus"></span> Create new project
+          </a>
+          <a>
+          <span *ngIf="!isConfirmed() && !isUser() && !isAdmin()">We got your creator request</span>
           </a>
         </li>
       </ul>
