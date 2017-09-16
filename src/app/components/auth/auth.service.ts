@@ -79,10 +79,6 @@ export class AuthService {
       });
   }
 
-  getAllProjects() {
-    return this.authHttp.get(`${environment.serverUrl}admin/list-of-projects`).map(res => res.json());
-  }
-
   getUserInfo(id: number) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
