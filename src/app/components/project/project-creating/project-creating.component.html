@@ -25,6 +25,9 @@
           <div *ngIf="formGroup.get('deadline').hasError('required')">
             End date is required.
           </div>
+          <div *ngIf="formGroup.get('deadline').hasError('incorrectDeadline')">
+            End date should be after todays.
+          </div>
         </div>
       </div>
 

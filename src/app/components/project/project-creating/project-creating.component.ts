@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {ProjectService} from '../project.service';
 import {IMyDateModel, IMyDpOptions} from 'mydatepicker';
 import {AmountValidators} from '../../validators/AmountValidators';
+import {DateValidators} from '../../validators/DateValidators';
 
 @Component({
   selector: 'app-project-creating',
@@ -34,7 +35,7 @@ export class ProjectCreatingComponent implements OnInit {
     this.returnUrl = 'project/edit/' + (this.currentUser ? this.currentUser.id + '/' : '');
     this.formGroup = this.fb.group({
       title: ['', [Validators.required, Validators.maxLength(60)]],
-      deadline: [null, Validators.required],
+      deadline: [null, [Validators.required, DateValidators.isValidDeadline]],
       goal: ['', [Validators.required, AmountValidators.isValidAmount]]
     });
   }
