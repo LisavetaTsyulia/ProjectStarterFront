@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-
 import { DialogRef, ModalComponent, CloseGuard } from 'angular2-modal';
 import { BSModalContext } from 'angular2-modal/plugins/bootstrap';
 import {CloudinaryOptions, CloudinaryUploader} from "ng2-cloudinary";
 import { Ng2FileDropAcceptedFile } from 'ng2-file-drop';
+import {environment} from "../../../environments/environment";
+import {Http, Headers} from "@angular/http";
+import 'rxjs/add/operator/map';
+import {AuthService} from "../auth/auth.service";
 
 
 export class CustomModalContext extends BSModalContext {
@@ -60,7 +63,7 @@ export class CustomModalContext extends BSModalContext {
       </div>
       <div class="row">
         <div class="col-sm-6">
-          <button class="form-control btn btn-success" (click)="closeDialog()">Confirm</button>
+          <button class="form-control btn btn-success" (click)="confirm()">Confirm</button>
         </div>
         <div class="col-sm-6">
           <button class="form-control btn btn-success" (click)="closeDialog()">Later</button>
@@ -82,7 +85,10 @@ export class UserCreatorModal implements CloseGuard, ModalComponent<CustomModalC
     new CloudinaryOptions({ cloudName: 'project-starter', uploadPreset: 'clbhkmd8' })
   );
 
-  constructor(public dialog: DialogRef<CustomModalContext>) {
+  constructor(
+    public dialog: DialogRef<CustomModalContext>,
+    public http: Http
+  ) {
     this.context = dialog.context;
     this.wrongAnswer = true;
     dialog.setCloseGuard(this);
@@ -107,4 +113,29 @@ export class UserCreatorModal implements CloseGuard, ModalComponent<CustomModalC
     this.dialog.close();
   }
 
+  confirm() {
+    let image: string = this.image;
+    let user : string = JSON.parse(localStorage.getItem('user'));
+    let email : string = user['username'];
+    console.log(this.image, email);
+
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
+
+    this.http
+      .post(
+        `${environment.serverUrl}user/send-to-confirm`,
+        JSON.stringify({image, email}),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      })
+      .subscribe(r=>{
+      });
+
+
+    this.dialog.close();
+  }
 }
