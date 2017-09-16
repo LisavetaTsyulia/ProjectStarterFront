@@ -27,7 +27,6 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
   errorMessage: string;
   successMessage: string;
   formGroup: FormGroup;
-  titleFormGroup: FormGroup;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -51,8 +50,8 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
         Object.assign(this.project, data);
       });
 
-    this.titleFormGroup = this.fb.group({
-      title: ['', [Validators.required, Validators.minLength(2)]],
+    this.formGroup = this.fb.group({
+      title: ['', [Validators.required, Validators.maxLength(60)]],
       goal: ['', [Validators.required, Validators.minLength(2)]]
     });
   }
