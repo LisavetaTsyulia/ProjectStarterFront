@@ -48,6 +48,17 @@
                 </div>
               </div>
 
+              <div class="panel panel-primary">
+                <div class="panel-heading">Project description</div>
+                <div class="panel-body">
+                  <app-text-editor
+                    [elementId]="'project_description'"
+                    [value]="project.description"
+                    (onEditorKeyup)="onTextEditorKeyUp($event)">
+                  </app-text-editor>
+                </div>
+              </div>
+
             </div>
 
             <div class="col-md-3 col-md-offset-1 col-sm-4">

@@ -20,6 +20,9 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
     new CloudinaryOptions({ cloudName: 'project-starter', uploadPreset: 'clbhkmd8' })
   );
 
+  // Description
+  defaultBodyValue = '';
+
   project = new Project;
   projectId: number;
   private subscription: Subscription;
@@ -45,6 +48,7 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
     this.projectService.findProjectById(this.projectId)
       .subscribe(data => {
         Object.assign(this.project, data);
+        this.defaultBodyValue = this.project.description;
       });
   }
 
@@ -66,6 +70,10 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  onTextEditorKeyUp(textValue) {
+    this.project.description = textValue;
   }
 
   // File being dragged has been dropped and is valid
