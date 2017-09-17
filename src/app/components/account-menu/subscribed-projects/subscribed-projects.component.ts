@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Project} from '../model/project';
-import {ProjectService} from '../project/project.service';
+import {Project} from '../../model/project';
+import {ProjectService} from '../../project/project.service';
 
 @Component({
   selector: 'app-subscribed-projects',
