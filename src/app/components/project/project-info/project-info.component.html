@@ -12,6 +12,11 @@
       <p>backers</p>
       <h3>{{daysToGo}}</h3>
       <p>days to go</p>
+      <button *ngIf="!isAnonymous()" class="btn btn-block" [class.btn-success]="!isSubscribed"
+         [class.btn-default]="isSubscribed" (click)="subscribe()">
+        <span *ngIf="isSubscribed"><span class="glyphicon glyphicon-heart pink"></span> Subscribed</span>
+        <span *ngIf="!isSubscribed"><span class="glyphicon glyphicon-heart"></span> Subscribe</span>
+      </button>
     </div>
   </div>
   <ul class="nav nav-tabs margin-top">
@@ -62,7 +67,7 @@
         </div>
         <div *ngIf="showMoreNewsInfo">
           <app-news-info [news]="selectedNews" [newsNumber]="selectedNewsNumber"
-          (back)="showNewsList()"></app-news-info>
+                         (back)="showNewsList()"></app-news-info>
         </div>
       </div>
     </div>

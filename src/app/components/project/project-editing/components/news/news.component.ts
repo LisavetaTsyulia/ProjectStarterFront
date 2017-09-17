@@ -12,6 +12,7 @@ export class NewsComponent implements OnInit {
   defaultBodyValue = '';
   news: News;
   successMessage: string;
+  errorMessage: string;
 
   needToCreate = false;
 
@@ -38,12 +39,19 @@ export class NewsComponent implements OnInit {
   }
 
   create() {
+    this.errorMessage = null;
+    this.successMessage = null;
+
     this.news.projectId = this.projectId;
     this.projectService.createNews(this.news)
       .subscribe(data => {
         Object.assign(this.news, data);
         this.successMessage = 'The news was created.';
         this.cancel();
-      });
+      },
+        error => {
+          this.errorMessage = error.json().message;
+        }
+      );
   }
 }

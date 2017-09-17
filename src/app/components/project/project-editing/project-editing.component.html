@@ -10,7 +10,7 @@
           <div class="col-md-8 col-xs-12">
             <h1>Editing project info</h1>
 
-            <form (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+            <form [formGroup]="formGroup">
               <div class="panel panel-primary">
                 <div class="panel-heading">Project image</div>
                 <div class="panel-body">
@@ -80,7 +80,8 @@
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             {{ successMessage }}
           </div>
-          <button disabled type="submit" class="btn btn-success btn-md btn-block">Save</button>
+          <button type="submit" class="btn btn-success btn-md btn-block"
+                  [disabled]="!formGroup.valid" (click)="onSubmit()">Save</button>
         </div>
       </div>
     </div>
