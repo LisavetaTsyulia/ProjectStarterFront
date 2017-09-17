@@ -12,7 +12,13 @@ import {AuthService} from "./components/auth/auth.service";
 import {AuthModule} from "./components/auth/auth.module";
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import {ConfirmComponent} from "./components/header/confirm.component";
-import {ConfirmModalComponent} from "./components/admin/confirm-modal/confirm-modal.component";
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -30,7 +36,15 @@ import {ConfirmModalComponent} from "./components/admin/confirm-modal/confirm-mo
     FileUploadModule,
     Ng2FileDropModule,
     ReactiveFormsModule,
-    AuthModule
+    AuthModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     AuthService

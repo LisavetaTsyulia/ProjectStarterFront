@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginPageGuard} from './login-page.guard';
 import {AuthModule} from '../auth/auth.module';
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {AuthModule} from '../auth/auth.module';
     CommonModule,
     FormsModule,
     AuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule.forChild()
   ],
   providers: [
     LoginPageGuard,
