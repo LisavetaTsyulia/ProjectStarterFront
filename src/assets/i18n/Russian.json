@@ -1,0 +1,30 @@
+{
+  "HOME": {
+    "LOGIN": "Зайти",
+    "LOGOUT": "Выйти",
+    "SIGN_UP": "Зарегистрироваться",
+    "CREATE_NEW_PROJECT": "Создать проект",
+    "GOT_REQUEST": "Ваша заявка принята",
+    "HOME": "Домашняя страничка",
+    "MY_PROJECTS": "Мои проекты",
+    "MY_PROFILE": "Мой профиль",
+    "SUBSCRIBED_PROJECTS": "Мои подписки",
+    "ADMIN": "Админка",
+    "PROJECT_STARTER": "Project Starter",
+    "SEARCH": "Поиск",
+    "ENGLISH": "Английский",
+    "RUSSIAN": "Русский",
+    "LIGHT": "Светлая",
+    "DARK": "Темная"
+  },
+  "LOGIN": {
+    "EMAIL": "Почтовый адрес",
+    "EMAIL_IS_REQUIRED": "Почтовый адрес необходим",
+    "EMAIL_IS_WRONG": "Почтовый адрес неверен",
+    "CHARACTERS": "символов",
+    "PASSWORD": "Пароль",
+    "PASSWORD_IS_REQUIRED": "Пароль необходим",
+    "LOGIN": "Зайти",
+    "EMAIL_EMAIL_SHOULD_BE_MINIMUM": "Почтовый адрес должен быть минимум"
+  }
+}

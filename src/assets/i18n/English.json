@@ -1,0 +1,30 @@
+{
+  "HOME": {
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "SIGN_UP": "Sign up",
+    "CREATE_NEW_PROJECT": "Create new project",
+    "GOT_REQUEST": "We got your request",
+    "HOME": "Home",
+    "MY_PROJECTS": "My Projects",
+    "MY_PROFILE": "My Profile",
+    "SUBSCRIBED_PROJECTS": "Subscribed projects",
+    "ADMIN": "Admin",
+    "PROJECT_STARTER": "Project Starter",
+    "SEARCH": "Search",
+    "ENGLISH": "English",
+    "RUSSIAN": "Russian",
+    "LIGHT": "Light",
+    "DARK": "Dark"
+  },
+  "LOGIN": {
+    "EMAIL": "Email",
+    "EMAIL_IS_REQUIRED": "Email is required",
+    "EMAIL_IS_WRONG": "Email is wrong",
+    "CHARACTERS": "characters",
+    "PASSWORD": "Password",
+    "PASSWORD_IS_REQUIRED": "Password is required",
+    "LOGIN": "Log in",
+    "EMAIL_EMAIL_SHOULD_BE_MINIMUM": "Email should be minimum"
+  }
+}

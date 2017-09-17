@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthConfigConsts} from 'angular2-jwt';
+import {DialogService} from "ng2-bootstrap-modal";
+import {ConfirmComponent} from "./confirm.component";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-header',
@@ -8,12 +11,22 @@ import {AuthConfigConsts} from 'angular2-jwt';
 })
 export class HeaderComponent implements OnInit {
 
-  public email;
-  constructor() { }
+  confirmResult:boolean = null;
+  constructor(
+    private dialogService:DialogService,
+    private translate: TranslateService
+  ) {
+    translate.addLangs(["English", "Russian"]);
+    translate.setDefaultLang('English');
+    this.setLang();
+  }
 
   ngOnInit() {
-    const user: string = JSON.parse(localStorage.getItem('user'));
-    this.email = (user != null ? user['username'] : null);
+  }
+
+  public setLang() {
+    let lang: string = localStorage.getItem('lang');
+    this.translate.use(lang);
   }
 
   public deleteCookies() {
@@ -35,7 +48,7 @@ export class HeaderComponent implements OnInit {
     return user['role'] === 'ROLE_USER';
   }
 
-  public isConfirmedUser(): boolean {
+  public isConfirmed(): boolean {
     const user: string = JSON.parse(localStorage.getItem('user'));
     return user['role'] === 'ROLE_CONFIRMED_USER';
   }
@@ -44,4 +57,14 @@ export class HeaderComponent implements OnInit {
     const user: string = JSON.parse(localStorage.getItem('user'));
     return user === null;
   }
+
+  openCustom() {
+    this.dialogService.addDialog(ConfirmComponent, {
+      title:'Would you like to become a creator?',
+      message:'Send your passport scan to create a project'})
+      .subscribe((isConfirmed)=>{
+        this.confirmResult = isConfirmed;
+      });
+  }
+
 }

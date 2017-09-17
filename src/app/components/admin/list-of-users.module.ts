@@ -5,11 +5,14 @@ import { ListOfUsersComponent } from "./list-of-users/list-of-users.component";
 import {AuthModule} from "../auth/auth.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MainPanelComponent} from "./main-panel/main-panel.component";
-import { ListOfProjectsComponent } from './list-of-projects/list-of-projects.component';
 import { UserControlPanelComponent } from './user-control-panel/user-control-panel.component';
 import { UserFilterPanelComponent } from './user-filter-panel/user-filter-panel.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import {AdminService} from "./admin.service";
+import {ConfirmModalComponent} from "./confirm-modal/confirm-modal.component";
+import {HttpModule} from "@angular/http";
+import {BootstrapModalModule} from "ng2-bootstrap-modal";
+import {AuthService} from "../auth/auth.service";
 
 @NgModule({
   imports: [
@@ -21,19 +24,25 @@ import {AdminService} from "./admin.service";
     CommonModule,
     FormsModule,
     AuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule,
+    BootstrapModalModule
   ],
   declarations: [
     ListOfUsersComponent,
     MainPanelComponent,
-    ListOfProjectsComponent,
     UserControlPanelComponent,
     UserFilterPanelComponent,
-    UserPanelComponent
+    UserPanelComponent,
+    ConfirmModalComponent
   ],
   providers: [
-    AdminService
+    AdminService,
+    AuthService
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  entryComponents: [
+    ConfirmModalComponent
+  ]
 })
 export class ListOfUsersModule { }

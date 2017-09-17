@@ -3,6 +3,9 @@ import {AuthService} from '../../auth/auth.service';
 import {ActivatedRoute} from '@angular/router';
 import {User} from '../../model/user';
 import {AdminService} from "../admin.service";
+import {DialogService} from "ng2-bootstrap-modal";
+import {ConfirmModalComponent} from "../confirm-modal/confirm-modal.component";
+import 'rxjs';
 
 
 @Component({
@@ -16,7 +19,8 @@ export class ListOfUsersComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private adminService: AdminService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialogService:DialogService
   ) { }
 
   keysArray : string[];
@@ -24,6 +28,8 @@ export class ListOfUsersComponent implements OnInit {
   theRole : string;
   returnUrl : string;
   emails : string[];
+  confirmResult: boolean = false;
+  passportScan: string;
 
   ngOnInit() {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -44,11 +50,30 @@ export class ListOfUsersComponent implements OnInit {
   }
 
   onSelect(user: any): void {
-    user.isSelected = !user.isSelected;
+    if (this.isWaiting(user)) {
+      this.loadPassportScan(user['email']);
+      setTimeout(()=>{
+          this.dialogService.addDialog(ConfirmModalComponent, {
+          passportScan : this.passportScan,
+          email : user['email']
+        })
+          .subscribe((isConfirmed)=>{
+            this.confirmResult = isConfirmed;
+            setTimeout(()=>{this.loadUsersToTable()}, 500);
+          });
+        }, 2000);
+
+    } else {
+      user.isSelected = !user.isSelected;
+    }
   }
 
   isSelected(user: any): boolean {
     return user.isSelected;
+  }
+
+  isWaiting(user: any): boolean {
+    return user.role === 'ROLE_WAIT_CONFIRM';
   }
 
   fillEmailsArrayBlock() {
@@ -92,7 +117,7 @@ export class ListOfUsersComponent implements OnInit {
       this.theRole = null;
       return this.loadUsersToTable();
     } else if (role === "Confirmed Users") this.theRole = 'ROLE_CONFIRMED_USER';
-    else if (role === "Users to Confirm") this.theRole = 'ROLE_USER';
+    else if (role === "Users to Confirm") this.theRole = 'ROLE_WAIT_CONFIRM';
     else if (role === "Administrators") this.theRole = 'ROLE_ADMIN';
     this.adminService.sortByRole(this.theRole)
       .flatMap(res => {
@@ -112,6 +137,7 @@ export class ListOfUsersComponent implements OnInit {
     this.adminService.sortBy(by, this.theRole)
       .flatMap(res => {
         this.keysArray = Object.keys(res[0]);
+        res.role = JSON.parse(res)['role'];
         res.isSelected = false;
         return this.allUsers = res;
       })
@@ -119,5 +145,15 @@ export class ListOfUsersComponent implements OnInit {
         data => {
         }
       );
+  }
+
+
+  loadPassportScan(email: string) {
+      this.adminService.getPassportScan(email)
+        .subscribe(
+          data => {
+            this.passportScan = data['passportScan'];
+          }
+        );
   }
 }
