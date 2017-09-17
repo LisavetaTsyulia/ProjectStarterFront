@@ -1,0 +1,20 @@
+{
+  "HOME": {
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "SIGN_UP": "Sign up",
+    "CREATE_NEW_PROJECT": "Create new project",
+    "GOT_REQUEST": "We got your request",
+    "HOME": "Home",
+    "MY_PROJECTS": "My Projects",
+    "MY_PROFILE": "My Profile",
+    "SUBSCRIBED_PROJECTS": "Subscribed projects",
+    "ADMIN": "Admin",
+    "PROJECT_STARTER": "Project Starter",
+    "SEARCH": "Search",
+    "ENGLISH": "English",
+    "RUSSIAN": "Russian",
+    "LIGHT": "Light",
+    "DARK": "Dark"
+  }
+}

@@ -6,47 +6,45 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">ProjectStarter</a>
+      <a class="navbar-brand" href="#">{{'HOME.PROJECT_STARTER' | translate}}</a>
     </div>
     <div class="collapse navbar-collapse" id="collapseNavbar">
 
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group has-feedback">
-          <input type="text" class="form-control" id="searchInput" placeholder="Search">
+          <input type="text" class="form-control" id="searchInput" placeholder="{{'HOME.SEARCH' | translate}}">
           <span class="glyphicon glyphicon-search form-control-feedback"></span>
         </div>
       </form>
       <ul class="nav navbar-nav">
         <li *ngIf="!isAnonymous()">
           <a *ngIf="isConfirmed() || isAdmin()" routerLink="project/create" routerLinkActive="active">
-            <span class="glyphicon glyphicon-plus"></span> Create new project
+            <span class="glyphicon glyphicon-plus"></span> {{'HOME.CREATE_NEW_PROJECT' | translate}}
           </a>
           <a *ngIf="!isConfirmed() && isUser()" (click)="openCustom()" routerLinkActive="active">
-            <span class="glyphicon glyphicon-plus"></span> Create new project
+            <span class="glyphicon glyphicon-plus"></span> {{'HOME.CREATE_NEW_PROJECT' | translate}}
           </a>
           <a>
-          <span *ngIf="!isConfirmed() && !isUser() && !isAdmin()">We got your creator request</span>
+          <span *ngIf="!isConfirmed() && !isUser() && !isAdmin()">{{'HOME.GOT_REQUEST' | translate}}</span>
           </a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li *ngIf="!isAuthenticated()"><a routerLink="login" routerLinkActive="active"><span
-          class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          class="glyphicon glyphicon-log-in"></span> {{'HOME.LOGIN' | translate}}</a></li>
         <li *ngIf="isAuthenticated()"><a routerLink="login" (click)="deleteCookies()" routerLinkActive="active"><span
-          class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          class="glyphicon glyphicon-log-out"></span> {{'HOME.LOGOUT' | translate}}</a></li>
         <li *ngIf="!isAuthenticated()"><a routerLink="registration" routerLinkActive="active"><span
-          class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          class="glyphicon glyphicon-user"></span> {{'HOME.SIGN_UP' | translate}}</a></li>
         <li *ngIf="isAuthenticated()" class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span
-            class="glyphicon glyphicon-home"></span> Home<span class="caret"></span></a>
+            class="glyphicon glyphicon-home"></span> {{'HOME.HOME' | translate}}<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li class=""><a>{{email}}</a></li>
-            <li class="divider"></li>
-            <li><a routerLink="user-info" routerLinkActive="active"> My Profile</a></li>
-            <li><a routerLink="user-info" routerLinkActive="active"> My Projects</a></li>
-            <li><a routerLink="user-info" routerLinkActive="active"> Subscribed Projects</a></li>
+            <li><a routerLink="user-info" routerLinkActive="active"> {{'HOME.MY_PROFILE' | translate}}</a></li>
+            <li><a routerLink="user-info" routerLinkActive="active"> {{'HOME.MY_PROJECTS' | translate}}</a></li>
+            <li><a routerLink="user-info" routerLinkActive="active"> {{'HOME.SUBSCRIBED_PROJECTS' | translate}}</a></li>
             <li *ngIf="isAdmin()" class="divider"></li>
-            <li *ngIf="isAdmin()"><a routerLink="admin" routerLinkActive="active"> Admin</a></li>
+            <li *ngIf="isAdmin()"><a routerLink="admin" routerLinkActive="active"> {{'HOME.ADMIN' | translate}}</a></li>
           </ul>
       </ul>
     </div>

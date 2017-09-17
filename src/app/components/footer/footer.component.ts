@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-footer',
@@ -12,7 +13,9 @@ export class FooterComponent implements OnInit {
 
   dark_theme_selected: boolean = false;
 
-  constructor() { }
+  constructor(
+    private translate: TranslateService
+  ) { }
 
   ngOnInit() {
     const theme = localStorage.getItem('theme');
@@ -20,6 +23,8 @@ export class FooterComponent implements OnInit {
     if (theme === this.dark) {
       this.dark_theme_selected = true;
     }
+    let lang: string = localStorage.getItem('lang');
+    this.translate.resetLang(lang['lang']);
   }
 
   changeStyle(style) {
@@ -34,14 +39,21 @@ export class FooterComponent implements OnInit {
     }
   }
 
+  @Output() langChange = new EventEmitter<any>();
   onClickAddLangCookie(lang: string) {
+    if (lang === 'English' || lang === 'Английский')
+      lang = 'English';
+    else
+      lang = 'Russian';
     localStorage.setItem('lang', lang);
+    this.translate.resetLang(lang);
+    this.langChange.emit();
   }
 
   onClickAddThemeCookie(theme: string) {
-    if (theme === 'Dark') {
+    if (theme === 'Dark' || theme === 'Темная') {
       localStorage.setItem('theme', this.dark);
-    } else if (theme === 'Light') {
+    } else if (theme === 'Light' || theme === 'Светлая') {
       localStorage.setItem('theme', this.light);
     }
     this.changeStyle(localStorage.getItem('theme'));

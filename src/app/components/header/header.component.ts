@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthConfigConsts} from 'angular2-jwt';
 import {DialogService} from "ng2-bootstrap-modal";
 import {ConfirmComponent} from "./confirm.component";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-header',
@@ -10,16 +11,22 @@ import {ConfirmComponent} from "./confirm.component";
 })
 export class HeaderComponent implements OnInit {
 
-  public email;
   confirmResult:boolean = null;
   constructor(
-    private dialogService:DialogService
+    private dialogService:DialogService,
+    private translate: TranslateService
   ) {
+    translate.addLangs(["English", "Russian"]);
+    translate.setDefaultLang('English');
+    this.setLang();
   }
 
   ngOnInit() {
-    const user: string = JSON.parse(localStorage.getItem('user'));
-    this.email = (user != null ? user['username'] : null);
+  }
+
+  public setLang() {
+    let lang: string = localStorage.getItem('lang');
+    this.translate.use(lang);
   }
 
   public deleteCookies() {

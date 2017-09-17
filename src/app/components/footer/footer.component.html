@@ -4,15 +4,15 @@
     </p>
     <div>
       <select (change)="onClickAddLangCookie($event.target.value)" class=" my-select right " id="select-lang">
-        <option>English</option>
-        <option>Russian</option>
+        <option>{{'HOME.ENGLISH' | translate}}</option>
+        <option>{{'HOME.RUSSIAN' | translate}}</option>
       </select>
     </div>
     <div>
       <select id="select_theme" (change)="onClickAddThemeCookie($event.target.value)"
               class=" my-select left " >
-        <option>Light</option>
-        <option [selected]="dark_theme_selected">Dark</option>
+        <option>{{'HOME.LIGHT' | translate}}</option>
+        <option [selected]="dark_theme_selected">{{'HOME.DARK' | translate}}</option>
       </select>
     </div>
 </div>
