@@ -94,4 +94,14 @@ export class ProjectService {
     return this.authHttp.get(`${environment.serverUrl}project/subscription?` +
       `user_id=` + userId + `&project_id=` + projectId).map(res => res.json());
   }
+
+  findAllUserProjects(userId: number) {
+    return this.authHttp.get(`${environment.serverUrl}user/user_projects?` +
+      `user_id=` + userId).map(res => res.json());
+  }
+
+  findAllSubscribedProjectsByUserId(userId: number) {
+    return this.authHttp.get(`${environment.serverUrl}user/subscribed_projects?` +
+      `user_id=` + userId).map(res => res.json());
+  }
 }

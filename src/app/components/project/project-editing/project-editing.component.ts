@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {ProjectService} from '../project.service';
 import {Project} from '../../model/project';
@@ -31,6 +31,7 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private projectService: ProjectService,
+    private router: Router,
     private fb: FormBuilder,
   ) {
     this.uploader.onSuccessItem = (item: any, response: string, status: number, headers: any): any => {
@@ -73,6 +74,10 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  viewProjectPage() {
+    this.router.navigate(['/project-info/' + this.projectId]);
   }
 
   onTextEditorKeyUp(textValue) {

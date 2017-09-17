@@ -18,6 +18,10 @@ const routes: Routes = [
     loadChildren: 'app/components/project/project-info/project-info.module#ProjectInfoModule' },
   { path: 'project-info/:project_id',
     loadChildren: 'app/components/project/project-info/project-info.module#ProjectInfoModule' },
+  { path: 'subscribed-projects',
+    loadChildren: 'app/components/account-menu/subscribed-projects/subscribed-projects.module#SubscribedProjectsModule' },
+  { path: 'my-projects',
+    loadChildren: 'app/components/account-menu/my-projects/my-projects.module#MyProjectsModule' },
 ];
 
 @NgModule({
