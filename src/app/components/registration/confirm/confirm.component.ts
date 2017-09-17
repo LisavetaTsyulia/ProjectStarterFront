@@ -31,6 +31,7 @@ export class ConfirmComponent implements OnInit, OnDestroy {
         this.email = queryParam['email'];
       }
     );
+    this.checkAuthorised();
     this.confirm();
   }
 
@@ -45,14 +46,18 @@ export class ConfirmComponent implements OnInit, OnDestroy {
           data => {
             localStorage.setItem('user', JSON.stringify(data));
             this.router.navigate([this.returnUrl]);
-          },
-          error => {
-          }
-        );
+          });
     }
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  checkAuthorised() {
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    if (user !== null) {
+      this.router.navigate([this.returnUrl]);
+    }
   }
 }

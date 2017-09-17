@@ -1,7 +1,3 @@
-.margin-top {
-  margin-top: 15px;
-}
-
 .description-block {
   background: #f0f0f0; /* Цвет фона */
   border: 1px; /* Параметры рамки */
@@ -9,15 +5,29 @@
   border-radius: 7px;
 }
 
-/*.reward-card {*/
-  /*background: #E0F7FA; !* Цвет фона *!*/
-  /*border: 1px solid #4DD0E1; !* Параметры рамки *!*/
+/*.card {*/
+  /*border: 1px solid #979797; !* Параметры рамки *!*/
   /*padding: 7px; !* Поля вокруг текста *!*/
   /*border-radius: 7px;*/
-  /*color: #4DD0E1;*/
 /*}*/
 
-/*.reward-border {*/
-  /*border: 1px; !* Параметры рамки *!*/
-  /*border-radius: 7px;*/
-/*}*/
+.card:hover {
+  background: rgba(24, 188, 156, .7);
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.date {
+  padding-right: 15px;
+}
+
+.card {
+  width: 100%;
+}
+
+.pink {
+  color: #ff1e52;
+}

@@ -2,20 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
-import {AuthModule} from '../../auth/auth.module';
-import {ProjectService} from '../project.service';
-import {ProjectInfoComponent} from './project-info.component';
 import { DatePickerModule } from 'ng2-datepicker';
 import { FileUploadModule } from 'ng2-file-upload';
 import {Ng2CloudinaryModule} from 'ng2-cloudinary';
-import { NewsInfoComponent } from './news-info/news-info.component';
-import {MdCardModule, MdButtonModule} from '@angular/material';
+import {MdCardModule, MdButtonModule, MdProgressBarModule} from '@angular/material';
+import {HomePageComponent} from './home-page.component';
+import {AuthModule} from '../auth/auth.module';
+import {ProjectService} from '../project/project.service';
+import {ProjectCardModule} from '../project-card/project-card.module';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
       { path: '',
-        component: ProjectInfoComponent}
+        component: HomePageComponent}
     ]),
     CommonModule,
     FormsModule,
@@ -23,16 +23,14 @@ import {MdCardModule, MdButtonModule} from '@angular/material';
     DatePickerModule,
     Ng2CloudinaryModule,
     FileUploadModule,
-    MdCardModule,
-    MdButtonModule,
+    ProjectCardModule,
   ],
   declarations: [
-    ProjectInfoComponent,
-    NewsInfoComponent,
+    HomePageComponent,
   ],
   providers: [
     ProjectService
   ],
   exports: [RouterModule]
 })
-export class ProjectInfoModule { }
+export class HomePageModule { }

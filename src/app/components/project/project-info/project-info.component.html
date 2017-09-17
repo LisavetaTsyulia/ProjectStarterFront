@@ -6,18 +6,25 @@
       <img src="{{project.imageUrl}}" class="avatar img-thumbnail" alt="Project image">
     </div>
     <div class="col-md-4 col-xs-12">
-      <h3>${{project.currentAmount / 100}}</h3>
-      <p>pledged of ${{project.targetAmount / 100}} goal</p>
+      <h3>${{project.currentAmount}}</h3>
+      <p>pledged of ${{project.targetAmount}} goal</p>
       <h3>371</h3>
       <p>backers</p>
       <h3>{{daysToGo}}</h3>
       <p>days to go</p>
+      <button *ngIf="!isAnonymous()" class="btn btn-block" [class.btn-success]="!isSubscribed"
+         [class.btn-default]="isSubscribed" (click)="subscribe()">
+        <span *ngIf="isSubscribed"><span class="glyphicon glyphicon-heart pink"></span> Subscribed</span>
+        <span *ngIf="!isSubscribed"><span class="glyphicon glyphicon-heart"></span> Subscribe</span>
+      </button>
     </div>
   </div>
   <ul class="nav nav-tabs margin-top">
     <li class="active"><a href="#campaign" data-toggle="tab" aria-expanded="true">Campaign</a></li>
     <li class=""><a href="#rewards" data-toggle="tab" aria-expanded="false">Rewards</a></li>
-    <li class=""><a href="#news" data-toggle="tab" aria-expanded="false">News</a></li>
+    <li class=""><a href="#news" data-toggle="tab" aria-expanded="false">
+      News <span class="label label-success">{{newsArray.length}}</span></a>
+    </li>
     <li class=""><a href="#comments" data-toggle="tab" aria-expanded="false">Comments</a></li>
   </ul>
   <div id="tabContent" class="tab-content">
@@ -41,7 +48,28 @@
       </div>
     </div>
     <div class="tab-pane fade" id="news">
-      <h2>News</h2>
+      <div class="col-md-6 col-md-offset-3">
+        <div *ngIf="!showMoreNewsInfo">
+          <div *ngFor="let news of newsArray; let i = index" (click)="showNews(news, newsArray.length - i)"
+               class="margin-top">
+            <md-card class="card margin-top">
+              <md-card-header>
+                <md-card-title><span class="text-warning">News #{{newsArray.length - i}}</span></md-card-title>
+              </md-card-header>
+              <md-card-content>
+                <h3 class="card-title bold">{{news.title}} <a disabled="true"></a></h3>
+              </md-card-content>
+              <md-card-footer>
+                <p class="text-right date">{{news.date | date}}</p>
+              </md-card-footer>
+            </md-card>
+          </div>
+        </div>
+        <div *ngIf="showMoreNewsInfo">
+          <app-news-info [news]="selectedNews" [newsNumber]="selectedNewsNumber"
+                         (back)="showNewsList()"></app-news-info>
+        </div>
+      </div>
     </div>
     <div class="tab-pane fade" id="comments">
       <h2>Comments</h2>

@@ -2,7 +2,7 @@ import {FormControl} from '@angular/forms';
 
 export class AmountValidators {
   static isValidAmount(duration: FormControl) {
-    const AMOUNT_REEXP = /^[0-9]*(\.[0-9]{1,2})?$/;
+    const AMOUNT_REEXP = /^\d+$/;
 
     if (!duration.value) {
       return null;
