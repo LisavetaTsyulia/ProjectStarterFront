@@ -102,6 +102,7 @@ export class ProjectService {
       `user_id=` + userId + `&project_id=` + projectId).map(res => res.json());
   }
 
+
   addComment(projectId: number, commentText: string, userId: number) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -116,5 +117,16 @@ export class ProjectService {
       .map(res => {
         return res.json();
       });
+
+  }
+  findAllUserProjects(userId: number) {
+    return this.authHttp.get(`${environment.serverUrl}user/user_projects?` +
+      `user_id=` + userId).map(res => res.json());
+  }
+
+  findAllSubscribedProjectsByUserId(userId: number) {
+    return this.authHttp.get(`${environment.serverUrl}user/subscribed_projects?` +
+      `user_id=` + userId).map(res => res.json());
+
   }
 }

@@ -1,0 +1,9 @@
+<div class="container form-style">
+  <h1>Your projects</h1>
+  <div class="col-md-3 col-sm-4">
+    <div *ngFor="let project of projects" class="cursor"
+         routerLink="../project/edit/{{project.userId}}/{{project.id}}" routerLinkActive="active">
+      <app-project-card [project]="project"></app-project-card>
+    </div>
+  </div>
+</div>

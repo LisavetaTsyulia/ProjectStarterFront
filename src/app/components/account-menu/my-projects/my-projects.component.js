@@ -1,0 +1,41 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var MyProjectsComponent = (function () {
+    function MyProjectsComponent(projectService) {
+        this.projectService = projectService;
+        this.projects = [];
+    }
+    MyProjectsComponent.prototype.ngOnInit = function () {
+        this.getNotAnonymousData();
+    };
+    MyProjectsComponent.prototype.getNotAnonymousData = function () {
+        var _this = this;
+        if (!this.isAnonymous()) {
+            this.userId = JSON.parse(localStorage.getItem('user')).id;
+            this.projectService.findAllUserProjects(this.userId)
+                .subscribe(function (data) {
+                _this.projects = data;
+            });
+        }
+    };
+    MyProjectsComponent.prototype.isAnonymous = function () {
+        var user = JSON.parse(localStorage.getItem('user'));
+        return user === null;
+    };
+    return MyProjectsComponent;
+}());
+MyProjectsComponent = __decorate([
+    core_1.Component({
+        selector: 'app-my-projects',
+        templateUrl: './my-projects.component.html',
+        styleUrls: ['./my-projects.component.css']
+    })
+], MyProjectsComponent);
+exports.MyProjectsComponent = MyProjectsComponent;
