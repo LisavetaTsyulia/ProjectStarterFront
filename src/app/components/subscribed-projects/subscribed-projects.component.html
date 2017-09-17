@@ -1,3 +1,8 @@
-<br><br><br><br><br><br><p>
-  subscribed-projects works!
-</p>
+<div class="container form-style">
+  <h1>Your subscribed projects</h1>
+  <div class="col-md-3 col-md-offset-1 col-sm-4">
+    <div *ngFor="let project of subscribedProjects">
+      <app-project-card [project]="project"></app-project-card>
+    </div>
+  </div>
+</div>
