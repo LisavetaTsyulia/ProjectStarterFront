@@ -12,6 +12,7 @@ export class FooterComponent implements OnInit {
   private light: string = 'https://bootswatch.com/flatly/bootstrap.min.css';
 
   dark_theme_selected: boolean = false;
+  english_selected: boolean = false;
 
   constructor(
     private translate: TranslateService
@@ -25,6 +26,9 @@ export class FooterComponent implements OnInit {
     }
     let lang: string = localStorage.getItem('lang');
     this.translate.resetLang(lang['lang']);
+    if (lang === 'English' || lang === 'Английский') {
+      this.english_selected = true;
+    }
   }
 
   changeStyle(style) {

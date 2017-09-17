@@ -4,8 +4,8 @@
     </p>
     <div>
       <select (change)="onClickAddLangCookie($event.target.value)" class=" my-select right " id="select-lang">
-        <option>{{'HOME.ENGLISH' | translate}}</option>
         <option>{{'HOME.RUSSIAN' | translate}}</option>
+        <option [selected]="english_selected" >{{'HOME.ENGLISH' | translate}}</option>
       </select>
     </div>
     <div>
