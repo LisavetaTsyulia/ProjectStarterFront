@@ -35,7 +35,14 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
       this.projectId = params['project_id']);
     this.getProject();
     this.getNews();
-    this.userId = JSON.parse(localStorage.getItem('user')).id;
+    this.getNotAnonymousData();
+  }
+
+  getNotAnonymousData() {
+    if (!this.isAnonymous()) {
+      this.userId = JSON.parse(localStorage.getItem('user')).id;
+      this.getSubscription();
+    }
   }
 
   getProject() {
@@ -50,7 +57,6 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.projectService.findNewsByProjectId(this.projectId)
       .subscribe(data => {
         Object.assign(this.newsArray, data);
-        console.log(this.newsArray);
       });
   }
 
@@ -77,12 +83,20 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.showMoreNewsInfo = !this.showMoreNewsInfo;
   }
 
-  subscribe() {
-    this.projectService.subscribe(this.userId, this.project.id, !this.isSubscribed)
+  getSubscription() {
+    this.projectService.subscription(this.userId, this.projectId)
       .subscribe(data => {
-        Object.assign(this.newsArray, data);
-        console.log(this.newsArray);
+        this.isSubscribed = data.subscribed;
       });
+  }
+
+  subscribe() {
+    this.projectService.subscribeToProject(this.userId, this.project.id, !this.isSubscribed).subscribe();
     this.isSubscribed = !this.isSubscribed;
+  }
+
+  public isAnonymous(): boolean {
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    return user === null;
   }
 }
