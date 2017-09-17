@@ -1,0 +1,10 @@
+<div class="margin-top">
+  <div class="row">
+    <div class="col-md-6 text-left text-warning">
+      <h4>{{comment.username}} </h4>
+    </div>
+    <h5 class="col-md-6 text-right">{{comment.date | date }}</h5>
+  </div>
+  <div [innerHTML]="comment.comment">
+  </div>
+</div>
