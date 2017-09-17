@@ -9,6 +9,10 @@ import { UserControlPanelComponent } from './user-control-panel/user-control-pan
 import { UserFilterPanelComponent } from './user-filter-panel/user-filter-panel.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import {AdminService} from "./admin.service";
+import {ConfirmModalComponent} from "./confirm-modal/confirm-modal.component";
+import {HttpModule} from "@angular/http";
+import {BootstrapModalModule} from "ng2-bootstrap-modal";
+import {AuthService} from "../auth/auth.service";
 
 @NgModule({
   imports: [
@@ -20,18 +24,25 @@ import {AdminService} from "./admin.service";
     CommonModule,
     FormsModule,
     AuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule,
+    BootstrapModalModule
   ],
   declarations: [
     ListOfUsersComponent,
     MainPanelComponent,
     UserControlPanelComponent,
     UserFilterPanelComponent,
-    UserPanelComponent
+    UserPanelComponent,
+    ConfirmModalComponent
   ],
   providers: [
-    AdminService
+    AdminService,
+    AuthService
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  entryComponents: [
+    ConfirmModalComponent
+  ]
 })
 export class ListOfUsersModule { }

@@ -1,0 +1,30 @@
+
+  <div class="modal-dialog">
+    <div class="modal-content container-fluid custom-modal-container">
+          <div class="row custom-modal-header bg-success text-white">
+            <div class="col-sm-12">
+              <h1 class="modal-title">Here is the passport scan</h1>
+            </div>
+          </div>
+
+          <div class="row" >
+            <div class="col-xs-10 col-xs-offset-2">
+              <img  class="myimg avatar  img-thumbnail" alt="passportScan" [src]="passportScan">
+            </div>
+          </div>
+        <div class="modal-footer">
+          <div class="row">
+            <div class="col-sm-4">
+              <button class="form-control btn btn-success" (click)="confirm()">Confirm</button>
+            </div>
+            <div class="col-sm-4">
+              <button class="form-control btn btn-success" (click)="dismiss()">Dismiss</button>
+            </div>
+            <div class="col-sm-4">
+              <button class="form-control btn btn-success" (click)="close()">Later</button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+

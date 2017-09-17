@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthConfigConsts} from 'angular2-jwt';
-import {Modal} from "angular2-modal";
-import {UserCreatorModal} from "./user-creator-modal";
-import {BSModalContext} from "angular2-modal/plugins/bootstrap";
-import {overlayConfigFactory } from 'angular2-modal';
+import {DialogService} from "ng2-bootstrap-modal";
+import {ConfirmComponent} from "./confirm.component";
 
 @Component({
   selector: 'app-header',
@@ -13,7 +11,10 @@ import {overlayConfigFactory } from 'angular2-modal';
 export class HeaderComponent implements OnInit {
 
   public email;
-  constructor(public modal: Modal) {
+  confirmResult:boolean = null;
+  constructor(
+    private dialogService:DialogService
+  ) {
   }
 
   ngOnInit() {
@@ -51,6 +52,12 @@ export class HeaderComponent implements OnInit {
   }
 
   openCustom() {
-    return this.modal.open(UserCreatorModal,  overlayConfigFactory({ num1: 2, num2: 3 }, BSModalContext));
+    this.dialogService.addDialog(ConfirmComponent, {
+      title:'Would you like to become a creator?',
+      message:'Send your passport scan to create a project'})
+      .subscribe((isConfirmed)=>{
+        this.confirmResult = isConfirmed;
+      });
   }
+
 }

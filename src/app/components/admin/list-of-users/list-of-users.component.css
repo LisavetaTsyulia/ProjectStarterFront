@@ -3,6 +3,6 @@
   color: white;
 }
 .waitToConfirm {
-  background-color: lightpink ;
+  background-color: lightpink !important;
   color: #a94442;
 }
