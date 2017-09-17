@@ -10,6 +10,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import {Ng2CloudinaryModule} from 'ng2-cloudinary';
 import { NewsInfoComponent } from './news-info/news-info.component';
 import {MdCardModule, MdButtonModule} from '@angular/material';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import {MdCardModule, MdButtonModule} from '@angular/material';
   declarations: [
     ProjectInfoComponent,
     NewsInfoComponent,
+    CommentComponent,
   ],
   providers: [
     ProjectService

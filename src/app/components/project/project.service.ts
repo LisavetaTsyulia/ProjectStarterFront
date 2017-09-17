@@ -74,6 +74,13 @@ export class ProjectService {
     return this.http.get(`${environment.serverUrl}project/news?project_id=` + projectId).map(res => res.json());
   }
 
+  findCommentsByProjectId(projectId: number) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
+    return this.http.get(`${environment.serverUrl}project/comments?project_id=` + projectId, headers).map(res => res.json());
+  }
+
   subscribeToProject(userId: number, projectId: number, needToSubscribe: boolean) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -93,5 +100,21 @@ export class ProjectService {
   subscription(userId: number, projectId: number) {
     return this.authHttp.get(`${environment.serverUrl}project/subscription?` +
       `user_id=` + userId + `&project_id=` + projectId).map(res => res.json());
+  }
+
+  addComment(projectId: number, commentText: string, userId: number) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
+
+    return this.http
+      .post(
+        `${environment.serverUrl}project/addComment`,
+        JSON.stringify({userId, projectId, commentText}),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      });
   }
 }

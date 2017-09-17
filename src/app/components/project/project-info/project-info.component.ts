@@ -24,6 +24,8 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   selectedNews: News;
   selectedNewsNumber: number;
   newsArray: News[] = [];
+  commentsArray: Comment[] = [];
+  newCommentText: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -35,6 +37,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
       this.projectId = params['project_id']);
     this.getProject();
     this.getNews();
+    this.getComments();
     this.getNotAnonymousData();
   }
 
@@ -57,6 +60,13 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.projectService.findNewsByProjectId(this.projectId)
       .subscribe(data => {
         Object.assign(this.newsArray, data);
+      });
+  }
+
+  getComments() {
+    this.projectService.findCommentsByProjectId(this.projectId)
+      .subscribe(data => {
+        Object.assign(this.commentsArray, data);
       });
   }
 
@@ -98,5 +108,14 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   public isAnonymous(): boolean {
     const user: string = JSON.parse(localStorage.getItem('user'));
     return user === null;
+  }
+
+  addComment() {
+    console.log(this.newCommentText);
+    this.projectService.addComment(this.projectId, this.newCommentText, this.userId)
+      .subscribe(data => {
+          this.getComments()
+          this.newCommentText = "";
+      });
   }
 }
