@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthConfigConsts} from 'angular2-jwt';
+import {DialogService} from "ng2-bootstrap-modal";
+import {ConfirmComponent} from "./confirm.component";
 
 @Component({
   selector: 'app-header',
@@ -9,7 +11,11 @@ import {AuthConfigConsts} from 'angular2-jwt';
 export class HeaderComponent implements OnInit {
 
   public email;
-  constructor() { }
+  confirmResult:boolean = null;
+  constructor(
+    private dialogService:DialogService
+  ) {
+  }
 
   ngOnInit() {
     const user: string = JSON.parse(localStorage.getItem('user'));
@@ -35,7 +41,7 @@ export class HeaderComponent implements OnInit {
     return user['role'] === 'ROLE_USER';
   }
 
-  public isConfirmedUser(): boolean {
+  public isConfirmed(): boolean {
     const user: string = JSON.parse(localStorage.getItem('user'));
     return user['role'] === 'ROLE_CONFIRMED_USER';
   }
@@ -44,4 +50,14 @@ export class HeaderComponent implements OnInit {
     const user: string = JSON.parse(localStorage.getItem('user'));
     return user === null;
   }
+
+  openCustom() {
+    this.dialogService.addDialog(ConfirmComponent, {
+      title:'Would you like to become a creator?',
+      message:'Send your passport scan to create a project'})
+      .subscribe((isConfirmed)=>{
+        this.confirmResult = isConfirmed;
+      });
+  }
+
 }

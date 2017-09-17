@@ -23,10 +23,6 @@ export class UserControlPanelComponent implements OnInit {
   onSubmitUnblock(increased) {
     this.unblock.emit(increased);
   }
-  @Output() confirm = new EventEmitter<boolean>();
-  onSubmitConfirm(increased) {
-    this.confirm.emit(increased);
-  }
   @Output() deleteEvent = new EventEmitter<any>();
   onSubmitDelete(increased) {
     this.deleteEvent.emit({ event:event, comments: this.checkboxComments,

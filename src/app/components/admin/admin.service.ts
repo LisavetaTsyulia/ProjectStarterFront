@@ -90,4 +90,19 @@ export class AdminService {
         return res.json();
       });
   }
+
+  getPassportScan(email: string) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
+
+    return this.http
+      .post(
+        `${environment.serverUrl}admin/get-passport-scan`,
+        JSON.stringify({email}),
+        {headers}
+      ).map(res => {
+        return res.json();
+      });
+  }
 }
