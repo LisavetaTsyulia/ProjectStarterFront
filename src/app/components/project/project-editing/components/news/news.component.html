@@ -17,6 +17,9 @@
           (onEditorKeyup)="onTextEditorKeyUp($event)">
         </app-text-editor>
       </div>
+      <div *ngIf="errorMessage" class="alert alert-danger margin-top">
+        {{ errorMessage }}
+      </div>
       <div class="text-center margin-top">
         <a (click)="cancel()" class="btn btn-default btn-md">Cancel</a>
         <a (click)="create()" class="btn btn-success btn-md">Create the news</a>
