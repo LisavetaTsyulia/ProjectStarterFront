@@ -39,10 +39,12 @@
     "IMAGE": "Project image",
     "DROP_ZONE": "Drop a project picture here",
     "DROP_HINT": "Project picture can be .png, .jpeg or .gif only",
-    "IMAGE": "Project image",
     "TITLE": "Project title",
     "TITLE_REQUIRED_ERROR": "Title is required",
-    "TITLE_MAX_ERROR": "Title should be maximum 60 characters",
+    "TITLE_MAX_ERROR": {
+      "BEGINNING": "Title should be maximum",
+      "ENDING": "characters"
+    },
     "DESCRIPTION": "Project description",
     "SAVE": "Save"
   }
