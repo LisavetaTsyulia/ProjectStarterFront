@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {ProjectService} from '../project.service';
 import {Project} from '../../model/project';
@@ -28,10 +28,12 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   commentsArray: Comment[] = [];
   rewardsArray: Reward[] = [];
   newCommentText: string;
+  amountOfReward: number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private projectService: ProjectService,
+    private  router: Router,
   ) { }
 
   ngOnInit() {
@@ -127,5 +129,13 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
           this.getComments()
           this.newCommentText = "";
       });
+  }
+
+  onContinue(event) {
+    console.log(event.amount);
+  }
+
+  onContinueAnySum(amountOfReward: Number) {
+    console.log(amountOfReward);
   }
 }

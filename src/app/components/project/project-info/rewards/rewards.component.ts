@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Reward} from "../../../model/reward";
 
 @Component({
@@ -8,14 +8,15 @@ import {Reward} from "../../../model/reward";
 })
 export class RewardsComponent implements OnInit {
   @Input() reward: Reward;
+  @Output() pay = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onContinue() {
-
+  onContinue(event) {
+    this.pay.emit({ event:event, amount: this.reward.amount});
   }
 
 }
