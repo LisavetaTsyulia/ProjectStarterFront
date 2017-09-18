@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {Goal} from '../model/goal';
 
 @Component({
   selector: 'app-goal-card',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./goal-card.component.css']
 })
 export class GoalCardComponent implements OnInit {
+  @Input() goal: Goal;
+  @Input() progressBarValue: number;
 
   constructor() { }
 
