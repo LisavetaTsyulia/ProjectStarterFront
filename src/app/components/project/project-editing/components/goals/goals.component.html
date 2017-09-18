@@ -5,25 +5,27 @@
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         {{ successMessage }}
       </div>
-      <a (click)="showCreating()" class="btn btn-default btn-lg btn-block">Create the goal</a>
+      <a (click)="showCreating()" class="btn btn-default btn-lg btn-block">
+        {{'PROJECT_EDITING.GOALS.CREATE' | translate}}
+      </a>
     </div>
     <div *ngIf="needToCreate" class="form-group">
-      <h1>Write about new goal</h1>
+      <h1>{{'PROJECT_EDITING.GOALS.WRITE_ABOUT' | translate}}</h1>
       <div class="has-feedback">
-        <input class="form-control" id="goal_amount" placeholder="Amount" name="goal_amount"
-               [(ngModel)]="goal.amount"/>
+        <input class="form-control" id="goal_amount" placeholder="{{'PROJECT_EDITING.GOALS.AMOUNT' | translate}}"
+               name="goal_amount" [(ngModel)]="goal.amount"/>
         <span class="glyphicon glyphicon-usd form-control-feedback"></span>
       </div>
       <div class="margin-top">
         <textarea class="textarea form-control" rows="5" [(ngModel)]="goal.goalText"
-                  placeholder="Goal description"></textarea>
+                  placeholder="{{'PROJECT_EDITING.GOALS.DESCRIPTION' | translate}}"></textarea>
       </div>
       <div *ngIf="errorMessage" class="alert alert-danger margin-top">
         {{ errorMessage }}
       </div>
       <div class="text-center margin-top">
-        <a (click)="cancel()" class="btn btn-default btn-md">Cancel</a>
-        <a (click)="create()" class="btn btn-success btn-md">Create the goal</a>
+        <a (click)="cancel()" class="btn btn-default btn-md">{{'PROJECT_EDITING.GOALS.CANCEL' | translate}}</a>
+        <a (click)="create()" class="btn btn-success btn-md">{{'PROJECT_EDITING.GOALS.CREATE' | translate}}</a>
       </div>
     </div>
   </div>

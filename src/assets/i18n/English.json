@@ -46,6 +46,19 @@
       "ENDING": "characters"
     },
     "DESCRIPTION": "Project description",
-    "SAVE": "Save"
+    "SAVE": "Save",
+    "GOALS": {
+      "CREATE": "Create the goal",
+      "WRITE_ABOUT": "Write about new goal",
+      "CANCEL": "Cancel",
+      "AMOUNT": "Amount",
+      "DESCRIPTION": "Goal description"
+    },
+    "NEWS": {
+      "CREATE": "Create the news",
+      "WRITE_ABOUT": "Write about your news",
+      "CANCEL": "Cancel",
+      "TITLE": "Title"
+    }
   }
 }

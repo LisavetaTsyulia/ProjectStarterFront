@@ -5,11 +5,13 @@
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         {{ successMessage }}
       </div>
-      <a (click)="showCreating()" class="btn btn-default btn-lg btn-block">Create the news</a>
+      <a (click)="showCreating()" class="btn btn-default btn-lg btn-block">
+        {{'PROJECT_EDITING.NEWS.CREATE' | translate}}
+      </a>
     </div>
     <div *ngIf="needToCreate" class="form-group">
-      <h1>Write about your news</h1>
-      <input class="form-control" id="news_title" placeholder="Title" name="news_title"
+      <h1>{{'PROJECT_EDITING.NEWS.WRITE_ABOUT' | translate}}</h1>
+      <input class="form-control" id="news_title" placeholder="{{'PROJECT_EDITING.NEWS.TITLE' | translate}}" name="news_title"
              [(ngModel)]="news.title"/>
       <div class="margin-top">
         <app-text-editor
@@ -22,8 +24,8 @@
         {{ errorMessage }}
       </div>
       <div class="text-center margin-top">
-        <a (click)="cancel()" class="btn btn-default btn-md">Cancel</a>
-        <a (click)="create()" class="btn btn-success btn-md">Create the news</a>
+        <a (click)="cancel()" class="btn btn-default btn-md">{{'PROJECT_EDITING.NEWS.CANCEL' | translate}}</a>
+        <a (click)="create()" class="btn btn-success btn-md">{{'PROJECT_EDITING.NEWS.CREATE' | translate}}</a>
       </div>
     </div>
   </div>
