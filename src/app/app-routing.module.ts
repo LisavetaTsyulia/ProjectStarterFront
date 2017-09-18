@@ -10,7 +10,7 @@ const routes: Routes = [
     loadChildren: 'app/components/user-profile/userinfo-panel.module#UserinfoPanelModule' },
   { path: 'admin',
     loadChildren: 'app/components/admin/list-of-users.module#ListOfUsersModule' },
-  { path: 'payment',
+  { path: 'payment/:userId/:projectId/:amount',
     loadChildren: 'app/components/payment/payment.module#PaymentModule' },
   { path: 'project/create',
     loadChildren: 'app/components/project/project-creating/project-creating.module#ProjectCreatingModule' },

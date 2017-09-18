@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-payment',
@@ -6,10 +7,19 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-  pay: boolean = false;
-  constructor() { }
+  private pay: boolean = false;
+  private userId: number;
+  private projectId: number;
+  public amount: number;
+  private sub: any;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      this.userId = +params['userId'];
+      this.projectId = +params['projectId'];
+      this.amount = +params['amount'];
+    });
   }
 
   isClickedPay() {

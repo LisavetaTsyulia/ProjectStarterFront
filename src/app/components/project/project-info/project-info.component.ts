@@ -133,9 +133,14 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
 
   onContinue(event) {
     console.log(event.amount);
+    if(!this.isAnonymous())
+      this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, event.amount]);
+    // this.router.navigate(['/payment?userId='+this.userId+'&projectId='+this.projectId+'&amount='+event.amount]);
   }
 
   onContinueAnySum(amountOfReward: Number) {
     console.log(amountOfReward);
+    this.router.navigate(['/payment?userId='+this.userId+'&projectId='+this.projectId+'&amount='+amountOfReward]);
+
   }
 }
