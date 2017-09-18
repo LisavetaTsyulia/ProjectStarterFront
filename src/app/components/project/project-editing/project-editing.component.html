@@ -1,6 +1,10 @@
 <div class="container-fluid form-style">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#project_info" data-toggle="tab" aria-expanded="true">Project Info</a></li>
+    <li class="active">
+      <a href="#project_info" data-toggle="tab" aria-expanded="true">
+        {{'PROJECT_EDITING.TABS.INFO' | translate}}
+      </a>
+    </li>
     <li class=""><a href="#news" data-toggle="tab" aria-expanded="false">News</a></li>
     <li class=""><a href="#goals" data-toggle="tab" aria-expanded="false">Goals</a></li>
     <li class=""><a href="" data-toggle="tab" aria-expanded="false"
@@ -11,7 +15,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-xs-12">
-            <h1>Editing project info</h1>
+            <h1>{{'PROJECT_EDITING.EDIT_TITLE' | translate}}</h1>
 
             <form [formGroup]="formGroup">
               <div class="panel panel-primary">
