@@ -11,6 +11,8 @@ import {Ng2CloudinaryModule} from 'ng2-cloudinary';
 import { NewsInfoComponent } from './news-info/news-info.component';
 import {MdCardModule, MdButtonModule} from '@angular/material';
 import { CommentComponent } from './comment/comment.component';
+import { GoalComponent } from './goal/goal.component';
+import {GoalCardModule} from "../../goal-card/goal-card.module";
 
 @NgModule({
   imports: [
@@ -26,11 +28,13 @@ import { CommentComponent } from './comment/comment.component';
     FileUploadModule,
     MdCardModule,
     MdButtonModule,
+    GoalCardModule
   ],
   declarations: [
     ProjectInfoComponent,
     NewsInfoComponent,
     CommentComponent,
+    GoalComponent,
   ],
   providers: [
     ProjectService

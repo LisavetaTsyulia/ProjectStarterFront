@@ -91,6 +91,11 @@ export class ProjectService {
     return this.http.get(`${environment.serverUrl}project/news?project_id=` + projectId).map(res => res.json());
   }
 
+  findAllGoalsByProjectId(projectId: number) {
+    return this.authHttp.get(`${environment.serverUrl}project/project_goals?` +
+      `project_id=` + projectId).map(res => res.json());
+  }
+
   findCommentsByProjectId(projectId: number) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -136,6 +141,7 @@ export class ProjectService {
       });
 
   }
+
   findAllUserProjects(userId: number) {
     return this.authHttp.get(`${environment.serverUrl}user/user_projects?` +
       `user_id=` + userId).map(res => res.json());
