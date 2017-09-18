@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs/Subscription';
 import {ProjectService} from '../project.service';
 import {Project} from '../../model/project';
 import {News} from '../../model/news';
+import {Goal} from "../../model/goal";
 
 @Component({
   selector: 'app-project-info',
@@ -25,6 +26,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   selectedNewsNumber: number;
   newsArray: News[] = [];
   commentsArray: Comment[] = [];
+  goalsArray: Goal[] = [];
   newCommentText: string;
 
   constructor(
@@ -36,6 +38,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.subscription = this.activatedRoute.params.subscribe(params =>
       this.projectId = params['project_id']);
     this.getProject();
+    this.getGoals();
     this.getNews();
     this.getComments();
     this.getNotAnonymousData();
@@ -53,6 +56,13 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
       .subscribe(data => {
         Object.assign(this.project, data);
         this.initDaysToGo();
+      });
+  }
+
+  getGoals() {
+    this.projectService.findAllGoalsByProjectId(this.projectId)
+      .subscribe(data => {
+        Object.assign(this.goalsArray, data);
       });
   }
 

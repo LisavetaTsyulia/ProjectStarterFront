@@ -1,0 +1,16 @@
+<md-card class="card margin-top width" [class.green]="progressBarValue > 100">
+  <md-card-title>
+    <span class="bold">${{goal.amount}}
+      <span *ngIf="progressBarValue > 100" class="glyphicon glyphicon-ok" style="color: green"></span>
+    </span>
+    <div class="progress goal-progress-container">
+      <div class="progress-bar progress-bar-success progress-bar-striped active goal-progress"
+           role="progressbar" [attr.aria-valuenow]="progressBarValue" aria-valuemin="0" aria-valuemax="100"
+           [style.width]="progressBarValue + '%'">
+      </div>
+    </div>
+  </md-card-title>
+  <md-card-content>
+    <span>{{goal.goalText}}</span><br>
+  </md-card-content>
+</md-card>

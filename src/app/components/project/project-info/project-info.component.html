@@ -2,7 +2,6 @@
   <h1 id="project_title">{{project.title}}</h1>
   <div class="row">
     <div class="col-md-8 col-xs-12 text-center">
-      <!--<cl-image public-id="{{project.imageUrl}}" cloud-name="project-starter"></cl-image>-->
       <img src="{{project.imageUrl}}" class="avatar img-thumbnail" alt="Project image">
     </div>
     <div class="col-md-4 col-xs-12">
@@ -13,7 +12,7 @@
       <h3>{{daysToGo}}</h3>
       <p>days to go</p>
       <button *ngIf="!isAnonymous()" class="btn btn-block" [class.btn-success]="!isSubscribed"
-         [class.btn-default]="isSubscribed" (click)="subscribe()">
+              [class.btn-default]="isSubscribed" (click)="subscribe()">
         <span *ngIf="isSubscribed"><span class="glyphicon glyphicon-heart pink"></span> Subscribed</span>
         <span *ngIf="!isSubscribed"><span class="glyphicon glyphicon-heart"></span> Subscribe</span>
       </button>
@@ -37,7 +36,14 @@
           </div>
         </div>
         <div class="col-md-4 col-xs-12">
+
           <h2>Project goals</h2>
+          <div *ngFor="let goal of goalsArray">
+            <app-goal-card [goal]="goal"
+                           [progressBarValue]="project.currentAmount / goal.amount * 100">
+            </app-goal-card>
+          </div>
+
         </div>
       </div>
     </div>
@@ -74,16 +80,17 @@
     </div>
     <div class="tab-pane fade" id="comments">
       <div class=" row col-md-8 col-md-offset-1">
-          <div *ngFor="let comment of commentsArray "
-               class="margin-top">
-              <app-comment [comment]="comment"></app-comment>
-          </div>
+        <div *ngFor="let comment of commentsArray "
+             class="margin-top">
+          <app-comment [comment]="comment"></app-comment>
+        </div>
       </div>
       <div class=" row col-md-8 col-md-offset-1 margin-top">
-        <input type="text" class="form-control margin-top" id="comment" placeholder="Comment" [(ngModel)]="newCommentText" [ngModelOptions]="{standalone: true}">
+        <input type="text" class="form-control margin-top" id="comment" placeholder="Comment"
+               [(ngModel)]="newCommentText" [ngModelOptions]="{standalone: true}">
       </div>
       <div class=" row col-md-2 col-md-offset-7 margin-top">
-        <button class="btn btn-success" *ngIf="!isAnonymous()" (click)="addComment()" >
+        <button class="btn btn-success" *ngIf="!isAnonymous()" (click)="addComment()">
           <span class="glyphicon glyphicon-plus"></span> Add a comment
         </button>
       </div>

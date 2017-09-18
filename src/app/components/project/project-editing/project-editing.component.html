@@ -2,6 +2,7 @@
   <ul class="nav nav-tabs">
     <li class="active"><a href="#project_info" data-toggle="tab" aria-expanded="true">Project Info</a></li>
     <li class=""><a href="#news" data-toggle="tab" aria-expanded="false">News</a></li>
+    <li class=""><a href="#goals" data-toggle="tab" aria-expanded="false">Goals</a></li>
     <li class=""><a href="" data-toggle="tab" aria-expanded="false"
                     (click)="viewProjectPage()">View project page</a></li>
   </ul>
@@ -89,6 +90,9 @@
     </div>
     <div class="tab-pane fade" id="news">
       <app-news [projectId]="project.id"></app-news>
+    </div>
+    <div class="tab-pane fade" id="goals">
+      <app-goals [projectId]="project.id"></app-goals>
     </div>
   </div>
 </div>
