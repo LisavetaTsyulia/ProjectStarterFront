@@ -1,8 +1,9 @@
 <div class="container form-style">
-  <div class="jumbotron margin-top">
+  <div *ngIf="isAnonymous()" class="jumbotron margin-top">
     <h1>Project Starter</h1>
     <p>Do you want to become a creator?! Join us faster and verify your identity</p>
-    <p><a class="btn btn-primary btn-lg" (click)="joinUs()">Join us</a></p>
+    <p><a routerLink="../registration" routerLinkActive="active"
+          class="btn btn-primary btn-lg">Join us</a></p>
   </div>
   <div *ngIf="lastCreatedProjects">
     <h1>Last created projects</h1>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {ProjectService} from "../project/project.service";
-import {Project} from "../model/project";
+import {ProjectService} from '../project/project.service';
+import {Project} from '../model/project';
 
 @Component({
   selector: 'app-home-page',
@@ -20,16 +20,16 @@ export class HomePageComponent implements OnInit {
     this.getLastCreatedProjects();
   }
 
-  joinUs() {
-    this.router.navigate(['registration']); // Doesn't work
-    // this.router.navigateByUrl('registration');
-  }
-
   getLastCreatedProjects() {
     this.projectService.findLastCreatedProjects()
       .subscribe(data => {
         this.lastCreatedProjects = data;
         console.log(this.lastCreatedProjects);
       });
+  }
+
+  public isAnonymous(): boolean {
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    return user === null;
   }
 }
