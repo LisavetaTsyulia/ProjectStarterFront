@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaymentComponent } from "./payment.component";
+import {PaymentService} from "./payment.service";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   imports: [
@@ -12,10 +14,14 @@ import { PaymentComponent } from "./payment.component";
     ]),
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   declarations: [
     PaymentComponent
+  ],
+  providers: [
+    PaymentService
   ],
   exports: [RouterModule]
 })
