@@ -15,6 +15,10 @@
   -o-background-size: cover;
 }
 
+.cursor:hover {
+  cursor: pointer;
+}
+
 .textarea-resize-disable {
   resize: none;
 }
