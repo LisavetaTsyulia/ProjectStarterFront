@@ -92,7 +92,7 @@ export class ProjectService {
   }
 
   findAllGoalsByProjectId(projectId: number) {
-    return this.authHttp.get(`${environment.serverUrl}project/project_goals?` +
+    return this.http.get(`${environment.serverUrl}project/project_goals?` +
       `project_id=` + projectId).map(res => res.json());
   }
 
