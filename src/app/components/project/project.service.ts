@@ -8,6 +8,7 @@ import {environment} from '../../../environments/environment';
 import {Headers} from '@angular/http';
 import {Project} from '../model/project';
 import {News} from '../model/news';
+import {Goal} from "../model/goal";
 
 @Injectable()
 export class ProjectService {
@@ -63,6 +64,22 @@ export class ProjectService {
       .post(
         `${environment.serverUrl}project/createNews`,
         JSON.stringify(news),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      });
+  }
+
+  createGoal(goal: Goal) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
+
+    return this.http
+      .post(
+        `${environment.serverUrl}project/createGoal`,
+        JSON.stringify(goal),
         {headers}
       )
       .map(res => {
