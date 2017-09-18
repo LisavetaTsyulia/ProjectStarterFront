@@ -74,6 +74,10 @@ export class ProjectService {
     return this.http.get(`${environment.serverUrl}project/news?project_id=` + projectId).map(res => res.json());
   }
 
+  findRewardsByProjectId(projectId: number) {
+    return this.http.get(`${environment.serverUrl}project/rewards?project_id=` + projectId).map(res => res.json());
+  }
+
   findCommentsByProjectId(projectId: number) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');

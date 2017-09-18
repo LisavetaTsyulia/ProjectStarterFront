@@ -42,9 +42,9 @@
       </div>
     </div>
     <div class="tab-pane fade" id="rewards">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3 col-xs-12">
-          <h2>Support this project</h2>
+      <div class="card-deck row">
+        <div class=" margin-top" *ngFor="let reward of rewardsArray ">
+          <app-rewards [reward]="reward"></app-rewards>
         </div>
       </div>
     </div>

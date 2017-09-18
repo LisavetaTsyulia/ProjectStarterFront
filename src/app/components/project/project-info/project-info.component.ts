@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs/Subscription';
 import {ProjectService} from '../project.service';
 import {Project} from '../../model/project';
 import {News} from '../../model/news';
+import {Reward} from "../../model/reward";
 
 @Component({
   selector: 'app-project-info',
@@ -25,6 +26,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   selectedNewsNumber: number;
   newsArray: News[] = [];
   commentsArray: Comment[] = [];
+  rewardsArray: Reward[] = [];
   newCommentText: string;
 
   constructor(
@@ -38,6 +40,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.getProject();
     this.getNews();
     this.getComments();
+    this.getRewards();
     this.getNotAnonymousData();
   }
 
@@ -67,6 +70,13 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.projectService.findCommentsByProjectId(this.projectId)
       .subscribe(data => {
         Object.assign(this.commentsArray, data);
+      });
+  }
+
+  getRewards() {
+    this.projectService.findRewardsByProjectId(this.projectId)
+      .subscribe(data => {
+        Object.assign(this.rewardsArray, data);
       });
   }
 

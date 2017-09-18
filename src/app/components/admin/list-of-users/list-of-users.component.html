@@ -12,7 +12,7 @@
   <tbody>
 
   <tr *ngFor="let user of allUsers" (click)="onSelect(user)" (sorted)="(user)"
-      [class.selected]="isSelected(user)" [class.waitToConfirm]="isWaiting(user)">
+      [class.selected]="isSelected(user)" [class.waitToConfirm]="isWaiting(user)" class="item">
     <td *ngFor="let key of keysArray">
        {{user[key]}}
     </td>

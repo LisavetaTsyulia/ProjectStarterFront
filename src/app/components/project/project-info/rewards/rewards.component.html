@@ -1,0 +1,13 @@
+  <md-card class="card my-card margin-top col-md-3 ">
+    <md-card-content class="card-block">
+      <div class="row">
+        <h4 class="col-md-12 text-center text-warning">{{reward.amount}}$ or more</h4>
+      </div>
+      <div class="row">
+        <div [innerHTML]="reward.description"></div>
+      </div>
+    </md-card-content>
+    <md-card-footer>
+      <button class="btn btn-warning btn-block" (click)="onContinue(reward.amount)">Continue</button>
+    </md-card-footer>
+  </md-card>
