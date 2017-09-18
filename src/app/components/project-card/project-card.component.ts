@@ -23,7 +23,7 @@ export class ProjectCardComponent implements OnInit {
   }
 
   initDaysToGo() {
-    this.daysToGo = Date.parse(this.project.endDate.toString()) -
+    this.daysToGo = Number.parseInt(this.project.endDate.toString()) -
       Date.parse(new Date().toString());
     this.daysToGo /= (1000 * 60 * 60 * 24);
     this.daysToGo = Math.floor(this.daysToGo);
