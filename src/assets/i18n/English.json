@@ -32,7 +32,8 @@
       "INFO": "Project info",
       "NEWS": "News",
       "GOALS": "Goals",
-      "VIEW": "View project page"
+      "VIEW": "View project page",
+      "REWARDS": "Rewards"
     },
     "EDIT_TITLE": "Editing project info",
     "CARD": "Project card",
