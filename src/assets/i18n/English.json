@@ -26,5 +26,49 @@
     "PASSWORD_IS_REQUIRED": "Password is required",
     "LOGIN": "Log in",
     "EMAIL_EMAIL_SHOULD_BE_MINIMUM": "Email should be minimum"
+  },
+  "REGISTRATION": {
+    "REGISTRATION": "Registration",
+    "NAME": "Name",
+    "NAME_IS_REQUIRED": "Name is required",
+    "EMAIL": "Email",
+    "EMAIL_IS_REQUIRED": "Email is required",
+    "EMAIL_IS_WRONG": "Email is wrong",
+    "CHARACTERS": "characters",
+    "PASSWORD": "Password",
+    "PASSWORD_IS_REQUIRED": "Password is required",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "CONFIRM_YOUR_PASSWORD": "Confirm your password",
+    "PASSWORD_MUST_MATCHES": "Password must matches",
+    "SIGN_UP": "Sign up",
+    "EMAIL_EMAIL_SHOULD_BE_MINIMUM": "Email should be minimum"
+  },
+  "CONFIRM": {
+    "TITLE": "Here is the passport scan",
+    "CONFIRM": "Confirm",
+    "DISMISS": "Dismiss",
+    "LATER": "Later"
+  },
+  "ADMIN": {
+    "USER_LIST": "User List",
+    "BLOCK": "Block",
+    "UNBLOCK": "Unblock",
+    "DELETE": "Delete",
+    "WITH_COMMENTS": "With Comments",
+    "WITH_PROJECTS": "With Projects",
+    "WITH_RATINGS": "With Ratings",
+    "LOAD_USERS": "Load Users",
+    "ALL_USERS": "All Users",
+    "USERS_TO_CONFIRM": "Users To Confirm",
+    "ADMINISTRATORS": "Administrators",
+    "CONFIRMED_USERS": "Confirmed Users",
+    "SORT_USERS_BY": "Sort Users By",
+    "NONE": "None",
+    "AMOUNT_OF_PROJECTS": "Amount Of Projects",
+    "REGISTRATION_DATE": "Registration Date",
+    "LAST_LOGIN": "Last Login",
+    "STATUS": "Status",
+    "ROLE": "Role",
+    "EMAIL": "Email"
   }
 }

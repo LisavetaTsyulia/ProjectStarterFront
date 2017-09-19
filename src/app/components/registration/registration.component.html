@@ -1,66 +1,66 @@
 <div class="container form-style">
   <div class="col-md-4 col-md-offset-4">
-    <h1>Registration</h1>
+    <h1>{{'REGISTRATION.REGISTRATION' | translate}}</h1>
     <form (ngSubmit)="onSubmit()" [formGroup]="formGroup">
 
       <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Name"
+        <label for="name">{{'REGISTRATION.NAME' | translate}}</label>
+        <input type="text" class="form-control" id="name" placeholder="{{'REGISTRATION.NAME' | translate}}"
                [(ngModel)]="newUser.name" name="name" formControlName="name">
         <div *ngIf="formGroup.get('name').errors && formGroup.get('name').touched" class="alert alert-danger">
           <div *ngIf="formGroup.get('name').hasError('required')">
-            Name is required
+            {{'REGISTRATION.NAME_IS_REQUIRED' | translate}}.
           </div>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" id="email" placeholder="Email"
+        <label for="email">{{'REGISTRATION.EMAIL' | translate}}</label>
+        <input type="text" class="form-control" id="email" placeholder="{{'REGISTRATION.EMAIL' | translate}}"
                [(ngModel)]="newUser.email" name="email" formControlName="email">
         <div *ngIf="formGroup.get('email').errors && formGroup.get('email').touched" class="alert alert-danger">
           <div *ngIf="formGroup.get('email').hasError('required')">
-            Email is required.
+            {{'REGISTRATION.EMAIL_IS_REQUIRED' | translate}}.
           </div>
           <div *ngIf="!formGroup.get('email').hasError('minlength')
                       && formGroup.get('email').hasError('incorrectMailFormat')">
-            Email is wrong.
+            {{'REGISTRATION.EMAIL_IS_WRONG' | translate}}.
           </div>
           <div *ngIf="formGroup.get('email').hasError('minlength')">
-            Email should be minimum {{formGroup.get('email').getError('minlength').requiredLength}} characters.
+            {{'REGISTRATION.EMAIL_SHOULD_BE_MINIMUM' | translate}}{{formGroup.get('email').getError('minlength').requiredLength}} {{'REGISTRATION.CHARACTERS' | translate}}.
           </div>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password"
+        <label for="password">{{'REGISTRATION.PASSWORD' | translate}}</label>
+        <input type="password" class="form-control" id="password" placeholder="{{'REGISTRATION.PASSWORD' | translate}}"
                [(ngModel)]="newUser.password" name="password" formControlName="password">
         <div *ngIf="formGroup.get('password').errors && formGroup.get('password').touched" class="alert alert-danger">
           <div *ngIf="formGroup.get('password').hasError('required')">
-            Password is required.
+            {{'REGISTRATION.PASSWORD_IS_REQUIRED' | translate}}.
           </div>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="confirmPassword">Confirm password</label>
-        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password"
+        <label for="confirmPassword">{{'REGISTRATION.CONFIRM_PASSWORD' | translate}}</label>
+        <input type="password" class="form-control" id="confirmPassword" placeholder="{{'REGISTRATION.CONFIRM_PASSWORD' | translate}}"
                [(ngModel)]="newUser.confirmPassword" name="confirmPassword" formControlName="confirmPassword">
         <div *ngIf="formGroup.get('confirmPassword').errors && formGroup.get('confirmPassword').touched"
              class="alert alert-danger">
           <div *ngIf="formGroup.get('confirmPassword').hasError('required')">
-            Confirm your password.
+            {{'REGISTRATION.CONFIRM_YOUR_PASSWORD' | translate}}.
           </div>
         </div>
       </div>
       <div *ngIf="!samePasswords()" class="alert alert-danger">
-        Passwords must match.
+        {{'REGISTRATION.PASSWORD_MUST_MATCHES' | translate}}.
       </div>
       <div *ngIf="errorMessage" class="alert alert-danger">
         {{ errorMessage }}
       </div>
-      <button type="submit" class="btn btn-success btn-md btn-block" [disabled]="!formGroup.valid">Sign up
+      <button type="submit" class="btn btn-success btn-md btn-block" [disabled]="!formGroup.valid">{{'REGISTRATION.SIGN_UP' | translate}}
       </button>
     </form>
   </div>

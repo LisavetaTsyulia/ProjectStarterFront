@@ -26,5 +26,49 @@
     "PASSWORD_IS_REQUIRED": "Пароль необходим",
     "LOGIN": "Зайти",
     "EMAIL_EMAIL_SHOULD_BE_MINIMUM": "Почтовый адрес должен быть минимум"
+  },
+  "REGISTRATION": {
+    "REGISTRATION": "Регистрация",
+    "NAME": "Имя",
+    "NAME_IS_REQUIRED": "Имя необходимо",
+    "EMAIL": "Почтовый адрес",
+    "EMAIL_IS_REQUIRED": "Почтовый адрес необходим",
+    "EMAIL_IS_WRONG": "Почтовый адрес неверен",
+    "CHARACTERS": "символов",
+    "PASSWORD": "Пароль",
+    "PASSWORD_IS_REQUIRED": "Пароль необходим",
+    "CONFIRM_PASSWORD": "Пароль Подтверждения",
+    "CONFIRM_YOUR_PASSWORD": "Подтвердите свой пароль",
+    "PASSWORD_MUST_MATCHES": "Пароли должны совпадать",
+    "SIGN_UP": "Зарегистрироваться",
+    "EMAIL_EMAIL_SHOULD_BE_MINIMUM": "Почтовый адрес должен быть минимум"
+  },
+  "CONFIRM": {
+    "TITLE": "Скан Паспорта перед Вами",
+    "CONFIRM": "Подтвердить",
+    "DISMISS": "Отклонить",
+    "LATER": "Позже"
+  },
+  "ADMIN": {
+    "USER_LIST": "Список пользователей",
+    "BLOCK": "Заблокировать",
+    "UNBLOCK": "Разблокировать",
+    "DELETE": "Удалить",
+    "WITH_COMMENTS": "С Коментариями",
+    "WITH_PROJECTS": "С Проектами",
+    "WITH_RATINGS": "С Рейтингами",
+    "LOAD_USERS": "Загрузить Пользователей",
+    "ALL_USERS": "Все Пользователи",
+    "USERS_TO_CONFIRM": "Подавшие Заявку",
+    "ADMINISTRATORS": "Администраторы",
+    "CONFIRMED_USERS": "Подтвержденные",
+    "SORT_USERS_BY": "Сортировать По",
+    "NONE": "Без Сортировки",
+    "AMOUNT_OF_PROJECTS": "Кол-во Проектов",
+    "REGISTRATION_DATE": "Дата Регистрации",
+    "LAST_LOGIN": "Время Последнего Логина",
+    "STATUS": "Статус",
+    "ROLE": "Роль",
+    "EMAIL": "Почта"
   }
 }

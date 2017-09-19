@@ -113,12 +113,12 @@ export class ListOfUsersComponent implements OnInit {
 
   sortByRole(role: string) {
     console.log(role);
-    if (role === "All Users") {
+    if (role === "All Users" || role === "Все Пользователи") {
       this.theRole = null;
       return this.loadUsersToTable();
-    } else if (role === "Confirmed Users") this.theRole = 'ROLE_CONFIRMED_USER';
-    else if (role === "Users to Confirm") this.theRole = 'ROLE_WAIT_CONFIRM';
-    else if (role === "Administrators") this.theRole = 'ROLE_ADMIN';
+    } else if (role === "Confirmed Users" || role === "Подтвержденные") this.theRole = 'ROLE_CONFIRMED_USER';
+    else if (role === "Users to Confirm" || role === "Подавшие Заявку") this.theRole = 'ROLE_WAIT_CONFIRM';
+    else if (role === "Administrators" || role === "Администраторы") this.theRole = 'ROLE_ADMIN';
     this.adminService.sortByRole(this.theRole)
       .flatMap(res => {
       this.keysArray = Object.keys(res[0]);
@@ -131,13 +131,19 @@ export class ListOfUsersComponent implements OnInit {
       );
 
   }
-
   sort(by: string) {
     console.log(by);
+    if (by == "Без Сортировки") by = "None";
+    else if (by == "Кол-во Проектов") by = "Amount Of Projects";
+    else if (by == "Дата Регистрации") by = "Registration Date";
+    else if (by == "Время Последнего Логина") by = "Last Login";
+    else if (by == "Статус") by = "Status";
+
     this.adminService.sortBy(by, this.theRole)
       .flatMap(res => {
         this.keysArray = Object.keys(res[0]);
-        res.role = JSON.parse(res)['role'];
+        console.log(res['role']);
+        res.role = res['role'];
         res.isSelected = false;
         return this.allUsers = res;
       })

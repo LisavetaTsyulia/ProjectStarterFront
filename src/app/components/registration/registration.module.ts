@@ -6,6 +6,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginPageGuard} from '../login/login-page.guard';
 import {AuthModule} from '../auth/auth.module';
 import { ConfirmComponent } from './confirm/confirm.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { ConfirmComponent } from './confirm/confirm.component';
     CommonModule,
     FormsModule,
     AuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule.forChild()
   ],
   providers: [
     LoginPageGuard
