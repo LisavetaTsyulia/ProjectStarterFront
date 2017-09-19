@@ -60,5 +60,19 @@
       "CANCEL": "Отмена",
       "TITLE": "Заголовок"
     }
+  },
+  "PROJECT_INFO": {
+    "BACKERS": "финансистов",
+    "DAYS_TO_GO": "дней осталось",
+    "SUBSCRIBE": "Подписаться",
+    "SUBSCRIBED": "Подписан",
+    "CAMPAIGN": "Основное",
+    "REWARDS": "Финансирование",
+    "NEWS": "Новости",
+    "COMMENTS": "Комментарии",
+    "DESCRIPTION": "Об этом проекте",
+    "PROJECT_GOALS": "Цели проекта",
+    "SUPPORT_PROJECT": "Поддрежать проект",
+    "ADD_COMMENT": "Добавить комментарий"
   }
 }
