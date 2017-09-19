@@ -69,10 +69,12 @@
     "CAMPAIGN": "Campaign",
     "REWARDS": "Rewards",
     "NEWS": "News",
+    "NEWS_NUMBER": "News",
     "COMMENTS": "Comments",
     "DESCRIPTION": "About this project",
     "PROJECT_GOALS": "Project goals",
     "SUPPORT_PROJECT": "Support this project",
-    "ADD_COMMENT": "Add a comment"
+    "ADD_COMMENT": "Add a comment",
+    "BACK": "Back"
   }
 }

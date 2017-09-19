@@ -69,10 +69,12 @@
     "CAMPAIGN": "Основное",
     "REWARDS": "Финансирование",
     "NEWS": "Новости",
+    "NEWS_NUMBER": "Новость",
     "COMMENTS": "Комментарии",
     "DESCRIPTION": "Об этом проекте",
     "PROJECT_GOALS": "Цели проекта",
     "SUPPORT_PROJECT": "Поддрежать проект",
-    "ADD_COMMENT": "Добавить комментарий"
+    "ADD_COMMENT": "Добавить комментарий",
+    "BACK": "Назад"
   }
 }
