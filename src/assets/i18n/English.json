@@ -76,5 +76,21 @@
     "SUPPORT_PROJECT": "Support this project",
     "ADD_COMMENT": "Add a comment",
     "BACK": "Back"
+  },
+  "PROJECT_CREATING": {
+    "CREATE_NEW_PROJECT": "Create new project",
+    "TITLE": "Title",
+    "TITLE_REQUIRED_ERROR": "Title is required",
+    "TITLE_MAX_ERROR": {
+      "BEGINNING": "Title should be maximum",
+      "ENDING": "characters"
+    },
+    "END_DATE": "End date",
+    "END_DATE_REQUIRED_ERROR": "End date is required",
+    "END_DATE_SMALL_ERROR": "End date should be after todays",
+    "PROJECT_GOAL": "Project goal",
+    "PROJECT_GOAL_REQUIRED_ERROR": "Project goal is required",
+    "PROJECT_GOAL_WRONG_ERROR": "Project goal is wrong. It should be integer value",
+    "CREATE": "Create"
   }
 }
