@@ -73,7 +73,7 @@
     "COMMENTS": "Комментарии",
     "DESCRIPTION": "Об этом проекте",
     "PROJECT_GOALS": "Цели проекта",
-    "SUPPORT_PROJECT": "Поддрежать проект",
+    "SUPPORT_PROJECT": "Поддержать проект",
     "ADD_COMMENT": "Добавить комментарий",
     "BACK": "Назад"
   },
@@ -92,5 +92,10 @@
     "PROJECT_GOAL_REQUIRED_ERROR": "Требуется ввести целевую сумму проекта проекта",
     "PROJECT_GOAL_WRONG_ERROR": "Целевая сумма неверна. Она должна быть целым числом",
     "CREATE": "Создать"
+  },
+  "PROJECT_CARD": {
+    "PROJECT_IMAGE": "Картинка проекта",
+    "PLEDGED": "профинансировано",
+    "DAYS_TO_PLEDGE": "дней осталось"
   }
 }

@@ -92,5 +92,10 @@
     "PROJECT_GOAL_REQUIRED_ERROR": "Project goal is required",
     "PROJECT_GOAL_WRONG_ERROR": "Project goal is wrong. It should be integer value",
     "CREATE": "Create"
+  },
+  "PROJECT_CARD": {
+    "PROJECT_IMAGE": "Project image",
+    "PLEDGED": "pledged",
+    "DAYS_TO_PLEDGE": "days to go"
   }
 }
