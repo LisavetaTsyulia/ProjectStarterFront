@@ -26,5 +26,76 @@
     "PASSWORD_IS_REQUIRED": "Пароль необходим",
     "LOGIN": "Зайти",
     "EMAIL_EMAIL_SHOULD_BE_MINIMUM": "Почтовый адрес должен быть минимум"
+  },
+  "PROJECT_EDITING": {
+    "TABS": {
+      "INFO": "Информация о проекте",
+      "NEWS": "Новости",
+      "GOALS": "Цели",
+      "VIEW": "Посмотреть страницу проекта"
+    },
+    "EDIT_TITLE": "Изменение информации о проекте",
+    "CARD": "Карточка проекта",
+    "IMAGE": "Картинка проекта",
+    "DROP_ZONE": "Перетащите сюда картинку вашего проекта",
+    "DROP_HINT": "Картинка проекта может быть только .png, .jpeg или .gif",
+    "TITLE": "Заголовок проекта",
+    "TITLE_REQUIRED_ERROR": "Требуется ввести заголовок проекта",
+    "TITLE_MAX_ERROR": {
+      "BEGINNING": "Заголово должен иметь максимум",
+      "ENDING": "символов"
+    },
+    "DESCRIPTION": "Описание проекта",
+    "SAVE": "Сохранить",
+    "GOALS": {
+      "CREATE": "Создать цель",
+      "WRITE_ABOUT": "Напишите информацию о новой цели",
+      "CANCEL": "Отмена",
+      "AMOUNT": "Целевая сумма",
+      "DESCRIPTION": "Описание цели"
+    },
+    "NEWS": {
+      "CREATE": "Создать новость",
+      "WRITE_ABOUT": "Напишите информацию о вашей новости",
+      "CANCEL": "Отмена",
+      "TITLE": "Заголовок"
+    }
+  },
+  "PROJECT_INFO": {
+    "BACKERS": "финансистов",
+    "DAYS_TO_GO": "дней осталось",
+    "SUBSCRIBE": "Подписаться",
+    "SUBSCRIBED": "Подписан",
+    "CAMPAIGN": "Основное",
+    "REWARDS": "Финансирование",
+    "NEWS": "Новости",
+    "NEWS_NUMBER": "Новость",
+    "COMMENTS": "Комментарии",
+    "DESCRIPTION": "Об этом проекте",
+    "PROJECT_GOALS": "Цели проекта",
+    "SUPPORT_PROJECT": "Поддержать проект",
+    "ADD_COMMENT": "Добавить комментарий",
+    "BACK": "Назад"
+  },
+  "PROJECT_CREATING": {
+    "CREATE_NEW_PROJECT": "Создать новый проект",
+    "TITLE": "Заголовок",
+    "TITLE_REQUIRED_ERROR": "Требуется ввести заголовок проекта",
+    "TITLE_MAX_ERROR": {
+      "BEGINNING": "Заголово должен иметь максимум",
+      "ENDING": "символов"
+    },
+    "END_DATE": "Дата окончания",
+    "END_DATE_REQUIRED_ERROR": "Требуется ввести дату окончания проекта",
+    "END_DATE_SMALL_ERROR": "Дата окончания должна быть больше сегодняшней",
+    "PROJECT_GOAL": "Целевая сумма проека",
+    "PROJECT_GOAL_REQUIRED_ERROR": "Требуется ввести целевую сумму проекта проекта",
+    "PROJECT_GOAL_WRONG_ERROR": "Целевая сумма неверна. Она должна быть целым числом",
+    "CREATE": "Создать"
+  },
+  "PROJECT_CARD": {
+    "PROJECT_IMAGE": "Картинка проекта",
+    "PLEDGED": "профинансировано",
+    "DAYS_TO_PLEDGE": "дней осталось"
   }
 }

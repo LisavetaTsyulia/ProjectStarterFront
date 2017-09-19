@@ -7,6 +7,7 @@ import {ProjectCreatingComponent} from './project-creating.component';
 import {ProjectService} from '../project.service';
 import {MdDatepickerModule, MdFormFieldModule, MdNativeDateModule} from '@angular/material';
 import {MyDatePickerModule} from 'mydatepicker';
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import {MyDatePickerModule} from 'mydatepicker';
     AuthModule,
     ReactiveFormsModule,
     MyDatePickerModule,
-    // MdDatepickerModule,
+    TranslateModule.forChild()
+// MdDatepickerModule,
     // MdFormFieldModule,
     // MdNativeDateModule,
   ],

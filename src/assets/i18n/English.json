@@ -26,5 +26,76 @@
     "PASSWORD_IS_REQUIRED": "Password is required",
     "LOGIN": "Log in",
     "EMAIL_EMAIL_SHOULD_BE_MINIMUM": "Email should be minimum"
+  },
+  "PROJECT_EDITING": {
+    "TABS": {
+      "INFO": "Project info",
+      "NEWS": "News",
+      "GOALS": "Goals",
+      "VIEW": "View project page"
+    },
+    "EDIT_TITLE": "Editing project info",
+    "CARD": "Project card",
+    "IMAGE": "Project image",
+    "DROP_ZONE": "Drop a project picture here",
+    "DROP_HINT": "Project picture can be .png, .jpeg or .gif only",
+    "TITLE": "Project title",
+    "TITLE_REQUIRED_ERROR": "Title is required",
+    "TITLE_MAX_ERROR": {
+      "BEGINNING": "Title should be maximum",
+      "ENDING": "characters"
+    },
+    "DESCRIPTION": "Project description",
+    "SAVE": "Save",
+    "GOALS": {
+      "CREATE": "Create the goal",
+      "WRITE_ABOUT": "Write about new goal",
+      "CANCEL": "Cancel",
+      "AMOUNT": "Amount",
+      "DESCRIPTION": "Goal description"
+    },
+    "NEWS": {
+      "CREATE": "Create the news",
+      "WRITE_ABOUT": "Write about your news",
+      "CANCEL": "Cancel",
+      "TITLE": "Title"
+    }
+  },
+  "PROJECT_INFO": {
+    "BACKERS": "backers",
+    "DAYS_TO_GO": "days to go",
+    "SUBSCRIBE": "Subscribe",
+    "SUBSCRIBED": "Subscribed",
+    "CAMPAIGN": "Campaign",
+    "REWARDS": "Rewards",
+    "NEWS": "News",
+    "NEWS_NUMBER": "News",
+    "COMMENTS": "Comments",
+    "DESCRIPTION": "About this project",
+    "PROJECT_GOALS": "Project goals",
+    "SUPPORT_PROJECT": "Support this project",
+    "ADD_COMMENT": "Add a comment",
+    "BACK": "Back"
+  },
+  "PROJECT_CREATING": {
+    "CREATE_NEW_PROJECT": "Create new project",
+    "TITLE": "Title",
+    "TITLE_REQUIRED_ERROR": "Title is required",
+    "TITLE_MAX_ERROR": {
+      "BEGINNING": "Title should be maximum",
+      "ENDING": "characters"
+    },
+    "END_DATE": "End date",
+    "END_DATE_REQUIRED_ERROR": "End date is required",
+    "END_DATE_SMALL_ERROR": "End date should be after todays",
+    "PROJECT_GOAL": "Project goal",
+    "PROJECT_GOAL_REQUIRED_ERROR": "Project goal is required",
+    "PROJECT_GOAL_WRONG_ERROR": "Project goal is wrong. It should be integer value",
+    "CREATE": "Create"
+  },
+  "PROJECT_CARD": {
+    "PROJECT_IMAGE": "Project image",
+    "PLEDGED": "pledged",
+    "DAYS_TO_PLEDGE": "days to go"
   }
 }

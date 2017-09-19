@@ -1,52 +1,63 @@
 <div class="container-fluid form-style">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#project_info" data-toggle="tab" aria-expanded="true">Project Info</a></li>
-    <li class=""><a href="#news" data-toggle="tab" aria-expanded="false">News</a></li>
-    <li class=""><a href="#goals" data-toggle="tab" aria-expanded="false">Goals</a></li>
-    <li class=""><a href="" data-toggle="tab" aria-expanded="false"
-                    (click)="viewProjectPage()">View project page</a></li>
+    <li class="active">
+      <a href="#project_info" data-toggle="tab" aria-expanded="true">
+        {{'PROJECT_EDITING.TABS.INFO' | translate}}
+      </a>
+    </li>
+    <li class="">
+      <a href="#news" data-toggle="tab" aria-expanded="false">{{'PROJECT_EDITING.TABS.NEWS' | translate}}</a>
+    </li>
+    <li class="">
+      <a href="#goals" data-toggle="tab" aria-expanded="false">{{'PROJECT_EDITING.TABS.GOALS' | translate}}</a>
+    </li>
+    <li class="">
+      <a href="" data-toggle="tab" aria-expanded="false"
+                    (click)="viewProjectPage()">{{'PROJECT_EDITING.TABS.VIEW' | translate}}</a>
+    </li>
   </ul>
   <div id="myTabContent" class="tab-content tab-content-padding-top">
     <div class="tab-pane fade active in" id="project_info">
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-xs-12">
-            <h1>Editing project info</h1>
+            <h1>{{'PROJECT_EDITING.EDIT_TITLE' | translate}}</h1>
 
             <form [formGroup]="formGroup">
               <div class="panel panel-primary">
-                <div class="panel-heading">Project image</div>
+                <div class="panel-heading">{{'PROJECT_EDITING.IMAGE' | translate}}</div>
                 <div class="panel-body">
                   <div class="profile-picture-section">
                     <div ng2FileDrop [uploader]="uploader" [ng2FileDropSupportedFileTypes]="supportedFileTypes"
                          (ng2FileDropFileAccepted)="dragFileAccepted($event)"
                          class="profile-picture-section-drop-zone">
                       <div *ngIf="!imageShown" class="profile-picture-section-request-image-group">
-                        <p class="profile-picture-section-request-image-instructions">Drop a project picture here</p>
+                        <p class="profile-picture-section-request-image-instructions">{{'PROJECT_EDITING.DROP_ZONE' | translate}}</p>
                       </div>
                       <div *ngIf="imageShown" class="profile-picture-section-request-image-container">
                         <img class="profile-picture-section-request-image" [src]="currentProfileImage">
                       </div>
                     </div>
-                    <p class="profile-picture-section-limitations">Project picture can be .png, .jpeg or .gif only</p>
+                    <p class="profile-picture-section-limitations">{{'PROJECT_EDITING.DROP_HINT' | translate}}</p>
                   </div>
                 </div>
               </div>
 
               <div class="form-group">
                 <div class="panel panel-primary">
-                  <div class="panel-heading">Project title</div>
+                  <div class="panel-heading">{{'PROJECT_EDITING.TITLE' | translate}}</div>
                   <div class="panel-body">
                     <div class="form-group">
-                      <input class="form-control" id="title" placeholder="Title" name="title"
+                      <input class="form-control" id="title" placeholder="{{'PROJECT_EDITING.TITLE' | translate}}" name="title"
                              [(ngModel)]="project.title" formControlName="title"/>
                     </div>
                     <div *ngIf="formGroup.get('title').errors && formGroup.get('title').touched" class="alert alert-danger">
                       <div *ngIf="formGroup.get('title').hasError('required')">
-                        Title is required.
+                        {{'PROJECT_EDITING.TITLE_REQUIRED_ERROR' | translate}}.
                       </div>
                       <div *ngIf="formGroup.get('title').hasError('maxlength')">
-                        Title should be maximum {{formGroup.get('title').getError('maxlength').requiredLength}} characters.
+                        {{'PROJECT_EDITING.TITLE_MAX_ERROR.BEGINNING' | translate}} {{formGroup.get('title').getError('maxlength').requiredLength}}
+                        {{'PROJECT_EDITING.TITLE_MAX_ERROR.ENDING' | translate}}.
                       </div>
                     </div>
                   </div>
@@ -55,7 +66,7 @@
 
               <div class="form-group">
                 <div class="panel panel-primary">
-                  <div class="panel-heading">Project description</div>
+                  <div class="panel-heading">{{'PROJECT_EDITING.DESCRIPTION' | translate}}</div>
                   <div class="panel-body">
                     <app-text-editor
                       [elementId]="'project_description'"
@@ -70,7 +81,7 @@
           </div>
 
           <div class="col-md-3 col-md-offset-1 col-sm-4">
-            <h1>Project card</h1>
+            <h1>{{'PROJECT_EDITING.CARD' | translate}}</h1>
             <app-project-card [project]="project" [localImage]="currentProfileImage"></app-project-card>
           </div>
         </div>
@@ -84,7 +95,7 @@
             {{ successMessage }}
           </div>
           <button type="submit" class="btn btn-success btn-md btn-block"
-                  [disabled]="!formGroup.valid" (click)="onSubmit()">Save</button>
+                  [disabled]="!formGroup.valid" (click)="onSubmit()">{{'PROJECT_EDITING.SAVE' | translate}}</button>
         </div>
       </div>
     </div>
