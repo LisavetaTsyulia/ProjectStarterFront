@@ -150,7 +150,8 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
 
   onContinueAnySum(amountOfReward: Number) {
     console.log(amountOfReward);
-    this.router.navigate(['/payment?userId='+this.userId+'&projectId='+this.projectId+'&amount='+amountOfReward]);
-
+    if(!this.isAnonymous())
+      this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, this.amountOfReward]);
+    // this.router.navigate(['/payment?userId='+this.userId+'&projectId='+this.projectId+'&amount='+amountOfReward]);
   }
 }
