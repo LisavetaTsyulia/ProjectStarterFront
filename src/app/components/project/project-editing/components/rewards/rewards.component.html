@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+    <div *ngIf="!needToCreate" class="row">
+      <div *ngIf="successMessage" class="alert alert-dismissible alert-info">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ successMessage }}
+      </div>
+      <a (click)="showCreating()" class="btn btn-default btn-lg btn-block">Create the reward</a>
+    </div>
+    <div *ngIf="needToCreate" class="form-group">
+      <h1>Write about about your reward</h1>
+      <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input class="form-control" id="reward_amount" placeholder="Amount" name="reward_amount"
+             [(ngModel)]="reward.amount"/>
+      </div>
+      <div class="margin-top">
+          <input class="form-control" id="reward_description" placeholder="Description" name="reward_description"
+               [(ngModel)]="reward.description"/>
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger margin-top">
+        {{ errorMessage }}
+      </div>
+      <div class="text-center margin-top">
+        <a (click)="cancel()" class="btn btn-default btn-md">Cancel</a>
+        <a (click)="create()" class="btn btn-success btn-md">Create the reward</a>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -8,6 +8,7 @@ import {environment} from '../../../environments/environment';
 import {Headers} from '@angular/http';
 import {Project} from '../model/project';
 import {News} from '../model/news';
+import {Reward} from "../model/reward";
 
 @Injectable()
 export class ProjectService {
@@ -70,8 +71,28 @@ export class ProjectService {
       });
   }
 
+  createReward(reward: Reward) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
+
+    return this.http
+      .post(
+        `${environment.serverUrl}project/createReward`,
+        JSON.stringify(reward),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      });
+  }
+
   findNewsByProjectId(projectId: number) {
     return this.http.get(`${environment.serverUrl}project/news?project_id=` + projectId).map(res => res.json());
+  }
+
+  findRewardsByProjectId(projectId: number) {
+    return this.http.get(`${environment.serverUrl}project/rewards?project_id=` + projectId).map(res => res.json());
   }
 
   findCommentsByProjectId(projectId: number) {
@@ -129,4 +150,5 @@ export class ProjectService {
       `user_id=` + userId).map(res => res.json());
 
   }
+
 }
