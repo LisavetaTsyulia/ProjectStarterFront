@@ -13,6 +13,7 @@ import {ConfirmModalComponent} from "./confirm-modal/confirm-modal.component";
 import {HttpModule} from "@angular/http";
 import {BootstrapModalModule} from "ng2-bootstrap-modal";
 import {AuthService} from "../auth/auth.service";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import {AuthService} from "../auth/auth.service";
     AuthModule,
     ReactiveFormsModule,
     HttpModule,
-    BootstrapModalModule
+    BootstrapModalModule,
+    TranslateModule.forChild()
   ],
   declarations: [
     ListOfUsersComponent,

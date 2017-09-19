@@ -8,7 +8,8 @@ import {environment} from '../../../environments/environment';
 import {Headers} from '@angular/http';
 import {Project} from '../model/project';
 import {News} from '../model/news';
-import {Goal} from "../model/goal";
+import {Reward} from '../model/reward';
+import {Goal} from '../model/goal';
 
 @Injectable()
 export class ProjectService {
@@ -71,6 +72,23 @@ export class ProjectService {
       });
   }
 
+
+  createReward(reward: Reward) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
+
+    return this.http
+      .post(
+        `${environment.serverUrl}project/createReward`,
+        JSON.stringify(reward),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      });
+  }
+
   createGoal(goal: Goal) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -89,6 +107,11 @@ export class ProjectService {
 
   findNewsByProjectId(projectId: number) {
     return this.http.get(`${environment.serverUrl}project/news?project_id=` + projectId).map(res => res.json());
+  }
+
+
+  findRewardsByProjectId(projectId: number) {
+    return this.http.get(`${environment.serverUrl}project/rewards?project_id=` + projectId).map(res => res.json());
   }
 
   findAllGoalsByProjectId(projectId: number) {

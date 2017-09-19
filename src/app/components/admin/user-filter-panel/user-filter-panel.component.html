@@ -1,25 +1,25 @@
 <div class="col-xs-10 col-xs-offset-2 filter-panel">
   <div class="col-xs-2">
-    <label for="select-users" class="control-label">Load Users:</label>
+    <label for="select-users" class="control-label">{{'ADMIN.LOAD_USERS' | translate}}:</label>
   </div>
   <div class="col-xs-4">
     <select class="form-control" id="select-users" (change)="onClickSortByRole($event.target.value)">
-      <option>All Users</option>
-      <option>Confirmed Users</option>
-      <option>Users to Confirm</option>
-      <option>Administrators</option>
+      <option>{{'ADMIN.ALL_USERS' | translate}}</option>
+      <option>{{'ADMIN.CONFIRMED_USERS' | translate}}</option>
+      <option>{{'ADMIN.USERS_TO_CONFIRM' | translate}}</option>
+      <option>{{'ADMIN.ADMINISTRATORS' | translate}}</option>
     </select>
   </div>
   <div class="col-xs-2">
-    <label for="sort-users" class="control-label">Sort Users By:</label>
+    <label for="sort-users" class="control-label">{{'ADMIN.SORT_USERS_BY' | translate}}:</label>
   </div>
   <div class="col-xs-4">
     <select class="form-control" id="sort-users" (change)="onClickSort($event.target.value)">
-      <option>None</option>
-      <option>Last Login</option>
-      <option>Registration Date</option>
-      <option>Status</option>
-      <option>Amount Of Projects</option>
+      <option>{{'ADMIN.NONE' | translate}}</option>
+      <option>{{'ADMIN.LAST_LOGIN' | translate}}</option>
+      <option>{{'ADMIN.REGISTRATION_DATE' | translate}}</option>
+      <option>{{'ADMIN.STATUS' | translate}}</option>
+      <option>{{'ADMIN.AMOUNT_OF_PROJECTS' | translate}}</option>
     </select>
   </div>
 </div>

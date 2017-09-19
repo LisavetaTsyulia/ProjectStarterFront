@@ -48,9 +48,30 @@
       </div>
     </div>
     <div class="tab-pane fade" id="rewards">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3 col-xs-12">
-          <h2>{{'PROJECT_INFO.SUPPORT_PROJECT' | translate}}</h2>
+      <div class="row col-md-5 ">
+      <md-card class="my-card card margin-top ">
+        <md-card-content class="card-block">
+          <div class="row">
+            <h4 class="col-md-12 text-center text-warning">Make a pledge without a reward</h4>
+          </div>
+          <div class="row">
+            <div class="input-group">
+              <span class="input-group-addon">$</span>
+              <input type="text" class="form-control " id="donateAmount" placeholder="Amount" [(ngModel)]="amountOfReward" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+        </md-card-content>
+        <md-card-footer>
+          <button class="btn btn-warning btn-block" (click)="onContinueAnySum(amountOfReward)">Continue</button>
+        </md-card-footer>
+      </md-card>
+      </div>
+      <div class="row col-md-12">
+        <hr class="my_hr_style">
+      </div>
+      <div class="card-deck row">
+        <div class=" margin-top" *ngFor="let reward of rewardsArray ">
+          <app-rewards [reward]="reward" (pay)="onContinue($event)"></app-rewards>
         </div>
       </div>
     </div>

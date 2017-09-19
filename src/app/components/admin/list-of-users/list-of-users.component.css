@@ -6,3 +6,6 @@
   background-color: lightpink !important;
   color: #a94442;
 }
+.item{
+  cursor: pointer;
+}

@@ -3,7 +3,7 @@
     <div class="modal-content container-fluid custom-modal-container">
           <div class="row custom-modal-header bg-success text-white">
             <div class="col-sm-12">
-              <h1 class="modal-title">Here is the passport scan</h1>
+              <h1 class="modal-title">{{'CONFIRM.TITLE' | translate}}</h1>
             </div>
           </div>
 
@@ -15,13 +15,13 @@
         <div class="modal-footer">
           <div class="row">
             <div class="col-sm-4">
-              <button class="form-control btn btn-success" (click)="confirm()">Confirm</button>
+              <button class="form-control btn btn-success" (click)="confirm()">{{'CONFIRM.CONFIRM' | translate}}</button>
             </div>
             <div class="col-sm-4">
-              <button class="form-control btn btn-success" (click)="dismiss()">Dismiss</button>
+              <button class="form-control btn btn-success" (click)="dismiss()">{{'CONFIRM.DISMISS' | translate}}</button>
             </div>
             <div class="col-sm-4">
-              <button class="form-control btn btn-success" (click)="close()">Later</button>
+              <button class="form-control btn btn-success" (click)="close()">{{'CONFIRM.LATER' | translate}}</button>
             </div>
           </div>
         </div>

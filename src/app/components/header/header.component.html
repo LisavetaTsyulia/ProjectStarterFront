@@ -24,8 +24,8 @@
           <a *ngIf="!isConfirmed() && isUser()" (click)="openCustom()" routerLinkActive="active">
             <span class="glyphicon glyphicon-plus"></span> {{'HOME.CREATE_NEW_PROJECT' | translate}}
           </a>
-          <a>
-          <span *ngIf="!isConfirmed() && !isUser() && !isAdmin()">{{'HOME.GOT_REQUEST' | translate}}</span>
+          <a *ngIf="!isConfirmed() && !isUser() && !isAdmin()">
+            <span *ngIf="!isConfirmed() && !isUser() && !isAdmin()">{{'HOME.GOT_REQUEST' | translate}}</span>
           </a>
         </li>
       </ul>
@@ -40,8 +40,6 @@
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span
             class="glyphicon glyphicon-home"></span> {{'HOME.HOME' | translate}}<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li class=""><a>{{email}}</a></li>
-            <li class="divider"></li>
             <li><a routerLink="user-info" routerLinkActive="active"> {{'HOME.MY_PROFILE' | translate}}</a></li>
             <li><a routerLink="my-projects" routerLinkActive="active"> {{'HOME.MY_PROJECTS' | translate}}</a></li>
             <li><a routerLink="subscribed-projects" routerLinkActive="active"> {{'HOME.SUBSCRIBED_PROJECTS' | translate}}</a></li>

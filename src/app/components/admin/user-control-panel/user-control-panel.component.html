@@ -1,24 +1,24 @@
 <div class="btn-group-vertical control-btn">
   <form (ngSubmit)="onSubmitBlock(true)">
-    <button type="submit" class="btn btn-success btn-md btn-block">Block</button>
+    <button type="submit" class="btn btn-success btn-md btn-block">{{'ADMIN.BLOCK' | translate}}</button>
   </form>
   <br>
   <form (ngSubmit)="onSubmitUnblock(true)">
-    <button type="submit" class="btn btn-success btn-md btn-block">Unblock</button>
+    <button type="submit" class="btn btn-success btn-md btn-block">{{'ADMIN.UNBLOCK' | translate}}</button>
   </form>
   <br>
   <form (ngSubmit)="onSubmitDelete(true)">
-    <button type="submit" class="btn btn-success btn-md btn-block">Delete</button>
+    <button type="submit" class="btn btn-success btn-md btn-block">{{'ADMIN.DELETE' | translate}}</button>
   </form>
   <div class="checkbox">
     <label>
-      <input type="checkbox" [(ngModel)]="checkboxComments"> With Comments
+      <input type="checkbox" [(ngModel)]="checkboxComments"> {{'ADMIN.WITH_COMMENTS' | translate}}
     </label>
     <label>
-      <input type="checkbox" [(ngModel)]="checkboxProjects"> With Projects
+      <input type="checkbox" [(ngModel)]="checkboxProjects"> {{'ADMIN.WITH_PROJECTS' | translate}}
     </label>
     <label>
-      <input type="checkbox" [(ngModel)]="checkboxRatings"> With Ratings
+      <input type="checkbox" [(ngModel)]="checkboxRatings"> {{'ADMIN.WITH_RATINGS' | translate}}
     </label>
   </div>
 </div>

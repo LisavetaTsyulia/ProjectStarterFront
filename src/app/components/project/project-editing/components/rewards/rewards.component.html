@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+    <div *ngIf="!needToCreate" class="row">
+      <div *ngIf="successMessage" class="alert alert-dismissible alert-info">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ successMessage }}
+      </div>
+      <h1 class="text-center">Create new <i class="text-warning">Reward</i> to your project here</h1>
+      <h2 class="text-center">You can't change it after being published</h2>
+      <h3 class="text-center">Let's make This Project better!!!</h3>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <button (click)="showCreating()" class="btn btn-default btn-lg btn-block btn-warning">Continue</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="needToCreate" class="form-group">
+      <h1>Write about about your reward</h1>
+      <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input class="form-control" id="reward_amount" placeholder="Amount" name="reward_amount"
+             [(ngModel)]="reward.amount"/>
+      </div>
+      <div class="margin-top">
+        <textarea class="textarea form-control" rows="5" id="reward_description" placeholder="Description" name="reward_description"
+                  [(ngModel)]="reward.description"></textarea>
+      </div>
+      <div *ngIf="errorMessage" class="alert alert-danger margin-top">
+        {{ errorMessage }}
+      </div>
+      <div class="text-center margin-top">
+        <a (click)="cancel()" class="btn btn-default btn-md">Cancel</a>
+        <a (click)="create()" class="btn btn-success btn-md">Create the reward</a>
+      </div>
+    </div>
+  </div>
+</div>
+

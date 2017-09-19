@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {ProjectService} from '../project.service';
 import {Project} from '../../model/project';
 import {News} from '../../model/news';
-import {Goal} from "../../model/goal";
+import {Reward} from '../../model/reward';
+import {Goal} from '../../model/goal';
 
 @Component({
   selector: 'app-project-info',
@@ -26,12 +27,15 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   selectedNewsNumber: number;
   newsArray: News[] = [];
   commentsArray: Comment[] = [];
+  rewardsArray: Reward[] = [];
   goalsArray: Goal[] = [];
   newCommentText: string;
+  amountOfReward: number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private projectService: ProjectService,
+    private  router: Router,
   ) { }
 
   ngOnInit() {
@@ -41,6 +45,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.getGoals();
     this.getNews();
     this.getComments();
+    this.getRewards();
     this.getNotAnonymousData();
   }
 
@@ -77,6 +82,13 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.projectService.findCommentsByProjectId(this.projectId)
       .subscribe(data => {
         Object.assign(this.commentsArray, data);
+      });
+  }
+
+  getRewards() {
+    this.projectService.findRewardsByProjectId(this.projectId)
+      .subscribe(data => {
+        Object.assign(this.rewardsArray, data);
       });
   }
 
@@ -124,8 +136,22 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     console.log(this.newCommentText);
     this.projectService.addComment(this.projectId, this.newCommentText, this.userId)
       .subscribe(data => {
-          this.getComments()
-          this.newCommentText = "";
+          this.getComments();
+          this.newCommentText = '';
       });
+  }
+
+  onContinue(event) {
+    console.log(event.amount);
+    if (!this.isAnonymous())
+      this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, event.amount]);
+    // this.router.navigate(['/payment?userId='+this.userId+'&projectId='+this.projectId+'&amount='+event.amount]);
+  }
+
+  onContinueAnySum(amountOfReward: Number) {
+    console.log(amountOfReward);
+    if (!this.isAnonymous())
+      this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, this.amountOfReward]);
+    // this.router.navigate(['/payment?userId='+this.userId+'&projectId='+this.projectId+'&amount='+amountOfReward]);
   }
 }

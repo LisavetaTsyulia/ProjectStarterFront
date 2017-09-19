@@ -11,6 +11,7 @@ import {Ng2CloudinaryModule} from 'ng2-cloudinary';
 import { NewsInfoComponent } from './news-info/news-info.component';
 import {MdCardModule, MdButtonModule} from '@angular/material';
 import { CommentComponent } from './comment/comment.component';
+import { RewardsComponent } from './rewards/rewards.component';
 import { GoalComponent } from './goal/goal.component';
 import {GoalCardModule} from "../../goal-card/goal-card.module";
 import {TranslateModule} from "@ngx-translate/core";
@@ -36,7 +37,8 @@ import {TranslateModule} from "@ngx-translate/core";
     ProjectInfoComponent,
     NewsInfoComponent,
     CommentComponent,
-    GoalComponent,
+    RewardsComponent,
+    GoalComponent
   ],
   providers: [
     ProjectService

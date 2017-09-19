@@ -11,6 +11,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { Ng2FileDropModule } from 'ng2-file-drop';
 import {NewsComponent} from './components/news/news.component';
 import {ProjectCardModule} from '../../project-card/project-card.module';
+import { RewardsComponent } from './components/rewards/rewards.component';
 import { GoalsComponent } from './components/goals/goals.component';
 import {TranslateModule} from '@ngx-translate/core';
 
@@ -36,7 +37,8 @@ import {TranslateModule} from '@ngx-translate/core';
     ProjectEditingComponent,
     EditorComponent,
     NewsComponent,
-    GoalsComponent,
+    RewardsComponent,
+    GoalsComponent
   ],
   providers: [
     ProjectService
