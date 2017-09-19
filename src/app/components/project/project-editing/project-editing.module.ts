@@ -11,6 +11,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { Ng2FileDropModule } from 'ng2-file-drop';
 import {NewsComponent} from './components/news/news.component';
 import {ProjectCardModule} from '../../project-card/project-card.module';
+import { RewardsComponent } from './components/rewards/rewards.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {ProjectCardModule} from '../../project-card/project-card.module';
     ProjectEditingComponent,
     EditorComponent,
     NewsComponent,
+    RewardsComponent,
   ],
   providers: [
     ProjectService

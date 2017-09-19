@@ -8,6 +8,7 @@ import {environment} from '../../../environments/environment';
 import {Headers} from '@angular/http';
 import {Project} from '../model/project';
 import {News} from '../model/news';
+import {Reward} from "../model/reward";
 
 @Injectable()
 export class ProjectService {
@@ -63,6 +64,22 @@ export class ProjectService {
       .post(
         `${environment.serverUrl}project/createNews`,
         JSON.stringify(news),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      });
+  }
+
+  createReward(reward: Reward) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
+
+    return this.http
+      .post(
+        `${environment.serverUrl}project/createReward`,
+        JSON.stringify(reward),
         {headers}
       )
       .map(res => {
@@ -133,4 +150,5 @@ export class ProjectService {
       `user_id=` + userId).map(res => res.json());
 
   }
+
 }

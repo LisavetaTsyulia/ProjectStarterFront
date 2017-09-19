@@ -31,8 +31,10 @@ export class PaymentComponent implements OnInit, OnDestroy {
   }
 
   toPay() {
-    this.paymentService.pay(this.userId, this.projectId, this.amount).subscribe();
-    this.pay = true;
+    if (this.pay != true) {
+      this.paymentService.pay(this.userId, this.projectId, this.amount).subscribe();
+      this.pay = true;
+    }
   }
 
   ngOnDestroy() {
