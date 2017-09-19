@@ -76,5 +76,21 @@
     "SUPPORT_PROJECT": "Поддрежать проект",
     "ADD_COMMENT": "Добавить комментарий",
     "BACK": "Назад"
+  },
+  "PROJECT_CREATING": {
+    "CREATE_NEW_PROJECT": "Создать новый проект",
+    "TITLE": "Заголовок",
+    "TITLE_REQUIRED_ERROR": "Требуется ввести заголовок проекта",
+    "TITLE_MAX_ERROR": {
+      "BEGINNING": "Заголово должен иметь максимум",
+      "ENDING": "символов"
+    },
+    "END_DATE": "Дата окончания",
+    "END_DATE_REQUIRED_ERROR": "Требуется ввести дату окончания проекта",
+    "END_DATE_SMALL_ERROR": "Дата окончания должна быть больше сегодняшней",
+    "PROJECT_GOAL": "Целевая сумма проека",
+    "PROJECT_GOAL_REQUIRED_ERROR": "Требуется ввести целевую сумму проекта проекта",
+    "PROJECT_GOAL_WRONG_ERROR": "Целевая сумма неверна. Она должна быть целым числом",
+    "CREATE": "Создать"
   }
 }
