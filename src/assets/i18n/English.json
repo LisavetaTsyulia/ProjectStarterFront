@@ -60,5 +60,19 @@
       "CANCEL": "Cancel",
       "TITLE": "Title"
     }
+  },
+  "PROJECT_INFO": {
+    "BACKERS": "backers",
+    "DAYS_TO_GO": "days to go",
+    "SUBSCRIBE": "Subscribe",
+    "SUBSCRIBED": "Subscribed",
+    "CAMPAIGN": "Campaign",
+    "REWARDS": "Rewards",
+    "NEWS": "News",
+    "COMMENTS": "Comments",
+    "DESCRIPTION": "About this project",
+    "PROJECT_GOALS": "Project goals",
+    "SUPPORT_PROJECT": "Support this project",
+    "ADD_COMMENT": "Add a comment"
   }
 }

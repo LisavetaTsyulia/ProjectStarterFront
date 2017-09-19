@@ -13,6 +13,7 @@ import {MdCardModule, MdButtonModule} from '@angular/material';
 import { CommentComponent } from './comment/comment.component';
 import { GoalComponent } from './goal/goal.component';
 import {GoalCardModule} from "../../goal-card/goal-card.module";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import {GoalCardModule} from "../../goal-card/goal-card.module";
     FileUploadModule,
     MdCardModule,
     MdButtonModule,
-    GoalCardModule
+    GoalCardModule,
+    TranslateModule.forChild()
   ],
   declarations: [
     ProjectInfoComponent,
