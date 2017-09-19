@@ -27,7 +27,7 @@ export class HomePageComponent implements OnInit {
       .subscribe(data => {
         this.lastCreatedProjects = [];
         this.lastCreatedProjects = data;
-        // this.checkEmptyArray(this.lastCreatedProjects);
+        this.lastCreatedProjects = this.checkEmptyArray(this.lastCreatedProjects);
         console.log(this.lastCreatedProjects);
       });
   }
@@ -37,15 +37,13 @@ export class HomePageComponent implements OnInit {
       .subscribe(data => {
         this.successfullyFinancedProjects = [];
         this.successfullyFinancedProjects = data;
-        // this.checkEmptyArray(this.successfullyFinancedProjects);
+        this.successfullyFinancedProjects = this.checkEmptyArray(this.successfullyFinancedProjects);
         console.log(this.successfullyFinancedProjects);
       });
   }
 
   checkEmptyArray(projectArray: Project[]) {
-    if (projectArray.length === 0) {
-      projectArray = null;
-    }
+    return projectArray.length === 0 ? null : projectArray;
   }
 
   public isAnonymous(): boolean {
