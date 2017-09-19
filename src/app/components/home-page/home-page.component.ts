@@ -9,7 +9,8 @@ import {Project} from '../model/project';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-  lastCreatedProjects: Project[] = [];
+  lastCreatedProjects: Project[];
+  successfullyFinancedProjects: Project[];
 
   constructor(
     private router: Router,
@@ -18,14 +19,33 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
     this.getLastCreatedProjects();
+    this.getSuccessfullyFinancedProjects();
   }
 
   getLastCreatedProjects() {
     this.projectService.findLastCreatedProjects()
       .subscribe(data => {
+        this.lastCreatedProjects = [];
         this.lastCreatedProjects = data;
+        // this.checkEmptyArray(this.lastCreatedProjects);
         console.log(this.lastCreatedProjects);
       });
+  }
+
+  getSuccessfullyFinancedProjects() {
+    this.projectService.findSuccessfullyFinancedProjects()
+      .subscribe(data => {
+        this.successfullyFinancedProjects = [];
+        this.successfullyFinancedProjects = data;
+        // this.checkEmptyArray(this.successfullyFinancedProjects);
+        console.log(this.successfullyFinancedProjects);
+      });
+  }
+
+  checkEmptyArray(projectArray: Project[]) {
+    if (projectArray.length === 0) {
+      projectArray = null;
+    }
   }
 
   public isAnonymous(): boolean {
