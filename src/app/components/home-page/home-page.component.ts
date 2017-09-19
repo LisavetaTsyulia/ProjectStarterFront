@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
 import {ProjectService} from '../project/project.service';
 import {Project} from '../model/project';
+import {Donate} from '../model/donate';
+import {PaymentService} from '../payment/payment.service';
 
 @Component({
   selector: 'app-home-page',
@@ -11,15 +12,17 @@ import {Project} from '../model/project';
 export class HomePageComponent implements OnInit {
   lastCreatedProjects: Project[];
   successfullyFinancedProjects: Project[];
+  theBiggestDonations: Donate[];
 
   constructor(
-    private router: Router,
     private projectService: ProjectService,
+    private paymentService: PaymentService,
   ) { }
 
   ngOnInit() {
     this.getLastCreatedProjects();
     this.getSuccessfullyFinancedProjects();
+    this.getTheBiggestDonations();
   }
 
   getLastCreatedProjects() {
@@ -27,7 +30,7 @@ export class HomePageComponent implements OnInit {
       .subscribe(data => {
         this.lastCreatedProjects = [];
         this.lastCreatedProjects = data;
-        this.lastCreatedProjects = this.checkEmptyArray(this.lastCreatedProjects);
+        this.lastCreatedProjects = this.checkEmptyProjectArray(this.lastCreatedProjects);
         console.log(this.lastCreatedProjects);
       });
   }
@@ -37,13 +40,27 @@ export class HomePageComponent implements OnInit {
       .subscribe(data => {
         this.successfullyFinancedProjects = [];
         this.successfullyFinancedProjects = data;
-        this.successfullyFinancedProjects = this.checkEmptyArray(this.successfullyFinancedProjects);
+        this.successfullyFinancedProjects = this.checkEmptyProjectArray(this.successfullyFinancedProjects);
         console.log(this.successfullyFinancedProjects);
       });
   }
 
-  checkEmptyArray(projectArray: Project[]) {
+  getTheBiggestDonations() {
+    this.paymentService.findTheBiggestDonations()
+      .subscribe(data => {
+        this.theBiggestDonations = [];
+        this.theBiggestDonations = data;
+        this.theBiggestDonations = this.checkEmptyDonationArray(this.theBiggestDonations);
+        console.log(this.theBiggestDonations);
+      });
+  }
+
+  checkEmptyProjectArray(projectArray: Project[]) {
     return projectArray.length === 0 ? null : projectArray;
+  }
+
+  checkEmptyDonationArray(donationArray: Donate[]) {
+    return donationArray.length === 0 ? null : donationArray;
   }
 
   public isAnonymous(): boolean {
