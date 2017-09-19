@@ -15,8 +15,8 @@
              [(ngModel)]="reward.amount"/>
       </div>
       <div class="margin-top">
-          <input class="form-control" id="reward_description" placeholder="Description" name="reward_description"
-               [(ngModel)]="reward.description"/>
+        <textarea class="textarea form-control" rows="5" id="reward_description" placeholder="Description" name="reward_description"
+                  [(ngModel)]="reward.description"></textarea>
       </div>
       <div *ngIf="errorMessage" class="alert alert-danger margin-top">
         {{ errorMessage }}
