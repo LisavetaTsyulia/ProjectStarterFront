@@ -152,4 +152,12 @@ export class ProjectService {
       `user_id=` + userId).map(res => res.json());
 
   }
+
+  findLastCreatedProjects() {
+    return this.http.get(`${environment.serverUrl}project/last_created`).map(res => res.json());
+  }
+
+  findSuccessfullyFinancedProjects() {
+    return this.http.get(`${environment.serverUrl}project/successfully_financed`).map(res => res.json());
+  }
 }
