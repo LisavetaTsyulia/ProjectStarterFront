@@ -12,6 +12,7 @@ import { Ng2FileDropModule } from 'ng2-file-drop';
 import {NewsComponent} from './components/news/news.component';
 import {ProjectCardModule} from '../../project-card/project-card.module';
 import { RewardsComponent } from './components/rewards/rewards.component';
+import { GoalsComponent } from './components/goals/goals.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { RewardsComponent } from './components/rewards/rewards.component';
     EditorComponent,
     NewsComponent,
     RewardsComponent,
+    GoalsComponent
   ],
   providers: [
     ProjectService
