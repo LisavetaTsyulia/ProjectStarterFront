@@ -30,14 +30,21 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   getProjects() {
     console.log(this.searchRequest);
-    this.projectService.search(this.searchRequest).subscribe(data => {
-      this.projects = data;
+    this.projectService.search(this.searchRequest, this.projects.length).subscribe(data => {
+      let newProjects: Project[] = [];
+      newProjects = data;
+      this.projects = this.projects.concat(newProjects);
       console.log(this.projects);
     });
   }
 
   search() {
+    this.projects = [];
+    this.getProjects();
+  }
 
+  onScroll () {
+    this.getProjects();
   }
 
   ngOnDestroy() {

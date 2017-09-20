@@ -10,4 +10,11 @@
   <div *ngFor="let project of projects">
     <h3>{{ project?.title }}</h3>
   </div>
+
+  <div class="search-results"
+       infinite-scroll
+       [infiniteScrollDistance]="2"
+       [infiniteScrollThrottle]="1000"
+       (scrolled)="onScroll()">
+  </div>
 </div>

@@ -184,8 +184,8 @@ export class ProjectService {
     return this.http.get(`${environment.serverUrl}project/successfully_financed`).map(res => res.json());
   }
 
-  search(requestString: string) {
+  search(requestString: string, offset: number) {
     return this.http.get(`${environment.serverUrl}project/search?` +
-      `requestString=` + requestString).map(res => res.json());
+      `requestString=` + requestString + `&offset=` + offset).map(res => res.json());
   }
 }
