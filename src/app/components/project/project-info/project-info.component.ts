@@ -35,7 +35,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private projectService: ProjectService,
-    private  router: Router,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -138,6 +138,16 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     return user === null;
   }
 
+  public isConfirmed(): boolean {
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    return user['role'] === 'ROLE_CONFIRMED_USER';
+  }
+
+  public isAdmin(): boolean {
+    const role: string = JSON.parse(localStorage.getItem('user'));
+    return role['role'] === 'ROLE_ADMIN';
+  }
+
   addComment() {
     console.log(this.newCommentText);
     this.projectService.addComment(this.projectId, this.newCommentText, this.userId)
@@ -151,13 +161,15 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     console.log(event.amount);
     if (!this.isAnonymous())
       this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, event.amount]);
-    // this.router.navigate(['/payment?userId='+this.userId+'&projectId='+this.projectId+'&amount='+event.amount]);
   }
 
   onContinueAnySum(amountOfReward: Number) {
     console.log(amountOfReward);
     if (!this.isAnonymous())
       this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, this.amountOfReward]);
-    // this.router.navigate(['/payment?userId='+this.userId+'&projectId='+this.projectId+'&amount='+amountOfReward]);
+  }
+
+  editNavigate() {
+    this.router.navigate(['project/edit', this.project.userId, this.project.id]);
   }
 }

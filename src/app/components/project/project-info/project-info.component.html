@@ -2,7 +2,7 @@
   <h1 id="project_title">{{project.title}}</h1>
   <div class="row">
     <div class="col-md-8 col-xs-12 text-center">
-      <img src="{{project.imageUrl}}" class="avatar img-thumbnail" alt="Project image">
+      <img src="{{project.imageUrl}}" class="avatar img-thumbnail image" alt="Project image">
     </div>
     <div class="col-md-4 col-xs-12">
       <h3>${{project.currentAmount}}</h3>
@@ -15,6 +15,9 @@
               [class.btn-default]="isSubscribed" (click)="subscribe()">
         <span *ngIf="isSubscribed"><span class="glyphicon glyphicon-heart pink"></span> {{'PROJECT_INFO.SUBSCRIBED' | translate}}</span>
         <span *ngIf="!isSubscribed"><span class="glyphicon glyphicon-heart"></span> {{'PROJECT_INFO.SUBSCRIBE' | translate}}</span>
+      </button>
+      <button *ngIf="isAdmin() || isConfirmed()" class="btn btn-warning btn-block" (click)="editNavigate()">
+        Edit
       </button>
     </div>
   </div>
