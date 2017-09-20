@@ -17,6 +17,14 @@
     "LIGHT": "Light",
     "DARK": "Dark"
   },
+  "HEADER": {
+    "CREATOR": "Would you like to become a creator",
+    "CREATE_PROJECT": "If you want to create a project, send us your passport scan",
+    "DROP_HERE": "Drop your passport scan here",
+    "CAN_BE_ONLY": "Profile picture can be .png, .jpeg or .gif only",
+    "CONFIRM": "Confirm",
+    "LATER": "Later"
+  },
   "LOGIN": {
     "EMAIL": "Email",
     "EMAIL_IS_REQUIRED": "Email is required",
@@ -105,6 +113,10 @@
     "PAY": "PAY",
     "CONGRATS": "Congrats"
   },
+  "PROJECTS": {
+    "MY_TITLE": "Your Projects",
+    "SUB_TITLE": "Your subscribed Projects"
+  },
   "PROJECT_CREATING": {
     "CREATE_NEW_PROJECT": "Create new project",
     "TITLE": "Title",
@@ -140,7 +152,26 @@
     "CONFIRM_YOUR_PASSWORD": "Confirm your password",
     "PASSWORD_MUST_MATCHES": "Password must matches",
     "SIGN_UP": "Sign up",
-    "EMAIL_EMAIL_SHOULD_BE_MINIMUM": "Email should be minimum"
+    "EMAIL_EMAIL_SHOULD_BE_MINIMUM": "Email should be minimum",
+    "CONFIRM": {
+      "SUCCESS": "You have successfully registered",
+      "CHECK_EMAIL": "Please, check your email and use link to finish registration",
+      "PROJECT_STARTER": "Project Starter",
+      "WE_MAKE": "We make dreams come",
+      "TRUE": "TRUE"
+    }
+  },
+  "USER": {
+    "EDIT_PROFILE": "Edit Profile",
+    "UPLOAD": "Upload a different photo",
+    "DROP": "Drop a profile picture here",
+    "CAN_BE_ONLY": "Profile picture can be .png, .jpeg or .gif only",
+    "PERSONAL_INFO": "Personal info",
+    "USERNAME": "Username",
+    "BIOGRAPHY": "Biography",
+    "LOCATION": "Location",
+    "PASSWORD": "Password",
+    "SAVE": "Save Changes"
   },
   "CONFIRM": {
     "TITLE": "Here is the passport scan",
