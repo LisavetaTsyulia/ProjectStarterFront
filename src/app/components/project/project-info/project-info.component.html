@@ -2,7 +2,7 @@
   <h1 id="project_title">{{project.title}}</h1>
   <div class="row">
     <div class="col-md-8 col-xs-12 text-center">
-      <img src="{{project.imageUrl}}" class="avatar img-thumbnail" alt="Project image">
+      <img src="{{project.imageUrl}}" class="avatar img-thumbnail image" alt="Project image">
     </div>
     <div class="col-md-4 col-xs-12">
       <h3>${{project.currentAmount}}</h3>
@@ -16,11 +16,16 @@
         <span *ngIf="isSubscribed"><span class="glyphicon glyphicon-heart pink"></span> {{'PROJECT_INFO.SUBSCRIBED' | translate}}</span>
         <span *ngIf="!isSubscribed"><span class="glyphicon glyphicon-heart"></span> {{'PROJECT_INFO.SUBSCRIBE' | translate}}</span>
       </button>
+      <button *ngIf="isAdmin() || isConfirmed()" class="btn btn-warning btn-block" (click)="editNavigate()">
+        Edit
+      </button>
     </div>
   </div>
   <ul class="nav nav-tabs margin-top">
-    <li class="active"><a href="#campaign" data-toggle="tab" aria-expanded="true">{{'PROJECT_INFO.CAMPAIGN' | translate}}</a></li>
-    <li class=""><a href="#rewards" data-toggle="tab" aria-expanded="false">{{'PROJECT_INFO.REWARDS' | translate}}</a></li>
+    <li class="active"><a href="#campaign" data-toggle="tab" aria-expanded="true">{{'PROJECT_INFO.CAMPAIGN' |
+      translate}}</a></li>
+    <li class=""><a href="#rewards" data-toggle="tab" aria-expanded="false">{{'PROJECT_INFO.REWARDS' | translate}}</a>
+    </li>
     <li class=""><a href="#news" data-toggle="tab" aria-expanded="false">
       {{'PROJECT_INFO.NEWS' | translate}} <span class="label label-success">{{newsArray.length}}</span></a>
     </li>
@@ -37,11 +42,13 @@
         </div>
         <div class="col-md-4 col-xs-12">
 
-          <h2>{{'PROJECT_INFO.PROJECT_GOALS' | translate}}</h2>
-          <div *ngFor="let goal of goalsArray">
-            <app-goal-card [goal]="goal"
-                           [progressBarValue]="project.currentAmount / goal.amount * 100">
-            </app-goal-card>
+          <div *ngIf="goalsArray">
+            <h2>{{'PROJECT_INFO.PROJECT_GOALS' | translate}}</h2>
+            <div *ngFor="let goal of goalsArray">
+              <app-goal-card [goal]="goal"
+                             [progressBarValue]="project.currentAmount / goal.amount * 100">
+              </app-goal-card>
+            </div>
           </div>
 
         </div>
@@ -49,22 +56,26 @@
     </div>
     <div class="tab-pane fade" id="rewards">
       <div class="row col-md-5 ">
-      <md-card class="my-card card margin-top ">
-        <md-card-content class="card-block">
-          <div class="row">
-            <h4 class="col-md-12 text-center text-warning">{{'PROJECT_INFO.PLEDGE_WITHOUT_REWARD' | translate}}</h4>
-          </div>
-          <div class="row">
-            <div class="input-group">
-              <span class="input-group-addon">$</span>
-              <input type="text" class="form-control " id="donateAmount" placeholder="{{'PROJECT_INFO.AMOUNT' | translate}}" [(ngModel)]="amountOfReward" [ngModelOptions]="{standalone: true}">
+        <md-card class="my-card card margin-top ">
+          <md-card-content class="card-block">
+            <div class="row">
+              <h4 class="col-md-12 text-center text-warning">{{'PROJECT_INFO.PLEDGE_WITHOUT_REWARD' | translate}}</h4>
             </div>
-          </div>
-        </md-card-content>
-        <md-card-footer>
-          <button class="btn btn-warning btn-block" (click)="onContinueAnySum(amountOfReward)">{{'PROJECT_INFO.CONTINUE' | translate}}</button>
-        </md-card-footer>
-      </md-card>
+            <div class="row">
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control " id="donateAmount"
+                       placeholder="{{'PROJECT_INFO.AMOUNT' | translate}}" [(ngModel)]="amountOfReward"
+                       [ngModelOptions]="{standalone: true}">
+              </div>
+            </div>
+          </md-card-content>
+          <md-card-footer>
+            <button class="btn btn-warning btn-block" (click)="onContinueAnySum(amountOfReward)">
+              {{'PROJECT_INFO.CONTINUE' | translate}}
+            </button>
+          </md-card-footer>
+        </md-card>
       </div>
       <div class="row col-md-12">
         <hr class="my_hr_style">
@@ -82,7 +93,8 @@
                class="margin-top">
             <md-card class="card margin-top">
               <md-card-header>
-                <md-card-title><span class="text-warning">{{'PROJECT_INFO.NEWS_NUMBER' | translate}} #{{newsArray.length - i}}</span></md-card-title>
+                <md-card-title><span class="text-warning">{{'PROJECT_INFO.NEWS_NUMBER' | translate}} #{{newsArray.length - i}}</span>
+                </md-card-title>
               </md-card-header>
               <md-card-content>
                 <h3 class="card-title bold">{{news.title}} <a disabled="true"></a></h3>
@@ -107,7 +119,8 @@
         </div>
       </div>
       <div class=" row col-md-8 col-md-offset-1 margin-top">
-        <input type="text" class="form-control margin-top" id="comment" placeholder="{{'PROJECT_INFO.COMMENT' | translate}}"
+        <input type="text" class="form-control margin-top" id="comment"
+               placeholder="{{'PROJECT_INFO.COMMENT' | translate}}"
                [(ngModel)]="newCommentText" [ngModelOptions]="{standalone: true}">
       </div>
       <div class=" row col-md-2 col-md-offset-7 margin-top">
