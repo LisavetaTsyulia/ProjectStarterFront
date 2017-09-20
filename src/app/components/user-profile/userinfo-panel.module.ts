@@ -9,6 +9,7 @@ import {HttpModule} from '@angular/http';
 import { FileUploadModule } from 'ng2-file-upload';
 import {Ng2CloudinaryModule} from 'ng2-cloudinary';
 import { Ng2FileDropModule } from 'ng2-file-drop';
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { Ng2FileDropModule } from 'ng2-file-drop';
     Ng2CloudinaryModule,
     FileUploadModule,
     Ng2FileDropModule,
+    TranslateModule.forChild()
   ],
   declarations: [
     UserinfoPanelComponent

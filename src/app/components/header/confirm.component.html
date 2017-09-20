@@ -3,26 +3,26 @@
     <div class="modal-header">
       <div class="row custom-modal-header bg-success text-white">
         <div class="col-sm-12">
-          <h2>Would you like to become a creator?</h2>
+          <h2>{{'HEADER.CREATOR' | translate}}?</h2>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
         <div class="jumbotron">
-          <h3>If you want to create a project, send us your passport scan</h3>
+          <h3>{{'HEADER.CREATE_PROJECT' | translate}}</h3>
           <div class="profile-picture-section">
             <div ng2FileDrop [uploader]="uploader" [ng2FileDropSupportedFileTypes]="supportedFileTypes"
                  (ng2FileDropFileAccepted)="dragFileAccepted($event)"
                  class="profile-picture-section-drop-zone">
               <div *ngIf="!imageShown" class=profile-picture-section-request-image-group>
-                <p class="profile-picture-section-request-image-instructions">Drop your passport scan here</p>
+                <p class="profile-picture-section-request-image-instructions">{{'HEADER.DROP_HERE' | translate}}</p>
               </div>
               <div *ngIf="imageShown" class=profile-picture-section-request-image-container>
                 <img class="profile-picture-section-request-image" [src]="currentProfileImage">
               </div>
             </div>
-            <p class="profile-picture-section-limitations">Profile picture can be .png, .jpeg or .gif only</p>
+            <p class="profile-picture-section-limitations">{{'HEADER.CAN_BE_ONLY' | translate}}</p>
           </div>
         </div>
       </div>
@@ -30,10 +30,10 @@
     <div class="modal-footer">
       <div class="row">
         <div class="col-sm-6">
-          <button class="form-control btn btn-success" (click)="confirm()">Confirm</button>
+          <button class="form-control btn btn-success" (click)="confirm()">{{'HEADER.CONFIRM' | translate}}</button>
         </div>
         <div class="col-sm-6">
-          <button class="form-control btn btn-success" (click)="close()">Later</button>
+          <button class="form-control btn btn-success" (click)="close()">{{'HEADER.LATER' | translate}}</button>
         </div>
       </div>
     </div>

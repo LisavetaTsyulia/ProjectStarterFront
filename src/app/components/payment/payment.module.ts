@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaymentComponent } from "./payment.component";
 import {PaymentService} from "./payment.service";
 import {HttpModule} from "@angular/http";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {HttpModule} from "@angular/http";
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    TranslateModule.forChild()
   ],
   declarations: [
     PaymentComponent
