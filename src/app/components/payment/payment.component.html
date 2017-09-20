@@ -1,9 +1,9 @@
 <div class="container form-style text-center alert alert-warning">
-  <h1>Now you are going to donate {{amount}}$ to this project.</h1>
-  <h3>Are you sure?</h3>
-  <h4>Please, click this button to finish the payment.</h4>
-  <button class="btn btn-warning my_btn_pay" (click)="toPay()">PAY</button>
+  <h1>{{"PAYMENT.GOING_TO_DONATE" | translate}} {{amount}}$ {{"PAYMENT.TO_PROJECT" | translate}}.</h1>
+  <h3>{{"PAYMENT.ARE_YOU_SURE" | translate}}?</h3>
+  <h4>{{"PAYMENT.CLICK" | translate}}.</h4>
+  <button class="btn btn-warning my_btn_pay" (click)="toPay()">{{"PAYMENT.PAY" | translate}}</button>
 </div>
-  <h2 *ngIf="isClickedPay()" class="text-center"><span class="glyphicon glyphicon-ok green" *ngIf="isClickedPay()" aria-hidden="true"></span>Congrats!!!</h2>
+  <h2 *ngIf="isClickedPay()" class="text-center"><span class="glyphicon glyphicon-ok green" *ngIf="isClickedPay()" aria-hidden="true"></span>{{"PAYMENT.CONGRATS" | translate}}!!!</h2>
 
 

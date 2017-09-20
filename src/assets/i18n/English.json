@@ -48,7 +48,12 @@
     },
     "DESCRIPTION": "Project description",
     "SAVE": "Save",
+    "BETTER": "Let's make This Project better!!!",
+    "CANT_CHANGE": "You can't change it after being published",
+    "TO_PROJECT": "to your project here",
+    "CREATE_NEW": "Create new",
     "GOALS": {
+      "GOAL": "Goal",
       "CREATE": "Create the goal",
       "WRITE_ABOUT": "Write about new goal",
       "CANCEL": "Cancel",
@@ -56,10 +61,20 @@
       "DESCRIPTION": "Goal description"
     },
     "NEWS": {
+      "NEWS": "News",
       "CREATE": "Create the news",
       "WRITE_ABOUT": "Write about your news",
       "CANCEL": "Cancel",
       "TITLE": "Title"
+    },
+    "REWARD": {
+      "CREATE": "Create the reward",
+      "WRITE_ABOUT_REWARD": "Write about your reward",
+      "CANCEL": "Cancel",
+      "DESCRIPTION": "Reward description",
+      "AMOUNT": "Amount",
+      "CONTINUE": "Continue",
+      "REWARD": "Reward"
     }
   },
   "PROJECT_INFO": {
@@ -76,7 +91,19 @@
     "PROJECT_GOALS": "Project goals",
     "SUPPORT_PROJECT": "Support this project",
     "ADD_COMMENT": "Add a comment",
-    "BACK": "Back"
+    "BACK": "Back",
+    "PLEDGE_WITHOUT_REWARD": "Make a pledge without a reward",
+    "CONTINUE": "Continue",
+    "AMOUNT": "Amount",
+    "OR_MORE": "or more"
+  },
+  "PAYMENT": {
+    "GOING_TO_DONATE": "Now you are going to donate",
+    "TO_PROJECT": "to this project",
+    "ARE_YOU_SURE": "Are you sure",
+    "CLICK": "Please, click this button to finish the payment",
+    "PAY": "PAY",
+    "CONGRATS": "Congrats"
   },
   "PROJECT_CREATING": {
     "CREATE_NEW_PROJECT": "Create new project",
