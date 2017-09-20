@@ -183,4 +183,9 @@ export class ProjectService {
   findSuccessfullyFinancedProjects() {
     return this.http.get(`${environment.serverUrl}project/successfully_financed`).map(res => res.json());
   }
+
+  search(requestString: string) {
+    return this.http.get(`${environment.serverUrl}project/search?` +
+      `requestString=` + requestString).map(res => res.json());
+  }
 }

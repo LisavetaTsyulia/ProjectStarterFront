@@ -16,6 +16,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { PaymentComponent } from './components/payment/payment.component';
+import {ProjectService} from "./components/project/project.service";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -48,7 +49,8 @@ export function createTranslateLoader(http: HttpClient) {
     })
   ],
   providers: [
-    AuthService
+    AuthService,
+    ProjectService,
   ],
   bootstrap: [AppComponent],
   entryComponents: [
