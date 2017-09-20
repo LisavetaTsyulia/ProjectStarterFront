@@ -28,7 +28,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   newsArray: News[] = [];
   commentsArray: Comment[] = [];
   rewardsArray: Reward[] = [];
-  goalsArray: Goal[] = [];
+  goalsArray: Goal[];
   newCommentText: string;
   amountOfReward: number;
 
@@ -67,8 +67,14 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   getGoals() {
     this.projectService.findAllGoalsByProjectId(this.projectId)
       .subscribe(data => {
+        this.goalsArray = [];
         Object.assign(this.goalsArray, data);
+        this.goalsArray = this.checkEmptyGoalsArray(this.goalsArray);
       });
+  }
+
+  checkEmptyGoalsArray(goalArray: Goal[]) {
+    return goalArray.length === 0 ? null : goalArray;
   }
 
   getNews() {

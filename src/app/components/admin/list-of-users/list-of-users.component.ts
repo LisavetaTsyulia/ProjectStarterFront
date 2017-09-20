@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../auth/auth.service';
 import {ActivatedRoute} from '@angular/router';
 import {User} from '../../model/user';
-import {AdminService} from "../admin.service";
-import {DialogService} from "ng2-bootstrap-modal";
-import {ConfirmModalComponent} from "../confirm-modal/confirm-modal.component";
+import {AdminService} from '../admin.service';
+import {DialogService} from 'ng2-bootstrap-modal';
+import {ConfirmModalComponent} from '../confirm-modal/confirm-modal.component';
 import 'rxjs';
 
 
@@ -20,14 +20,14 @@ export class ListOfUsersComponent implements OnInit {
     private authService: AuthService,
     private adminService: AdminService,
     private route: ActivatedRoute,
-    private dialogService:DialogService
+    private dialogService: DialogService
   ) { }
 
-  keysArray : string[];
-  allUsers : object[];
-  theRole : string;
-  returnUrl : string;
-  emails : string[];
+  keysArray: string[];
+  allUsers: object[];
+  theRole: string;
+  returnUrl: string;
+  emails: string[];
   confirmResult: boolean = false;
   passportScan: string;
 
@@ -52,14 +52,14 @@ export class ListOfUsersComponent implements OnInit {
   onSelect(user: any): void {
     if (this.isWaiting(user)) {
       this.loadPassportScan(user['email']);
-      setTimeout(()=>{
+      setTimeout(() => {
           this.dialogService.addDialog(ConfirmModalComponent, {
           passportScan : this.passportScan,
           email : user['email']
         })
-          .subscribe((isConfirmed)=>{
+          .subscribe((isConfirmed) => {
             this.confirmResult = isConfirmed;
-            setTimeout(()=>{this.loadUsersToTable()}, 500);
+            setTimeout(() => {this.loadUsersToTable()}, 500);
           });
         }, 2000);
 
@@ -80,8 +80,9 @@ export class ListOfUsersComponent implements OnInit {
     this.emails = [];
     for (let user of this.allUsers) {
       let curUser: User = <User>user;
-      if (curUser.isSelected == true)
+      if (curUser.isSelected === true) {
         this.emails[this.emails.length] = curUser.email;
+      }
     }
   }
 
@@ -98,7 +99,7 @@ export class ListOfUsersComponent implements OnInit {
     console.log(this.emails);
     if (this.emails.length != 0) {
       this.adminService.unblock(this.emails);
-      setTimeout(()=>{this.loadUsersToTable()}, 300);
+      setTimeout(() => {this.loadUsersToTable()}, 300);
     }
   }
   deleteEvent(comments: boolean, ratings: boolean, projects: boolean ) {
