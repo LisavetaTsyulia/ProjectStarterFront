@@ -3,7 +3,7 @@ import {AuthConfigConsts} from 'angular2-jwt';
 import {DialogService} from 'ng2-bootstrap-modal';
 import {ConfirmComponent} from './confirm.component';
 import {TranslateService} from '@ngx-translate/core';
-import {ProjectService} from '../project/project.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   confirmResult: boolean = null;
   constructor(
-    private projectService: ProjectService,
+    private router: Router,
     private dialogService: DialogService,
     private translate: TranslateService
   ) {
@@ -72,7 +72,6 @@ export class HeaderComponent implements OnInit {
   }
 
   search() {
-    console.log(this.searchRequest);
-    this.projectService.search(this.searchRequest).subscribe(data => console.log(data));
+    this.router.navigate(['search'], { queryParams: { search_request: this.searchRequest } });
   }
 }

@@ -17,6 +17,7 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { PaymentComponent } from './components/payment/payment.component';
 import {ProjectService} from "./components/project/project.service";
+import {SearchModule} from "./components/search/search.module";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -40,6 +41,7 @@ export function createTranslateLoader(http: HttpClient) {
     ReactiveFormsModule,
     AuthModule,
     HttpClientModule,
+    SearchModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

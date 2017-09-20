@@ -22,6 +22,9 @@ const routes: Routes = [
     loadChildren: 'app/components/account-menu/subscribed-projects/subscribed-projects.module#SubscribedProjectsModule' },
   { path: 'my-projects',
     loadChildren: 'app/components/account-menu/my-projects/my-projects.module#MyProjectsModule' },
+  { path: 'search',
+    loadChildren: 'app/components/search/search.module#SearchModule' },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
