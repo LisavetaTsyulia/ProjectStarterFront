@@ -16,7 +16,7 @@
     </li>
     <li class="">
       <a href="" data-toggle="tab" aria-expanded="false"
-                    (click)="viewProjectPage()">{{'PROJECT_EDITING.TABS.VIEW' | translate}}</a>
+         (click)="viewProjectPage()">{{'PROJECT_EDITING.TABS.VIEW' | translate}}</a>
     </li>
   </ul>
   <div id="myTabContent" class="tab-content tab-content-padding-top">
@@ -35,7 +35,8 @@
                          (ng2FileDropFileAccepted)="dragFileAccepted($event)"
                          class="profile-picture-section-drop-zone">
                       <div *ngIf="!imageShown" class="profile-picture-section-request-image-group">
-                        <p class="profile-picture-section-request-image-instructions">{{'PROJECT_EDITING.DROP_ZONE' | translate}}</p>
+                        <p class="profile-picture-section-request-image-instructions">{{'PROJECT_EDITING.DROP_ZONE' |
+                          translate}}</p>
                       </div>
                       <div *ngIf="imageShown" class="profile-picture-section-request-image-container">
                         <img class="profile-picture-section-request-image" [src]="currentProfileImage">
@@ -51,15 +52,18 @@
                   <div class="panel-heading">{{'PROJECT_EDITING.TITLE' | translate}}</div>
                   <div class="panel-body">
                     <div class="form-group">
-                      <input class="form-control" id="title" placeholder="{{'PROJECT_EDITING.TITLE' | translate}}" name="title"
+                      <input class="form-control" id="title" placeholder="{{'PROJECT_EDITING.TITLE' | translate}}"
+                             name="title"
                              [(ngModel)]="project.title" formControlName="title"/>
                     </div>
-                    <div *ngIf="formGroup.get('title').errors && formGroup.get('title').touched" class="alert alert-danger">
+                    <div *ngIf="formGroup.get('title').errors && formGroup.get('title').touched"
+                         class="alert alert-danger">
                       <div *ngIf="formGroup.get('title').hasError('required')">
                         {{'PROJECT_EDITING.TITLE_REQUIRED_ERROR' | translate}}.
                       </div>
                       <div *ngIf="formGroup.get('title').hasError('maxlength')">
-                        {{'PROJECT_EDITING.TITLE_MAX_ERROR.BEGINNING' | translate}} {{formGroup.get('title').getError('maxlength').requiredLength}}
+                        {{'PROJECT_EDITING.TITLE_MAX_ERROR.BEGINNING' | translate}}
+                        {{formGroup.get('title').getError('maxlength').requiredLength}}
                         {{'PROJECT_EDITING.TITLE_MAX_ERROR.ENDING' | translate}}.
                       </div>
                     </div>
@@ -79,8 +83,17 @@
                   </div>
                 </div>
               </div>
-
             </form>
+
+            <div class="form-group">
+              <div class="panel panel-primary">
+                <div class="panel-heading">{{'PROJECT_EDITING.DESCRIPTION' | translate}}</div>
+                <div class="panel-body">
+                  <rl-tag-input [(ngModel)]="project.tags" placeholder="Testing placeholder"></rl-tag-input>
+                </div>
+              </div>
+            </div>
+            
           </div>
 
           <div class="col-md-3 col-md-offset-1 col-sm-4">
@@ -98,7 +111,8 @@
             {{ successMessage }}
           </div>
           <button type="submit" class="btn btn-success btn-md btn-block"
-                  [disabled]="!formGroup.valid" (click)="onSubmit()">{{'PROJECT_EDITING.SAVE' | translate}}</button>
+                  [disabled]="!formGroup.valid" (click)="onSubmit()">{{'PROJECT_EDITING.SAVE' | translate}}
+          </button>
         </div>
       </div>
     </div>
