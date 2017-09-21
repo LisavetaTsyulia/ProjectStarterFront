@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ProjectService} from "../../project.service";
 
 @Component({
@@ -6,16 +6,29 @@ import {ProjectService} from "../../project.service";
   templateUrl: './rating.component.html',
   styleUrls: ['./rating.component.css']
 })
-export class RatingComponent implements OnInit {
+export class RatingComponent implements OnInit, OnChanges {
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.rating = this.rating;
+  }
+
+  change(rating: any) {
+    this.rating = rating;
+  }
 
   constructor( private projectService: ProjectService) { }
   userId: number = JSON.parse(localStorage.getItem('user')).id;
   @Input() projectId: number;
+  @Input() rating: number;
 
   ngOnInit() {
   }
 
   onRating(number: Number) {
-    this.projectService.addRating(number, this.userId, this.projectId).subscribe();
+    this.projectService.addRating(number, this.userId, this.projectId)
+      .subscribe( data => {
+        // Object.assign(this.rating, data);
+        this.change(data);
+      });
   }
 }

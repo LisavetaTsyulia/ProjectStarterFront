@@ -19,7 +19,7 @@
       <button *ngIf="isAdmin() || isConfirmed()" class="btn btn-warning btn-block" (click)="editNavigate()">
         Edit
       </button>
-      <app-rating [projectId]="projectId"></app-rating>
+      <app-rating [projectId]="projectId" [rating]="project.rating"></app-rating>
     </div>
   </div>
   <div class="row col-md-11 col-xs-12 ">
