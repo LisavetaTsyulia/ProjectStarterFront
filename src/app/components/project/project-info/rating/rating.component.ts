@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ProjectService} from "../../project.service";
 
 @Component({
   selector: 'app-rating',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RatingComponent implements OnInit {
 
-  constructor() { }
+  constructor( private projectService: ProjectService) { }
+  userId: number = JSON.parse(localStorage.getItem('user')).id;
+  @Input() projectId: number;
 
   ngOnInit() {
   }
 
+  onRating(number: Number) {
+    this.projectService.addRating(number, this.userId, this.projectId).subscribe();
+  }
 }

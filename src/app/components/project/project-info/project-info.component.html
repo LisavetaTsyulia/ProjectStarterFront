@@ -19,7 +19,7 @@
       <button *ngIf="isAdmin() || isConfirmed()" class="btn btn-warning btn-block" (click)="editNavigate()">
         Edit
       </button>
-      <app-rating></app-rating>
+      <app-rating [projectId]="projectId"></app-rating>
     </div>
   </div>
   <div class="row col-md-11 col-xs-12 ">
@@ -32,7 +32,7 @@
       {{'PROJECT_INFO.NEWS' | translate}} <span class="label label-success">{{newsArray.length}}</span></a>
     </li>
     <li class=""><a href="#comments" data-toggle="tab" aria-expanded="false">
-      {{'PROJECT_INFO.COMMENTS' | translate}} <span class="label label-success">{{commentsArray.length}}</span></a></li>
+      {{'PROJECT_INFO.COMMENT' | translate}} <span class="label label-success">{{commentsArray.length}}</span></a></li>
   </ul>
   </div>
   <div id="tabContent" class="tab-content">
