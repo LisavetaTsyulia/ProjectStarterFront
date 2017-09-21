@@ -5,22 +5,34 @@
   margin: auto;
 }
 
+md-card {
+  border-radius: 7px;
+}
+
 .center {
-  margin: auto;
+  margin: 0 auto;
+}
+
+.blue {
+  background-color: #779ECB;
+  color: #21527f;
+}
+
+.red {
+  background-color: #b94a48;
+  color: #822424;
+}
+
+.yellow {
+  background-color: #e1dd7f;
+  color: goldenrod;
 }
 
 span {
   font-size: 1.2em;
 }
 
-.gold {
-  color: gold;
-}
-
-.silver {
-  color: silver;
-}
-
-.bronze {
-  color: #cd7f32;
+.img-center {
+  display: table;
+  margin: 0 auto;
 }

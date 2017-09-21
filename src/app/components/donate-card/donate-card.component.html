@@ -1,11 +1,13 @@
-<md-card class="card margin-top">
-  <md-card-header *ngIf="number">
-    <h1 class="center" [class.gold]="number == 1" [class.silver]="number == 2"
-        [class.bronze]="number == 3"><b>#{{number}}</b></h1>
+<md-card class="card margin-top" [class.blue]="number == 1" [class.red]="number == 2"
+         [class.yellow]="number == 3">
+  <md-card-header>
+    <h1 class="center"><strong>${{donate.amount}}</strong></h1>
   </md-card-header>
   <md-card-content>
-    <span>Name: <b>{{biography?.name}}</b></span><br>
-    <span>Amount: <b>${{donate.amount}}</b></span><br>
+    <h4 class="text-center">{{biography?.name}}</h4>
+    <img *ngIf="number == 1" class="img-center" src="assets/images/gold-medal.png">
+    <img *ngIf="number == 2" class="img-center" src="assets/images/silver-medal.png">
+    <img *ngIf="number == 3" class="img-center" src="assets/images/bronze-medal.png">
   </md-card-content>
   <md-card-actions>
     <button md-button class="btn-block" (click)="viewProject()">VIEW PROJECT</button>
