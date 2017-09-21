@@ -1,6 +1,7 @@
 <md-card class="card margin-top">
-  <img md-card-image src="{{!localImage ? project.imageUrl : localImage}}" alt="{{'PROJECT_CARD.PROJECT_IMAGE' | translate}}">
-  <md-card-title><h4>{{project.title}}</h4></md-card-title>
+  <img md-card-image src="{{!localImage ? project.imageUrl : localImage}}"
+       alt="{{'PROJECT_CARD.PROJECT_IMAGE' | translate}}">
+  <md-card-title class="title"><h4>{{project.title}}</h4></md-card-title>
   <md-card-content>
     <span class="bold">${{project.currentAmount}}</span> {{'PROJECT_CARD.PLEDGED' | translate}}<br>
     <span class="bold">{{daysToGo}}</span> {{'PROJECT_CARD.DAYS_TO_PLEDGE' | translate}}
