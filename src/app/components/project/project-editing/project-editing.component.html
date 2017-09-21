@@ -89,14 +89,14 @@
               <div class="panel panel-primary">
                 <div class="panel-heading">{{'PROJECT_EDITING.DESCRIPTION' | translate}}</div>
                 <div class="panel-body">
-                  <rl-tag-input [(ngModel)]="project.tags" placeholder="Testing placeholder"></rl-tag-input>
+                  <rl-tag-input [(ngModel)]="project.tags" placeholder="Enter some tags"></rl-tag-input>
                 </div>
               </div>
             </div>
-            
+
           </div>
 
-          <div class="col-md-3 col-md-offset-1 col-sm-4">
+          <div class="col-md-3 col-md-offset-1 col-sm-4 margin-bottom">
             <h1>{{'PROJECT_EDITING.CARD' | translate}}</h1>
             <app-project-card [project]="project" [localImage]="currentProfileImage"></app-project-card>
           </div>
