@@ -10,12 +10,12 @@ export class RatingComponent implements OnInit {
 
   change(rating: any) {
     this.rating = rating.rating;
-    this.amountOfPeople = rating.amountOfPeople;
+    this.amountOfDonaters = rating.amountOfPeople;
   }
 
   constructor( private projectService: ProjectService) { }
   userId: number = JSON.parse(localStorage.getItem('user')).id;
-  amountOfPeople: number;
+  @Input() amountOfDonaters: number;
   @Input() projectId: number;
   @Input() rating: number;
 
