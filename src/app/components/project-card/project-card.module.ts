@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {MdCardModule, MdButtonModule, MdProgressBarModule} from '@angular/material';
 import {AuthModule} from '../auth/auth.module';
 import {ProjectCardComponent} from './project-card.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import {ProjectCardComponent} from './project-card.component';
     AuthModule,
     MdCardModule,
     MdButtonModule,
+    TranslateModule.forChild()
   ],
   declarations: [
     ProjectCardComponent,

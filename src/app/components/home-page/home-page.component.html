@@ -1,17 +1,27 @@
 <div class="container form-style">
-  <div class="jumbotron margin-top">
+  <div *ngIf="isAnonymous()" class="jumbotron margin-top">
     <h1>Project Starter</h1>
     <p>Do you want to become a creator?! Join us faster and verify your identity</p>
-    <p><a class="btn btn-primary btn-lg" (click)="joinUs()">Join us</a></p>
+    <p><a routerLink="../registration" routerLinkActive="active"
+          class="btn btn-primary btn-lg">Join us</a></p>
   </div>
-  <h1>Last projects</h1>
-  <div class="row">
-    <!--<app-project-card></app-project-card>-->
-    <!--<app-project-card></app-project-card>-->
-    <!--<app-project-card></app-project-card>-->
-    <!--<app-project-card></app-project-card>-->
-    <!--<app-project-card></app-project-card>-->
-    <!--<app-project-card></app-project-card>-->
-    <!--<app-project-card></app-project-card>-->
+  <div *ngIf="lastCreatedProjects">
+    <h1>Last created projects</h1>
+    <div class="row">
+      <div *ngFor="let project of lastCreatedProjects" class="cursor col-md-3 col-sm-4"
+           routerLink="../project-info/{{project.id}}" routerLinkActive="active">
+        <app-project-card [project]="project"></app-project-card>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="successfullyFinancedProjects">
+    <h1>Successfully financed projects</h1>
+    <div class="row">
+      <div *ngFor="let project of successfullyFinancedProjects" class="cursor col-md-3 col-sm-4"
+           routerLink="../project-info/{{project.id}}" routerLinkActive="active">
+        <app-project-card [project]="project"></app-project-card>
+      </div>
+    </div>
   </div>
 </div>

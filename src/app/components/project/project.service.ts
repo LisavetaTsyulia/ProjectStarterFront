@@ -8,8 +8,8 @@ import {environment} from '../../../environments/environment';
 import {Headers} from '@angular/http';
 import {Project} from '../model/project';
 import {News} from '../model/news';
-import {Reward} from "../model/reward";
-import {Goal} from "../model/goal";
+import {Reward} from '../model/reward';
+import {Goal} from '../model/goal';
 
 @Injectable()
 export class ProjectService {
@@ -176,4 +176,16 @@ export class ProjectService {
 
   }
 
+  findLastCreatedProjects() {
+    return this.http.get(`${environment.serverUrl}project/last_created`).map(res => res.json());
+  }
+
+  findSuccessfullyFinancedProjects() {
+    return this.http.get(`${environment.serverUrl}project/successfully_financed`).map(res => res.json());
+  }
+
+  search(requestString: string, offset: number) {
+    return this.http.get(`${environment.serverUrl}project/search?` +
+      `requestString=` + requestString + `&offset=` + offset).map(res => res.json());
+  }
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {ProjectService} from '../project/project.service';
+import {Project} from '../model/project';
+import {Donate} from '../model/donate';
+import {PaymentService} from '../payment/payment.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,16 +10,61 @@ import {Router} from '@angular/router';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  lastCreatedProjects: Project[];
+  successfullyFinancedProjects: Project[];
+  theBiggestDonations: Donate[];
 
   constructor(
-    private router: Router,
+    private projectService: ProjectService,
+    private paymentService: PaymentService,
   ) { }
 
   ngOnInit() {
+    this.getLastCreatedProjects();
+    this.getSuccessfullyFinancedProjects();
+    this.getTheBiggestDonations();
   }
 
-  joinUs() {
-    this.router.navigate(['registration']); // Doesn't work
-    // this.router.navigateByUrl('registration');
+  getLastCreatedProjects() {
+    this.projectService.findLastCreatedProjects()
+      .subscribe(data => {
+        this.lastCreatedProjects = [];
+        this.lastCreatedProjects = data;
+        this.lastCreatedProjects = this.checkEmptyProjectArray(this.lastCreatedProjects);
+        console.log(this.lastCreatedProjects);
+      });
+  }
+
+  getSuccessfullyFinancedProjects() {
+    this.projectService.findSuccessfullyFinancedProjects()
+      .subscribe(data => {
+        this.successfullyFinancedProjects = [];
+        this.successfullyFinancedProjects = data;
+        this.successfullyFinancedProjects = this.checkEmptyProjectArray(this.successfullyFinancedProjects);
+        console.log(this.successfullyFinancedProjects);
+      });
+  }
+
+  getTheBiggestDonations() {
+    this.paymentService.findTheBiggestDonations()
+      .subscribe(data => {
+        this.theBiggestDonations = [];
+        this.theBiggestDonations = data;
+        this.theBiggestDonations = this.checkEmptyDonationArray(this.theBiggestDonations);
+        console.log(this.theBiggestDonations);
+      });
+  }
+
+  checkEmptyProjectArray(projectArray: Project[]) {
+    return projectArray.length === 0 ? null : projectArray;
+  }
+
+  checkEmptyDonationArray(donationArray: Donate[]) {
+    return donationArray.length === 0 ? null : donationArray;
+  }
+
+  public isAnonymous(): boolean {
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    return user === null;
   }
 }

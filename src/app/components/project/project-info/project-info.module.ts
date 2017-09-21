@@ -15,6 +15,7 @@ import { RewardsComponent } from './rewards/rewards.component';
 import { GoalComponent } from './goal/goal.component';
 import {GoalCardModule} from "../../goal-card/goal-card.module";
 import { RatingComponent } from './rating/rating.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { RatingComponent } from './rating/rating.component';
     FileUploadModule,
     MdCardModule,
     MdButtonModule,
-    GoalCardModule
+    GoalCardModule,
+    TranslateModule.forChild()
   ],
   declarations: [
     ProjectInfoComponent,

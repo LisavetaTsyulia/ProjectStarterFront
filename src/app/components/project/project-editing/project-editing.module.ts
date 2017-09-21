@@ -13,6 +13,7 @@ import {NewsComponent} from './components/news/news.component';
 import {ProjectCardModule} from '../../project-card/project-card.module';
 import { RewardsComponent } from './components/rewards/rewards.component';
 import { GoalsComponent } from './components/goals/goals.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { GoalsComponent } from './components/goals/goals.component';
     Ng2CloudinaryModule,
     FileUploadModule,
     Ng2FileDropModule,
+    TranslateModule.forChild()
   ],
   declarations: [
     ProjectEditingComponent,

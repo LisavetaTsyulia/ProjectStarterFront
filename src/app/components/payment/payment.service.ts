@@ -1,13 +1,12 @@
-import {Injectable} from "@angular/core";
-import {Http, Headers} from "@angular/http";
-import {environment} from "../../../environments/environment";
+import {Injectable} from '@angular/core';
+import {Http, Headers} from '@angular/http';
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class PaymentService {
 
   constructor(private http: Http) {
   }
-
 
   pay(userId: number, projectId: number, amount: number) {
     const headers = new Headers();
@@ -23,5 +22,9 @@ export class PaymentService {
       .map(res => {
         return res.json();
       });
+  }
+
+  findTheBiggestDonations() {
+    return this.http.get(`${environment.serverUrl}donate/the-biggest`).map(res => res.json());
   }
 }

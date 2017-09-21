@@ -1,5 +1,5 @@
 <div class="container form-style">
-  <h1>Your projects</h1>
+  <h1>{{"PROJECTS.MY_TITLE" | translate}}</h1>
   <div class="row">
     <div *ngFor="let project of projects" class="cursor col-md-3 col-sm-4"
          routerLink="../project/edit/{{project.userId}}/{{project.id}}" routerLinkActive="active">

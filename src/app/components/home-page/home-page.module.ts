@@ -10,6 +10,7 @@ import {HomePageComponent} from './home-page.component';
 import {AuthModule} from '../auth/auth.module';
 import {ProjectService} from '../project/project.service';
 import {ProjectCardModule} from '../project-card/project-card.module';
+import {PaymentService} from '../payment/payment.service';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import {ProjectCardModule} from '../project-card/project-card.module';
     HomePageComponent,
   ],
   providers: [
-    ProjectService
+    ProjectService,
+    PaymentService
   ],
   exports: [RouterModule]
 })

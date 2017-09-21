@@ -5,32 +5,30 @@
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         {{ successMessage }}
       </div>
-      <h1 class="text-center">Create new <i class="text-warning">Reward</i> to your project here</h1>
-      <h2 class="text-center">You can't change it after being published</h2>
-      <h3 class="text-center">Let's make This Project better!!!</h3>
-      <div class="row">
+      <h1 class="text-center">{{'PROJECT_EDITING.CREATE_NEW' | translate}} <i class="text-warning">{{'PROJECT_EDITING.REWARD.REWARD' | translate}}</i> {{'PROJECT_EDITING.TO_PROJECT' | translate}}</h1>
+      <h2 class="text-center">{{'PROJECT_EDITING.CANT_CHANGE' | translate}}</h2>
+      <h3 class="text-center">{{'PROJECT_EDITING.BETTER' | translate}}</h3>
         <div class="col-md-6 col-md-offset-3">
-          <button (click)="showCreating()" class="btn btn-default btn-lg btn-block btn-warning">Continue</button>
+          <button (click)="showCreating()" class="btn btn-default btn-lg btn-block btn-warning">{{'PROJECT_EDITING.REWARD.CONTINUE' | translate}}</button>
         </div>
       </div>
-    </div>
     <div *ngIf="needToCreate" class="form-group">
-      <h1>Write about about your reward</h1>
+      <h1>{{'PROJECT_EDITING.REWARD.WRITE_ABOUT_REWARD' | translate}}</h1>
       <div class="input-group">
         <span class="input-group-addon">$</span>
-        <input class="form-control" id="reward_amount" placeholder="Amount" name="reward_amount"
+        <input class="form-control" id="reward_amount" placeholder="{{'PROJECT_EDITING.REWARD.AMOUNT' | translate}}" name="reward_amount"
              [(ngModel)]="reward.amount"/>
       </div>
       <div class="margin-top">
-        <textarea class="textarea form-control" rows="5" id="reward_description" placeholder="Description" name="reward_description"
+        <textarea class="textarea form-control" rows="5" id="reward_description" placeholder="{{'PROJECT_EDITING.REWARD.DESCRIPTION' | translate}}" name="reward_description"
                   [(ngModel)]="reward.description"></textarea>
       </div>
       <div *ngIf="errorMessage" class="alert alert-danger margin-top">
         {{ errorMessage }}
       </div>
       <div class="text-center margin-top">
-        <a (click)="cancel()" class="btn btn-default btn-md">Cancel</a>
-        <a (click)="create()" class="btn btn-success btn-md">Create the reward</a>
+        <a (click)="cancel()" class="btn btn-default btn-md">{{'PROJECT_EDITING.REWARD.CANCEL' | translate}}</a>
+        <a (click)="create()" class="btn btn-success btn-md">{{'PROJECT_EDITING.REWARD.CREATE' | translate}}</a>
       </div>
     </div>
   </div>

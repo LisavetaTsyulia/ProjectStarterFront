@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthConfigConsts} from 'angular2-jwt';
-import {DialogService} from "ng2-bootstrap-modal";
-import {ConfirmComponent} from "./confirm.component";
-import {TranslateService} from "@ngx-translate/core";
+import {DialogService} from 'ng2-bootstrap-modal';
+import {ConfirmComponent} from './confirm.component';
+import {TranslateService} from '@ngx-translate/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,12 +12,15 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class HeaderComponent implements OnInit {
 
-  confirmResult:boolean = null;
+  searchRequest = '';
+
+  confirmResult: boolean = null;
   constructor(
-    private dialogService:DialogService,
+    private router: Router,
+    private dialogService: DialogService,
     private translate: TranslateService
   ) {
-    translate.addLangs(["English", "Russian"]);
+    translate.addLangs(['English', 'Russian']);
     translate.setDefaultLang('English');
     this.setLang();
   }
@@ -25,7 +29,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public setLang() {
-    let lang: string = localStorage.getItem('lang');
+    const lang: string = localStorage.getItem('lang');
     this.translate.use(lang);
   }
 
@@ -60,11 +64,14 @@ export class HeaderComponent implements OnInit {
 
   openCustom() {
     this.dialogService.addDialog(ConfirmComponent, {
-      title:'Would you like to become a creator?',
-      message:'Send your passport scan to create a project'})
-      .subscribe((isConfirmed)=>{
+      title: 'Would you like to become a creator?',
+      message: 'Send your passport scan to create a project'})
+      .subscribe((isConfirmed) => {
         this.confirmResult = isConfirmed;
       });
   }
 
+  search() {
+    this.router.navigate(['search'], { queryParams: { search_request: this.searchRequest } });
+  }
 }

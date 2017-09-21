@@ -1,8 +1,10 @@
 <div class="margin-top">
-  <a class="glyphicon glyphicon-arrow-left" (click)="backToNews()"><span class="bold"> Back</span></a>
+  <a class="glyphicon glyphicon-arrow-left" (click)="backToNews()">
+    <span class="bold"> {{'PROJECT_INFO.BACK' | translate}}</span>
+  </a>
   <div class="row">
     <div class="col-md-6 text-left text-warning">
-      <h4>News #{{newsNumber}} </h4>
+      <h4>{{'PROJECT_INFO.NEWS_NUMBER' | translate}} #{{newsNumber}} </h4>
     </div>
     <h5 class="col-md-6 text-right">{{news.date | date }}</h5>
   </div>

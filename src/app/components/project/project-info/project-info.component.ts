@@ -4,8 +4,8 @@ import {Subscription} from 'rxjs/Subscription';
 import {ProjectService} from '../project.service';
 import {Project} from '../../model/project';
 import {News} from '../../model/news';
-import {Reward} from "../../model/reward";
-import {Goal} from "../../model/goal";
+import {Reward} from '../../model/reward';
+import {Goal} from '../../model/goal';
 
 @Component({
   selector: 'app-project-info',
@@ -28,14 +28,14 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   newsArray: News[] = [];
   commentsArray: Comment[] = [];
   rewardsArray: Reward[] = [];
-  goalsArray: Goal[] = [];
+  goalsArray: Goal[];
   newCommentText: string;
   amountOfReward: number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private projectService: ProjectService,
-    private  router: Router,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -67,8 +67,14 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   getGoals() {
     this.projectService.findAllGoalsByProjectId(this.projectId)
       .subscribe(data => {
+        this.goalsArray = [];
         Object.assign(this.goalsArray, data);
+        this.goalsArray = this.checkEmptyGoalsArray(this.goalsArray);
       });
+  }
+
+  checkEmptyGoalsArray(goalArray: Goal[]) {
+    return goalArray.length === 0 ? null : goalArray;
   }
 
   getNews() {
@@ -132,26 +138,38 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     return user === null;
   }
 
+  public isConfirmed(): boolean {
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    return user['role'] === 'ROLE_CONFIRMED_USER';
+  }
+
+  public isAdmin(): boolean {
+    const role: string = JSON.parse(localStorage.getItem('user'));
+    return role['role'] === 'ROLE_ADMIN';
+  }
+
   addComment() {
     console.log(this.newCommentText);
     this.projectService.addComment(this.projectId, this.newCommentText, this.userId)
       .subscribe(data => {
-          this.getComments()
-          this.newCommentText = "";
+          this.getComments();
+          this.newCommentText = '';
       });
   }
 
   onContinue(event) {
     console.log(event.amount);
-    if(!this.isAnonymous())
+    if (!this.isAnonymous())
       this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, event.amount]);
-    // this.router.navigate(['/payment?userId='+this.userId+'&projectId='+this.projectId+'&amount='+event.amount]);
   }
 
   onContinueAnySum(amountOfReward: Number) {
     console.log(amountOfReward);
-    if(!this.isAnonymous())
+    if (!this.isAnonymous())
       this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, this.amountOfReward]);
-    // this.router.navigate(['/payment?userId='+this.userId+'&projectId='+this.projectId+'&amount='+amountOfReward]);
+  }
+
+  editNavigate() {
+    this.router.navigate(['project/edit', this.project.userId, this.project.id]);
   }
 }

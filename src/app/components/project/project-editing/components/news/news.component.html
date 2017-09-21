@@ -5,18 +5,18 @@
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         {{ successMessage }}
       </div>
-      <h1 class="text-center">Create new <i class="text-danger">News</i> to your project here</h1>
-      <h2 class="text-center">You can't change it after being published</h2>
-      <h3 class="text-center">Let's make This Project better!!!</h3>
+      <h1 class="text-center">{{'PROJECT_EDITING.CREATE_NEW' | translate}} <i class="text-danger">{{'PROJECT_EDITING.NEWS.NEWS' | translate}}</i> {{'PROJECT_EDITING.TO_PROJECT' | translate}}</h1>
+      <h2 class="text-center">{{'PROJECT_EDITING.CANT_CHANGE' | translate}}</h2>
+      <h3 class="text-center">{{'PROJECT_EDITING.BETTER' | translate}}</h3>
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <button (click)="showCreating()" class="btn btn-default btn-lg btn-block btn-danger">Create the news</button>
+          <button (click)="showCreating()" class="btn btn-default btn-lg btn-block btn-danger">{{'PROJECT_EDITING.NEWS.CREATE' | translate}}</button>
         </div>
       </div>
     </div>
     <div *ngIf="needToCreate" class="form-group">
-      <h1>Write about your news</h1>
-      <input class="form-control" id="news_title" placeholder="Title" name="news_title"
+      <h1>{{'PROJECT_EDITING.NEWS.WRITE_ABOUT' | translate}}</h1>
+      <input class="form-control" id="news_title" placeholder="{{'PROJECT_EDITING.NEWS.TITLE' | translate}}" name="news_title"
              [(ngModel)]="news.title"/>
       <div class="margin-top">
         <app-text-editor
@@ -29,8 +29,8 @@
         {{ errorMessage }}
       </div>
       <div class="text-center margin-top">
-        <a (click)="cancel()" class="btn btn-default btn-md">Cancel</a>
-        <a (click)="create()" class="btn btn-success btn-md">Create the news</a>
+        <a (click)="cancel()" class="btn btn-default btn-md">{{'PROJECT_EDITING.NEWS.CANCEL' | translate}}</a>
+        <a (click)="create()" class="btn btn-success btn-md">{{'PROJECT_EDITING.NEWS.CREATE' | translate}}</a>
       </div>
     </div>
   </div>
