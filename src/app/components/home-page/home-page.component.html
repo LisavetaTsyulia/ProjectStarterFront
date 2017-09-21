@@ -6,8 +6,8 @@
           class="btn btn-primary btn-lg">Join us</a></p>
   </div>
   <div *ngIf="lastCreatedProjects">
-    <h1>Last created projects</h1>
-    <hr>
+    <h1 class="great-title">Last created projects</h1>
+    <hr class="great-hr">
     <div class="row">
       <div *ngFor="let project of lastCreatedProjects" class="cursor col-md-3"
            routerLink="../project-info/{{project.id}}" routerLinkActive="active">
@@ -15,10 +15,10 @@
       </div>
     </div>
   </div>
-  <hr>
+  <hr class="great-hr">
   <div *ngIf="successfullyFinancedProjects">
-    <h1>Successfully financed projects</h1>
-    <hr>
+    <h1 class="great-title">Successfully financed projects</h1>
+    <hr class="great-hr">
     <div class="row">
       <div *ngFor="let project of successfullyFinancedProjects" class="cursor col-md-3"
            routerLink="../project-info/{{project.id}}" routerLinkActive="active">
@@ -26,10 +26,10 @@
       </div>
     </div>
   </div>
-  <hr>
+  <hr class="great-hr">
   <div *ngIf="successfullyFinancedProjects">
-    <h1>The best donations</h1>
-    <hr>
+    <h1 class="great-title">The best donations</h1>
+    <hr class="great-hr">
     <div class="row">
       <div *ngFor="let donate of theBiggestDonations; let i = index" class="col-md-4">
         <app-donate-card [donate]="donate" [number]="i + 1"></app-donate-card>

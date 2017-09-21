@@ -20,3 +20,7 @@
 .image {
   height: 10em;
 }
+
+.card-border {
+  border-radius: 7px;
+}
