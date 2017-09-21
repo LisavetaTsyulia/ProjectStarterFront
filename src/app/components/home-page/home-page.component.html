@@ -7,6 +7,7 @@
   </div>
   <div *ngIf="lastCreatedProjects">
     <h1>Last created projects</h1>
+    <hr>
     <div class="row">
       <div *ngFor="let project of lastCreatedProjects" class="cursor col-md-3"
            routerLink="../project-info/{{project.id}}" routerLinkActive="active">
@@ -14,9 +15,10 @@
       </div>
     </div>
   </div>
-
+  <hr>
   <div *ngIf="successfullyFinancedProjects">
     <h1>Successfully financed projects</h1>
+    <hr>
     <div class="row">
       <div *ngFor="let project of successfullyFinancedProjects" class="cursor col-md-3"
            routerLink="../project-info/{{project.id}}" routerLinkActive="active">
@@ -24,9 +26,10 @@
       </div>
     </div>
   </div>
-
+  <hr>
   <div *ngIf="successfullyFinancedProjects">
     <h1>The best donations</h1>
+    <hr>
     <div class="row">
       <div *ngFor="let donate of theBiggestDonations; let i = index" class="col-md-4">
         <app-donate-card [donate]="donate" [number]="i + 1"></app-donate-card>

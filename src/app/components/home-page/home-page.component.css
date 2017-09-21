@@ -1,0 +1,11 @@
+h1 {
+  font-size: 4em;
+  font-family: Calibri, sans-serif;
+  color: #777777;
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(30, 152, 94), rgba(0, 0, 0, 0));
+}
