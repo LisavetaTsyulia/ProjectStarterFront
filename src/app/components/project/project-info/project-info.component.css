@@ -26,9 +26,15 @@ ul {
 .pink {
   color: #ff1e52;
 }
+
 .my_hr_style{
   border-top: 1px dotted #ea8100;
 }
+
 .my-card{
   margin-left: 15px;
+}
+
+.news-bg:hover {
+  background-color: #95e697;
 }
