@@ -14,7 +14,7 @@ import {ProjectCardModule} from '../../project-card/project-card.module';
 import { RewardsComponent } from './components/rewards/rewards.component';
 import { GoalsComponent } from './components/goals/goals.component';
 import {TranslateModule} from '@ngx-translate/core';
-
+import {RlTagInputModule} from 'angular2-tag-input';
 
 @NgModule({
   imports: [
@@ -27,11 +27,11 @@ import {TranslateModule} from '@ngx-translate/core';
     AuthModule,
     ReactiveFormsModule,
     ProjectCardModule,
-
     Ng2CloudinaryModule,
     FileUploadModule,
     Ng2FileDropModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    RlTagInputModule,
   ],
   declarations: [
     ProjectEditingComponent,

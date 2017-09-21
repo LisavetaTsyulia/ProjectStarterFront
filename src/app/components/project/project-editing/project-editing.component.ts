@@ -49,6 +49,9 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
     this.projectService.findProjectById(this.projectId)
       .subscribe(data => {
         Object.assign(this.project, data);
+        if (!this.project.tags) {
+          this.project.tags = [];
+        }
       });
 
     this.formGroup = this.fb.group({

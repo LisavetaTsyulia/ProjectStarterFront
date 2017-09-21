@@ -15,7 +15,6 @@ import {ConfirmComponent} from "./components/header/confirm.component";
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
-import { PaymentComponent } from './components/payment/payment.component';
 import {ProjectService} from "./components/project/project.service";
 import {SearchModule} from "./components/search/search.module";
 
@@ -48,7 +47,7 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })
+    }),
   ],
   providers: [
     AuthService,
