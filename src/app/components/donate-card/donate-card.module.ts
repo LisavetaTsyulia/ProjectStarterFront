@@ -5,6 +5,7 @@ import {MdCardModule, MdButtonModule, MdProgressBarModule} from '@angular/materi
 import {AuthModule} from '../auth/auth.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {DonateCardComponent} from './donate-card.component';
+import {DonateService} from './donate.service';
 
 @NgModule({
   imports: [
@@ -17,6 +18,9 @@ import {DonateCardComponent} from './donate-card.component';
   ],
   declarations: [
     DonateCardComponent,
+  ],
+  providers: [
+    DonateService
   ],
   exports: [
     DonateCardComponent,

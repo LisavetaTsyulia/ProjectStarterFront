@@ -28,14 +28,8 @@
   <div *ngIf="successfullyFinancedProjects">
     <h1>Successfully financed projects</h1>
     <div class="row">
-      <div class="cursor col-md-4">
-        <app-donate-card></app-donate-card>
-      </div>
-      <div class="cursor col-md-4">
-        <app-donate-card></app-donate-card>
-      </div>
-      <div class="cursor col-md-4">
-        <app-donate-card></app-donate-card>
+      <div *ngFor="let donate of theBiggestDonations" class="cursor col-md-4">
+        <app-donate-card [donate]="donate"></app-donate-card>
       </div>
     </div>
   </div>
