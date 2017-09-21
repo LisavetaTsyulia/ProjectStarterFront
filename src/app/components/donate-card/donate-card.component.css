@@ -1,0 +1,26 @@
+.header-image {
+  background-image: url('http://res.cloudinary.com/project-starter/image/upload/v1505567010/default_o7pdqo.png');
+  background-size: cover;
+  background-position: center center;
+  margin: auto;
+}
+
+.center {
+  margin: auto;
+}
+
+span {
+  font-size: 1.2em;
+}
+
+.gold {
+  color: gold;
+}
+
+.silver {
+  color: silver;
+}
+
+.bronze {
+  color: #cd7f32;
+}
