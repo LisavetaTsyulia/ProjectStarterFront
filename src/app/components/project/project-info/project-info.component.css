@@ -1,16 +1,3 @@
-.description-block {
-  background: #f0f0f0; /* Цвет фона */
-  border: 1px; /* Параметры рамки */
-  padding: 10px; /* Поля вокруг текста */
-  border-radius: 7px;
-}
-
-/*.card {*/
-  /*border: 1px solid #979797; !* Параметры рамки *!*/
-  /*padding: 7px; !* Поля вокруг текста *!*/
-  /*border-radius: 7px;*/
-/*}*/
-
 ul {
   list-style-type: none;
 }
