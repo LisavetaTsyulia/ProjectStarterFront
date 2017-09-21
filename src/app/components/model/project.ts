@@ -10,4 +10,5 @@ export class Project {
   public endDate: Date;
   public projectStatus: string;
   public imageUrl: string;
+  public amountOfDonates: number;
 }

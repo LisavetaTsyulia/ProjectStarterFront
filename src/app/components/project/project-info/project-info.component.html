@@ -7,7 +7,7 @@
     <div class="col-md-4 col-xs-12">
       <h3>${{project.currentAmount}}</h3>
       <p>pledged of ${{project.targetAmount}} goal</p>
-      <h3>371</h3>
+      <h3>{{amountOfDonates}}</h3>
       <p>{{'PROJECT_INFO.BACKERS' | translate}}</p>
       <h3>{{daysToGo}}</h3>
       <p>{{'PROJECT_INFO.DAYS_TO_GO' | translate}}</p>
@@ -19,8 +19,10 @@
       <button *ngIf="isAdmin() || isConfirmed()" class="btn btn-warning btn-block" (click)="editNavigate()">
         Edit
       </button>
+      <app-rating [projectId]="projectId" [rating]="project.rating"></app-rating>
     </div>
   </div>
+  <div class="row col-md-11 col-xs-12 ">
   <ul class="nav nav-tabs margin-top">
     <li class="active"><a href="#campaign" data-toggle="tab" aria-expanded="true">{{'PROJECT_INFO.CAMPAIGN' |
       translate}}</a></li>
@@ -30,8 +32,9 @@
       {{'PROJECT_INFO.NEWS' | translate}} <span class="label label-success">{{newsArray.length}}</span></a>
     </li>
     <li class=""><a href="#comments" data-toggle="tab" aria-expanded="false">
-      {{'PROJECT_INFO.COMMENTS' | translate}} <span class="label label-success">{{commentsArray.length}}</span></a></li>
+      {{'PROJECT_INFO.COMMENT' | translate}} <span class="label label-success">{{commentsArray.length}}</span></a></li>
   </ul>
+  </div>
   <div id="tabContent" class="tab-content">
     <div class="tab-pane fade active in" id="campaign">
       <div class="row">
