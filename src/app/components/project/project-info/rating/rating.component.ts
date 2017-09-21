@@ -6,18 +6,16 @@ import {ProjectService} from "../../project.service";
   templateUrl: './rating.component.html',
   styleUrls: ['./rating.component.css']
 })
-export class RatingComponent implements OnInit, OnChanges {
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.rating = this.rating;
-  }
+export class RatingComponent implements OnInit {
 
   change(rating: any) {
-    this.rating = rating;
+    this.rating = rating.rating;
+    this.amountOfPeople = rating.amountOfPeople;
   }
 
   constructor( private projectService: ProjectService) { }
   userId: number = JSON.parse(localStorage.getItem('user')).id;
+  amountOfPeople: number;
   @Input() projectId: number;
   @Input() rating: number;
 
