@@ -14,6 +14,7 @@ import { CommentComponent } from './comment/comment.component';
 import { RewardsComponent } from './rewards/rewards.component';
 import { GoalComponent } from './goal/goal.component';
 import {GoalCardModule} from "../../goal-card/goal-card.module";
+import { RatingComponent } from './rating/rating.component';
 import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
@@ -38,7 +39,8 @@ import {TranslateModule} from "@ngx-translate/core";
     NewsInfoComponent,
     CommentComponent,
     RewardsComponent,
-    GoalComponent
+    GoalComponent,
+    RatingComponent
   ],
   providers: [
     ProjectService

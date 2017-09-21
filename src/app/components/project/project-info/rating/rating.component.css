@@ -1,0 +1,14 @@
+body{ margin-top:20px;}
+.glyphicon { padding-right:5px;}
+.rating .glyphicon {font-size: 22px;}
+.rating-num { margin-top:0px;font-size: 54px; }
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+.glyphicon:hover ~ .glyphicon,
+.glyphicon:hover {
+  color: gold;
+}

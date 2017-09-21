@@ -165,6 +165,23 @@ export class ProjectService {
 
   }
 
+  addRating(score: Number, userId: number, projectId: number) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', localStorage.getItem('token'));
+
+    return this.http
+      .post(
+        `${environment.serverUrl}project/addRating`,
+        JSON.stringify({userId, projectId, score}),
+        {headers}
+      )
+      .map(res => {
+        return res.json();
+      });
+
+  }
+
   findAllUserProjects(userId: number) {
     return this.authHttp.get(`${environment.serverUrl}user/user_projects?` +
       `user_id=` + userId).map(res => res.json());

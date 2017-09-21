@@ -31,6 +31,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   goalsArray: Goal[];
   newCommentText: string;
   amountOfReward: number;
+  amountOfDonates: number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -60,8 +61,13 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.projectService.findProjectById(this.projectId)
       .subscribe(data => {
         Object.assign(this.project, data);
+        this.changeAmountOfDonates();
         this.initDaysToGo();
       });
+  }
+
+  changeAmountOfDonates() {
+    this.amountOfDonates = this.project.amountOfDonates;
   }
 
   getGoals() {
