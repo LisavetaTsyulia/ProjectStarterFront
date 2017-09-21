@@ -1,0 +1,6 @@
+.header-image {
+  background-image: url('http://res.cloudinary.com/project-starter/image/upload/v1505567010/default_o7pdqo.png');
+  background-size: cover;
+  background-position: center center;
+  margin: auto;
+}

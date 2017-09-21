@@ -8,7 +8,7 @@
   <div *ngIf="lastCreatedProjects">
     <h1>Last created projects</h1>
     <div class="row">
-      <div *ngFor="let project of lastCreatedProjects" class="cursor col-md-3 col-sm-4"
+      <div *ngFor="let project of lastCreatedProjects" class="cursor col-md-3"
            routerLink="../project-info/{{project.id}}" routerLinkActive="active">
         <app-project-card [project]="project"></app-project-card>
       </div>
@@ -18,10 +18,26 @@
   <div *ngIf="successfullyFinancedProjects">
     <h1>Successfully financed projects</h1>
     <div class="row">
-      <div *ngFor="let project of successfullyFinancedProjects" class="cursor col-md-3 col-sm-4"
+      <div *ngFor="let project of successfullyFinancedProjects" class="cursor col-md-3"
            routerLink="../project-info/{{project.id}}" routerLinkActive="active">
         <app-project-card [project]="project"></app-project-card>
       </div>
     </div>
   </div>
+
+  <div *ngIf="successfullyFinancedProjects">
+    <h1>Successfully financed projects</h1>
+    <div class="row">
+      <div class="cursor col-md-4">
+        <app-donate-card></app-donate-card>
+      </div>
+      <div class="cursor col-md-4">
+        <app-donate-card></app-donate-card>
+      </div>
+      <div class="cursor col-md-4">
+        <app-donate-card></app-donate-card>
+      </div>
+    </div>
+  </div>
+
 </div>
