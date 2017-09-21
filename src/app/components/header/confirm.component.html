@@ -9,21 +9,19 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <div class="jumbotron">
-          <h3>{{'HEADER.CREATE_PROJECT' | translate}}</h3>
-          <div class="profile-picture-section">
-            <div ng2FileDrop [uploader]="uploader" [ng2FileDropSupportedFileTypes]="supportedFileTypes"
-                 (ng2FileDropFileAccepted)="dragFileAccepted($event)"
-                 class="profile-picture-section-drop-zone">
-              <div *ngIf="!imageShown" class=profile-picture-section-request-image-group>
-                <p class="profile-picture-section-request-image-instructions">{{'HEADER.DROP_HERE' | translate}}</p>
-              </div>
-              <div *ngIf="imageShown" class=profile-picture-section-request-image-container>
-                <img class="profile-picture-section-request-image" [src]="currentProfileImage">
-              </div>
+        <h3>{{'HEADER.CREATE_PROJECT' | translate}}</h3>
+        <div class="profile-picture-section">
+          <div ng2FileDrop [uploader]="uploader" [ng2FileDropSupportedFileTypes]="supportedFileTypes"
+               (ng2FileDropFileAccepted)="dragFileAccepted($event)"
+               class="profile-picture-section-drop-zone">
+            <div *ngIf="!imageShown" class=profile-picture-section-request-image-group>
+              <p class="profile-picture-section-request-image-instructions">{{'HEADER.DROP_HERE' | translate}}</p>
             </div>
-            <p class="profile-picture-section-limitations">{{'HEADER.CAN_BE_ONLY' | translate}}</p>
+            <div *ngIf="imageShown" class=profile-picture-section-request-image-container>
+              <img class="profile-picture-section-request-image" [src]="currentProfileImage">
+            </div>
           </div>
+          <p class="profile-picture-section-limitations">{{'HEADER.CAN_BE_ONLY' | translate}}</p>
         </div>
       </div>
     </div>
