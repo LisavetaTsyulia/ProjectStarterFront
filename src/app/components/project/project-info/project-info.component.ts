@@ -61,9 +61,13 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.projectService.findProjectById(this.projectId)
       .subscribe(data => {
         Object.assign(this.project, data);
-        this.amountOfDonates = this.project.amountOfDonates;
+        this.changeAmountOfDonates();
         this.initDaysToGo();
       });
+  }
+
+  changeAmountOfDonates() {
+    this.amountOfDonates = this.project.amountOfDonates;
   }
 
   getGoals() {
