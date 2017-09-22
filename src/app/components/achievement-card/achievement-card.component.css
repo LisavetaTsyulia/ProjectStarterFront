@@ -1,4 +1,17 @@
 .achievement-style {
-  background-color: lightcoral;
-  color: #8b0010;
+  background-color: #779ECB;
+  color: #21527f;
+}
+
+.img-center {
+  display: table;
+  margin: 0 auto;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+md-card {
+  border-radius: 7px;
 }
