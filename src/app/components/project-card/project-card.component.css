@@ -5,3 +5,34 @@
 .bold {
   font-weight: bold;
 }
+
+.title {
+  display: block;
+  display: -webkit-box;
+  height: 4em;
+  margin: 0 auto;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.image {
+  height: 10em;
+}
+
+.card-border {
+  border-radius: 7px;
+}
+
+.img-preview-container {
+  height: 196px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.img-preview {
+  max-height: 196px;
+  width: auto;
+}

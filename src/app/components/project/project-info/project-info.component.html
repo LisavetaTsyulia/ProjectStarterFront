@@ -40,7 +40,7 @@
       <div class="row">
         <div class="col-md-8 col-xs-12">
           <h2>{{'PROJECT_INFO.DESCRIPTION' | translate}}</h2>
-          <div class="margin-top description-block" id="description" [innerHTML]="project.description">
+          <div class="margin-top jumbotron" id="description" [innerHTML]="project.description">
           </div>
         </div>
         <div class="col-md-4 col-xs-12">
@@ -93,8 +93,8 @@
       <div class="col-md-6 col-md-offset-3">
         <div *ngIf="!showMoreNewsInfo">
           <div *ngFor="let news of newsArray; let i = index" (click)="showNews(news, newsArray.length - i)"
-               class="margin-top">
-            <md-card class="card margin-top">
+               class="margin-top cursor">
+            <md-card class="card margin-top news-bg">
               <md-card-header>
                 <md-card-title><span class="text-warning">{{'PROJECT_INFO.NEWS_NUMBER' | translate}} #{{newsArray.length - i}}</span>
                 </md-card-title>

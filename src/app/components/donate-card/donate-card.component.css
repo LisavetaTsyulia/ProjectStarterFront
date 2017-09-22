@@ -1,0 +1,38 @@
+.header-image {
+  background-image: url('http://res.cloudinary.com/project-starter/image/upload/v1505567010/default_o7pdqo.png');
+  background-size: cover;
+  background-position: center center;
+  margin: auto;
+}
+
+md-card {
+  border-radius: 7px;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.blue {
+  background-color: #779ECB;
+  color: #21527f;
+}
+
+.red {
+  background-color: #b94a48;
+  color: #822424;
+}
+
+.yellow {
+  background-color: #e1dd7f;
+  color: goldenrod;
+}
+
+span {
+  font-size: 1.2em;
+}
+
+.img-center {
+  display: table;
+  margin: 0 auto;
+}

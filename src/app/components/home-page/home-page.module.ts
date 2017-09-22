@@ -11,6 +11,7 @@ import {AuthModule} from '../auth/auth.module';
 import {ProjectService} from '../project/project.service';
 import {ProjectCardModule} from '../project-card/project-card.module';
 import {PaymentService} from '../payment/payment.service';
+import {DonateCardModule} from '../donate-card/donate-card.module';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import {PaymentService} from '../payment/payment.service';
     Ng2CloudinaryModule,
     FileUploadModule,
     ProjectCardModule,
+    DonateCardModule,
   ],
   declarations: [
     HomePageComponent,

@@ -11,4 +11,5 @@ export class Project {
   public projectStatus: string;
   public imageUrl: string;
   public amountOfDonates: number;
+  public tags: string[];
 }
