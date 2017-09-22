@@ -67,7 +67,7 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
       .subscribe(
         data => {
           Object.assign(this.project, data);
-          this.successMessage = 'Changes saved.';
+          this.successMessage = 'Changes were saved.';
         },
         error => {
           this.errorMessage = error.json().message;

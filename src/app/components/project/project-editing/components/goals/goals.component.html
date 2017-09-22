@@ -51,8 +51,8 @@
         <div class="text-center margin-top">
           <button (click)="cancel()" class="btn btn-default btn-md">{{'PROJECT_EDITING.GOALS.CANCEL' | translate}}
           </button>
-          <button type="submit" class="btn btn-success btn-md">{{'PROJECT_EDITING.GOALS.CREATE' |
-            translate}}
+          <button type="submit" [disabled]="!formGroup.valid"
+                  class="btn btn-success btn-md">{{'PROJECT_EDITING.GOALS.CREATE' | translate}}
           </button>
         </div>
       </form>
