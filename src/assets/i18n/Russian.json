@@ -7,6 +7,7 @@
     "GOT_REQUEST": "Ваша заявка принята",
     "HOME": "Домашняя страничка",
     "MY_PROJECTS": "Мои проекты",
+    "MY_ACHIEVEMENTS": "Мои достижения",
     "MY_PROFILE": "Мой профиль",
     "SUBSCRIBED_PROJECTS": "Мои подписки",
     "ADMIN": "Админка",
@@ -16,6 +17,9 @@
     "RUSSIAN": "Русский",
     "LIGHT": "Светлая",
     "DARK": "Темная"
+  },
+  "ACHIEVEMENTS": {
+    "ACHIEVEMENTS": "Мои достижения"
   },
   "HEADER": {
     "CREATOR": "Хотели бы Вы иметь возможность создавать проекты",
