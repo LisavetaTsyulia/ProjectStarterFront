@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {MdCardModule, MdButtonModule} from '@angular/material';
+import {MdCardModule, MdButtonModule, MdProgressBarModule} from '@angular/material';
 import {AuthModule} from '../auth/auth.module';
-import {ProjectCardComponent} from './project-card.component';
 import {TranslateModule} from "@ngx-translate/core";
+import {AchievementCardComponent} from "./achievement-card.component";
 
 @NgModule({
   imports: [
@@ -16,12 +16,12 @@ import {TranslateModule} from "@ngx-translate/core";
     TranslateModule.forChild()
   ],
   declarations: [
-    ProjectCardComponent,
+    AchievementCardComponent,
   ],
   exports: [
-    ProjectCardComponent,
+    AchievementCardComponent,
     MdCardModule,
     MdButtonModule,
   ]
 })
-export class ProjectCardModule { }
+export class AchievementCardModule { }
