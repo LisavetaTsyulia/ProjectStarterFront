@@ -6,6 +6,7 @@ import {SearchComponent} from './search.component';
 import {AuthModule} from '../auth/auth.module';
 import {ProjectService} from '../project/project.service';
 import {InfiniteScrollModule} from 'angular2-infinite-scroll';
+import {ProjectCardModule} from "../project-card/project-card.module";
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import {InfiniteScrollModule} from 'angular2-infinite-scroll';
     CommonModule,
     FormsModule,
     AuthModule,
+    ProjectCardModule,
     InfiniteScrollModule,
   ],
   declarations: [

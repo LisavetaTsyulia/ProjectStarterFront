@@ -1,19 +1,23 @@
 <div class="container form-style">
-  <form (submit)="search()" class="navbar-form navbar-left" role="search">
-    <div class="form-group has-feedback">
-      <input type="text" class="form-control" id="searchInput" placeholder="Search"
-             [(ngModel)]="searchRequest" name="searchInput">
-      <span class="glyphicon glyphicon-search form-control-feedback"></span>
+  <div class="row col-md-8 col-md-offset-2">
+    <form (submit)="search()" role="search">
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search"
+               [(ngModel)]="searchRequest" name="searchInput">
+        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div *ngFor="let project of projects" class="cursor col-md-3 col-sm-4"
+         routerLink="../project-info/{{project.id}}" routerLinkActive="active">
+      <app-project-card [project]="project"></app-project-card>
     </div>
-  </form>
-
-  <div *ngFor="let project of projects">
-    <h3>{{ project?.title }}</h3>
   </div>
 
   <div class="search-results"
        infinite-scroll
-       [infiniteScrollDistance]="2"
+       [infiniteScrollDistance]="1"
        [infiniteScrollThrottle]="1000"
        (scrolled)="onScroll()">
   </div>

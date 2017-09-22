@@ -6,7 +6,7 @@ import {SubscribedProjectsComponent} from './subscribed-projects.component';
 import {AuthModule} from '../../auth/auth.module';
 import {ProjectService} from '../../project/project.service';
 import {ProjectCardModule} from '../../project-card/project-card.module';
-import {TranslateModule} from "@ngx-translate/core";
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   imports: [
