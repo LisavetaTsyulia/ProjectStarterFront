@@ -5,31 +5,54 @@
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         {{ successMessage }}
       </div>
-      <h1 class="text-center">{{'PROJECT_EDITING.CREATE_NEW' | translate}} <i class="text-warning">{{'PROJECT_EDITING.REWARD.REWARD' | translate}}</i> {{'PROJECT_EDITING.TO_PROJECT' | translate}}</h1>
+      <h1 class="text-center">{{'PROJECT_EDITING.CREATE_NEW' | translate}} <i class="text-warning">{{'PROJECT_EDITING.REWARD.REWARD'
+        | translate}}</i> {{'PROJECT_EDITING.TO_PROJECT' | translate}}</h1>
       <h2 class="text-center">{{'PROJECT_EDITING.CANT_CHANGE' | translate}}</h2>
       <h3 class="text-center">{{'PROJECT_EDITING.BETTER' | translate}}</h3>
-        <div class="col-md-6 col-md-offset-3">
-          <button (click)="showCreating()" class="btn btn-default btn-lg btn-block btn-warning">{{'PROJECT_EDITING.REWARD.CONTINUE' | translate}}</button>
-        </div>
+      <div class="col-md-6 col-md-offset-3">
+        <button (click)="showCreating()" class="btn btn-default btn-lg btn-block btn-warning">
+          {{'PROJECT_EDITING.REWARD.CONTINUE' | translate}}
+        </button>
       </div>
+    </div>
     <div *ngIf="needToCreate" class="form-group">
       <h1>{{'PROJECT_EDITING.REWARD.WRITE_ABOUT_REWARD' | translate}}</h1>
-      <div class="input-group">
-        <span class="input-group-addon">$</span>
-        <input class="form-control" id="reward_amount" placeholder="{{'PROJECT_EDITING.REWARD.AMOUNT' | translate}}" name="reward_amount"
-             [(ngModel)]="reward.amount"/>
-      </div>
-      <div class="margin-top">
-        <textarea class="textarea form-control" rows="5" id="reward_description" placeholder="{{'PROJECT_EDITING.REWARD.DESCRIPTION' | translate}}" name="reward_description"
-                  [(ngModel)]="reward.description"></textarea>
-      </div>
-      <div *ngIf="errorMessage" class="alert alert-danger margin-top">
-        {{ errorMessage }}
-      </div>
-      <div class="text-center margin-top">
-        <a (click)="cancel()" class="btn btn-default btn-md">{{'PROJECT_EDITING.REWARD.CANCEL' | translate}}</a>
-        <a (click)="create()" class="btn btn-success btn-md">{{'PROJECT_EDITING.REWARD.CREATE' | translate}}</a>
-      </div>
+      <form (ngSubmit)="create()" [formGroup]="formGroup">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input class="form-control" id="reward_amount" placeholder="{{'PROJECT_EDITING.REWARD.AMOUNT' | translate}}"
+                   name="reward_amount" formControlName="amount"
+                   [(ngModel)]="reward.amount"/>
+          </div>
+          <div *ngIf="formGroup.get('amount').errors && formGroup.get('amount').touched" class="alert alert-danger">
+            <div *ngIf="formGroup.get('amount').hasError('required')">
+              Amount of donation is required.
+            </div>
+            <div *ngIf="formGroup.get('amount').hasError('incorrectAmountFormat')">
+              Amount of donation is wrong. It should be integer value.
+            </div>
+          </div>
+        </div>
+        <div class="form-group margin-top">
+          <textarea class="textarea form-control" rows="5" id="reward_description"
+                    placeholder="{{'PROJECT_EDITING.REWARD.DESCRIPTION' | translate}}" name="reward_description"
+                    [(ngModel)]="reward.description" formControlName="description"></textarea>
+          <div *ngIf="formGroup.get('description').errors && formGroup.get('description').touched" class="alert alert-danger">
+            <div *ngIf="formGroup.get('description').hasError('required')">
+              Description is required.
+            </div>
+          </div>
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger margin-top">
+          {{ errorMessage }}
+        </div>
+        <div class="text-center margin-top">
+          <button (click)="cancel()" class="btn btn-default btn-md">{{'PROJECT_EDITING.REWARD.CANCEL' | translate}}</button>
+          <button type="submit" class="btn btn-success btn-md" [disabled]="!formGroup.valid">{{'PROJECT_EDITING.REWARD.CREATE' |
+            translate}}</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
