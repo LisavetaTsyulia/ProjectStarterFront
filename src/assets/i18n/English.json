@@ -8,6 +8,7 @@
     "HOME": "Home",
     "MY_PROJECTS": "My Projects",
     "MY_PROFILE": "My Profile",
+    "MY_ACHIEVEMENTS": "My Achievements",
     "SUBSCRIBED_PROJECTS": "Subscribed projects",
     "ADMIN": "Admin",
     "PROJECT_STARTER": "Project Starter",
@@ -16,6 +17,9 @@
     "RUSSIAN": "Russian",
     "LIGHT": "Light",
     "DARK": "Dark"
+  },
+  "ACHIEVEMENTS": {
+    "ACHIEVEMENTS": "My Achievements"
   },
   "HEADER": {
     "CREATOR": "Would you like to become a creator",

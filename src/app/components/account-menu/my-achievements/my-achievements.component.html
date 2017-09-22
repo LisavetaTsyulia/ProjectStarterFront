@@ -1,0 +1,9 @@
+<div class="container form-style">
+  <h1 class="less-great-title">{{"ACHIEVEMENTS.ACHIEVEMENTS" | translate}}</h1>
+  <hr class="great-hr">
+  <div class="row">
+    <div *ngFor="let achievement of achievements" class="cursor col-md-4 col-xs-8">
+      <app-achievement-card [achievement]="achievement"></app-achievement-card>
+    </div>
+  </div>
+</div>

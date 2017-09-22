@@ -187,6 +187,11 @@ export class ProjectService {
       `user_id=` + userId).map(res => res.json());
   }
 
+  findAllUserAchievements(userId: number) {
+    return this.authHttp.get(`${environment.serverUrl}user/user_achievements?` +
+      `user_id=` + userId).map(res => res.json());
+  }
+
   findAllSubscribedProjectsByUserId(userId: number) {
     return this.authHttp.get(`${environment.serverUrl}user/subscribed_projects?` +
       `user_id=` + userId).map(res => res.json());
