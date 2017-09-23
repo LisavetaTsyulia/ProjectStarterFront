@@ -29,6 +29,7 @@
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
+    "angular-tag-cloud-module": "^1.4.0",
     "angular2-infinite-scroll": "^0.3.43",
     "angular2-jwt": "^0.2.3",
     "angular2-modal": "^3.0.3",
