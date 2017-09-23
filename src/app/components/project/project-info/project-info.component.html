@@ -77,13 +77,15 @@
                            placeholder="{{'PROJECT_INFO.AMOUNT' | translate}}" [(ngModel)]="amountOfReward"
                            formControlName="donateAmount">
                   </div>
-                </div>
-                </form>
-                <div *ngIf="formGroup.get('donateAmount').errors && formGroup.get('donateAmount').touched" class="alert alert-danger">
-                  <div *ngIf="formGroup.get('donateAmount').hasError('incorrectAmountFormat')">
-                    It should be integer value and not 0.
+                  <div *ngIf="!(donateMinMessage == null || donateMinMessage == '')" class="alert alert-danger">
+                    {{donateMinMessage}}
+                  </div>
+                  <div *ngIf="formGroup.get('donateAmount').errors && formGroup.get('donateAmount').touched  &&
+                              formGroup.get('donateAmount').hasError('incorrectAmountFormat')" class="alert alert-danger">
+                      It should be integer value and not 0.
                   </div>
                 </div>
+                </form>
               </div>
             </md-card-content>
             <md-card-footer>

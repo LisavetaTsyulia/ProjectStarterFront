@@ -25,6 +25,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   userId: number;
   private subscription: Subscription;
   errorMessage: string;
+  donateMinMessage: string;
 
   showMoreNewsInfo = false;
   selectedNews: News;
@@ -54,6 +55,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.getRewards();
     this.getNotAnonymousData();
     this.createCommentFormGroup();
+    this.donateMinMessage = null;
   }
 
   createCommentFormGroup() {
@@ -61,7 +63,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
       comment: ['', Validators.required]
     });
     this.formGroup = this.fb.group({
-      donateAmount: ['', AmountValidators.isValidAmount]
+      donateAmount: ['', [AmountValidators.isValidAmount, Validators.required]]
     });
 
   }
@@ -189,7 +191,11 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   onContinueAnySum(amountOfReward: Number) {
     console.log(amountOfReward);
     if (!this.isAnonymous()) {
-      this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, this.amountOfReward]);
+      if(this.amountOfReward >= this.project.donateMin) {
+        this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, this.amountOfReward]);
+      } else {
+        this.donateMinMessage = "This donation is less than minimum donation for this project " + this.project.donateMin + "$.";
+      }
     }
   }
 
