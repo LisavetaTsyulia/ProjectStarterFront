@@ -11,7 +11,11 @@ span {
   font-size: 1.2em;
 }
 
-.card:hover {
-  background: rgba(24, 188, 156, .7);
-  cursor: pointer;
+.news-date {
+  font-family: "Bitstream Vera Serif";
+  font-size: larger;
+}
+
+.news-title {
+  font-family: "Lato Hairline";
 }
