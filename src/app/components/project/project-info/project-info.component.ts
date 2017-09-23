@@ -7,6 +7,7 @@ import {News} from '../../model/news';
 import {Reward} from '../../model/reward';
 import {Goal} from '../../model/goal';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AmountValidators} from "../../validators/AmountValidators";
 
 @Component({
   selector: 'app-project-info',
@@ -17,12 +18,14 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   daysToGo: number;
   isSubscribed = false;
   commentFormGroup: FormGroup;
+  formGroup: FormGroup;
 
   project = new Project;
   projectId: number;
   userId: number;
   private subscription: Subscription;
   errorMessage: string;
+  donateMinMessage: string;
 
   showMoreNewsInfo = false;
   selectedNews: News;
@@ -52,12 +55,17 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.getRewards();
     this.getNotAnonymousData();
     this.createCommentFormGroup();
+    this.donateMinMessage = null;
   }
 
   createCommentFormGroup() {
     this.commentFormGroup = this.fb.group({
       comment: ['', Validators.required]
     });
+    this.formGroup = this.fb.group({
+      donateAmount: ['', [AmountValidators.isValidAmount, Validators.required]]
+    });
+
   }
 
   getNotAnonymousData() {
@@ -182,8 +190,13 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
 
   onContinueAnySum(amountOfReward: Number) {
     console.log(amountOfReward);
-    if (!this.isAnonymous())
-      this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, this.amountOfReward]);
+    if (!this.isAnonymous()) {
+      if(this.amountOfReward >= this.project.donateMin) {
+        this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, this.amountOfReward]);
+      } else {
+        this.donateMinMessage = "This donation is less than minimum donation for this project " + this.project.donateMin + "$.";
+      }
+    }
   }
 
   editNavigate() {

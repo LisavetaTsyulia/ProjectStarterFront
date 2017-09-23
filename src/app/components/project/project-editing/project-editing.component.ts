@@ -6,6 +6,7 @@ import {Project} from '../../model/project';
 import { Ng2FileDropAcceptedFile } from 'ng2-file-drop';
 import {CloudinaryOptions, CloudinaryUploader} from 'ng2-cloudinary';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AmountValidators} from "../../validators/AmountValidators";
 
 @Component({
   selector: 'app-project-editing',
@@ -57,7 +58,8 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
       });
 
     this.formGroup = this.fb.group({
-      title: ['', [Validators.required, Validators.maxLength(60)]]
+      title: ['', [Validators.required, Validators.maxLength(60)]],
+      amountMin: ['', [Validators.required, AmountValidators.isValidAmount]],
     });
   }
 

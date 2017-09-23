@@ -11,6 +11,7 @@ export class Project {
   public endDate: Date;
   public projectStatus: string;
   public imageUrl: string;
+  public donateMin: number;
   public amountOfDonates: number;
   public amountOfRatings: number;
   public tags: string[];

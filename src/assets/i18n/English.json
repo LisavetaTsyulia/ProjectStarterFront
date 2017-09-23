@@ -85,6 +85,7 @@
       "CANCEL": "Cancel",
       "DESCRIPTION": "Reward description",
       "AMOUNT": "Amount",
+      "AMOUNT_MINIMUM": "Amount minimum",
       "CONTINUE": "Continue",
       "REWARD": "Reward"
     }
