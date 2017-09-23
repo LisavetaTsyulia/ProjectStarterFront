@@ -183,17 +183,22 @@ export class ProjectService {
   }
 
   findAllUserProjects(userId: number) {
-    return this.authHttp.get(`${environment.serverUrl}user/user_projects?` +
+    return this.authHttp.get(`${environment.serverUrl}user/user-projects?` +
       `user_id=` + userId).map(res => res.json());
   }
 
   findAllUserAchievements(userId: number) {
-    return this.authHttp.get(`${environment.serverUrl}user/user_achievements?` +
+    return this.authHttp.get(`${environment.serverUrl}user/user-achievements?` +
+      `user_id=` + userId).map(res => res.json());
+  }
+
+  findAllUserSubscribedProjectsNews(userId: number) {
+    return this.authHttp.get(`${environment.serverUrl}user/user-project-news?` +
       `user_id=` + userId).map(res => res.json());
   }
 
   findAllSubscribedProjectsByUserId(userId: number) {
-    return this.authHttp.get(`${environment.serverUrl}user/subscribed_projects?` +
+    return this.authHttp.get(`${environment.serverUrl}user/subscribed-projects?` +
       `user_id=` + userId).map(res => res.json());
 
   }
