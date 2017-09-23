@@ -7,6 +7,11 @@
         <div *ngFor="let news of newsArray;" (click)="showNews(news)"
              class="margin-top cursor news-card">
           <md-card class=" margin-top news-bg">
+            <md-card-title>
+              <a routerLink="../project-info/{{news.projectId}}" routerLinkActive="active">
+                <h4>{{news.projectName}}</h4>
+              </a>
+            </md-card-title>
             <md-card-content>
               <h2 class="card-title news-title">{{news.title}} <a disabled="true"></a></h2>
             </md-card-content>
