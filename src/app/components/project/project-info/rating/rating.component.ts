@@ -23,10 +23,17 @@ export class RatingComponent implements OnInit {
   }
 
   onRating(number: Number) {
-    this.projectService.addRating(number, this.userId, this.projectId)
-      .subscribe( data => {
-        // Object.assign(this.rating, data);
-        this.change(data);
-      });
+    if (!this.isAnonymous()) {
+      this.projectService.addRating(number, this.userId, this.projectId)
+        .subscribe(data => {
+          // Object.assign(this.rating, data);
+          this.change(data);
+        });
+    }
+  }
+
+  public isAnonymous(): boolean {
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    return user === null;
   }
 }
