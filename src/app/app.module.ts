@@ -5,18 +5,20 @@ import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
-import {Ng2CloudinaryModule} from "ng2-cloudinary";
-import {FileUploadModule} from "ng2-file-upload";
-import {Ng2FileDropModule} from "ng2-file-drop";
-import {AuthService} from "./components/auth/auth.service";
-import {AuthModule} from "./components/auth/auth.module";
+import {Ng2CloudinaryModule} from 'ng2-cloudinary';
+import {FileUploadModule} from 'ng2-file-upload';
+import {Ng2FileDropModule} from 'ng2-file-drop';
+import {AuthService} from './components/auth/auth.service';
+import {AuthModule} from './components/auth/auth.module';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
-import {ConfirmComponent} from "./components/header/confirm.component";
+import {ConfirmComponent} from './components/header/confirm.component';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
-import {ProjectService} from "./components/project/project.service";
-import {SearchModule} from "./components/search/search.module";
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {ProjectService} from './components/project/project.service';
+import {SearchModule} from './components/search/search.module';
+import { TagCloudModule } from 'angular-tag-cloud-module';
+import {TagService} from './components/tag/tag.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -48,10 +50,12 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    TagCloudModule,
   ],
   providers: [
     AuthService,
     ProjectService,
+    TagService,
   ],
   bootstrap: [AppComponent],
   entryComponents: [

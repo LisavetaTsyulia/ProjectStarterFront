@@ -1,5 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {TranslateService} from "@ngx-translate/core";
+import {TranslateService} from '@ngx-translate/core';
+import { CloudData, CloudOptions } from 'angular-tag-cloud-module';
+import {TagService} from '../tag/tag.service';
+import {Tag} from '../model/tag';
 
 @Component({
   selector: 'app-footer',
@@ -7,15 +10,29 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  @Output() langChange = new EventEmitter<any>();
 
-  private dark: string = 'https://bootswatch.com/darkly/bootstrap.min.css';
-  private light: string = 'https://bootswatch.com/flatly/bootstrap.min.css';
+  private dark = 'https://bootswatch.com/darkly/bootstrap.min.css';
+  private light = 'https://bootswatch.com/flatly/bootstrap.min.css';
 
-  dark_theme_selected: boolean = false;
-  english_selected: boolean = false;
+  dark_theme_selected = false;
+  english_selected = false;
+  tags: Tag[];
+
+  options: CloudOptions = {
+    width : 0.5,
+    height : 400,
+    overflow: false,
+  }
+
+  data: Array<CloudData> = [
+    {text: 'Weight-10-link-color', weight: 10, link: 'https://google.com', color: '#ffaaee'},
+    {text: 'Weight-10-link', weight: 10, link: 'https://google.com'},
+  ];
 
   constructor(
-    private translate: TranslateService
+    private translate: TranslateService,
+    private tagService: TagService,
   ) { }
 
   ngOnInit() {
@@ -24,11 +41,21 @@ export class FooterComponent implements OnInit {
     if (theme === this.dark) {
       this.dark_theme_selected = true;
     }
-    let lang: string = localStorage.getItem('lang');
+    const lang: string = localStorage.getItem('lang');
     this.translate.resetLang(lang['lang']);
     if (lang === 'English' || lang === 'Английский') {
       this.english_selected = true;
     }
+    this.getAllTags();
+  }
+
+  private getAllTags() {
+    this.tagService.findAllTags()
+      .subscribe(data => {
+        this.tags = [];
+        this.tags = data;
+        console.log(this.tags);
+      });
   }
 
   changeStyle(style) {
@@ -43,7 +70,6 @@ export class FooterComponent implements OnInit {
     }
   }
 
-  @Output() langChange = new EventEmitter<any>();
   onClickAddLangCookie(lang: string) {
     if (lang === 'English' || lang === 'Английский')
       lang = 'English';

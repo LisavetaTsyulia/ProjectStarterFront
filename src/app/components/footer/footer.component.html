@@ -1,18 +1,28 @@
 <div class="footer">
-    <p class = "type-12 ">
-      © 2017
-    </p>
-    <div>
-      <select (change)="onClickAddLangCookie($event.target.value)" class=" my-select right " id="select-lang">
-        <option>{{'HOME.RUSSIAN' | translate}}</option>
-        <option [selected]="english_selected" >{{'HOME.ENGLISH' | translate}}</option>
-      </select>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <angular-tag-cloud
+        [data]="data"
+        [width]="options.width"
+        [height]="options.height"
+        [overflow]="options.overflow">
+      </angular-tag-cloud>
     </div>
-    <div>
-      <select id="select_theme" (change)="onClickAddThemeCookie($event.target.value)"
-              class=" my-select left " >
-        <option>{{'HOME.LIGHT' | translate}}</option>
-        <option [selected]="dark_theme_selected">{{'HOME.DARK' | translate}}</option>
-      </select>
-    </div>
+  </div>
+  <p class="type-12 ">
+    © 2017
+  </p>
+  <div>
+    <select (change)="onClickAddLangCookie($event.target.value)" class="my-select right" id="select-lang">
+      <option>{{'HOME.RUSSIAN' | translate}}</option>
+      <option [selected]="english_selected">{{'HOME.ENGLISH' | translate}}</option>
+    </select>
+  </div>
+  <div>
+    <select id="select_theme" (change)="onClickAddThemeCookie($event.target.value)"
+            class="my-select left">
+      <option>{{'HOME.LIGHT' | translate}}</option>
+      <option [selected]="dark_theme_selected">{{'HOME.DARK' | translate}}</option>
+    </select>
+  </div>
 </div>
