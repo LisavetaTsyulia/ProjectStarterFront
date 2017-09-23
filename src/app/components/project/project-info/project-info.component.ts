@@ -155,12 +155,13 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   }
 
   addComment() {
-    console.log(this.newCommentText);
-    this.projectService.addComment(this.projectId, this.newCommentText, this.userId)
-      .subscribe(data => {
+    if (!this.isAnonymous()) {
+      this.projectService.addComment(this.projectId, this.newCommentText, this.userId)
+        .subscribe(data => {
           this.getComments();
           this.newCommentText = '';
-      });
+        });
+    }
   }
 
   onContinue(event) {

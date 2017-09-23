@@ -31,10 +31,17 @@ export class PaymentComponent implements OnInit, OnDestroy {
   }
 
   toPay() {
-    if (this.pay != true) {
-      this.paymentService.pay(this.userId, this.projectId, this.amount).subscribe();
-      this.pay = true;
+    if (!this.isAnonymous()) {
+      if (this.pay != true) {
+        this.paymentService.pay(this.userId, this.projectId, this.amount).subscribe();
+        this.pay = true;
+      }
     }
+  }
+
+  public isAnonymous(): boolean {
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    return user === null;
   }
 
   ngOnDestroy() {

@@ -6,6 +6,7 @@ export class Project {
   public targetAmount: number;
   public currentAmount: number;
   public rating: number;
+  public status: string;
   public startDate: Date;
   public endDate: Date;
   public projectStatus: string;
