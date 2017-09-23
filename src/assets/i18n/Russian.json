@@ -85,6 +85,7 @@
       "CANCEL": "Отмена",
       "DESCRIPTION": "Описание награды",
       "AMOUNT": "Сумма",
+      "AMOUNT_MINIMUM": "Минимальная сумма",
       "CONTINUE": "Продолжить",
       "REWARD": "Награду"
     }

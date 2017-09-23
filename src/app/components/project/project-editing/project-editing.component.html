@@ -83,6 +83,30 @@
                   </div>
                 </div>
               </div>
+
+              <div class="form-group">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">{{'PROJECT_EDITING.DESCRIPTION' | translate}}</div>
+                  <div class="panel-body">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input class="form-control" id="reward_amount_minimum" placeholder="{{'PROJECT_EDITING.REWARD.AMOUNT_MINIMUM' | translate}}"
+                               name="reward_amount_minimum" formControlName="amountMin"
+                               [(ngModel)]="project.donateMin"/>
+                      </div>
+                      <div *ngIf="formGroup.get('amountMin').errors && formGroup.get('amountMin').touched" class="alert alert-danger">
+                        <div *ngIf="formGroup.get('amountMin').hasError('required')">
+                          Minimum amount of donation is required.
+                        </div>
+                        <div *ngIf="formGroup.get('amountMin').hasError('incorrectAmountFormat')">
+                          Minimum amount of donation is wrong. It should be integer value and not 0.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </form>
 
             <div class="form-group">
