@@ -3,6 +3,8 @@ import {TranslateService} from '@ngx-translate/core';
 import { CloudData, CloudOptions } from 'angular-tag-cloud-module';
 import {TagService} from '../tag/tag.service';
 import {Tag} from '../model/tag';
+import {Observable} from 'rxjs/Observable';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-footer',
@@ -23,15 +25,13 @@ export class FooterComponent implements OnInit {
     width : 0.5,
     height : 400,
     overflow: false,
-  }
+  };
 
-  data: Array<CloudData> = [
-    {text: 'Weight-10-link-color', weight: 10, link: 'https://google.com', color: '#ffaaee'},
-    {text: 'Weight-10-link', weight: 10, link: 'https://google.com'},
-  ];
+  data: Array<CloudData> = [];
 
   constructor(
     private translate: TranslateService,
+    private router: Router,
     private tagService: TagService,
   ) { }
 
@@ -54,8 +54,17 @@ export class FooterComponent implements OnInit {
       .subscribe(data => {
         this.tags = [];
         this.tags = data;
-        console.log(this.tags);
+        this.addTagsToArray(this.tags);
       });
+  }
+
+  addTagsToArray(tags: Tag[]) {
+    const newTags: Array<CloudData> = [];
+    for (const tag of tags) {
+      newTags.push({text: tag.tagName, weight: 5, link: 'search?search_request=' + tag.tagName, color: '#ec2553'});
+    }
+    const changedData: Observable<Array<CloudData>> = Observable.of(newTags);
+    changedData.subscribe(res => this.data = res);
   }
 
   changeStyle(style) {
