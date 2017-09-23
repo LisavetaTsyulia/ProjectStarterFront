@@ -7,6 +7,7 @@ import {ProjectService} from '../../project/project.service';
 import {ProjectCardModule} from '../../project-card/project-card.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {NewsMessagesComponent} from './news-messages.component';
+import {ProjectInfoModule} from '../../project/project-info/project-info.module';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import {NewsMessagesComponent} from './news-messages.component';
     FormsModule,
     AuthModule,
     ProjectCardModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    // ProjectInfoModule
   ],
   declarations: [
     NewsMessagesComponent,

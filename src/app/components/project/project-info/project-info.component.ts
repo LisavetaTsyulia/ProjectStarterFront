@@ -26,7 +26,6 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
 
   showMoreNewsInfo = false;
   selectedNews: News;
-  selectedNewsNumber: number;
   newsArray: News[] = [];
   commentsArray: Comment[] = [];
   rewardsArray: Reward[] = [];
@@ -125,15 +124,13 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  showNews(selectedNews, selectedNewsNumber) {
+  showNews(selectedNews) {
     this.selectedNews = selectedNews;
-    this.selectedNewsNumber = selectedNewsNumber;
     this.showMoreNewsInfo = !this.showMoreNewsInfo;
   }
 
   showNewsList() {
     this.selectedNews = null;
-    this.selectedNewsNumber = null;
     this.showMoreNewsInfo = !this.showMoreNewsInfo;
   }
 

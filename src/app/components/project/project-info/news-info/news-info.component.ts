@@ -8,7 +8,6 @@ import {News} from '../../../model/news';
 })
 export class NewsInfoComponent implements OnInit {
   @Input() news: News;
-  @Input() newsNumber: number;
   @Output() back = new EventEmitter<any>();
 
   constructor() { }
