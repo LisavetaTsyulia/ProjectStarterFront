@@ -7,6 +7,7 @@ import {News} from '../../model/news';
 import {Reward} from '../../model/reward';
 import {Goal} from '../../model/goal';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AmountValidators} from "../../validators/AmountValidators";
 
 @Component({
   selector: 'app-project-info',
@@ -17,6 +18,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   daysToGo: number;
   isSubscribed = false;
   commentFormGroup: FormGroup;
+  formGroup: FormGroup;
 
   project = new Project;
   projectId: number;
@@ -58,6 +60,10 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.commentFormGroup = this.fb.group({
       comment: ['', Validators.required]
     });
+    this.formGroup = this.fb.group({
+      donateAmount: ['', AmountValidators.isValidAmount]
+    });
+
   }
 
   getNotAnonymousData() {
@@ -182,8 +188,9 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
 
   onContinueAnySum(amountOfReward: Number) {
     console.log(amountOfReward);
-    if (!this.isAnonymous())
+    if (!this.isAnonymous()) {
       this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, this.amountOfReward]);
+    }
   }
 
   editNavigate() {

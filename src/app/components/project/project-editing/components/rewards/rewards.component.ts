@@ -26,7 +26,6 @@ export class RewardsComponent implements OnInit {
   ngOnInit() {
     this.formGroup = this.fb.group({
       amount: ['', [Validators.required, AmountValidators.isValidAmount]],
-      amountMin: ['', [Validators.required, AmountValidators.isValidAmount]],
       description: ['', Validators.required]
     });
   }
