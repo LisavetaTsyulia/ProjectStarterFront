@@ -4,7 +4,6 @@ import { CloudData, CloudOptions } from 'angular-tag-cloud-module';
 import {TagService} from '../tag/tag.service';
 import {Tag} from '../model/tag';
 import {Observable} from 'rxjs/Observable';
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-footer',
@@ -22,8 +21,8 @@ export class FooterComponent implements OnInit {
   tags: Tag[];
 
   options: CloudOptions = {
-    width : 0.5,
-    height : 400,
+    width: 0.5,
+    height: 200,
     overflow: false,
   };
 
@@ -31,7 +30,6 @@ export class FooterComponent implements OnInit {
 
   constructor(
     private translate: TranslateService,
-    private router: Router,
     private tagService: TagService,
   ) { }
 
@@ -62,7 +60,7 @@ export class FooterComponent implements OnInit {
     const newTags: Array<CloudData> = [];
     for (const tag of tags) {
       newTags.push({text: tag.tagName, weight: tag.projectCount,
-        link: 'search?search_request=' + tag.tagName, color: '#ec2553'});
+        link: 'search?search_request=' + tag.tagName, color: '#ffffff'});
     }
     const changedData: Observable<Array<CloudData>> = Observable.of(newTags);
     changedData.subscribe(res => this.data = res);
