@@ -17,15 +17,15 @@ export class UserinfoPanelComponent implements OnInit {
   public model = new User;
   public biography = new Biography();
   submitted = false;
-  returnUrl: string;
   formGroup: FormGroup;
   errorMessage: string;
   successMessage: string;
 
   supportedFileTypes: string[] = ['image/png', 'image/jpeg', 'image/gif'];
 
-  imageShown: boolean = false;
-  currentProfileImage: string = 'assets/profile-placeholder.png';
+  imageShown = false;
+  currentProfileImage = 'assets/profile-placeholder.png';
+  imageLoaded = true;
 
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'project-starter', uploadPreset: 'clbhkmd8' })
@@ -37,7 +37,9 @@ export class UserinfoPanelComponent implements OnInit {
   ) {
     this.uploader.onSuccessItem = (item: any, response: string, status: number, headers: any): any => {
       const res: any = JSON.parse(response);
-      this.biography.imageurl = 'https://res.cloudinary.com/project-starter/image/upload/v1505240342/' + res.public_id;
+      this.biography.imageurl = 'https://res.cloudinary.com/project-starter/image/upload/v1505240342/' +
+        res.public_id;
+      this.imageLoaded = true;
       return { item, response, status, headers };
     };
   }
@@ -47,7 +49,7 @@ export class UserinfoPanelComponent implements OnInit {
   }
 
   ngOnInit() {
-    let user: string = JSON.parse(localStorage.getItem('user'));
+    const user: string = JSON.parse(localStorage.getItem('user'));
     this.model.email = user['username'];
     this.getUserInfo(user['id']);
     this.formGroup = this.fb.group({
@@ -93,6 +95,7 @@ export class UserinfoPanelComponent implements OnInit {
   }
 
   private dragFileAccepted(acceptedFile: Ng2FileDropAcceptedFile) {
+    this.imageLoaded = false;
     const fileReader = new FileReader();
     fileReader.onload = () => {
 
