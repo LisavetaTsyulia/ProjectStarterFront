@@ -61,7 +61,8 @@ export class FooterComponent implements OnInit {
   addTagsToArray(tags: Tag[]) {
     const newTags: Array<CloudData> = [];
     for (const tag of tags) {
-      newTags.push({text: tag.tagName, weight: 5, link: 'search?search_request=' + tag.tagName, color: '#ec2553'});
+      newTags.push({text: tag.tagName, weight: tag.projectCount,
+        link: 'search?search_request=' + tag.tagName, color: '#ec2553'});
     }
     const changedData: Observable<Array<CloudData>> = Observable.of(newTags);
     changedData.subscribe(res => this.data = res);
