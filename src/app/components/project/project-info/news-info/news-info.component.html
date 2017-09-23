@@ -3,12 +3,14 @@
     <span class="bold"> {{'PROJECT_INFO.BACK' | translate}}</span>
   </a>
   <div class="row">
-    <div class="col-md-6 text-left text-warning">
-      <h4>{{'PROJECT_INFO.NEWS_NUMBER' | translate}} #{{newsNumber}} </h4>
-    </div>
+    <!--<div class="col-md-6 text-left news-title">-->
+      <!--<h4>{{'PROJECT_INFO.NEWS_NUMBER' | translate}} #{{newsNumber}} </h4>-->
+    <!--</div>-->
     <h5 class="col-md-6 text-right">{{news.date | date }}</h5>
   </div>
-  <h2>{{news.title}}</h2>
-  <div [innerHTML]="news.newsText">
+  <div class="row">
+    <h2>{{news.title}}</h2>
+    <div [innerHTML]="news.newsText">
+    </div>
   </div>
 </div>
