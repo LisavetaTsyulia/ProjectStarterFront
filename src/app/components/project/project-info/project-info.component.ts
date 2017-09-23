@@ -6,6 +6,7 @@ import {Project} from '../../model/project';
 import {News} from '../../model/news';
 import {Reward} from '../../model/reward';
 import {Goal} from '../../model/goal';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-project-info',
@@ -15,6 +16,7 @@ import {Goal} from '../../model/goal';
 export class ProjectInfoComponent implements OnInit, OnDestroy {
   daysToGo: number;
   isSubscribed = false;
+  commentFormGroup: FormGroup;
 
   project = new Project;
   projectId: number;
@@ -37,6 +39,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private projectService: ProjectService,
     private router: Router,
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit() {
@@ -48,6 +51,13 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.getComments();
     this.getRewards();
     this.getNotAnonymousData();
+    this.createCommentFormGroup();
+  }
+
+  createCommentFormGroup() {
+    this.commentFormGroup = this.fb.group({
+      comment: ['', Validators.required]
+    });
   }
 
   getNotAnonymousData() {

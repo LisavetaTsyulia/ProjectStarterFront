@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthModule} from '../../auth/auth.module';
 import {ProjectService} from '../project.service';
 import {ProjectInfoComponent} from './project-info.component';
@@ -25,6 +25,7 @@ import {TranslateModule} from '@ngx-translate/core';
     CommonModule,
     FormsModule,
     AuthModule,
+    ReactiveFormsModule,
     DatePickerModule,
     Ng2CloudinaryModule,
     FileUploadModule,
