@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {News} from '../../../../model/news';
 import {ProjectService} from '../../../project.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-news',
@@ -13,14 +14,19 @@ export class NewsComponent implements OnInit {
   news: News;
   successMessage: string;
   errorMessage: string;
+  formGroup: FormGroup;
 
   needToCreate = false;
 
   constructor(
     private projectService: ProjectService,
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit() {
+    this.formGroup = this.fb.group({
+      title: ['', [Validators.required, Validators.maxLength(60)]]
+    });
   }
 
   onTextEditorKeyUp(textValue) {

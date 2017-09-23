@@ -5,33 +5,54 @@
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         {{ successMessage }}
       </div>
-      <h1 class="text-center">{{'PROJECT_EDITING.CREATE_NEW' | translate}} <i class="text-danger">{{'PROJECT_EDITING.NEWS.NEWS' | translate}}</i> {{'PROJECT_EDITING.TO_PROJECT' | translate}}</h1>
+      <h1 class="text-center">{{'PROJECT_EDITING.CREATE_NEW' | translate}} <i class="text-danger">{{'PROJECT_EDITING.NEWS.NEWS'
+        | translate}}</i> {{'PROJECT_EDITING.TO_PROJECT' | translate}}</h1>
       <h2 class="text-center">{{'PROJECT_EDITING.CANT_CHANGE' | translate}}</h2>
       <h3 class="text-center">{{'PROJECT_EDITING.BETTER' | translate}}</h3>
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <button (click)="showCreating()" class="btn btn-default btn-lg btn-block btn-danger">{{'PROJECT_EDITING.NEWS.CREATE' | translate}}</button>
+          <button (click)="showCreating()" class="btn btn-default btn-lg btn-block btn-danger">
+            {{'PROJECT_EDITING.NEWS.CREATE' | translate}}
+          </button>
         </div>
       </div>
     </div>
     <div *ngIf="needToCreate" class="form-group">
       <h1>{{'PROJECT_EDITING.NEWS.WRITE_ABOUT' | translate}}</h1>
-      <input class="form-control" id="news_title" placeholder="{{'PROJECT_EDITING.NEWS.TITLE' | translate}}" name="news_title"
-             [(ngModel)]="news.title"/>
-      <div class="margin-top">
-        <app-text-editor
-          [elementId]="'project_news'"
-          [value]="defaultBodyValue"
-          (onEditorKeyup)="onTextEditorKeyUp($event)">
-        </app-text-editor>
-      </div>
-      <div *ngIf="errorMessage" class="alert alert-danger margin-top">
-        {{ errorMessage }}
-      </div>
-      <div class="text-center margin-top">
-        <a (click)="cancel()" class="btn btn-default btn-md">{{'PROJECT_EDITING.NEWS.CANCEL' | translate}}</a>
-        <a (click)="create()" class="btn btn-success btn-md">{{'PROJECT_EDITING.NEWS.CREATE' | translate}}</a>
-      </div>
+      <form (ngSubmit)="create()" [formGroup]="formGroup">
+        <div class="form-group">
+          <input class="form-control" id="news_title" placeholder="{{'PROJECT_EDITING.NEWS.TITLE' | translate}}"
+                 name="news_title" formControlName="title"
+                 [(ngModel)]="news.title"/>
+          <div *ngIf="formGroup.get('title').errors && formGroup.get('title').touched" class="alert alert-danger">
+            <div *ngIf="formGroup.get('title').hasError('required')">
+              {{'PROJECT_CREATING.TITLE_REQUIRED_ERROR' | translate}}.
+            </div>
+            <div *ngIf="formGroup.get('title').hasError('maxlength')">
+              {{'PROJECT_CREATING.TITLE_MAX_ERROR.BEGINNING' | translate}}
+              {{formGroup.get('title').getError('maxlength').requiredLength}}
+              {{'PROJECT_CREATING.TITLE_MAX_ERROR.ENDING' | translate}}.
+            </div>
+          </div>
+        </div>
+        <div class="margin-top">
+          <app-text-editor
+            [elementId]="'project_news'"
+            [value]="defaultBodyValue"
+            (onEditorKeyup)="onTextEditorKeyUp($event)">
+          </app-text-editor>
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger margin-top">
+          {{ errorMessage }}
+        </div>
+        <div class="text-center margin-top">
+          <button (click)="cancel()" class="btn btn-default btn-md">{{'PROJECT_EDITING.NEWS.CANCEL' | translate}}
+          </button>
+          <button type="submit" [disabled]="!formGroup.valid || !this.news?.newsText" class="btn btn-success btn-md">
+            {{'PROJECT_EDITING.NEWS.CREATE' | translate}}
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

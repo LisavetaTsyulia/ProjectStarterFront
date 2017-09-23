@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ProjectService} from '../../../project.service';
 import {Goal} from '../../../../model/goal';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AmountValidators} from '../../../../validators/AmountValidators';
 
 @Component({
   selector: 'app-goals',
@@ -13,14 +15,19 @@ export class GoalsComponent implements OnInit {
   goal: Goal;
   successMessage: string;
   errorMessage: string;
-
+  formGroup: FormGroup;
   needToCreate = false;
 
   constructor(
     private projectService: ProjectService,
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit() {
+    this.formGroup = this.fb.group({
+      amount: ['', [Validators.required, AmountValidators.isValidAmount]],
+      description: ['', Validators.required]
+    });
   }
 
   showCreating() {
