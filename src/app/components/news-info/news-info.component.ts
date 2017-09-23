@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {News} from '../../../model/news';
+import {News} from '../model/news';
 
 @Component({
   selector: 'app-news-info',
@@ -8,7 +8,6 @@ import {News} from '../../../model/news';
 })
 export class NewsInfoComponent implements OnInit {
   @Input() news: News;
-  @Input() newsNumber: number;
   @Output() back = new EventEmitter<any>();
 
   constructor() { }

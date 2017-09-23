@@ -1,0 +1,29 @@
+<div class="container form-style">
+  <h1 class="less-great-title">Projects news</h1>
+  <hr class="great-hr">
+  <div class="row">
+    <div class="col-md-9 col-md-offset-1">
+      <div *ngIf="!showMoreNewsInfo">
+        <div *ngFor="let news of newsArray;" (click)="showNews(news)"
+             class="margin-top cursor news-card">
+          <md-card class=" margin-top news-bg">
+            <md-card-title>
+              <a routerLink="../project-info/{{news.projectId}}" routerLinkActive="active">
+                <h4>{{news.projectName}}</h4>
+              </a>
+            </md-card-title>
+            <md-card-content>
+              <h2 class="card-title news-title">{{news.title}} <a disabled="true"></a></h2>
+            </md-card-content>
+            <md-card-footer>
+              <p class="text-success text-right date news-date">{{news.date | date}}</p>
+            </md-card-footer>
+          </md-card>
+        </div>
+      </div>
+      <div *ngIf="showMoreNewsInfo">
+        <app-news-info [news]="selectedNews" (back)="showNewsList()"></app-news-info>
+      </div>
+    </div>
+  </div>
+</div>

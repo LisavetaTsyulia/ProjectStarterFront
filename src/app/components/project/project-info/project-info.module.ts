@@ -8,13 +8,13 @@ import {ProjectInfoComponent} from './project-info.component';
 import { DatePickerModule } from 'ng2-datepicker';
 import { FileUploadModule } from 'ng2-file-upload';
 import {Ng2CloudinaryModule} from 'ng2-cloudinary';
-import { NewsInfoComponent } from './news-info/news-info.component';
 import {MdCardModule, MdButtonModule} from '@angular/material';
 import { CommentComponent } from './comment/comment.component';
 import { RewardsComponent } from './rewards/rewards.component';
 import {GoalCardModule} from '../../goal-card/goal-card.module';
 import { RatingComponent } from './rating/rating.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {NewsInfoModule} from '../../news-info/news-info.module';
 
 @NgModule({
   imports: [
@@ -32,11 +32,11 @@ import {TranslateModule} from '@ngx-translate/core';
     MdCardModule,
     MdButtonModule,
     GoalCardModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    NewsInfoModule,
   ],
   declarations: [
     ProjectInfoComponent,
-    NewsInfoComponent,
     CommentComponent,
     RewardsComponent,
     RatingComponent
