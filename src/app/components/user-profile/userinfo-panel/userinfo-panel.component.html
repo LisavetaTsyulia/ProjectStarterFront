@@ -24,11 +24,6 @@
       </div>
     </div>
     <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
-      <!--<div class="alert alert-info alert-dismissable">-->
-        <!--<a class="panel-close close" data-dismiss="alert">×</a>-->
-        <!--<i class="fa fa-coffee"></i>-->
-        <!--This is an <strong>.alert</strong>. Use this to show important messages to the user.-->
-      <!--</div>-->
       <h3>{{'USER.PERSONAL_INFO' | translate}}</h3>
       <form class="form-horizontal" role="form" [formGroup]="formGroup">
         <div class="form-group">
@@ -61,7 +56,8 @@
         <div class="form-group">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">
-            <input (click)="onSubmit()" class="btn btn-primary" value="{{'USER.SAVE' | translate}}" type="button">
+            <input (click)="onSubmit()" class="btn btn-primary" value="{{'USER.SAVE' | translate}}" type="button"
+                   [disabled]="!imageLoaded">
           </div>
         </div>
         <div *ngIf="successMessage" class="alert alert-success col-lg-8 col-lg-offset-3">

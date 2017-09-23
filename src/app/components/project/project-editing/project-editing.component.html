@@ -77,7 +77,7 @@
                   <div class="panel-body">
                     <app-text-editor
                       [elementId]="'project_description'"
-                      [value]="project.description"
+                      [value]="project?.description"
                       (onEditorKeyup)="onTextEditorKeyUp($event)">
                     </app-text-editor>
                   </div>
@@ -111,7 +111,7 @@
             {{ successMessage }}
           </div>
           <button type="submit" class="btn btn-success btn-md btn-block"
-                  [disabled]="!formGroup.valid" (click)="onSubmit()">{{'PROJECT_EDITING.SAVE' | translate}}
+                  [disabled]="!formGroup.valid || !imageLoaded" (click)="onSubmit()">{{'PROJECT_EDITING.SAVE' | translate}}
           </button>
         </div>
       </div>

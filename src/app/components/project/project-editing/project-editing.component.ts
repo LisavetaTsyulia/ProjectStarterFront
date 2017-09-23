@@ -20,6 +20,7 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'project-starter', uploadPreset: 'clbhkmd8' })
   );
+  imageLoaded = true;
 
   project = new Project;
   projectId: number;
@@ -38,6 +39,7 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
       const res: any = JSON.parse(response);
       this.project.imageUrl = 'https://res.cloudinary.com/project-starter/image/upload/v1505240342/' +
         res.public_id;
+      this.imageLoaded = true;
       return { item, response, status, headers };
     };
   }
@@ -89,6 +91,7 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
 
   // File being dragged has been dropped and is valid
   private dragFileAccepted(acceptedFile: Ng2FileDropAcceptedFile) {
+    this.imageLoaded = false;
     const fileReader = new FileReader();
     fileReader.onload = () => {
 
