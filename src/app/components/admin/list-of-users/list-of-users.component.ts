@@ -61,7 +61,7 @@ export class ListOfUsersComponent implements OnInit {
             this.confirmResult = isConfirmed;
             setTimeout(() => {this.loadUsersToTable()}, 500);
           });
-        }, 2000);
+        }, 3000);
 
     } else {
       user.isSelected = !user.isSelected;
@@ -156,7 +156,8 @@ export class ListOfUsersComponent implements OnInit {
 
 
   loadPassportScan(email: string) {
-      this.adminService.getPassportScan(email)
+    this.passportScan = null;
+    this.adminService.getPassportScan(email)
         .subscribe(
           data => {
             this.passportScan = data['passportScan'];
