@@ -23,6 +23,7 @@ export class ConfirmComponent extends DialogComponent<ConfirmModel, boolean> imp
   imageShown = false;
   currentProfileImage = 'assets/profile-placeholder.png';
   imageLoaded = true;
+  imageDraged = false;
 
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'project-starter', uploadPreset: 'clbhkmd8' })
@@ -44,6 +45,7 @@ export class ConfirmComponent extends DialogComponent<ConfirmModel, boolean> imp
 
   private dragFileAccepted(acceptedFile: Ng2FileDropAcceptedFile) {
     this.imageLoaded = false;
+    this.imageDraged = true;
     const fileReader = new FileReader();
     fileReader.onload = () => {
       this.currentProfileImage = fileReader.result;

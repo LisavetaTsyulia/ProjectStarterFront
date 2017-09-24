@@ -22,7 +22,7 @@
           <a *ngIf="authService.isConfirmed() || authService.isAdmin()" routerLink="project/create" routerLinkActive="active">
             <span class="glyphicon glyphicon-plus"></span> {{'HOME.CREATE_NEW_PROJECT' | translate}}
           </a>
-          <a *ngIf="!authService.isConfirmed() && authService.isUser()" (click)="openCustom()" routerLinkActive="active">
+          <a *ngIf="authService.isUser()" (click)="openCustom()" routerLinkActive="active">
             <span class="glyphicon glyphicon-plus"></span> {{'HOME.CREATE_NEW_PROJECT' | translate}}
           </a>
           <a *ngIf="!authService.isConfirmed() && !authService.isUser() && !authService.isAdmin()">
