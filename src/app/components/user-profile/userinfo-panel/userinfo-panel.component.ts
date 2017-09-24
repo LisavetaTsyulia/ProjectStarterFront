@@ -13,7 +13,6 @@ import { Ng2FileDropAcceptedFile } from 'ng2-file-drop';
   styleUrls: ['./userinfo-panel.component.css']
 })
 export class UserinfoPanelComponent implements OnInit {
-
   public model = new User;
   public biography = new Biography();
   submitted = false;
@@ -22,7 +21,6 @@ export class UserinfoPanelComponent implements OnInit {
   successMessage: string;
 
   supportedFileTypes: string[] = ['image/png', 'image/jpeg', 'image/gif'];
-
   imageShown = false;
   currentProfileImage = 'assets/profile-placeholder.png';
   imageLoaded = true;
@@ -84,10 +82,11 @@ export class UserinfoPanelComponent implements OnInit {
       .subscribe(
         data => {
           this.successMessage = 'Successfully changed!';
+          this.submitted = false;
         },
         error => {
-          this.submitted = false;
           this.errorMessage = error.json().message;
+          this.submitted = false;
         }
       );
   }
