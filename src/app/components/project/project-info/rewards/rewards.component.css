@@ -1,3 +1,14 @@
 .my-card{
   margin-left: 25px;
 }
+
+.description {
+  display: block;
+  display: -webkit-box;
+  height: 5.5em;
+  margin: 0 auto;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
