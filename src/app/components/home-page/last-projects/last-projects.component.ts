@@ -9,6 +9,7 @@ import {ProjectService} from '../../project/project.service';
 })
 export class LastProjectsComponent implements OnInit {
   projects: Project[] = [];
+  canFind = true;
 
   constructor(
     private projectService: ProjectService,
@@ -19,11 +20,15 @@ export class LastProjectsComponent implements OnInit {
   }
 
   getProjects() {
-    this.projectService.findLastCreatedProjects(this.projects.length).subscribe(data => {
-      let newProjects: Project[] = [];
-      newProjects = data;
-      this.projects = this.projects.concat(newProjects);
-    });
+    if (this.canFind) {
+      this.canFind = false;
+      this.projectService.findLastCreatedProjects(this.projects.length).subscribe(data => {
+        let newProjects: Project[] = [];
+        newProjects = data;
+        this.projects = this.projects.concat(newProjects);
+        this.canFind = true;
+      });
+    }
   }
 
   onScroll () {
