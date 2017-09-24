@@ -15,7 +15,9 @@ ul {
 }
 
 .my_hr_style{
-  border-top: 1px dotted #ea8100;
+  height: 10px;
+  border: 0;
+  box-shadow: 0 10px 10px -10px #ea8100 inset;
 }
 
 .my-card{
