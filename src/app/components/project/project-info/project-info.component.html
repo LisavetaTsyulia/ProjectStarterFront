@@ -10,8 +10,8 @@
       <p>{{'PROJECT_INFO.PLEDGED_OF' | translate}} ${{project.targetAmount}} {{'PROJECT_INFO.GOAL' | translate}}</p>
       <h3>{{amountOfDonates}}</h3>
       <p>{{'PROJECT_INFO.BACKERS' | translate}}</p>
-      <h3>{{daysToGo}}</h3>
-      <p>{{'PROJECT_INFO.DAYS_TO_GO' | translate}}</p>
+      <h3 *ngIf="!isFinishedFailed()">{{daysToGo}}</h3>
+      <p *ngIf="!isFinishedFailed()">{{'PROJECT_INFO.DAYS_TO_GO' | translate}}</p>
       <button *ngIf="!authService.isAnonymous() && !authService.isBlocked()"
               class="btn btn-block" [class.btn-success]="!isSubscribed"
               [class.btn-default]="isSubscribed" (click)="subscribe()">
@@ -19,8 +19,7 @@
         <span *ngIf="!isSubscribed"><span class="glyphicon glyphicon-heart"></span>
           {{'PROJECT_INFO.SUBSCRIBE' | translate}}</span>
       </button>
-      <button *ngIf="authService.isAdmin() && !authService.isBlocked() ||
-              authService.isConfirmed() && !authService.isBlocked()" class="btn btn-warning btn-block"
+      <button *ngIf="((!isFinishedFailed()) && (authService.isAdmin() || authService.isConfirmed()) && !authService.isBlocked())" class="btn btn-warning btn-block"
               (click)="editNavigate()">
         {{'PROJECT_INFO.EDIT' | translate}}
       </button>
@@ -32,7 +31,7 @@
     <ul class="nav nav-tabs margin-top">
       <li class="active"><a href="#campaign" data-toggle="tab" aria-expanded="true">{{'PROJECT_INFO.CAMPAIGN' |
         translate}}</a></li>
-      <li class=""><a href="#rewards" data-toggle="tab" aria-expanded="false">{{'PROJECT_INFO.REWARDS' | translate}}</a>
+      <li *ngIf="!isFinishedFailed()" class=""><a href="#rewards" data-toggle="tab" aria-expanded="false">{{'PROJECT_INFO.REWARDS' | translate}}</a>
       </li>
       <li class=""><a href="#news" data-toggle="tab" aria-expanded="false">
         {{'PROJECT_INFO.NEWS' | translate}} <span class="label label-success">{{newsArray.length}}</span></a>

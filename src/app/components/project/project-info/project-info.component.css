@@ -42,3 +42,11 @@ ul {
 .news-title {
   font-family: "Lato Hairline";
 }
+
+.display {
+  display: inline !important;
+}
+
+.display-none {
+  display: none;
+}
