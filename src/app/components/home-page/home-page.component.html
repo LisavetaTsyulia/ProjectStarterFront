@@ -14,7 +14,9 @@
         <app-project-card [project]="project"></app-project-card>
       </div>
     </div>
-    <button routerLink="last-projects" routerLinkActive="active">SEE ALL LAST PROJECTS</button>
+    <div class="my-margin" >
+      <button class="my-btn btn btn-primary btn-block" routerLink="last-projects" routerLinkActive="active">SEE ALL LAST PROJECTS</button>
+    </div>
   </div>
   <hr class="great-hr">
   <div *ngIf="successfullyFinancedProjects">
