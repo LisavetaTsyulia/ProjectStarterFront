@@ -193,4 +193,8 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   editNavigate() {
     this.router.navigate(['project/edit', this.project.userId, this.project.id]);
   }
+
+  isFinishedFailed() : boolean {
+    return (this.project.status === "Finished" || this.project.status === 'Failed')
+  }
 }

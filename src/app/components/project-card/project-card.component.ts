@@ -28,4 +28,7 @@ export class ProjectCardComponent implements OnInit {
     this.daysToGo /= (1000 * 60 * 60 * 24);
     this.daysToGo = Math.floor(this.daysToGo);
   }
+  isFinishedFailed() : boolean {
+    return (this.project.status === "Finished" || this.project.status === 'Failed')
+  }
 }
