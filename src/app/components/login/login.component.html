@@ -32,7 +32,7 @@
       <div *ngIf="errorMessage" class="alert alert-danger">
         {{ errorMessage }}
       </div>
-      <button type="submit" class="btn btn-success btn-md btn-block" [disabled]="!formGroup.valid">{{'LOGIN.LOGIN' | translate}}</button>
+      <button type="submit" class="btn btn-success btn-md btn-block" [disabled]="!formGroup.valid || submitted">{{'LOGIN.LOGIN' | translate}}</button>
     </form>
   </div>
 </div>
