@@ -29,6 +29,7 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
   errorMessage: string;
   successMessage: string;
   formGroup: FormGroup;
+  submitted = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -64,6 +65,7 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
+    this.submitted = true;
     this.errorMessage = null;
     this.successMessage = null;
 
@@ -72,9 +74,11 @@ export class ProjectEditingComponent implements OnInit, OnDestroy {
         data => {
           Object.assign(this.project, data);
           this.successMessage = 'Changes were saved.';
+          this.submitted = false;
         },
         error => {
           this.errorMessage = error.json().message;
+          this.submitted = false;
         }
       );
   }
