@@ -11,7 +11,9 @@
   margin-bottom: 40px;
   border-radius: 5px;
 }
+
 .myimg {
-  height: 400px;
-  width: auto;
+  height: 300px;
+  display: table;
+  margin: 0 auto;
 }

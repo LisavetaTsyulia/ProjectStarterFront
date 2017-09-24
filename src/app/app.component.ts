@@ -25,7 +25,9 @@ export class AppComponent {
       this.authService.getMe()
         .subscribe(
           data => {
-            localStorage.setItem('user', JSON.stringify(data));
+            if (!this.authService.isAnonymous() || !this.authService.hasToken()) {
+              localStorage.setItem('user', JSON.stringify(data));
+            }
           }
         );
     }

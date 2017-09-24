@@ -28,7 +28,7 @@
     <div class="modal-footer">
       <div class="row">
         <div class="col-sm-6">
-          <button class="form-control btn btn-success" (click)="confirm()" [disabled]="!imageLoaded">
+          <button class="form-control btn btn-success" (click)="confirm()" [disabled]="!imageLoaded || !imageDraged">
             {{'HEADER.CONFIRM' | translate}}
           </button>
         </div>
