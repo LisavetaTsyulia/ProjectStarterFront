@@ -104,6 +104,7 @@ export class AuthService {
   public isBlocked(): boolean {
     return JSON.parse(localStorage.getItem('user'))['status'] === 'BLOCKED';
   }
+
   public isAnonymous(): boolean {
     const user: string = JSON.parse(localStorage.getItem('user'));
     return user === null;
@@ -114,8 +115,18 @@ export class AuthService {
     return user['role'] === 'ROLE_CONFIRMED_USER';
   }
 
+  public isAuthenticated(): boolean {
+    return !!localStorage.getItem('user');
+  }
+
   public isAdmin(): boolean {
     const role: string = JSON.parse(localStorage.getItem('user'));
     return role['role'] === 'ROLE_ADMIN';
   }
+
+  public isUser(): boolean {
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    return user['role'] === 'ROLE_USER';
+  }
+
 }

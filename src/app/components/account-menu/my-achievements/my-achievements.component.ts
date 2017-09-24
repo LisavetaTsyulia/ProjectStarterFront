@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Achievement} from "../../model/achievement";
 import {ProjectService} from "../../project/project.service";
+import {AuthService} from "../../auth/auth.service";
 
 @Component({
   selector: 'app-my-achievements',
@@ -12,7 +13,8 @@ export class MyAchievementsComponent implements OnInit {
   achievements: Achievement[] = [];
   userId: number;
   constructor(
-    private projectService: ProjectService
+    private projectService: ProjectService,
+    public authService : AuthService
   ) { }
 
   ngOnInit() {
@@ -20,18 +22,13 @@ export class MyAchievementsComponent implements OnInit {
   }
 
   getNotAnonymousData() {
-    if (!this.isAnonymous()) {
+    if (!this.authService.isAnonymous()) {
       this.userId = JSON.parse(localStorage.getItem('user')).id;
       this.projectService.findAllUserAchievements(this.userId)
         .subscribe(data => {
           this.achievements = data;
         });
     }
-  }
-
-  isAnonymous(): boolean {
-    const user: string = JSON.parse(localStorage.getItem('user'));
-    return user === null;
   }
 
 }

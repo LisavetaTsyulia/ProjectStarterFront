@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProjectService} from '../../project/project.service';
 import {News} from '../../model/news';
+import {AuthService} from "../../auth/auth.service";
 
 @Component({
   selector: 'app-news-messages',
@@ -16,6 +17,7 @@ export class NewsMessagesComponent implements OnInit {
 
   constructor(
     private projectService: ProjectService,
+    public authService : AuthService
   ) { }
 
   ngOnInit() {
@@ -23,7 +25,7 @@ export class NewsMessagesComponent implements OnInit {
   }
 
   getNotAnonymousData() {
-    if (!this.isAnonymous()) {
+    if (!this.authService.isAnonymous()) {
       this.userId = JSON.parse(localStorage.getItem('user')).id;
       this.projectService.findAllUserSubscribedProjectsNews(this.userId)
         .subscribe(data => {
@@ -31,11 +33,6 @@ export class NewsMessagesComponent implements OnInit {
           console.log(this.newsArray);
         });
     }
-  }
-
-  isAnonymous(): boolean {
-    const user: string = JSON.parse(localStorage.getItem('user'));
-    return user === null;
   }
 
   showNews(selectedNews) {

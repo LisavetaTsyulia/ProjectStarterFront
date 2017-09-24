@@ -3,6 +3,7 @@ import {ProjectService} from '../project/project.service';
 import {Project} from '../model/project';
 import {Donate} from '../model/donate';
 import {PaymentService} from '../payment/payment.service';
+import {AuthService} from "../auth/auth.service";
 
 @Component({
   selector: 'app-home-page',
@@ -17,6 +18,7 @@ export class HomePageComponent implements OnInit {
   constructor(
     private projectService: ProjectService,
     private paymentService: PaymentService,
+    public authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -61,10 +63,5 @@ export class HomePageComponent implements OnInit {
 
   checkEmptyDonationArray(donationArray: Donate[]) {
     return donationArray.length === 0 ? null : donationArray;
-  }
-
-  public isAnonymous(): boolean {
-    const user: string = JSON.parse(localStorage.getItem('user'));
-    return user === null;
   }
 }

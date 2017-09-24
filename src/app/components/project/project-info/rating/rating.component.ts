@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ProjectService} from "../../project.service";
+import {AuthService} from "../../../auth/auth.service";
 
 @Component({
   selector: 'app-rating',
@@ -13,7 +14,10 @@ export class RatingComponent implements OnInit {
     this.amountOfDonaters = rating.amountOfPeople;
   }
 
-  constructor( private projectService: ProjectService) { }
+  constructor(
+    private projectService: ProjectService,
+    private authService: AuthService
+  ) { }
   userId: number = JSON.parse(localStorage.getItem('user')).id;
   @Input() amountOfDonaters: number;
   @Input() projectId: number;
@@ -23,17 +27,11 @@ export class RatingComponent implements OnInit {
   }
 
   onRating(number: Number) {
-    if (!this.isAnonymous()) {
+    if (!this.authService.isAnonymous()) {
       this.projectService.addRating(number, this.userId, this.projectId)
         .subscribe(data => {
-          // Object.assign(this.rating, data);
           this.change(data);
         });
     }
-  }
-
-  public isAnonymous(): boolean {
-    const user: string = JSON.parse(localStorage.getItem('user'));
-    return user === null;
   }
 }

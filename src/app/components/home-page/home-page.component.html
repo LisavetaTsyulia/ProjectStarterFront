@@ -1,5 +1,5 @@
 <div class="container form-style">
-  <div *ngIf="isAnonymous()" class="jumbotron margin-top">
+  <div *ngIf="authService.isAnonymous()" class="jumbotron margin-top">
     <h1>Project Starter</h1>
     <p>Do you want to become a creator?! Join us faster and verify your identity</p>
     <p><a routerLink="../registration" routerLinkActive="active"

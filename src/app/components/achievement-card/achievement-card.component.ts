@@ -13,7 +13,6 @@ export class AchievementCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.achievement.date);
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Project} from '../../model/project';
 import {ProjectService} from '../../project/project.service';
+import {AuthService} from "../../auth/auth.service";
 
 @Component({
   selector: 'app-subscribed-projects',
@@ -13,6 +14,7 @@ export class SubscribedProjectsComponent implements OnInit {
 
   constructor(
     private projectService: ProjectService,
+    public authService : AuthService
   ) { }
 
   ngOnInit() {
@@ -20,7 +22,7 @@ export class SubscribedProjectsComponent implements OnInit {
   }
 
   getNotAnonymousData() {
-    if (!this.isAnonymous()) {
+    if (!this.authService.isAnonymous()) {
       this.userId = JSON.parse(localStorage.getItem('user')).id;
       this.projectService.findAllSubscribedProjectsByUserId(this.userId)
         .subscribe(data => {
@@ -29,8 +31,4 @@ export class SubscribedProjectsComponent implements OnInit {
     }
   }
 
-  isAnonymous(): boolean {
-    const user: string = JSON.parse(localStorage.getItem('user'));
-    return user === null;
-  }
 }
