@@ -53,7 +53,7 @@
       <div *ngIf="errorMessage" class="alert alert-danger">
         {{ errorMessage }}
       </div>
-      <button type="submit" class="btn btn-success btn-md btn-block" [disabled]="!formGroup.valid">
+      <button type="submit" class="btn btn-success btn-md btn-block" [disabled]="!formGroup.valid || submitted">
         {{'PROJECT_CREATING.CREATE' | translate}}
       </button>
     </form>
