@@ -28,7 +28,7 @@ export class HomePageComponent implements OnInit {
   }
 
   getLastCreatedProjects() {
-    this.projectService.findLastCreatedProjects()
+    this.projectService.findLastCreatedProjects(0)
       .subscribe(data => {
         this.lastCreatedProjects = [];
         this.lastCreatedProjects = data;

@@ -203,12 +203,13 @@ export class ProjectService {
 
   }
 
-  findLastCreatedProjects() {
-    return this.http.get(`${environment.serverUrl}project/last_created`).map(res => res.json());
+  findLastCreatedProjects(offset: number) {
+    return this.http.get(`${environment.serverUrl}project/last-created?` +
+      `offset=` + offset).map(res => res.json());
   }
 
   findSuccessfullyFinancedProjects() {
-    return this.http.get(`${environment.serverUrl}project/successfully_financed`).map(res => res.json());
+    return this.http.get(`${environment.serverUrl}project/successfully-financed`).map(res => res.json());
   }
 
   search(requestString: string, offset: number) {
