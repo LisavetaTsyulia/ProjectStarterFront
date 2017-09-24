@@ -129,4 +129,9 @@ export class AuthService {
     return user['role'] === 'ROLE_USER';
   }
 
+  public hasToken(): boolean {
+    const token: string = JSON.parse(localStorage.getItem('token'));
+    return token === null;
+  }
+
 }

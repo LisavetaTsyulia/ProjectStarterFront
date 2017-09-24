@@ -4,6 +4,7 @@ import { CloudData, CloudOptions } from 'angular-tag-cloud-module';
 import {TagService} from '../tag/tag.service';
 import {Tag} from '../model/tag';
 import {Observable} from 'rxjs/Observable';
+import {NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'app-footer',
@@ -31,7 +32,14 @@ export class FooterComponent implements OnInit {
   constructor(
     private translate: TranslateService,
     private tagService: TagService,
-  ) { }
+    private router: Router,
+  ) {
+    router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.getAllTags();
+      }
+    });
+  }
 
   ngOnInit() {
     const theme = localStorage.getItem('theme');

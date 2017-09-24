@@ -4,7 +4,7 @@ import {DialogService} from 'ng2-bootstrap-modal';
 import {ConfirmComponent} from './confirm.component';
 import {TranslateService} from '@ngx-translate/core';
 import {Router} from '@angular/router';
-import {AuthService} from "../auth/auth.service";
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -36,10 +36,9 @@ export class HeaderComponent implements OnInit {
   }
 
   public deleteCookies() {
-    localStorage.removeItem(AuthConfigConsts.DEFAULT_TOKEN_NAME);
     localStorage.removeItem('user');
+    localStorage.removeItem(AuthConfigConsts.DEFAULT_TOKEN_NAME);
   }
-
 
   openCustom() {
     this.dialogService.addDialog(ConfirmComponent, {
