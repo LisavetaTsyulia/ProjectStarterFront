@@ -27,10 +27,10 @@
           </div>
           <div *ngIf="formGroup.get('amount').errors && formGroup.get('amount').touched" class="alert alert-danger">
             <div *ngIf="formGroup.get('amount').hasError('required')">
-              Amount of donation is required.
+              {{'PROJECT_EDITING.REWARD.AMOUNT_REQUIRED' | translate}}.
             </div>
             <div *ngIf="formGroup.get('amount').hasError('incorrectAmountFormat')">
-              Amount of donation is wrong. It should be integer value.
+              {{'PROJECT_EDITING.REWARD.AMOUNT_WRONG' | translate}}.
             </div>
           </div>
         </div>
@@ -40,7 +40,7 @@
                     [(ngModel)]="reward.description" formControlName="description"></textarea>
           <div *ngIf="formGroup.get('description').errors && formGroup.get('description').touched" class="alert alert-danger">
             <div *ngIf="formGroup.get('description').hasError('required')">
-              Description is required.
+              {{'PROJECT_EDITING.REWARD.DESCRIPTION_REQUIRED' | translate}}.
             </div>
           </div>
         </div>

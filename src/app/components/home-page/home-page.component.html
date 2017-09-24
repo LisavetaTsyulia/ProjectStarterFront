@@ -1,12 +1,12 @@
 <div class="container form-style">
   <div *ngIf="authService.isAnonymous()" class="jumbotron margin-top">
-    <h1>Project Starter</h1>
-    <p>Do you want to become a creator?! Join us faster and verify your identity</p>
+    <h1>{{'HOME_PAGE.PROJECT_STARTER' | translate}}</h1>
+    <p>{{'HOME_PAGE.JOIN' | translate}}</p>
     <p><a routerLink="../registration" routerLinkActive="active"
-          class="btn btn-primary btn-lg">Join us</a></p>
+          class="btn btn-primary btn-lg">{{'HOME_PAGE.JOIN_US' | translate}}</a></p>
   </div>
   <div *ngIf="lastCreatedProjects">
-    <h1 class="great-title">Last created projects</h1>
+    <h1 class="great-title">{{'HOME_PAGE.LAST_CREATED' | translate}}</h1>
     <hr class="great-hr">
     <div class="row">
       <div *ngFor="let project of lastCreatedProjects" class="cursor col-md-3"
@@ -17,7 +17,7 @@
   </div>
   <hr class="great-hr">
   <div *ngIf="successfullyFinancedProjects">
-    <h1 class="great-title">Successfully financed projects</h1>
+    <h1 class="great-title">{{'HOME_PAGE.SUC_FINANCED' | translate}}</h1>
     <hr class="great-hr">
     <div class="row">
       <div *ngFor="let project of successfullyFinancedProjects" class="cursor col-md-3"
@@ -28,7 +28,7 @@
   </div>
   <hr class="great-hr">
   <div *ngIf="successfullyFinancedProjects">
-    <h1 class="great-title">The best donations</h1>
+    <h1 class="great-title">{{'HOME_PAGE.BEST_DONATIONS' | translate}}</h1>
     <hr class="great-hr">
     <div class="row">
       <div *ngFor="let donate of theBiggestDonations; let i = index" class="col-md-4">

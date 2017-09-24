@@ -19,7 +19,8 @@
     "DARK": "Dark"
   },
   "ACHIEVEMENTS": {
-    "ACHIEVEMENTS": "My Achievements"
+    "ACHIEVEMENTS": "My Achievements",
+    "DONT_HAVE": "You don't have it yet"
   },
   "HEADER": {
     "CREATOR": "Would you like to become a creator",
@@ -47,6 +48,9 @@
       "VIEW": "View project page",
       "REWARDS": "Rewards"
     },
+    "MIN_AMOUNT_REQUIRED": "Minimum amount of donation is required",
+    "MIN_AMOUNT_WRONG": "Minimum amount of donation is wrong. It should be integer value and not 0",
+    "ENTER_TAGS": "Enter some tags",
     "EDIT_TITLE": "Editing project info",
     "CARD": "Project card",
     "IMAGE": "Project image",
@@ -85,12 +89,20 @@
       "CANCEL": "Cancel",
       "DESCRIPTION": "Reward description",
       "AMOUNT": "Amount",
+      "AMOUNT_REQUIRED": "Amount of donation is required",
+      "AMOUNT_WRONG": "Amount of donation is wrong. It should be integer value",
+      "DESCRIPTION_REQUIRED": "Description is required",
       "AMOUNT_MINIMUM": "Amount minimum",
       "CONTINUE": "Continue",
       "REWARD": "Reward"
     }
   },
   "PROJECT_INFO": {
+    "STATUS": "Status",
+    "PLEDGED_OF": "pledged of",
+    "GOAL": "goal",
+    "EDIT": "Edit",
+    "INTEGER": "It should be integer value and not 0",
     "BACKERS": "backers",
     "DAYS_TO_GO": "days to go",
     "SUBSCRIBE": "Subscribe",
@@ -100,6 +112,7 @@
     "NEWS": "News",
     "NEWS_NUMBER": "News",
     "COMMENT": "Comments",
+    "COMMENT_REQUIRED": "Comment is required",
     "DESCRIPTION": "About this project",
     "PROJECT_GOALS": "Project goals",
     "SUPPORT_PROJECT": "Support this project",
@@ -120,7 +133,19 @@
   },
   "PROJECTS": {
     "MY_TITLE": "Your Projects",
-    "SUB_TITLE": "Your subscribed Projects"
+    "SUB_TITLE": "Your subscribed Projects",
+    "NEWS": "Projects News"
+  },
+  "DONATE": {
+    "VIEW_PROJECT": "VIEW PROJECT"
+  },
+  "HOME_PAGE": {
+    "PROJECT_STARTER": "Project Starter",
+    "JOIN": "Do you want to become a creator?! Join us faster and verify your identity",
+    "JOIN_US": "Join us",
+    "LAST_CREATED": "Last created projects",
+    "SUC_FINANCED": "Successfully financed projects",
+    "BEST_DONATIONS": "The best donations"
   },
   "PROJECT_CREATING": {
     "CREATE_NEW_PROJECT": "Create new project",

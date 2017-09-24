@@ -17,7 +17,6 @@
       <span *ngIf="(key ==='last_log_in') || (key === 'registration_date')">{{user[key] | date:'medium'}}</span>
       <span *ngIf="!(key ==='last_log_in') && !(key === 'registration_date')">{{user[key]}}</span>
     </td>
-        <!--<i class="fa fa-sign-in fa-lg fa-fw colored" aria-hidden="true"></i>-->
   </tr>
   </tbody>
 </table>
