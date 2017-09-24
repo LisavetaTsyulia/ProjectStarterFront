@@ -33,7 +33,7 @@ export class PaymentComponent implements OnInit, OnDestroy {
   }
 
   toPay() {
-    if (!this.authService.isAnonymous()) {
+    if (!this.authService.isAnonymous() && !this.authService.isBlocked()) {
       if (this.pay != true) {
         this.paymentService.pay(this.userId, this.projectId, this.amount).subscribe();
         this.pay = true;

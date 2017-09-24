@@ -7,7 +7,7 @@
         <div [innerHTML]="reward.description"></div>
       </div>
     </md-card-content>
-    <md-card-footer>
+    <md-card-footer *ngIf="!authService.isBlocked()">
       <button class="btn btn-warning btn-block" (click)="onContinue($event)">{{'PROJECT_INFO.CONTINUE' | translate}}</button>
     </md-card-footer>
   </md-card>

@@ -1,5 +1,6 @@
 <div class="container" style="padding-top: 60px;">
   <h1 class="less-great-title">{{'USER.EDIT_PROFILE' | translate}}  :   {{model.email}}</h1>
+  <h3 class="text-warning">Status : {{model.blockStatus}}</h3>
   <hr class="great-hr">
   <div class="row">
     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -56,7 +57,7 @@
         <div class="form-group">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">
-            <input (click)="onSubmit()" class="btn btn-primary" value="{{'USER.SAVE' | translate}}" type="button"
+            <input *ngIf="!authService.isAnonymous() && !authService.isBlocked()" (click)="onSubmit()" class="btn btn-primary" value="{{'USER.SAVE' | translate}}" type="button"
                    [disabled]="!imageLoaded">
           </div>
         </div>

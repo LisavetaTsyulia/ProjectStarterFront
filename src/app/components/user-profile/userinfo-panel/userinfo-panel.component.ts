@@ -51,6 +51,7 @@ export class UserinfoPanelComponent implements OnInit {
   ngOnInit() {
     const user: string = JSON.parse(localStorage.getItem('user'));
     this.model.email = user['username'];
+    this.model.blockStatus = user['status'];
     this.getUserInfo(user['id']);
     this.formGroup = this.fb.group({
       email: ['', [Validators.required, Validators.minLength(6), EmailValidators.isValidEmail]],
@@ -76,15 +77,12 @@ export class UserinfoPanelComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.model.email, this.model.password, this.biography.biography,
-      this.biography.location, this.biography.imageurl, this.biography.name);
     this.submitted = true;
     this.errorMessage = null;
     this.authService.changeUser(this.model.email, this.model.password, this.biography.biography,
       this.biography.location, this.biography.imageurl, this.biography.name)
       .subscribe(
         data => {
-          localStorage.setItem('e', JSON.stringify(data));
           this.successMessage = 'Successfully changed!';
         },
         error => {
@@ -98,13 +96,10 @@ export class UserinfoPanelComponent implements OnInit {
     this.imageLoaded = false;
     const fileReader = new FileReader();
     fileReader.onload = () => {
-
-      // Set and show the image
       this.currentProfileImage = fileReader.result;
       this.imageShown = true;
     };
 
-    // Read in the file
     fileReader.readAsDataURL(acceptedFile.file);
 
     this.uploader.uploadAll();

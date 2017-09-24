@@ -18,7 +18,7 @@
         </div>
       </form>
       <ul class="nav navbar-nav">
-        <li *ngIf="!authService.isAnonymous()">
+        <li *ngIf="!authService.isAnonymous() && !authService.isBlocked()">
           <a *ngIf="authService.isConfirmed() || authService.isAdmin()" routerLink="project/create" routerLinkActive="active">
             <span class="glyphicon glyphicon-plus"></span> {{'HOME.CREATE_NEW_PROJECT' | translate}}
           </a>
@@ -46,8 +46,8 @@
             <li><a routerLink="projects-news" routerLinkActive="active"> Projects news</a></li>
             <li><a routerLink="my-achievements" routerLinkActive="active"> {{'HOME.MY_ACHIEVEMENTS' | translate}}</a></li>
             <li><a routerLink="subscribed-projects" routerLinkActive="active"> {{'HOME.SUBSCRIBED_PROJECTS' | translate}}</a></li>
-            <li *ngIf="authService.isAdmin()" class="divider"></li>
-            <li *ngIf="authService.isAdmin()"><a routerLink="admin" routerLinkActive="active"> {{'HOME.ADMIN' | translate}}</a></li>
+            <li *ngIf="authService.isAdmin() && !authService.isBlocked()" class="divider"></li>
+            <li *ngIf="authService.isAdmin() && !authService.isBlocked()"><a routerLink="admin" routerLinkActive="active"> {{'HOME.ADMIN' | translate}}</a></li>
           </ul>
       </ul>
     </div>

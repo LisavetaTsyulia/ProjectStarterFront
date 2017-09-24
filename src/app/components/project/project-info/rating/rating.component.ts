@@ -27,7 +27,7 @@ export class RatingComponent implements OnInit {
   }
 
   onRating(number: Number) {
-    if (!this.authService.isAnonymous()) {
+    if (!this.authService.isAnonymous() && !this.authService.isBlocked()) {
       this.projectService.addRating(number, this.userId, this.projectId)
         .subscribe(data => {
           this.change(data);
