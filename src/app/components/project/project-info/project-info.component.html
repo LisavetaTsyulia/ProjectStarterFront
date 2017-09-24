@@ -12,12 +12,12 @@
       <p>{{'PROJECT_INFO.BACKERS' | translate}}</p>
       <h3>{{daysToGo}}</h3>
       <p>{{'PROJECT_INFO.DAYS_TO_GO' | translate}}</p>
-      <button *ngIf="!isAnonymous()" class="btn btn-block" [class.btn-success]="!isSubscribed"
+      <button *ngIf="!authService.isAnonymous()" class="btn btn-block" [class.btn-success]="!isSubscribed"
               [class.btn-default]="isSubscribed" (click)="subscribe()">
         <span *ngIf="isSubscribed"><span class="glyphicon glyphicon-heart pink"></span> {{'PROJECT_INFO.SUBSCRIBED' | translate}}</span>
         <span *ngIf="!isSubscribed"><span class="glyphicon glyphicon-heart"></span> {{'PROJECT_INFO.SUBSCRIBE' | translate}}</span>
       </button>
-      <button *ngIf="isAdmin() || isConfirmed()" class="btn btn-warning btn-block" (click)="editNavigate()">
+      <button *ngIf="authService.isAdmin() || authService.isConfirmed()" class="btn btn-warning btn-block" (click)="editNavigate()">
         Edit
       </button>
       <app-rating [projectId]="projectId" [rating]="project.rating"
@@ -133,7 +133,7 @@
         </div>
       </div>
       <form (ngSubmit)="addComment()" [formGroup]="commentFormGroup">
-        <div class="form-group row col-md-8 col-md-offset-1 margin-top">
+        <div *ngIf="!authService.isAnonymous() && !authService.isBlocked()" class="form-group row col-md-8 col-md-offset-1 margin-top">
           <input type="text" class="form-control margin-top" id="comment" formControlName="comment"
                  placeholder="{{'PROJECT_INFO.COMMENT' | translate}}"
                  [(ngModel)]="newCommentText">
@@ -144,8 +144,12 @@
             </div>
           </div>
         </div>
-        <div class=" row col-md-2 col-md-offset-7 margin-top">
-          <button class="btn btn-success" *ngIf="!isAnonymous()" type="submit" [disabled]="!commentFormGroup.valid">
+          <div *ngIf="errorMessage" class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ errorMessage }}
+          </div>
+        <div *ngIf="!authService.isAnonymous() && !authService.isBlocked()" class=" row col-md-2 col-md-offset-7 margin-top">
+          <button class="btn btn-success" type="submit" [disabled]="!commentFormGroup.valid">
             <span class="glyphicon glyphicon-plus"></span> {{'PROJECT_INFO.ADD_COMMENT' | translate}}
           </button>
         </div>
