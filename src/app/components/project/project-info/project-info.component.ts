@@ -8,6 +8,7 @@ import {Reward} from '../../model/reward';
 import {Goal} from '../../model/goal';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AmountValidators} from "../../validators/AmountValidators";
+import {AuthService} from "../../auth/auth.service";
 
 @Component({
   selector: 'app-project-info',
@@ -39,6 +40,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    public authService: AuthService,
     private projectService: ProjectService,
     private router: Router,
     private fb: FormBuilder,
@@ -68,7 +70,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   }
 
   getNotAnonymousData() {
-    if (!this.isAnonymous()) {
+    if (!this.authService.isAnonymous()) {
       this.userId = JSON.parse(localStorage.getItem('user')).id;
       this.getSubscription();
     }
@@ -154,40 +156,32 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.isSubscribed = !this.isSubscribed;
   }
 
-  public isAnonymous(): boolean {
-    const user: string = JSON.parse(localStorage.getItem('user'));
-    return user === null;
-  }
-
-  public isConfirmed(): boolean {
-    const user: string = JSON.parse(localStorage.getItem('user'));
-    return user['role'] === 'ROLE_CONFIRMED_USER';
-  }
-
-  public isAdmin(): boolean {
-    const role: string = JSON.parse(localStorage.getItem('user'));
-    return role['role'] === 'ROLE_ADMIN';
-  }
-
   addComment() {
-    if (!this.isAnonymous()) {
+    this.errorMessage = null;
+    if (!this.authService.isAnonymous()) {
       this.projectService.addComment(this.projectId, this.newCommentText, this.userId)
-        .subscribe(data => {
-          this.getComments();
-          this.newCommentText = '';
-        });
+        .subscribe(
+          data => {
+            this.getComments();
+            this.newCommentText = '';
+          },
+          err => {
+            this.errorMessage = err.json().message;
+            console.log(this.errorMessage);
+          }
+        );
     }
   }
 
   onContinue(event) {
     console.log(event.amount);
-    if (!this.isAnonymous())
+    if (!this.authService.isAnonymous())
       this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, event.amount]);
   }
 
   onContinueAnySum(amountOfReward: Number) {
     console.log(amountOfReward);
-    if (!this.isAnonymous()) {
+    if (!this.authService.isAnonymous()) {
       if(this.amountOfReward >= this.project.donateMin) {
         this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, this.amountOfReward]);
       } else {

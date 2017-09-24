@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PaymentService} from "./payment.service";
+import {AuthService} from "../auth/auth.service";
 
 @Component({
   selector: 'app-payment',
@@ -15,7 +16,8 @@ export class PaymentComponent implements OnInit, OnDestroy {
   private sub: any;
   constructor(
     private route: ActivatedRoute,
-    private paymentService: PaymentService
+    private paymentService: PaymentService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -31,17 +33,12 @@ export class PaymentComponent implements OnInit, OnDestroy {
   }
 
   toPay() {
-    if (!this.isAnonymous()) {
+    if (!this.authService.isAnonymous() && !this.authService.isBlocked()) {
       if (this.pay != true) {
         this.paymentService.pay(this.userId, this.projectId, this.amount).subscribe();
         this.pay = true;
       }
     }
-  }
-
-  public isAnonymous(): boolean {
-    const user: string = JSON.parse(localStorage.getItem('user'));
-    return user === null;
   }
 
   ngOnDestroy() {

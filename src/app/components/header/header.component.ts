@@ -4,6 +4,7 @@ import {DialogService} from 'ng2-bootstrap-modal';
 import {ConfirmComponent} from './confirm.component';
 import {TranslateService} from '@ngx-translate/core';
 import {Router} from '@angular/router';
+import {AuthService} from "../auth/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -18,7 +19,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private dialogService: DialogService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    public authService: AuthService
   ) {
     translate.addLangs(['English', 'Russian']);
     translate.setDefaultLang('English');
@@ -38,29 +40,6 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('user');
   }
 
-  public isAuthenticated(): boolean {
-    return !!localStorage.getItem('user');
-  }
-
-  public isAdmin(): boolean {
-    const role: string = JSON.parse(localStorage.getItem('user'));
-    return role['role'] === 'ROLE_ADMIN';
-  }
-
-  public isUser(): boolean {
-    const user: string = JSON.parse(localStorage.getItem('user'));
-    return user['role'] === 'ROLE_USER';
-  }
-
-  public isConfirmed(): boolean {
-    const user: string = JSON.parse(localStorage.getItem('user'));
-    return user['role'] === 'ROLE_CONFIRMED_USER';
-  }
-
-  public isAnonymous(): boolean {
-    const user: string = JSON.parse(localStorage.getItem('user'));
-    return user === null;
-  }
 
   openCustom() {
     this.dialogService.addDialog(ConfirmComponent, {

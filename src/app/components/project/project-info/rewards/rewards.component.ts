@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Reward} from "../../../model/reward";
+import {AuthService} from "../../../auth/auth.service";
 
 @Component({
   selector: 'app-rewards',
@@ -10,7 +11,9 @@ export class RewardsComponent implements OnInit {
   @Input() reward: Reward;
   @Output() pay = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(
+    public authService: AuthService
+  ) { }
 
   ngOnInit() {
   }

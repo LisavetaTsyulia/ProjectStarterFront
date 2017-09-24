@@ -5,7 +5,6 @@ import {AuthConfigConsts, AuthHttp} from 'angular2-jwt';
 import {Router} from '@angular/router';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
-import {Biography} from "../model/biography";
 
 @Injectable()
 export class AuthService {
@@ -101,4 +100,33 @@ export class AuthService {
         return res.json();
       });
   }
+
+  public isBlocked(): boolean {
+    return JSON.parse(localStorage.getItem('user'))['status'] === 'BLOCKED';
+  }
+
+  public isAnonymous(): boolean {
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    return user === null;
+  }
+
+  public isConfirmed(): boolean {
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    return user['role'] === 'ROLE_CONFIRMED_USER';
+  }
+
+  public isAuthenticated(): boolean {
+    return !!localStorage.getItem('user');
+  }
+
+  public isAdmin(): boolean {
+    const role: string = JSON.parse(localStorage.getItem('user'));
+    return role['role'] === 'ROLE_ADMIN';
+  }
+
+  public isUser(): boolean {
+    const user: string = JSON.parse(localStorage.getItem('user'));
+    return user['role'] === 'ROLE_USER';
+  }
+
 }

@@ -6,6 +6,7 @@ import { PaymentComponent } from "./payment.component";
 import {PaymentService} from "./payment.service";
 import {HttpModule} from "@angular/http";
 import {TranslateModule} from "@ngx-translate/core";
+import {AuthModule} from "../auth/auth.module";
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import {TranslateModule} from "@ngx-translate/core";
         component: PaymentComponent },
     ]),
     CommonModule,
+    AuthModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
