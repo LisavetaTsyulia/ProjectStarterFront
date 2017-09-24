@@ -8,6 +8,6 @@
   </md-card-content>
   <md-card-footer>
     <h3 *ngIf="!(achievement.date === '')" class="text-center">{{achievement.date | date}}</h3>
-    <h3 *ngIf="(achievement.date == null)" class="text-center">U don't have it yet</h3>
+    <h3 *ngIf="(achievement.date == null)" class="text-center">{{'ACHIEVEMENTS.DONT_HAVE' | translate}}</h3>
   </md-card-footer>
 </md-card>

@@ -12,6 +12,7 @@ import {ProjectService} from '../project/project.service';
 import {ProjectCardModule} from '../project-card/project-card.module';
 import {PaymentService} from '../payment/payment.service';
 import {DonateCardModule} from '../donate-card/donate-card.module';
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import {DonateCardModule} from '../donate-card/donate-card.module';
     FileUploadModule,
     ProjectCardModule,
     DonateCardModule,
+    TranslateModule.forChild()
   ],
   declarations: [
     HomePageComponent,

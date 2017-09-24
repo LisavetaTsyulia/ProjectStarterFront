@@ -1,13 +1,13 @@
 <div class="container form-style">
   <h1 id="project_title">{{project.title}}</h1>
-  <h3 class="text-warning"><i>Status : {{project.status}}</i></h3>
+  <h3 class="text-warning"><i>{{'PROJECT_INFO.STATUS' | translate}} : {{project.status}}</i></h3>
   <div class="row">
     <div class="col-md-8 col-xs-12 text-center">
       <img src="{{project.imageUrl}}" class="avatar img-thumbnail image" alt="Project image">
     </div>
     <div class="col-md-4 col-xs-12">
       <h3>${{project.currentAmount}}</h3>
-      <p>pledged of ${{project.targetAmount}} goal</p>
+      <p>{{'PROJECT_INFO.PLEDGED_OF' | translate}} ${{project.targetAmount}} {{'PROJECT_INFO.GOAL' | translate}}</p>
       <h3>{{amountOfDonates}}</h3>
       <p>{{'PROJECT_INFO.BACKERS' | translate}}</p>
       <h3>{{daysToGo}}</h3>
@@ -22,7 +22,7 @@
       <button *ngIf="authService.isAdmin() && !authService.isBlocked() ||
               authService.isConfirmed() && !authService.isBlocked()" class="btn btn-warning btn-block"
               (click)="editNavigate()">
-        Edit
+        {{'PROJECT_INFO.EDIT' | translate}}
       </button>
       <app-rating [projectId]="projectId" [rating]="project.rating"
                   [amountOfDonaters]="project.amountOfRatings"></app-rating>
@@ -86,7 +86,7 @@
                   </div>
                   <div *ngIf="formGroup.get('donateAmount').errors && formGroup.get('donateAmount').touched  &&
                               formGroup.get('donateAmount').hasError('incorrectAmountFormat')" class="alert alert-danger">
-                      It should be integer value and not 0.
+                    {{'PROJECT_INFO.INTEGER' | translate}}.
                   </div>
                 </div>
                 </form>
@@ -144,7 +144,7 @@
           <div *ngIf="commentFormGroup.get('comment').errors && commentFormGroup.get('comment').touched" class="alert alert-dismissible alert-danger">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <div *ngIf="commentFormGroup.get('comment').hasError('required')">
-              Comment is required.
+              {{'PROJECT_INFO.COMMENT_REQUIRED' | translate}}.
             </div>
           </div>
         </div>
