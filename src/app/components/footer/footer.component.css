@@ -9,16 +9,20 @@
   color: #ffffff;
   padding: 55px;
 }
+
 .type-12 {
   font-size: 1.2rem !important;
   line-height: 1.8rem !important;
 }
+
 .right{
   float: right;
 }
+
 .left{
   float: left;
 }
+
 .my-select{
   color: #333333;
   font-size: 14px;
@@ -30,4 +34,8 @@
   padding: 10px 40px 10px 10px;
   position: relative;
   height: 40px;
+}
+
+.center {
+  margin: 0 auto;
 }
