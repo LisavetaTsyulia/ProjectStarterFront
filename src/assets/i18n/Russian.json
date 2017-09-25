@@ -7,8 +7,9 @@
     "GOT_REQUEST": "Ваша заявка принята",
     "HOME": "Домашняя страничка",
     "MY_PROJECTS": "Мои проекты",
-    "MY_ACHIEVEMENTS": "Мои достижения",
     "MY_PROFILE": "Мой профиль",
+    "PROJECTS_NEWS": "Новости проектов",
+    "MY_ACHIEVEMENTS": "Мои достижения",
     "SUBSCRIBED_PROJECTS": "Мои подписки",
     "ADMIN": "Админка",
     "PROJECT_STARTER": "Project Starter",
@@ -20,7 +21,7 @@
   },
   "ACHIEVEMENTS": {
     "ACHIEVEMENTS": "Мои достижения",
-    "DONT_HAVE": "Вы еще не заработали эту награду"
+    "DONT_HAVE": "Награда не получена"
   },
   "HEADER": {
     "CREATOR": "Хотели бы Вы иметь возможность создавать проекты",

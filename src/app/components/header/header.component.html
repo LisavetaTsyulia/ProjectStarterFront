@@ -43,7 +43,7 @@
           <ul class="dropdown-menu" role="menu">
             <li><a routerLink="user-info" routerLinkActive="active"> {{'HOME.MY_PROFILE' | translate}}</a></li>
             <li><a routerLink="my-projects" routerLinkActive="active"> {{'HOME.MY_PROJECTS' | translate}}</a></li>
-            <li><a routerLink="projects-news" routerLinkActive="active"> Projects news</a></li>
+            <li><a routerLink="projects-news" routerLinkActive="active"> {{'HOME.PROJECTS_NEWS' | translate}}</a></li>
             <li><a routerLink="my-achievements" routerLinkActive="active"> {{'HOME.MY_ACHIEVEMENTS' | translate}}</a></li>
             <li><a routerLink="subscribed-projects" routerLinkActive="active"> {{'HOME.SUBSCRIBED_PROJECTS' | translate}}</a></li>
             <li *ngIf="authService.isAdmin() && !authService.isBlocked()" class="divider"></li>
