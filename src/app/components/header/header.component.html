@@ -19,13 +19,13 @@
       </form>
       <ul class="nav navbar-nav">
         <li *ngIf="!authService.isAnonymous() && !authService.isBlocked()">
-          <a *ngIf="authService.isConfirmed() || authService.isAdmin()" routerLink="project/create" routerLinkActive="active">
+          <a class="cursor" *ngIf="authService.isConfirmed() || authService.isAdmin()" routerLink="project/create" routerLinkActive="active">
             <span class="glyphicon glyphicon-plus"></span> {{'HOME.CREATE_NEW_PROJECT' | translate}}
           </a>
-          <a *ngIf="authService.isUser()" (click)="openCustom()" routerLinkActive="active">
+          <a class="cursor" *ngIf="authService.isUser()" (click)="openCustom()" routerLinkActive="active">
             <span class="glyphicon glyphicon-plus"></span> {{'HOME.CREATE_NEW_PROJECT' | translate}}
           </a>
-          <a *ngIf="!authService.isConfirmed() && !authService.isUser() && !authService.isAdmin()">
+          <a class="cursor" *ngIf="!authService.isConfirmed() && !authService.isUser() && !authService.isAdmin()">
             <span *ngIf="!authService.isConfirmed() && !authService.isUser() && !authService.isAdmin()">{{'HOME.GOT_REQUEST' | translate}}</span>
           </a>
         </li>
