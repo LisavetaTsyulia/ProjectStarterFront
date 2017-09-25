@@ -7,8 +7,9 @@
     "GOT_REQUEST": "Ваша заявка принята",
     "HOME": "Домашняя страничка",
     "MY_PROJECTS": "Мои проекты",
-    "MY_ACHIEVEMENTS": "Мои достижения",
     "MY_PROFILE": "Мой профиль",
+    "PROJECTS_NEWS": "Новости проектов",
+    "MY_ACHIEVEMENTS": "Мои достижения",
     "SUBSCRIBED_PROJECTS": "Мои подписки",
     "ADMIN": "Админка",
     "PROJECT_STARTER": "Project Starter",
@@ -20,7 +21,7 @@
   },
   "ACHIEVEMENTS": {
     "ACHIEVEMENTS": "Мои достижения",
-    "DONT_HAVE": "Вы еще не заработали эту награду"
+    "DONT_HAVE": "Награда не получена"
   },
   "HEADER": {
     "CREATOR": "Хотели бы Вы иметь возможность создавать проекты",
@@ -99,8 +100,8 @@
   },
   "PROJECT_INFO": {
     "STATUS": "Статус",
-    "PLEDGED_OF": "задонатили",
-    "GOAL": "цели",
+    "PLEDGED_OF": "собрано из",
+    "GOAL": "",
     "EDIT": "Редактировать",
     "INTEGER": "Должна быть целочисленна и не ровна 0",
     "BACKERS": "финансистов",
@@ -111,6 +112,7 @@
     "REWARDS": "Финансирование",
     "NEWS": "Новости",
     "NEWS_NUMBER": "Новость",
+    "COMMENT": "Комментарий",
     "COMMENTS": "Комментарии",
     "COMMENT_REQUIRED": "Комментарий необходим",
     "DESCRIPTION": "Об этом проекте",
@@ -134,10 +136,10 @@
   "PROJECTS": {
     "MY_TITLE": "Ваши проекты",
     "SUB_TITLE": "Проекты, на которые Вы подписаны",
-    "NEWS": "Новости Проектов"
+    "NEWS": "Новости проектов"
   },
   "DONATE": {
-    "VIEW_PROJECT": "Посмотреть Проект"
+    "VIEW_PROJECT": "Посмотреть проект"
   },
   "HOME_PAGE": {
     "PROJECT_STARTER": "Project Starter",
@@ -148,7 +150,7 @@
     "BEST_DONATIONS": "Самые щедрые донаты"
   },
   "PROJECT_CREATING": {
-    "CREATE_NEW_PROJECT": "Создать новый проект",
+    "CREATE_NEW_PROJECT": "Создать проект",
     "TITLE": "Заголовок",
     "TITLE_REQUIRED_ERROR": "Требуется ввести заголовок проекта",
     "TITLE_MAX_ERROR": {

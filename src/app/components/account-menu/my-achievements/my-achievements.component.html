@@ -2,7 +2,7 @@
   <h1 class="less-great-title">{{"ACHIEVEMENTS.ACHIEVEMENTS" | translate}}</h1>
   <hr class="great-hr">
   <div class="row">
-    <div *ngFor="let achievement of achievements" class="col-md-4 col-xs-8">
+    <div *ngFor="let achievement of achievements" class="col-md-4 col-md-offset-0 col-xs-8 col-xs-offset-2">
       <app-achievement-card [achievement]="achievement"></app-achievement-card>
     </div>
   </div>
