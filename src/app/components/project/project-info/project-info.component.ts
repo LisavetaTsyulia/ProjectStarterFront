@@ -37,6 +37,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   newCommentText: string;
   amountOfReward: number;
   amountOfDonates: number;
+  userRating: number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -54,6 +55,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.getNews();
     this.getComments();
     this.getRewards();
+    this.getUserRating();
     this.getNotAnonymousData();
     this.createCommentFormGroup();
     this.donateMinMessage = null;
@@ -73,6 +75,17 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     if (!this.authService.isAnonymous()) {
       this.userId = JSON.parse(localStorage.getItem('user')).id;
       this.getSubscription();
+    }
+  }
+
+
+  getUserRating() {
+    if(!this.authService.isAnonymous()) {
+      this.projectService.findRating( this.projectId)
+        .subscribe(data => {
+          console.log(data);
+          this.userRating = data;
+        });
     }
   }
 

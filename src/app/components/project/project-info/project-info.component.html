@@ -23,7 +23,7 @@
               (click)="editNavigate()">
         {{'PROJECT_INFO.EDIT' | translate}}
       </button>
-      <app-rating [projectId]="projectId" [rating]="project.rating"
+      <app-rating [projectId]="projectId" [rating]="project.rating" [userRating]="userRating"
                   [amountOfDonaters]="project.amountOfRatings"></app-rating>
     </div>
   </div>

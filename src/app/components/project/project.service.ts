@@ -197,6 +197,10 @@ export class ProjectService {
       `user_id=` + userId).map(res => res.json());
   }
 
+  findRating( projectId: number) {
+    return this.authHttp.get(`${environment.serverUrl}user/user-rating?project_id=` + projectId).map(res => res.json());
+  }
+
   findAllSubscribedProjectsByUserId(userId: number) {
     return this.authHttp.get(`${environment.serverUrl}user/subscribed-projects?` +
       `user_id=` + userId).map(res => res.json());

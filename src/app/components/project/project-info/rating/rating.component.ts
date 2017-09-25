@@ -25,17 +25,19 @@ export class RatingComponent implements OnInit {
 
   userId: number;
   @Input() amountOfDonaters: number;
+  @Input() userRating: number;
   @Input() projectId: number;
   @Input() rating: number;
 
   ngOnInit() {
   }
 
-  onRating(number: Number) {
+  onRating(number: number) {
     if (!this.authService.isAnonymous() && !this.authService.isBlocked()) {
       this.projectService.addRating(number, this.userId, this.projectId)
         .subscribe(data => {
           this.change(data);
+          this.userRating = number;
         });
     }
   }
