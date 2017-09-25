@@ -8,6 +8,10 @@ import {AuthService} from "../../../auth/auth.service";
   styleUrls: ['./rating.component.css']
 })
 export class RatingComponent implements OnInit {
+  userId: number;
+  @Input() amountOfDonaters: number;
+  @Input() projectId: number;
+  @Input() rating: number;
 
   change(rating: any) {
     this.rating = rating.rating;
@@ -22,11 +26,6 @@ export class RatingComponent implements OnInit {
       this.userId = JSON.parse(localStorage.getItem('user')).id;
     }
   }
-
-  userId: number;
-  @Input() amountOfDonaters: number;
-  @Input() projectId: number;
-  @Input() rating: number;
 
   ngOnInit() {
   }
