@@ -59,7 +59,7 @@ export class ListOfUsersComponent implements OnInit {
         })
           .subscribe((isConfirmed) => {
             this.confirmResult = isConfirmed;
-            setTimeout(() => {this.loadUsersToTable()}, 500);
+            setTimeout(() => {this.loadUsersToTable()}, 300);
           });
         }, 3000);
 
@@ -91,7 +91,7 @@ export class ListOfUsersComponent implements OnInit {
     console.log(this.emails);
     if (this.emails.length != 0) {
       this.adminService.block(this.emails);
-      setTimeout(()=>{this.loadUsersToTable()}, 300);
+      setTimeout(()=>{this.loadUsersToTable()}, 1000);
     }
   }
   unblock() {
@@ -99,7 +99,7 @@ export class ListOfUsersComponent implements OnInit {
     console.log(this.emails);
     if (this.emails.length != 0) {
       this.adminService.unblock(this.emails);
-      setTimeout(() => {this.loadUsersToTable()}, 300);
+      setTimeout(() => {this.loadUsersToTable()}, 1000);
     }
   }
   deleteEvent(comments: boolean, ratings: boolean, projects: boolean ) {
@@ -108,7 +108,7 @@ export class ListOfUsersComponent implements OnInit {
     this.fillEmailsArrayBlock();
     if (this.emails.length != 0) {
       this.adminService.deleteEvent(this.emails, checkboxSettings);
-      setTimeout(()=>{this.loadUsersToTable()}, 300);
+      setTimeout(()=>{this.loadUsersToTable()}, 1000);
     }
   }
 
