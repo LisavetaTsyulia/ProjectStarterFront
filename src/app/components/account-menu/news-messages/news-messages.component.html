@@ -26,4 +26,10 @@
       </div>
     </div>
   </div>
+  <div *ngIf="noNews" class="row">
+    <div class="container form-style text-center alert alert-warning">
+      <h1>{{'PROJECTS.NEWS_H1' | translate}}.</h1>
+      <h2>{{'PROJECTS.NEWS_H2' | translate}}!</h2>
+    </div>
+  </div>
 </div>
