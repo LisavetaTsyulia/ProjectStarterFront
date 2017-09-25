@@ -134,7 +134,9 @@
   "PROJECTS": {
     "MY_TITLE": "Your Projects",
     "SUB_TITLE": "Your subscribed Projects",
-    "NEWS": "Projects News"
+    "NEWS": "Projects News",
+    "H1": "Now you don't have any projects",
+    "H2": "Create your first project"
   },
   "DONATE": {
     "VIEW_PROJECT": "VIEW PROJECT"
