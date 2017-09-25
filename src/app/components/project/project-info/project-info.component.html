@@ -153,7 +153,8 @@
             {{ errorMessage }}
           </div>
         <div *ngIf="!authService.isAnonymous() && !authService.isBlocked()" class="row col-md-8 col-md-offset-1 margin-top">
-          <button class="btn btn-success button-right" type="submit" [disabled]="!commentFormGroup.valid">
+          <button class="btn btn-success button-right" type="submit"
+                  [disabled]="!commentFormGroup.valid || addCommentButtonPressed">
             <span class="glyphicon glyphicon-plus"></span> {{'PROJECT_INFO.ADD_COMMENT' | translate}}
           </button>
         </div>

@@ -39,7 +39,7 @@
     "PASSWORD": "Password",
     "PASSWORD_IS_REQUIRED": "Password is required",
     "LOGIN": "Log in",
-    "EMAIL_EMAIL_SHOULD_BE_MINIMUM": "Email should be minimum"
+    "EMAIL_SHOULD_BE_MINIMUM": "Email should be minimum"
   },
   "PROJECT_EDITING": {
     "TABS": {

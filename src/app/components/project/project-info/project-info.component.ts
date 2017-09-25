@@ -38,6 +38,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   amountOfReward: number;
   amountOfDonates: number;
   userRating: number;
+  addCommentButtonPressed = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -171,16 +172,19 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
 
   addComment() {
     this.errorMessage = null;
+    this.addCommentButtonPressed = true;
     if (!this.authService.isAnonymous()) {
       this.projectService.addComment(this.projectId, this.newCommentText, this.userId)
         .subscribe(
           data => {
             this.getComments();
             this.newCommentText = '';
+            this.addCommentButtonPressed = false;
           },
           err => {
             this.errorMessage = err.json().message;
             console.log(this.errorMessage);
+            this.addCommentButtonPressed = false;
           }
         );
     }
@@ -195,10 +199,10 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
   onContinueAnySum(amountOfReward: Number) {
     console.log(amountOfReward);
     if (!this.authService.isAnonymous()) {
-      if(this.amountOfReward >= this.project.donateMin) {
+      if (this.amountOfReward >= this.project.donateMin) {
         this.router.navigate(['/payment', JSON.parse(localStorage.getItem('user')).id, this.projectId, this.amountOfReward]);
       } else {
-        this.donateMinMessage = "This donation is less than minimum donation for this project " + this.project.donateMin + "$.";
+        this.donateMinMessage = 'This donation is less than minimum donation for this project ' + this.project.donateMin + '$.';
       }
     }
   }
@@ -207,7 +211,7 @@ export class ProjectInfoComponent implements OnInit, OnDestroy {
     this.router.navigate(['project/edit', this.project.userId, this.project.id]);
   }
 
-  isFinishedFailed() : boolean {
-    return (this.project.status === "Finished" || this.project.status === 'Failed')
+  isFinishedFailed(): boolean {
+    return (this.project.status === 'Finished' || this.project.status === 'Failed')
   }
 }

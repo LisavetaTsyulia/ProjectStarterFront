@@ -4,12 +4,13 @@
         <div class="col-xs-12 col-md-12 text-center">
           <h1 class="rating-num">
             {{rating}}</h1>
-          <div class="rating">
+          <div class="rating cursor">
             <span (click)="onRating(5)" class="glyphicon glyphicon-star" [class.empty]="userRating >= 5"></span>
             <span (click)="onRating(4)" class="glyphicon glyphicon-star" [class.empty]="userRating >= 4"></span>
             <span (click)="onRating(3)" class="glyphicon glyphicon-star" [class.empty]="userRating >= 3"></span>
             <span (click)="onRating(2)" class="glyphicon glyphicon-star" [class.empty]="userRating >= 2"></span>
             <span (click)="onRating(1)" class="glyphicon glyphicon-star" [class.empty]="userRating >= 1"></span>
+8
           </div>
           <div>
             <span class="glyphicon glyphicon-user"></span>{{amountOfDonaters}}
