@@ -76,6 +76,7 @@ export class UserinfoPanelComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.successMessage = null;
     this.errorMessage = null;
     this.authService.changeUser(this.model.email, this.model.password, this.biography.biography,
       this.biography.location, this.biography.imageurl, this.biography.name)
