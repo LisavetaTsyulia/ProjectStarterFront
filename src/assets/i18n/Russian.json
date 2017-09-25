@@ -39,7 +39,7 @@
     "PASSWORD": "Пароль",
     "PASSWORD_IS_REQUIRED": "Пароль необходим",
     "LOGIN": "Зайти",
-    "EMAIL_EMAIL_SHOULD_BE_MINIMUM": "Почтовый адрес должен быть минимум"
+    "EMAIL_SHOULD_BE_MINIMUM": "Почтовый адрес должен быть минимум"
   },
   "PROJECT_EDITING": {
     "TABS": {
