@@ -4,9 +4,12 @@
   <h4>{{"PAYMENT.CLICK" | translate}}.</h4>
   <button class="btn btn-warning my_btn_pay" (click)="toPay()">{{"PAYMENT.PAY" | translate}}</button>
 </div>
-  <h2 *ngIf="isClickedPay()" class="text-center">
-    <span class="glyphicon glyphicon-ok green" *ngIf="isClickedPay()" aria-hidden="true"></span>
-    {{"PAYMENT.CONGRATS" | translate}}!!!
-  </h2>
+<h2 *ngIf="isClickedPay()" class="text-center">
+  <span class="glyphicon glyphicon-ok green" *ngIf="isClickedPay()" aria-hidden="true"></span>
+  {{"PAYMENT.CONGRATS" | translate}}!!!
+</h2>
+<div class="row col-md-8 col-md-offset-2">
+  <button class="btn btn-block btn-lg btn-warning" (click)="returnBack()">Back to the Project</button>
+</div>
 
 

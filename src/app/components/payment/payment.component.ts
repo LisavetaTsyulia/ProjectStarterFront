@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PaymentService} from "./payment.service";
 import {AuthService} from "../auth/auth.service";
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-payment',
@@ -16,6 +17,7 @@ export class PaymentComponent implements OnInit, OnDestroy {
   private sub: any;
   constructor(
     private route: ActivatedRoute,
+    private _location: Location,
     private paymentService: PaymentService,
     private authService: AuthService
   ) { }
@@ -39,6 +41,10 @@ export class PaymentComponent implements OnInit, OnDestroy {
         this.pay = true;
       }
     }
+  }
+
+  returnBack() {
+    this._location.back();
   }
 
   ngOnDestroy() {
