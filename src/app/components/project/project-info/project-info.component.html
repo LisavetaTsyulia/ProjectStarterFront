@@ -19,7 +19,7 @@
         <span *ngIf="!isSubscribed"><span class="glyphicon glyphicon-heart"></span>
           {{'PROJECT_INFO.SUBSCRIBE' | translate}}</span>
       </button>
-      <button *ngIf="((!isFinishedFailed()) && (authService.isAdmin() || authService.isConfirmed()) && !authService.isBlocked())" class="btn btn-warning btn-block"
+      <button *ngIf="(!authService.isAnonymous() && (!isFinishedFailed()) && (authService.isAdmin() || authService.isConfirmed()) && !authService.isBlocked())" class="btn btn-warning btn-block"
               (click)="editNavigate()">
         {{'PROJECT_INFO.EDIT' | translate}}
       </button>
@@ -65,7 +65,7 @@
     </div>
     <div class="tab-pane fade" id="rewards">
       <div class="row">
-        <div *ngIf="!authService.isBlocked()" class="row col-md-5 col-xs-12">
+        <div *ngIf="!authService.isAnonymous() && !authService.isBlocked()" class="row col-md-5 col-xs-12">
           <md-card class="my-card card margin-top ">
             <md-card-content class="card-block">
               <div class="row">
@@ -99,7 +99,7 @@
           </md-card>
         </div>
       </div>
-      <div *ngIf="!authService.isBlocked()" class="row col-md-12">
+      <div *ngIf="!authService.isAnonymous() && !authService.isBlocked()" class="row col-md-12">
         <hr class="my_hr_style">
       </div>
       <div class="row col-xs-12">

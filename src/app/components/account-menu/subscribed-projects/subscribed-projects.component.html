@@ -7,4 +7,10 @@
       <app-project-card [project]="project"></app-project-card>
     </div>
   </div>
+  <div *ngIf="noSubscribedProjects" class="row">
+    <div class="container form-style text-center alert alert-warning">
+      <h1>{{'PROJECTS.SUBSCRIBED_H1' | translate}}.</h1>
+      <h2>{{'PROJECTS.SUBSCRIBED_H2' | translate}}!</h2>
+    </div>
+  </div>
 </div>

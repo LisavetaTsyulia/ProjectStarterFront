@@ -11,6 +11,7 @@ import {AuthService} from "../../auth/auth.service";
 export class MyProjectsComponent implements OnInit {
   projects: Project[] = [];
   userId: number;
+  boolParam: boolean = false;
 
   constructor(
     private projectService: ProjectService,
@@ -27,6 +28,8 @@ export class MyProjectsComponent implements OnInit {
       this.projectService.findAllUserProjects(this.userId)
         .subscribe(data => {
           this.projects = data;
+          if (this.projects.length == 0)
+            this.boolParam = true;
         });
     }
   }

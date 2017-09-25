@@ -17,8 +17,13 @@ export class RatingComponent implements OnInit {
   constructor(
     private projectService: ProjectService,
     private authService: AuthService
-  ) { }
-  userId: number = JSON.parse(localStorage.getItem('user')).id;
+  ) {
+    if (!this.authService.isAnonymous()) {
+      this.userId = JSON.parse(localStorage.getItem('user')).id;
+    }
+  }
+
+  userId: number;
   @Input() amountOfDonaters: number;
   @Input() projectId: number;
   @Input() rating: number;

@@ -11,7 +11,7 @@ import {AuthService} from "../../auth/auth.service";
 export class NewsMessagesComponent implements OnInit {
   newsArray: News[] = [];
   userId: number;
-
+  noNews: boolean = false;
   showMoreNewsInfo = false;
   selectedNews: News;
 
@@ -30,7 +30,9 @@ export class NewsMessagesComponent implements OnInit {
       this.projectService.findAllUserSubscribedProjectsNews(this.userId)
         .subscribe(data => {
           this.newsArray = data;
-          console.log(this.newsArray);
+          if (this.newsArray.length == 0) {
+            this.noNews = true;
+          }
         });
     }
   }

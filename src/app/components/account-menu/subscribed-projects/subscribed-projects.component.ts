@@ -11,6 +11,7 @@ import {AuthService} from "../../auth/auth.service";
 export class SubscribedProjectsComponent implements OnInit {
   subscribedProjects: Project[] = [];
   userId: number;
+  noSubscribedProjects: boolean = false;
 
   constructor(
     private projectService: ProjectService,
@@ -27,6 +28,9 @@ export class SubscribedProjectsComponent implements OnInit {
       this.projectService.findAllSubscribedProjectsByUserId(this.userId)
         .subscribe(data => {
           this.subscribedProjects = data;
+          if (this.subscribedProjects.length == 0) {
+            this.noSubscribedProjects = true;
+          }
         });
     }
   }
