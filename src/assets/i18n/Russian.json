@@ -100,8 +100,8 @@
   },
   "PROJECT_INFO": {
     "STATUS": "Статус",
-    "PLEDGED_OF": "задонатили",
-    "GOAL": "цели",
+    "PLEDGED_OF": "собрано из",
+    "GOAL": "",
     "EDIT": "Редактировать",
     "INTEGER": "Должна быть целочисленна и не ровна 0",
     "BACKERS": "финансистов",
@@ -139,7 +139,7 @@
     "NEWS": "Новости проектов"
   },
   "DONATE": {
-    "VIEW_PROJECT": "Посмотреть Проект"
+    "VIEW_PROJECT": "Посмотреть проект"
   },
   "HOME_PAGE": {
     "PROJECT_STARTER": "Project Starter",
@@ -150,7 +150,7 @@
     "BEST_DONATIONS": "Самые щедрые донаты"
   },
   "PROJECT_CREATING": {
-    "CREATE_NEW_PROJECT": "Создать новый проект",
+    "CREATE_NEW_PROJECT": "Создать проект",
     "TITLE": "Заголовок",
     "TITLE_REQUIRED_ERROR": "Требуется ввести заголовок проекта",
     "TITLE_MAX_ERROR": {
