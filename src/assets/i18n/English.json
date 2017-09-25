@@ -153,7 +153,8 @@
     "JOIN_US": "Join us",
     "LAST_CREATED": "Last created projects",
     "SUC_FINANCED": "Successfully financed projects",
-    "BEST_DONATIONS": "The best donations"
+    "BEST_DONATIONS": "The best donations",
+    "ALL_PROJECTS" : "SEE ALL LAST PROJECTS"
   },
   "PROJECT_CREATING": {
     "CREATE_NEW_PROJECT": "Create new project",

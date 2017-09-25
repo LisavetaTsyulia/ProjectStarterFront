@@ -154,7 +154,8 @@
     "JOIN_US": "Присоединяйся",
     "LAST_CREATED": "Недавно созданные проекты",
     "SUC_FINANCED": "Удачно профинансированные проекты",
-    "BEST_DONATIONS": "Самые щедрые донаты"
+    "BEST_DONATIONS": "Самые щедрые донаты",
+    "ALL_PROJECTS" : "Просмотреть все проекты"
   },
   "PROJECT_CREATING": {
     "CREATE_NEW_PROJECT": "Создать проект",
