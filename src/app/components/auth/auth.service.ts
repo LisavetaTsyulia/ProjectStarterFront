@@ -102,7 +102,9 @@ export class AuthService {
   }
 
   public isBlocked(): boolean {
-    return JSON.parse(localStorage.getItem('user'))['status'] === 'BLOCKED';
+    if (!this.isAnonymous()) {
+      return JSON.parse(localStorage.getItem('user'))['status'] === 'BLOCKED';
+    }
   }
 
   public isAnonymous(): boolean {
